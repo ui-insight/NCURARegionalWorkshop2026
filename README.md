@@ -5,6 +5,8 @@ Sunday, November 8, 2026 · Denver, Colorado · Three hours · Room TBA
 
 Live site: <https://ui-insight.github.io/NCURARegionalWorkshop2026/>
 
+NARC (Narrative Augmented Reasoning Challenges): <https://narc.insight.uidaho.edu/>
+
 ## Presenters
 
 | Presenter | Affiliation | Role |
@@ -35,7 +37,7 @@ Participants will gain hands-on experience with open-source tools developed thro
 |------|------|-----------|
 | 0:00 – 1:30 | Where AI fits in research administration: how LLMs work, where they fail, and hands-on with Promptulus, Vandalizer, and the data lakehouse | Nathan Layman |
 | 1:30 – 1:40 | Break | |
-| 1:40 – 2:40 | Thinking well with AI: an ethical discussion mini-workshop and the NARC reasoning puzzles | Bert Baumgaertner |
+| 1:40 – 2:40 | Thinking well with AI: an ethical discussion mini-workshop and the [NARC](https://narc.insight.uidaho.edu/) reasoning puzzles | Bert Baumgaertner |
 | 2:40 – 3:00 | Open discussion and take-home plan | Both |
 
 Slide decks and activities are still to be built. Track them in GitHub issues.
@@ -61,7 +63,7 @@ python3 -m http.server 4173 -d docs
 - [ ] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/`
 - [ ] Nathan: build the 90-minute deck from the REACH material
 - [ ] Bert: build the 60-minute ethics and MARC deck and puzzle activity
-- [ ] Link Bert's Narrate activity from Resources once it is cleared for public use
+- [ ] Link Bert's [NARC](https://narc.insight.uidaho.edu/) activity from Resources once it is cleared for public use
 - [ ] Confirm room, time, and A/V with NCURA program contacts
 
 ## License
