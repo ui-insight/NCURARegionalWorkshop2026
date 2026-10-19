@@ -16,8 +16,14 @@ Pulled from granted-notes on 2026-10-19. Update here as things change.
 ## Presenters
 
 - Nathan Layman (lead), nlayman@uidaho.edu
-- Bert Baumgaertner (co-presenter), University of Idaho, Department of Philosophy. GitHub: bertybaums
-- Earlier planning notes listed Nathan Wiggins (SUU) as co-presenter. Confirm whether he is still involved.
+- Bert Baumgaertner (co-presenter), bbaum@uidaho.edu, University of Idaho, Department of Philosophy. GitHub: bertybaums
+- Nathan Wiggins (SUU) was the original co-presenter but cannot reach Denver until later on workshop day, so he is out. He has a separate regular session at RM26 on how AI works under the hood and using AI responsibly, and has invited Bert to join it.
+
+## Bert's part (agreed September 2026, planning call October 8, 2026)
+
+- An ethical discussion mini-workshop modeled on one Bert ran in spring 2026, shortened to fit. It introduces a discussion tool participants can take back to their institutions. Bert has the spring materials.
+- NARC puzzles (Narrative Augmented Reasoning Challenges) as part of the prompting skills section. Site: https://narc.insight.uidaho.edu/
+- Narrate, a NARC feature where the model wants to do one thing and the participant writes a narrative to get it to do the right thing. Dovetails with Promptulus. Not yet public; Bert will say when it can be shared.
 
 ## Related sessions at RM26
 
@@ -25,8 +31,9 @@ Pulled from granted-notes on 2026-10-19. Update here as things change.
 
 ## To do
 
-- [ ] Confirm presenter lineup with NCURA
+- [ ] Tell NCURA program contacts that Bert replaces Nathan Wiggins as co-presenter
 - [x] Session split decided 2026-10-19: 90 min Nathan (REACH-style AI4RA pitch), 60 min Bert (ethics and MARC), 30 min break and discussion
-- [ ] Decide on hands-on platform (Bert's ai-literacy puzzle platform, Promptulus, or both)
+- [ ] Confirm hands-on tools: Promptulus, Vandalizer, data lakehouse (Nathan) and NARC or Narrate (Bert)
+- [ ] Get Bert's spring 2026 ethics discussion materials into resources/
 - [ ] Build decks
 - [ ] Travel pre-authorization, airfare, hotel

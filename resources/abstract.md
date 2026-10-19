@@ -6,16 +6,18 @@
 **Lead presenter:** Nathan Layman, University of Idaho
 **Co-presenter:** Bert Baumgaertner, University of Idaho
 
-## Abstract (adapted from the NCURA National three-hour proposal, November 2025)
+## Submitted abstract
 
-This three-hour workshop introduces research administration professionals to foundational AI concepts and terminology, including agentic AI, generative models, and workflow automation. Participants will gain a clear understanding of how AI works, its limitations, and the complementary role it can play in research administration.
+Artificial intelligence is reshaping research administration, but the value of any AI tool is bounded by the quality of the data underneath it. It is also bounded by the nature of the work itself. Research administration runs on ethical judgment, regulatory interpretation, and human relationships, much of which cannot be automated.
 
-The session will provide practical guidance on selecting appropriate AI models, breaking complex tasks into manageable components, and identifying areas where AI and automation can add value. Participants will learn techniques for designing high-quality prompts, evaluating AI outputs for accuracy and reliability, and applying advanced strategies such as iterative refinement.
+This workshop helps research administration professionals develop a practical understanding of where AI can support their work and where it cannot. The workshop will begin with an overview of modern AI systems, including how large language models generate output, the tasks they perform well, and the ways they fail. It will then examine which research administration activities benefit from AI assistance, which depend on institutional data infrastructure, and which should remain primarily human-driven.
 
-Ethical considerations including transparency, accountability, and reproducibility will be explored through interactive discussions. Participants will actively engage in examining institutional policies, governance, and risk management strategies for AI-assisted workflows, applying these concepts to real-world scenarios and their own work contexts.
-
-By the end of the session, research administrators will have foundational skills to responsibly use AI in their workflows, enhancing efficiency and supporting informed decision-making while maintaining human oversight.
+Participants will gain hands-on experience with open-source tools developed through the AI4RA project, including a prompt engineering trainer, a document extraction and review workflow, and a data lakehouse architecture used to prepare institutional data for AI applications. By the end of the workshop, participants will have a practical mental model for evaluating AI-generated output, understanding institutional data readiness, and identifying appropriate patterns for verification and oversight before relying on AI-assisted results.
 
 ## Level and prerequisites
 
 Basic. No prior AI experience required. Participants should bring a laptop.
+
+## Earlier draft
+
+An earlier three-hour "Foundational AI Literacy for Research Administrators" abstract, written for NCURA National in November 2025, lives in granted-notes under notes/events/conferences. The text above supersedes it for this event.

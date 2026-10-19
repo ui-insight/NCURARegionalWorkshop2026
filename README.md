@@ -14,30 +14,28 @@ Live site: <https://ui-insight.github.io/NCURARegionalWorkshop2026/>
 
 ## Abstract
 
-This three-hour workshop introduces research administration professionals to foundational AI concepts and terminology, including agentic AI, generative models, and workflow automation. Participants will gain a clear understanding of how AI works, its limitations, and the complementary role it can play in research administration.
+Artificial intelligence is reshaping research administration, but the value of any AI tool is bounded by the quality of the data underneath it. It is also bounded by the nature of the work itself. Research administration runs on ethical judgment, regulatory interpretation, and human relationships, much of which cannot be automated.
 
-The session provides practical guidance on selecting appropriate AI models, breaking complex tasks into manageable components, and identifying areas where AI and automation can add value. Participants learn techniques for designing high-quality prompts, evaluating AI outputs for accuracy and reliability, and applying advanced strategies such as iterative refinement.
+This workshop helps research administration professionals develop a practical understanding of where AI can support their work and where it cannot. The workshop will begin with an overview of modern AI systems, including how large language models generate output, the tasks they perform well, and the ways they fail. It will then examine which research administration activities benefit from AI assistance, which depend on institutional data infrastructure, and which should remain primarily human-driven.
 
-Ethical considerations including transparency, accountability, and reproducibility are explored through interactive discussions. Participants actively engage in examining institutional policies, governance, and risk management strategies for AI-assisted workflows, applying these concepts to real-world scenarios and their own work contexts.
-
-By the end of the session, research administrators will have foundational skills to responsibly use AI in their workflows, enhancing efficiency and supporting informed decision-making while maintaining human oversight.
+Participants will gain hands-on experience with open-source tools developed through the AI4RA project, including a prompt engineering trainer, a document extraction and review workflow, and a data lakehouse architecture used to prepare institutional data for AI applications. By the end of the workshop, participants will have a practical mental model for evaluating AI-generated output, understanding institutional data readiness, and identifying appropriate patterns for verification and oversight before relying on AI-assisted results.
 
 ## Learning objectives
 
-1. Explain foundational AI concepts and terminology relevant to research administration.
-2. Identify tasks and workflows in research administration where AI and automation can add value.
-3. Select appropriate AI models and break complex tasks into manageable components.
-4. Design effective and accurate prompts for specific administrative tasks.
-5. Evaluate AI outputs for accuracy, reliability, and appropriateness, and apply iterative refinement.
-6. Discuss and address ethical, transparency, and governance considerations in AI-assisted workflows.
+1. Explain how large language models generate output, which tasks they perform well, and the ways they fail.
+2. Distinguish research administration activities that benefit from AI assistance, those that depend on institutional data infrastructure, and those that should remain human-driven.
+3. Use open-source AI4RA tools hands-on: a prompt engineering trainer, a document extraction and review workflow, and a data lakehouse architecture.
+4. Evaluate AI-generated output and judge institutional data readiness before relying on AI-assisted results.
+5. Identify appropriate patterns for verification and human oversight.
+6. Lead a structured ethical discussion about AI use that can be taken back to your own institution.
 
 ## Session plan
 
 | Time | Part | Presenter |
 |------|------|-----------|
-| 0:00 – 1:30 | Augmenting research administration with AI (the AI4RA pitch, expanded, with hands-on prompting and evaluation) | Nathan Layman |
+| 0:00 – 1:30 | Where AI fits in research administration: how LLMs work, where they fail, and hands-on with Promptulus, Vandalizer, and the data lakehouse | Nathan Layman |
 | 1:30 – 1:40 | Break | |
-| 1:40 – 2:40 | Thinking well with AI: ethics and the MARC puzzles | Bert Baumgaertner |
+| 1:40 – 2:40 | Thinking well with AI: an ethical discussion mini-workshop and the NARC reasoning puzzles | Bert Baumgaertner |
 | 2:40 – 3:00 | Open discussion and take-home plan | Both |
 
 Slide decks and activities are still to be built. Track them in GitHub issues.
@@ -63,7 +61,7 @@ python3 -m http.server 4173 -d docs
 - [ ] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/`
 - [ ] Nathan: build the 90-minute deck from the REACH material
 - [ ] Bert: build the 60-minute ethics and MARC deck and puzzle activity
-- [ ] Decide on the hands-on activity platform and link it from Resources
+- [ ] Link Bert's Narrate activity from Resources once it is cleared for public use
 - [ ] Confirm room, time, and A/V with NCURA program contacts
 
 ## License
