@@ -40,6 +40,12 @@ Participants will gain hands-on experience with open-source tools developed thro
 | 1:40 – 2:40 | Thinking well with AI: an ethical discussion mini-workshop and the [NARC](https://narc.insight.uidaho.edu/) reasoning puzzles | Bert Baumgaertner |
 | 2:40 – 3:00 | Open discussion and take-home plan | Both |
 
+### NARC — Narrate
+
+The [Narrate](https://narc.insight.uidaho.edu/narrate) tab on the NARC site is an invitation-only research study where participants write the story that lets an AI model solve a reasoning puzzle. Participants enter an invite code from their invitation (everyone invited through the same event or mailing uses the same code), write a narrative, test it against a model, and revise — typically 20 to 90 minutes per puzzle. Adults 18 or older; no account or email required. Narrate data are stored in a separate database readable only by the principal investigator.
+
+Bert plans to use an invite code for workshop participants, so the workshop group's Narrate submissions are traceable to the event.
+
 Slide decks and activities are still to be built. Track them in GitHub issues.
 
 ## Repo layout
