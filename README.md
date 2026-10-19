@@ -31,15 +31,16 @@ By the end of the session, research administrators will have foundational skills
 5. Evaluate AI outputs for accuracy, reliability, and appropriateness, and apply iterative refinement.
 6. Discuss and address ethical, transparency, and governance considerations in AI-assisted workflows.
 
-## Draft module plan
+## Session plan
 
-| Time | Module | Presenter |
-|------|--------|-----------|
-| 0:00 – 0:50 | How AI works, and how it fails | TBD |
-| 1:00 – 1:50 | Prompting, decomposition, and evaluation (hands-on) | TBD |
-| 2:00 – 2:50 | Ethics, governance, and risk | TBD |
+| Time | Part | Presenter |
+|------|------|-----------|
+| 0:00 – 1:30 | Augmenting research administration with AI (the AI4RA pitch, expanded, with hands-on prompting and evaluation) | Nathan Layman |
+| 1:30 – 1:40 | Break | |
+| 1:40 – 2:40 | Thinking well with AI: ethics and the MARC puzzles | Bert Baumgaertner |
+| 2:40 – 3:00 | Open discussion and take-home plan | Both |
 
-Module assignments, slide decks, and activities are still to be decided. Track them in GitHub issues.
+Slide decks and activities are still to be built. Track them in GitHub issues.
 
 ## Repo layout
 
@@ -58,9 +59,10 @@ python3 -m http.server 4173 -d docs
 ## Status
 
 - [x] Workshop accepted by NCURA Region VI/VII
-- [ ] Confirm presenter lineup and module assignments
+- [x] Presenter lineup and session split (90 min Nathan, 60 min Bert, 30 min break and discussion)
 - [ ] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/`
-- [ ] Build slide decks for each module
+- [ ] Nathan: build the 90-minute deck from the REACH material
+- [ ] Bert: build the 60-minute ethics and MARC deck and puzzle activity
 - [ ] Decide on the hands-on activity platform and link it from Resources
 - [ ] Confirm room, time, and A/V with NCURA program contacts
 

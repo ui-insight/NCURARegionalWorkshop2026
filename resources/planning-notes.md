@@ -26,7 +26,7 @@ Pulled from granted-notes on 2026-10-19. Update here as things change.
 ## To do
 
 - [ ] Confirm presenter lineup with NCURA
-- [ ] Assign modules between Nathan and Bert
+- [x] Session split decided 2026-10-19: 90 min Nathan (REACH-style AI4RA pitch), 60 min Bert (ethics and MARC), 30 min break and discussion
 - [ ] Decide on hands-on platform (Bert's ai-literacy puzzle platform, Promptulus, or both)
 - [ ] Build decks
 - [ ] Travel pre-authorization, airfare, hotel
