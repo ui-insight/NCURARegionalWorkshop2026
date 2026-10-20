@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1b300" />
+    <title>Thinking well with AI | AI4RA Workshop</title>
+    <meta
+      name="description"
+      content="Slide deck: Thinking well with AI, ethics and reasoning puzzles. Part 2 of the NCURA Region VI/VII 2026 workshop, led by Bert Baumgaertner."
+    />
+    <link rel="stylesheet" href="reveal/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal/dist/theme/white.css" />
+    <link rel="stylesheet" href="slides.css" />
+    <link rel="stylesheet" href="slides-thinking-well.css" />
+  </head>
+  <body class="slides-page">
+    <div class="slides-home">
+      <a href="course-content.html">Back to Sessions</a>
+    </div>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ═══════════════════════════════════════════
+             Opening
+             ═══════════════════════════════════════════ -->
+
+        <!-- 1. TITLE -->
+        <section class="title-slide" data-background-color="#f1b300">
+          <p class="slide-kicker slide-kicker-dark">AI4RA Workshop | NCURA Region VI/VII 2026</p>
+          <h1>Thinking well with AI</h1>
+          <img src="img/presenters/bert-baumgaertner.jpg" alt="Bert Baumgaertner" style="width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid #fff; margin:0.75rem auto 0;" />
+          <p class="slide-lede slide-dark">Led by Bert Baumgaertner</p>
+          <aside class="notes">
+            Welcome back from the break. I'm Bert Baumgaertner. I teach philosophy at the University of Idaho, and on the AI4RA project I work on AI ethics and AI literacy for research administrators.
+            Nathan spent the first part on what these tools do and where they fit. I want to spend this hour on the part the tools can't do for you.
+          </aside>
+        </section>
+
+        <!-- 2. MODULE PREVIEW -->
+        <section>
+          <p class="slide-kicker">Part 2 structure</p>
+          <h2>The next hour</h2>
+          <div class="preview-flow" role="list" aria-label="Part 2 flow">
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F9E9;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Part 1</p>
+                <h6 class="preview-part-title">NARC puzzles</h6>
+              </div>
+              <p class="preview-time">12 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x270D;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Part 2</p>
+                <h6 class="preview-part-title">Narrate: same facts, different stories</h6>
+              </div>
+              <p class="preview-time">13 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Part 3</p>
+                <h6 class="preview-part-title">Ethics and arguments by analogy</h6>
+              </div>
+              <p class="preview-time">15 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F5E3;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Part 4</p>
+                <h6 class="preview-part-title">A workshop in miniature</h6>
+              </div>
+              <p class="preview-time">15 min</p>
+            </article>
+          </div>
+          <aside class="notes">
+            Four parts. Two are puzzles and two are about ethics, and they are connected.
+            The puzzles show something small and checkable: the same facts can be told as different stories, and which story you tell changes what the AI does. Choosing the story is a judgment call.
+            Then we turn to ethics, where the same thing happens with analogies. And we finish by running a short version of the discussion workshops we use with research administrators, so you can take the format home.
+            That leaves about five minutes of slack, which I will probably need.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             PART 1 · NARC PUZZLES
+             ═══════════════════════════════════════════ -->
+
+        <!-- 1.0 DIVIDER -->
+        <section class="part-divider" data-background-color="#191919">
+          <p class="slide-kicker">Part 1 &middot; NARC puzzles</p>
+          <h2 style="color:#fff;">Can a story fill in what the pictures leave open?</h2>
+          <p class="slide-lede" style="color:#ddd;">Three puzzles from the Team Picks on narc.insight.uidaho.edu</p>
+          <aside class="notes">
+            I'll start with some puzzles. NARC stands for Narrative Augmented Reasoning Challenges. My team and I have been building them since March.
+            I'm not going to explain them first. Let's just do one.
+          </aside>
+        </section>
+
+        <!-- 1.1 BUBBLE LEVEL -->
+        <section>
+          <p class="slide-kicker">Part 1 &middot; Try one</p>
+          <h2>Bubble Level: what goes in grid 4?</h2>
+          <div class="narc-seq" style="--cell:17px;">
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[2,0,0,0,0,0,0,0,0]]" aria-label="Grid 1: red cell at far left"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0,0,0,0,0,0,2]]" aria-label="Grid 2: red cell at far right"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0,0,0,0,0,2,0]]" aria-label="Grid 3: red cell second from the right"></div><figcaption class="narc-panel-label">Grid 3</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel">
+              <div class="narc-slot">
+                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[0,0,0,0,2,0,0,0,0]]" aria-label="Answer: red cell in the center"></div>
+                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+              </div>
+              <figcaption class="narc-panel-label">Grid 4</figcaption>
+            </figure>
+          </div>
+          <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Mike is hanging a picture on the wall. He places a bubble level on top of the picture frame to make sure it is level. At first, the left side of the frame is higher, so the bubble in the bubble level shifts to the left. He then adjusts the frame, but overcorrects, causing the bubble to shift to the right. He makes a slight adjustment, but it is not enough, the right side is still higher. He adjusts the frame once more, and finally gets the picture perfectly level.</p>
+          <div class="result-row fragment" data-fragment-index="3">
+            <div class="result-chip"><strong>0 of 12</strong><span>models, grids only</span></div>
+            <div class="result-chip"><strong>0 of 12</strong><span>models, story only</span></div>
+            <div class="result-chip"><strong>9 of 12</strong><span>models, grids + story</span></div>
+          </div>
+          <aside class="notes">
+            Four small grids in a row. The fourth is hidden. What goes there? Give it fifteen seconds and take a couple of guesses.
+            You'll get different answers. The red square jumped from the left to the right, then moved one step back. Does it keep moving left? By one? By two? The pictures don't settle it.
+            [click] Now the story. Read it as being about the grids. The red square is the bubble in a level. "Finally gets the picture perfectly level."
+            [click] So the bubble goes to the middle.
+            [click] We test twelve AI models on every puzzle, three ways: grids only, story only, and both. On this one, none of the twelve get it from the grids alone, and none from the story alone. Nine of twelve get it with both. That's the property we look for.
+          </aside>
+        </section>
+
+        <!-- 1.2 HOW IT WORKS -->
+        <section>
+          <p class="slide-kicker">Part 1 &middot; NARC puzzles</p>
+          <h2>How a NARC puzzle works</h2>
+          <div class="slide-grid" style="text-align:left;">
+            <article class="slide-card"><h3>1. A strip of small grids</h3><p>Three to eight frames that show something happening. One frame is hidden.</p></article>
+            <article class="slide-card"><h3>2. A short story</h3><p>It never mentions grids, cells, or colors. It helps only if you read it as being about the shapes.</p></article>
+            <article class="slide-card"><h3>3. Rebuild the hidden grid</h3><p>Exactly, every cell the right color. Close does not count.</p></article>
+            <article class="slide-card"><h3>4. Test each model three ways</h3><p>Grids only, story only, and both together.</p></article>
+          </div>
+          <p class="slide-callout">A puzzle has the NARC property for a model when it needs <em>both</em>. The story did work the pictures couldn&rsquo;t.</p>
+          <aside class="notes">
+            Here's the general shape. A short strip of small colored grids that show something happening. One frame is hidden.
+            There's a short story that never mentions grids or colors. It only helps if you read it as being about the shapes. A character is a bar. A mood is its height.
+            You have to rebuild the hidden grid exactly. Every cell. Close doesn't count.
+            And we test each model three ways: grids only, story only, and both. A puzzle has what we call the NARC property for a model when that model needs both. That means the story did work the pictures couldn't do by themselves.
+            The site has about 320 puzzles now. The ones I'm showing are from the "Team Picks," which are favorites chosen by the people who build them.
+          </aside>
+        </section>
+
+        <!-- 1.3 PENNY'S CAR -->
+        <section>
+          <p class="slide-kicker">Part 1 &middot; From the Team Picks</p>
+          <h2>Penny&rsquo;s car</h2>
+          <div class="slide-split" style="gap:2rem;">
+            <div class="split-img" style="flex:0 0 34%;">
+              <div class="narc-seq" style="--cell:20px; margin:0;">
+                <figure class="narc-panel"><div class="narc-grid" data-grid="[[4],[4],[4],[4],[4],[4],[4],[4],[4],[4]]" aria-label="Grid 1: ten yellow cells"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
+                <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+                <figure class="narc-panel"><div class="narc-grid" data-grid="[[7],[7],[7],[7],[7],[4],[4],[4],[4],[4]]" aria-label="Grid 2: five orange cells over five yellow"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
+                <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+                <figure class="narc-panel">
+                  <div class="narc-slot">
+                    <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[7],[7],[7],[7],[7],[7],[7],[4],[4],[4]]" aria-label="Answer: seven orange cells over three yellow"></div>
+                    <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+                  </div>
+                  <figcaption class="narc-panel-label">Grid 3</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="split-text">
+              <p class="narc-story fragment" data-fragment-index="1" style="margin-top:0;"><span class="narc-story-label">The story</span>Penny&rsquo;s car has a 100-liter fuel tank. She starts her trip with the tank full of 89-octane gasoline. After using half of the fuel, she refills the tank with 91-octane gasoline. Later, after using 40 liters of the mixed fuel, she refills the tank to full again with 91-octane gasoline. Penny wants to know how much 89-octane and 91-octane gasoline are in the tank now.</p>
+              <div class="result-row fragment" data-fragment-index="3" style="justify-content:flex-start;">
+                <div class="result-chip"><strong>0 of 12</strong><span>grids only</span></div>
+                <div class="result-chip"><strong>0 of 12</strong><span>story only</span></div>
+                <div class="result-chip"><strong>9 of 12</strong><span>grids + story</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Here's one this audience might like, because it's a calculation. Three tall grids. Ten cells each. First all yellow. Then half orange on top, half yellow on the bottom. What's the third?
+            [click] The story. It's a fuel gauge. Yellow is 89-octane, orange is 91. The story never says that. You have to work it out.
+            She uses half and fills up with 91: fifty and fifty. Then she uses 40 liters of the mix, so 60 liters are left, 30 of each. She fills up with 40 more liters of 91. That's 70 liters of 91 and 30 of 89.
+            [click] Seven orange over three yellow.
+            [click] Same pattern as before. No model gets it from the grids alone or the story alone. Nine of twelve get it with both. When we replace the story with a list of its key words, almost all of them fail. The order of the steps matters, not just the words.
+          </aside>
+        </section>
+
+        <!-- 1.4 APPLE -->
+        <section>
+          <p class="slide-kicker">Part 1 &middot; From the Team Picks</p>
+          <h2>Apple</h2>
+          <div class="narc-seq" style="--cell:26px;">
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,0,9,0,0],[0,0,9,0,0]]" aria-label="Grid 1: a tree"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,2,9,0,0],[0,0,9,0,0],[0,0,9,0,0]]" aria-label="Grid 2: a red cell appears beside the trunk"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,2,9,0,0],[0,0,9,0,0],[0,1,9,0,0]]" aria-label="Grid 3: a blue cell appears at the bottom"></div><figcaption class="narc-panel-label">Grid 3</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel">
+              <div class="narc-slot">
+                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,2,9,0,0],[0,1,9,0,0]]" aria-label="Answer: the red cell sits directly on top of the blue cell"></div>
+                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+              </div>
+              <figcaption class="narc-panel-label">Grid 4</figcaption>
+            </figure>
+          </div>
+          <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Sir Treb Newton was walking around the apple orchard when he found a nice tree to sit under. As he was relaxing, an apple fell from the tree, hitting him on top of his head.</p>
+          <div class="result-row fragment" data-fragment-index="3">
+            <div class="result-chip"><strong>0 of 12</strong><span>models, grids only</span></div>
+            <div class="result-chip"><strong>0 of 12</strong><span>models, story only</span></div>
+            <div class="result-chip"><strong>4 of 12</strong><span>models, grids + story</span></div>
+          </div>
+          <p class="narc-credit fragment" data-fragment-index="4">Two other stories for the same grids: one gets 4 of 11 models there, the other 6 of 11.</p>
+          <aside class="notes">
+            Last one. A tree. A red thing appears. A blue thing appears at the bottom. What happens next?
+            [click] Sir Treb Newton sits under a tree and an apple falls on his head.
+            [click] So the red apple drops one cell and lands right on top of the blue man.
+            [click] This one is harder for the models. Only four of twelve get it, even with the story.
+            [click] And here's a hint of what's coming. Our team wrote two other stories for the exact same grids. One gets four of eleven models there. The other gets six of eleven, though it cheats a little by naming the colors with numbers. Same pictures, same answer, different story, different results. That's what the next part is about.
+          </aside>
+        </section>
+
+        <!-- 1.5 WHAT THE PUZZLES SHOW -->
+        <section>
+          <p class="slide-kicker">Part 1 &middot; NARC puzzles</p>
+          <h2>What the puzzles show</h2>
+          <div class="rule-list">
+            <article class="slide-card"><h3>The pictures alone leave the answer open</h3><p>No model solved any of these three from the grids alone.</p></article>
+            <article class="slide-card"><h3>A short story can settle it</h3><p>With the story, most models got Bubble Level and Penny&rsquo;s car exactly right.</p></article>
+            <article class="slide-card"><h3>How the story is told matters</h3><p>Same grids, different story, different models get it right.</p></article>
+          </div>
+          <p class="narc-credit">Live results from narc.insight.uidaho.edu as of October 14, 2026. One try per model per condition, so read across models, not one result.</p>
+          <aside class="notes">
+            Three things to take from this. The pictures alone leave the answer open. A short story can settle it. And how the story is told matters.
+            One caution on the numbers. Each model gets one try per condition. When we re-run, about one verdict in six flips. So look at the pattern across models, not any single result.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             PART 2 · NARRATE
+             ═══════════════════════════════════════════ -->
+
+        <!-- 2.0 DIVIDER -->
+        <section class="part-divider" data-background-color="#191919">
+          <p class="slide-kicker">Part 2 &middot; Narrate</p>
+          <h2 style="color:#fff;">Same facts, different stories</h2>
+          <p class="slide-lede" style="color:#ddd;">You know what happened. Can you tell it so the model gets it right?</p>
+          <aside class="notes">
+            In Part 1, the story was given. In Narrate, you write the story. And you get to see the answer. The model doesn't.
+          </aside>
+        </section>
+
+        <!-- 2.1 CHAT -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; The Chat puzzle</p>
+          <h2>Chat: what goes in grid 4?</h2>
+          <div class="narc-seq" style="--cell:34px;">
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[5,0,7],[5,0,7]]" aria-label="Grid 1: grey bar height 2, orange bar height 2"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[0,0,7],[5,0,7]]" aria-label="Grid 2: grey bar height 1, orange bar height 2"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,0],[5,0,7],[5,0,7]]" aria-label="Grid 3: grey bar height 3, orange bar height 2"></div><figcaption class="narc-panel-label">Grid 3</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel">
+              <div class="narc-slot">
+                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[5,0,7],[5,0,7],[5,0,7]]" aria-label="Answer: both bars at full height"></div>
+                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+              </div>
+              <figcaption class="narc-panel-label">Grid 4</figcaption>
+            </figure>
+          </div>
+          <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Ally and Bob met to chat. Ally became sad. After some encouraging words from Bob, Ally became happy. This made Bob happy too.</p>
+          <div class="result-row fragment" data-fragment-index="3">
+            <div class="result-chip"><strong>0 of 11</strong><span>models, grids only</span></div>
+            <div class="result-chip"><strong>5 of 11</strong><span>models, grids + story</span></div>
+            <div class="result-chip"><strong>0 of 5</strong><span>still solve it with grids shuffled</span></div>
+          </div>
+          <aside class="notes">
+            This is the puzzle we use for Narrate. I wrote it.
+            Two bars. What goes in grid 4? Take a guess. Most people say the grey bar keeps changing, or that they go back to how they started. The grids don't settle it.
+            [click] The story. Grey is Ally, orange is Bob, and the height of a bar is mood. Ally drops when she's sad and comes back up higher when she's happy.
+            [click] "This made Bob happy too." So Bob rises to full height.
+            [click] No model gets it from the grids alone. Five of eleven get it with the story. And every one of those five fails when we shuffle the order of the grids. They need the story and the order.
+          </aside>
+        </section>
+
+        <!-- 2.2 HOW NARRATE WORKS -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; How Narrate works</p>
+          <h2>You see the answer. The model doesn&rsquo;t.</h2>
+          <div class="narc-seq small" style="--cell:18px;">
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[5,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[0,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,0],[5,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Grid 3</figcaption></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid narc-hidden-from-model" data-grid="[[5,0,7],[5,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Hidden from the model</figcaption></figure>
+          </div>
+          <div class="analogy-form" style="margin-top:0.9rem;">
+            <div class="analogy-step"><span class="analogy-key">1</span><p>You see every grid, including the one the model won&rsquo;t see.</p></div>
+            <div class="analogy-step"><span class="analogy-key">2</span><p>You write a story about what happens. No coordinates, no spelling out cells.</p></div>
+            <div class="analogy-step"><span class="analogy-key">3</span><p>The model gets the other grids and your story, and has to rebuild the hidden one exactly.</p></div>
+            <div class="analogy-step conclusion"><span class="analogy-key">4</span><p>You see whether it worked. Revise and try again.</p></div>
+          </div>
+          <aside class="notes">
+            Narrate turns the puzzle around. You see all the grids, including the one the model won't see. You know the answer.
+            Your job is to write a story about what happens, so that the model can rebuild the hidden grid from the other grids and your story. You're not allowed to spell out cells or coordinates. It has to be a story.
+            You press a button, the model tries, and you see whether it worked. Then you revise.
+            This is close to a lot of AI use at work. You know what the right answer is, or at least you'd know it if you saw it. The question is how to describe the situation so the tool gets there.
+          </aside>
+        </section>
+
+        <!-- 2.3 SIX STORIES -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; Same grids, six retellings</p>
+          <h2>Which stories work?</h2>
+          <div class="narc-seq tiny" style="margin-top:0;">
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[5,0,7],[5,0,7]]"></div></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[0,0,7],[5,0,7]]"></div></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,0],[5,0,7],[5,0,7]]"></div></figure>
+            <span class="narc-arrow" aria-hidden="true">&rarr;</span>
+            <figure class="narc-panel"><div class="narc-grid narc-hidden-from-model" data-grid="[[5,0,7],[5,0,7],[5,0,7]]"></div></figure>
+          </div>
+          <div class="narr-grid three">
+            <button class="narr-card" data-verdict="ok">
+              <span class="narr-tag">Cooking</span>
+              <p class="narr-text">Two loaves of dough were rising on the counter. The first one sank when a cold draft came through the window. The second loaf, still warm, was pushed up against it, and the first puffed up higher than before. Then the second loaf rose too.</p>
+              <span class="narr-verdict"><span class="narr-result">Solved, 2 of 2 tries</span></span>
+            </button>
+            <button class="narr-card" data-verdict="fail">
+              <span class="narr-tag">Sailing</span>
+              <p class="narr-text">Two boats rode the same gentle swell. The first dipped into a trough. A wave rolling off the second boat&rsquo;s bow lifted it higher than before. Then the second boat rose on the wave too.</p>
+              <span class="narr-verdict"><span class="narr-result">Not solved, 0 of 2 tries</span></span>
+            </button>
+            <button class="narr-card" data-verdict="fail">
+              <span class="narr-tag">Fireflies</span>
+              <p class="narr-text">Two fireflies glowed softly side by side. The first one dimmed as the night cooled. Its neighbour flashed close beside it, and the first one brightened, glowing stronger than before. Seeing that, the neighbour brightened too.</p>
+              <span class="narr-verdict"><span class="narr-result">Not solved, 0 of 2 tries</span></span>
+            </button>
+            <button class="narr-card" data-verdict="ok">
+              <span class="narr-tag">Theater</span>
+              <p class="narr-text">Two actors waited calmly in the wings. The first one&rsquo;s nerves sank him into dread. His scene partner whispered a joke, and he walked on stage beaming, bolder than before. His confidence made his partner beam too.</p>
+              <span class="narr-verdict"><span class="narr-result">Solved, 2 of 2 tries</span></span>
+            </button>
+            <button class="narr-card" data-verdict="ok">
+              <span class="narr-tag">Gardening</span>
+              <p class="narr-text">Two sunflowers grew side by side. The first drooped during a dry spell. The second one&rsquo;s deep roots shared their water, and the first stood up taller than before. Then the second grew taller too.</p>
+              <span class="narr-verdict"><span class="narr-result">Solved, 2 of 2 tries</span></span>
+            </button>
+            <button class="narr-card" data-verdict="fail">
+              <span class="narr-tag">Astronomy</span>
+              <p class="narr-text">Two stars shone with equal light. The first faded behind a passing cloud of dust. Its companion&rsquo;s pull swept the dust away, and it blazed brighter than before. Then the companion flared up too.</p>
+              <span class="narr-verdict"><span class="narr-result">Not solved, 0 of 2 tries</span></span>
+            </button>
+          </div>
+          <button class="narr-reveal-all">Reveal all</button>
+          <p class="narc-credit">Pilot test, October 2026. Retellings written with an AI assistant. Results shown for one open model, gpt-oss-120b, two tries each. The other two models tested solved all six.</p>
+          <aside class="notes">
+            Here are six retellings of the Chat puzzle. All six describe exactly the same thing: one drops, the other helps, the first comes back higher, then the second rises too. All six are true to the grids.
+            Vote first. Which ones do you think worked? Hands up for each. Then click to reveal.
+            [reveal] For this model, dough, actors, and sunflowers worked both times. Boats, fireflies, and stars failed both times. Same grids, same answer, all true stories.
+            A caution. This is a small pilot we ran in October. The retellings were written with an AI assistant, not by people. Each was tried twice on three open models, and I'm showing one model, gpt-oss-120b. The other two solved all six. So don't read much into which domains failed. In the pilot, stories where "up" meant real height mostly worked, and stories where "up" meant brightness or warmth failed more often. That's a pattern to check, not a finding.
+            What I want you to see is simpler. You can't tell from reading a story whether it will work. You have to try it and check the result against what you know is true.
+          </aside>
+        </section>
+
+        <!-- 2.4 CHANGE THE LAST SENTENCE -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; Same grids, different ending</p>
+          <h2>Change the last sentence</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="happy">&ldquo;This made Bob happy too.&rdquo;</button>
+              <button class="toggle-btn" data-panel="stay">&ldquo;Bob stayed just as he was.&rdquo;</button>
+              <button class="toggle-btn" data-panel="leave">&ldquo;Then Bob had to leave.&rdquo;</button>
+            </div>
+            <div class="toggle-panel active" data-panel="happy">
+              <div class="slide-split" style="justify-content:center;">
+                <div class="narc-seq" style="--cell:34px; margin:0;"><figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,7],[5,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Grid 4 drawn</figcaption></figure></div>
+                <p class="slide-note" style="max-width:20rem; text-align:left; margin:0 !important;">The original story. Bob rises. This is what actually happened.</p>
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="stay">
+              <div class="slide-split" style="justify-content:center;">
+                <div class="narc-seq" style="--cell:34px; margin:0;"><figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,0],[5,0,7],[5,0,7]]"></div><figcaption class="narc-panel-label">Grid 4 drawn</figcaption></figure></div>
+                <p class="slide-note" style="max-width:20rem; text-align:left; margin:0 !important;">Bob&rsquo;s bar stays where it was. Two of the three models drew this both times.</p>
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="leave">
+              <div class="slide-split" style="justify-content:center;">
+                <div class="narc-seq" style="--cell:34px; margin:0;"><figure class="narc-panel"><div class="narc-grid" data-grid="[[5,0,0],[5,0,0],[5,0,0]]"></div><figcaption class="narc-panel-label">Grid 4 drawn</figcaption></figure></div>
+                <p class="slide-note" style="max-width:20rem; text-align:left; margin:0 !important;">Bob&rsquo;s bar is gone. All three models drew this, every time.</p>
+              </div>
+            </div>
+          </div>
+          <p class="slide-callout">The model followed the story it was given. Only someone who knows what happened can tell which story is true.</p>
+          <aside class="notes">
+            One more thing from the same pilot. We kept the first three sentences and changed the last one.
+            "This made Bob happy too." Bob rises. That's what actually happened in the puzzle.
+            [click] "Bob stayed just as he was." Bob's bar stays put. Two of the three models drew that both times.
+            [click] "Then Bob had to leave." Bob's bar disappears. All three models drew that, every time.
+            So the models did exactly what the story said. In Narrate, those would all count as failures, because they don't match what actually happened. But the model didn't make a mistake. The story was wrong.
+            The output looks equally confident either way. The only way to tell is to know what actually happened.
+          </aside>
+        </section>
+
+        <!-- 2.5 TOY EXAMPLES, REAL POINT -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; Why toy examples matter</p>
+          <h2>If it&rsquo;s true of four small grids&hellip;</h2>
+          <div class="slide-grid" style="text-align:left;">
+            <article class="slide-card"><h3>Many true stories</h3><p>The same facts can be told many ways.</p></article>
+            <article class="slide-card"><h3>Only some of them work</h3><p>You can&rsquo;t tell which by reading. You try it and check.</p></article>
+            <article class="slide-card"><h3>A wrong story, a confident answer</h3><p>The model follows what it is told.</p></article>
+            <article class="slide-card"><h3>Checking takes someone who knows</h3><p>The facts, the sponsor, the institution. That&rsquo;s you.</p></article>
+          </div>
+          <p class="slide-callout">&hellip;it&rsquo;s true of an award notice, a budget justification, or a question about compliance.</p>
+          <aside class="notes">
+            Yes, these are toy examples. Four grids, two bars. But that's the point. If you can tell many true stories about four small grids, and only some get the model to the right answer, and a wrong story gets a confident wrong answer, then all of that is more true of real work.
+            An award notice, a budget justification, an email from a PI about a deadline. Each one can be described to an AI tool in many ways. How you describe it shapes what comes back.
+            And the only person who can check the result is someone who knows the facts, the sponsor, and the institution. In this room, that's you. That's the judgment the tools don't supply.
+          </aside>
+        </section>
+
+        <!-- 2.6 TRY NARRATE -->
+        <section>
+          <p class="slide-kicker">Part 2 &middot; Try it</p>
+          <h2>Narrate is open to you</h2>
+          <div class="slide-grid" style="text-align:left;">
+            <article class="slide-card">
+              <h3>Where</h3>
+              <p>narc.insight.uidaho.edu/narrate</p>
+              <p class="slide-micro">Invite code given in the room.</p>
+            </article>
+            <article class="slide-card">
+              <h3>What to expect</h3>
+              <p>About 20 to 90 minutes per puzzle. Each test takes up to two minutes.</p>
+              <p class="slide-micro">Try it during the discussion, or at home.</p>
+            </article>
+          </div>
+          <p class="slide-note">Narrate is a research study for adults 18 or older. It&rsquo;s voluntary. We don&rsquo;t ask for your name or email, and stories may be published without your name. Please leave personal information out of your stories.</p>
+          <aside class="notes">
+            If you want to try it, Narrate is on the NARC site. It's a research study, so it needs an invite code. The code for this workshop is [say the code]. Don't post it.
+            It's for adults, it's voluntary, and we don't collect names or emails. The stories you write may be published word for word, without your name, so don't put personal information in them.
+            A puzzle takes most people twenty minutes or more, so this is for later, not now. If many of you press the button at the same moment, the site will say the model is busy. Wait a minute and try again.
+          </aside>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════
+             PART 3 · ETHICS AND ARGUMENTS BY ANALOGY
+             ═══════════════════════════════════════════ -->
+
+        <!-- 3.0 DIVIDER -->
+        <section class="part-divider" data-background-color="#191919">
+          <p class="slide-kicker">Part 3 &middot; Ethics and arguments by analogy</p>
+          <h2 style="color:#fff;">Where do ethical claims come from?</h2>
+          <p class="slide-lede" style="color:#ddd;">A new technology has no settled cases yet. So we borrow them.</p>
+          <aside class="notes">
+            Now ethics. I'm going to give you one tool, the argument by analogy. It comes from the AI ethics guide we hand out at our workshops.
+            The reason it matters for AI is that AI is new. There are no settled cases about it yet. So when people argue about it, they borrow cases from somewhere else.
+          </aside>
+        </section>
+
+        <!-- 3.1 IS AND OUGHT -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; Ethics and arguments by analogy</p>
+          <h2>Two kinds of claims</h2>
+          <div class="slide-grid">
+            <article class="slide-card" style="text-align:left;">
+              <h3>What is the case</h3>
+              <p>&ldquo;Most of our office now uses AI to draft routine emails.&rdquo;</p>
+              <p class="slide-micro">You check it by looking.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <h3>What ought to be the case</h3>
+              <p>&ldquo;We ought to disclose AI use in routine emails.&rdquo;</p>
+              <p class="slide-micro">You check it by reasoning.</p>
+            </article>
+          </div>
+          <p class="slide-callout">&ldquo;Everyone is doing it&rdquo; does not make it fine. You can&rsquo;t get an <em>ought</em> from an <em>is</em> alone.</p>
+          <aside class="notes">
+            First, a distinction. Some claims are about what is the case. Others are about what ought to be the case.
+            You check the first kind by looking. Count the people in your office who use AI for email. You check the second kind by reasoning.
+            A common slide in office conversation goes from one to the other: everyone is using it without saying so, so it must be fine. That doesn't work. Philosophers call it the naturalistic fallacy.
+            So if you can't get an ought from the facts alone, where do ethical claims come from? You start from cases where people already agree, and you reason outward. The most common way to do that is the argument by analogy.
+          </aside>
+        </section>
+
+        <!-- 3.2 THE FORM -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; Ethics and arguments by analogy</p>
+          <h2>The argument by analogy</h2>
+          <div class="analogy-form">
+            <div class="analogy-step">
+              <span class="analogy-key">X</span>
+              <p>In a settled case X, doing A is required (or not allowed).</p>
+            </div>
+            <div class="analogy-step">
+              <span class="analogy-key">Y</span>
+              <p>The new case Y is like X in the ways that matter.</p>
+            </div>
+            <div class="analogy-step conclusion">
+              <span class="analogy-key">So</span>
+              <p>In case Y, doing A is also required (or not allowed).</p>
+            </div>
+          </div>
+          <p class="analogy-pushback fragment"><strong>To push back:</strong> find a <em>relevant</em> difference between X and Y. What counts as relevant is something you work out together.</p>
+          <aside class="notes">
+            Here is the form. You have a settled case, X, where people agree about what you should do. You claim the new case, Y, is like X in the ways that matter. So the same verdict carries over.
+            [click] The way to push back is to find a difference between the two cases. But not just any difference. It has to be a difference that matters for the verdict.
+            And what counts as relevant isn't given by the analogy. You find it out by arguing about it, which is why this works best in conversation.
+          </aside>
+        </section>
+
+        <!-- 3.3 WORKED EXAMPLE: MEDICATION -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; Ethics and arguments by analogy</p>
+          <h2>A worked example</h2>
+          <p class="analogy-quote">&ldquo;A new AI tool is like a new medication. We test medications for safety and regulate them before use. So AI tools in high-stakes settings should get safety testing and oversight too.&rdquo;</p>
+          <div class="flip-grid tall" style="margin-top:0.8rem;">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;Medications go inside your body. AI tools don&rsquo;t.&rdquo;</p></div>
+                <div class="flip-card-back"><p>A real difference. But does it bear on whether we need safety checks? Probably not.</p></div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;AI tools change with every update. A drug&rsquo;s formula stays fixed.&rdquo;</p></div>
+                <div class="flip-card-back"><p>This one matters. One-time approval assumes the thing you approved stays the same.</p></div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;AI tools get used in ways their makers never planned.&rdquo;</p></div>
+                <div class="flip-card-back"><p>Does this mean more oversight, or a different kind? Now you are arguing about what is relevant.</p></div>
+              </div>
+            </div>
+          </div>
+          <p class="flip-hint">Three proposed differences. Click each: does it matter for the conclusion?</p>
+          <aside class="notes">
+            Here's an example from the guide. A new AI tool is like a new medication. We test medications for safety and regulate them. So we should do the same for AI tools.
+            Here are three proposed differences. Let's take them one at a time. Ask the room before you click.
+            First: medications go inside your body. That's a difference. But it doesn't obviously bear on whether we need safety checks. So it's probably not relevant.
+            Second: AI tools change with every update. A drug's formula doesn't. That one matters, because the whole approval system assumes the thing you approved stays the same.
+            Third: AI tools get used in ways their makers never planned. Does that mean we need more oversight, or a different kind? This is where the real argument happens.
+          </aside>
+        </section>
+
+        <!-- 3.4 YOUR TURN -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; Your turn, 3 minutes with a neighbor</p>
+          <h2>Find the relevant difference</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="copyeditor">The copyeditor</button>
+              <button class="toggle-btn" data-panel="formletter">The form letter</button>
+            </div>
+            <div class="toggle-panel active" data-panel="copyeditor">
+              <p class="analogy-quote">&ldquo;Using AI to draft PI communications is like using a paid copyeditor. We don&rsquo;t normally disclose that we used a copyeditor. So we don&rsquo;t need to disclose AI use.&rdquo;</p>
+            </div>
+            <div class="toggle-panel" data-panel="formletter">
+              <p class="analogy-quote">&ldquo;Using AI to draft a routine response email is like using a form letter library. We&rsquo;ve used form letters for decades without disclosing them. So AI use in routine emails doesn&rsquo;t need disclosure.&rdquo;</p>
+            </div>
+          </div>
+          <div class="slide-grid" style="max-width:40rem; margin-left:auto; margin-right:auto;">
+            <p class="slide-note" style="max-width:none; text-align:left;"><strong>Ask:</strong> Same level of judgment? Same accuracy? Same person answering for it?</p>
+            <p class="slide-note" style="max-width:none; text-align:left;"><strong>If you can&rsquo;t find one,</strong> that is a finding too. The analogy may hold.</p>
+          </div>
+          <aside class="notes">
+            Your turn. Two analogies I've heard in research administration conversations, both about disclosing AI use. Pick one with your neighbor. You have three minutes.
+            Find a difference between the two cases that matters for the conclusion. Or, if you can't, defend the analogy. That's a legitimate result. It may mean disclosure isn't required.
+            Questions to try: Does the AI exercise the same level of judgment as a copyeditor? Does it have the same accuracy? When it gets something wrong, who answers for it?
+            After three minutes, take two or three answers. Write the differences people name where everyone can see them. They come back in Part 4.
+          </aside>
+        </section>
+
+        <!-- 3.5 ANALOGIES YOU WILL HEAR -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; Ethics and arguments by analogy</p>
+          <h2>Analogies you will hear about AI</h2>
+          <div class="flip-grid four tall">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;It&rsquo;s a calculator.&rdquo;</p></div>
+                <div class="flip-card-back"><p>Do you check a calculator&rsquo;s arithmetic? What would make you check the AI&rsquo;s?</p></div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;It&rsquo;s an intern.&rdquo;</p></div>
+                <div class="flip-card-back"><p>An intern can tell you when they&rsquo;re unsure, and learns your office over time. Does the AI?</p></div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;It&rsquo;s autocomplete.&rdquo;</p></div>
+                <div class="flip-card-back"><p>A good description of how it works. Does it tell you when to trust the output?</p></div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front"><p>&ldquo;It&rsquo;s a copyeditor.&rdquo;</p></div>
+                <div class="flip-card-back"><p>A copyeditor answers to someone. Who answers for the AI&rsquo;s output? You do.</p></div>
+              </div>
+            </div>
+          </div>
+          <p class="flip-hint">Each one is an argument by analogy. Where does it fit, and where does it break?</p>
+          <aside class="notes">
+            Every picture people use for AI is an analogy, and each one carries a verdict with it. If it's a calculator, you don't need to check it. If it's an intern, you supervise it. If it's autocomplete, you treat it as a guess.
+            Quick round. For each one, where does it fit and where does it break? Click after the room has had a go.
+            The last one is the one I care about most for this audience. The accountability stays with you, not the model. That's true whichever analogy you prefer.
+            Keep this short. Two minutes.
+          </aside>
+        </section>
+
+        <!-- 3.6 BRIDGE -->
+        <section>
+          <p class="slide-kicker">Part 3 &middot; The connection</p>
+          <h2>An analogy is a story about a new case</h2>
+          <div class="slide-grid">
+            <article class="slide-card" style="text-align:left;">
+              <h3>Narrate</h3>
+              <p>Same grids, different stories. Some get the model to the right answer. Some don&rsquo;t.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <h3>Analogy</h3>
+              <p>Same new case, different old cases. Each one carries a different verdict.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Choosing the story is the judgment. Whether the difference is relevant gets settled in conversation.</p>
+          <aside class="notes">
+            Here's the connection to the puzzles. In Narrate, one sequence of grids could be told as many stories, and only some of them got the model to the right answer.
+            An analogy works the same way. The new case is the same. What changes is the old case you say it's like. And the verdict comes along with the old case.
+            So the judgment is in choosing the story. And whether a difference is relevant is something you settle by talking it through. That's what the last part is for.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             PART 4 · A WORKSHOP IN MINIATURE
+             ═══════════════════════════════════════════ -->
+
+        <!-- 4.0 DIVIDER -->
+        <section class="part-divider" data-background-color="#191919">
+          <p class="slide-kicker">Part 4 &middot; A workshop in miniature</p>
+          <h2 style="color:#fff;">Take a position before you have a framework</h2>
+          <p class="slide-lede" style="color:#ddd;">A short version of the dialogue workshops we ran with research administrators in spring 2026.</p>
+          <aside class="notes">
+            In spring 2026 we ran small-group dialogue workshops with research administrators about AI. Each one was built around a set of statements that people respond to and then discuss.
+            I'm going to show you how the statements are built, and then we'll run two of them. The goal is that you could run this at your own institution next month.
+          </aside>
+        </section>
+
+        <!-- 4.1 HOW THE STATEMENTS ARE BUILT -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; How the instrument is built</p>
+          <h2>Built to start an argument</h2>
+          <div class="slide-grid" style="text-align:left;">
+            <article class="slide-card">
+              <h3>Statements, not questions</h3>
+              <p>You react to a claim, so you have to take a side.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Strong words on purpose</h3>
+              <p>&ldquo;Always,&rdquo; &ldquo;must,&rdquo; and &ldquo;never&rdquo; give people something to push against.</p>
+            </article>
+            <article class="slide-card">
+              <h3>&ldquo;I Don&rsquo;t Know&rdquo; is an answer</h3>
+              <p>A pile of them points to a gap in information, not a lack of interest.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Four groups of statements</h3>
+              <p>Know-how, values and risk, what &ldquo;AI literacy&rdquo; means, and wider costs. They help separate <em>why</em> people hesitate.</p>
+            </article>
+          </div>
+          <p class="slide-note">Run by a neutral facilitator. Voluntary and anonymous. Anyone can pass.</p>
+          <aside class="notes">
+            The instrument has sixteen statements. A few design choices make it work.
+            They're statements, not questions. You react to a claim, so you have to take a side.
+            They use strong words on purpose. Always, must, never. A mild statement gets mild agreement and nothing to talk about. A strong one splits the room.
+            "I Don't Know" is a real option, and we pay attention to it. When a lot of people pick it, that tells you people are missing information. It's not that they don't care.
+            And the statements come in four groups: technical know-how, ethical values and risk, what "AI literacy" means, and wider economic and environmental costs. The groups help you tell apart the reasons people hesitate. Someone who doesn't feel confident with the tool is in a different place from someone who thinks the task shouldn't be automated at all.
+            Each session had a neutral facilitator. Participation was voluntary and anonymous, and anyone could pass.
+          </aside>
+        </section>
+
+        <!-- 4.2 WHY THE STRONG WORDS -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; How the instrument is built</p>
+          <h2>Why the strong words?</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="survey">A survey item</button>
+              <button class="toggle-btn" data-panel="workshop">A workshop statement</button>
+            </div>
+            <div class="toggle-panel active" data-panel="survey">
+              <p class="statement" style="background:#ececec; color:#191919 !important;">AI tools can help research administrators work more efficiently.</p>
+              <p class="statement-meta">Made up for contrast. Nearly everyone agrees, and there is nothing left to talk about.</p>
+            </div>
+            <div class="toggle-panel" data-panel="workshop">
+              <p class="statement">Efficiency in processing grants <mark>always</mark> justifies the use of AI, even if the internal process is opaque.</p>
+              <p class="statement-meta">Statement 5 of 16. People split, and now you get to find out why.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            Here's the difference. The first one is the kind of thing a survey would ask. I made it up for contrast. Almost everyone agrees, and you learn nothing.
+            [click the second tab] This is statement 5 from the instrument. "Always" and "even if the process is opaque" are doing the work. People who agree that AI can be efficient still disagree about this one. And when they explain why, you find out what they actually care about.
+            We aren't measuring attitudes here. The statements are there to start a conversation.
+          </aside>
+        </section>
+
+        <!-- 4.3 ROUND 1 -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; Round 1</p>
+          <h2>Where do you stand?</h2>
+          <p class="statement">If an administrator cannot verify the output of an AI tool manually, they should <mark>never</mark> use that tool for grant submissions.</p>
+          <p class="statement-meta">Statement 2 of 16 &middot; Technical competency and methodology</p>
+          <div class="tally">
+            <div class="tally-bar" aria-live="polite"></div>
+            <div class="tally-buttons">
+              <button class="tally-btn" data-opt="d">Disagree<span class="tally-n">0</span><span class="tally-hand">1 finger</span></button>
+              <button class="tally-btn" data-opt="sd">Somewhat disagree<span class="tally-n">0</span><span class="tally-hand">2 fingers</span></button>
+              <button class="tally-btn" data-opt="n0">Neutral<span class="tally-n">0</span><span class="tally-hand">3 fingers</span></button>
+              <button class="tally-btn" data-opt="sa">Somewhat agree<span class="tally-n">0</span><span class="tally-hand">4 fingers</span></button>
+              <button class="tally-btn" data-opt="a">Agree<span class="tally-n">0</span><span class="tally-hand">5 fingers</span></button>
+              <button class="tally-btn" data-opt="dk">I Don&rsquo;t Know<span class="tally-n">0</span><span class="tally-hand">fist</span></button>
+              <button class="tally-btn" data-opt="na">N/A or pass<span class="tally-n">0</span><span class="tally-hand">hand down</span></button>
+            </div>
+            <button class="tally-reset">Reset</button>
+          </div>
+          <aside class="notes">
+            Read the statement out loud. Give everyone fifteen seconds to decide, privately, before anyone says anything. That part matters. Positions first, discussion second.
+            Then on three, hands up: one finger for disagree up to five for agree. A fist means "I don't know." Hand down means pass.
+            If the room is small, click the buttons to tally the hands so everyone can see the spread. If it's big, just describe what you see: "Lots of fours, a few ones, three fists."
+            Then ask someone from each side to say why, in one or two sentences. Don't argue yet. Next slide.
+          </aside>
+        </section>
+
+        <!-- 4.4 WHERE DOES THE DISAGREEMENT LIVE -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; Round 1, discussion</p>
+          <h2>Where does the disagreement live?</h2>
+          <div class="diagnose-grid">
+            <article class="slide-card">
+              <h3>Facts</h3>
+              <p>Is it even possible to check this output by hand, at our volume?</p>
+              <p class="eg">You settle it by looking.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Values</h3>
+              <p>Is a shortcut you can&rsquo;t check ever worth the risk to a submission?</p>
+              <p class="eg">You settle it by reasoning, and analogies help.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Words</h3>
+              <p>What counts as &ldquo;verify&rdquo;? A spot check? Every line? What does &ldquo;manually&rdquo; rule out?</p>
+              <p class="eg">You settle it by agreeing on terms.</p>
+            </article>
+          </div>
+          <p class="slide-callout fragment">Then ask each side: <em>what would change your mind?</em></p>
+          <aside class="notes">
+            When people disagree, the disagreement usually lives in one of three places. Sometimes it's about facts: can anyone actually check this output by hand, given how much we process? Sometimes it's about values: is an unverifiable shortcut ever worth the risk to a submission? And sometimes it's about words: what does "verify" mean? A spot check? Every line?
+            Ask the room which one their disagreement is. Often two people who "disagree" turn out to mean different things by "verify."
+            Notice that "never" and "manually" are doing a lot of work in this statement. That's on purpose.
+            [click] Then ask each side what would change their mind. If someone can't name anything, their position hasn't been tested yet. That's not a criticism. It's where the next conversation starts.
+            About five minutes total for this round.
+          </aside>
+        </section>
+
+        <!-- 4.5 ROUND 2 -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; Round 2</p>
+          <h2>Now bring an analogy</h2>
+          <p class="statement">It is unethical to utilize AI for drafting internal communications without explicitly disclosing it to the recipients.</p>
+          <p class="statement-meta">Statement 7 of 16 &middot; Ethical values and risk</p>
+          <div class="tally">
+            <div class="tally-bar" aria-live="polite"></div>
+            <div class="tally-buttons">
+              <button class="tally-btn" data-opt="d">Disagree<span class="tally-n">0</span><span class="tally-hand">1 finger</span></button>
+              <button class="tally-btn" data-opt="sd">Somewhat disagree<span class="tally-n">0</span><span class="tally-hand">2 fingers</span></button>
+              <button class="tally-btn" data-opt="n0">Neutral<span class="tally-n">0</span><span class="tally-hand">3 fingers</span></button>
+              <button class="tally-btn" data-opt="sa">Somewhat agree<span class="tally-n">0</span><span class="tally-hand">4 fingers</span></button>
+              <button class="tally-btn" data-opt="a">Agree<span class="tally-n">0</span><span class="tally-hand">5 fingers</span></button>
+              <button class="tally-btn" data-opt="dk">I Don&rsquo;t Know<span class="tally-n">0</span><span class="tally-hand">fist</span></button>
+              <button class="tally-btn" data-opt="na">N/A or pass<span class="tally-n">0</span><span class="tally-hand">hand down</span></button>
+            </div>
+            <button class="tally-reset">Reset</button>
+          </div>
+          <p class="slide-callout fragment">Which old case is this like? A copyeditor? A form letter? Spell-check? Find the relevant difference.</p>
+          <aside class="notes">
+            Same routine. Read it, fifteen seconds of private thought, then hands.
+            This is the disclosure question from Part 3, stated strongly. So this time, after the vote, ask people to defend their answer with an analogy.
+            [click] Someone who disagrees might say it's like a copyeditor or a form letter. Someone who agrees has to find the relevant difference. And someone will usually point out that "always disclose" proves too much: do you disclose spell-check? Then the room has to say where the line is, and why.
+            That's the whole method in about five minutes: take a stance, see the room, find where the disagreement lives, and reason with cases.
+          </aside>
+        </section>
+
+        <!-- 4.6 SPARE ROUND -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; Spare round, if there is time</p>
+          <h2>Watch the fists</h2>
+          <p class="statement">Research administrators are ethically complicit in environmental harm when they use energy-intensive large language models (LLMs).</p>
+          <p class="statement-meta">Statement 13 of 16 &middot; Economic and environmental impact</p>
+          <div class="tally">
+            <div class="tally-bar" aria-live="polite"></div>
+            <div class="tally-buttons">
+              <button class="tally-btn" data-opt="d">Disagree<span class="tally-n">0</span><span class="tally-hand">1 finger</span></button>
+              <button class="tally-btn" data-opt="sd">Somewhat disagree<span class="tally-n">0</span><span class="tally-hand">2 fingers</span></button>
+              <button class="tally-btn" data-opt="n0">Neutral<span class="tally-n">0</span><span class="tally-hand">3 fingers</span></button>
+              <button class="tally-btn" data-opt="sa">Somewhat agree<span class="tally-n">0</span><span class="tally-hand">4 fingers</span></button>
+              <button class="tally-btn" data-opt="a">Agree<span class="tally-n">0</span><span class="tally-hand">5 fingers</span></button>
+              <button class="tally-btn" data-opt="dk">I Don&rsquo;t Know<span class="tally-n">0</span><span class="tally-hand">fist</span></button>
+              <button class="tally-btn" data-opt="na">N/A or pass<span class="tally-n">0</span><span class="tally-hand">hand down</span></button>
+            </div>
+            <button class="tally-reset">Reset</button>
+          </div>
+          <aside class="notes">
+            Skip this one if we're short on time.
+            This statement is useful because of the "I don't know" answers. If a lot of fists go up, ask what information people would need to decide. Usually it's concrete numbers: how much energy and water, compared with what. That's a request your institution can actually meet.
+            The ethics guide lists a few places to start, including what-uses-more.com and the University of Idaho's own GPU telemetry analysis at ai.uidaho.edu.
+          </aside>
+        </section>
+
+        <!-- 4.7 RUN IT AT HOME -->
+        <section>
+          <p class="slide-kicker">Part 4 &middot; Take it home</p>
+          <h2>Run this at your institution</h2>
+          <div class="rule-list">
+            <article class="slide-card"><h3>1. Pick three or four statements</h3><p>Use ours, or write your own with &ldquo;always,&rdquo; &ldquo;must,&rdquo; or &ldquo;never.&rdquo;</p></article>
+            <article class="slide-card"><h3>2. Vote before anyone talks</h3><p>Positions first. Otherwise the first speaker sets the room.</p></article>
+            <article class="slide-card"><h3>3. Use a neutral facilitator</h3><p>Not the supervisor. Keep it voluntary and anonymous, and count &ldquo;I Don&rsquo;t Know.&rdquo;</p></article>
+            <article class="slide-card"><h3>4. For each split, ask: facts, values, or words?</h3><p>Then: what would change your mind? Use analogies, and look for the relevant difference.</p></article>
+            <article class="slide-card"><h3>5. Write down the reasoning</h3><p>A future colleague, or a future you, will need to know why you decided what you did.</p></article>
+          </div>
+          <aside class="notes">
+            Here's the recipe. Pick three or four statements. You can use ours, or write your own about the decision your office is facing. Make them strong.
+            Vote before anyone talks, so the first speaker doesn't set the room.
+            Get someone neutral to facilitate. Not the person who signs the performance reviews. Keep it voluntary and anonymous, and pay attention to "I don't know."
+            For each split, ask where the disagreement lives, and what would change people's minds.
+            And write down the reasoning. When the tool changes in six months, you'll want to know why you decided what you did.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Closing
+             ═══════════════════════════════════════════ -->
+
+        <!-- 5.1 THE SAME MOVE -->
+        <section>
+          <p class="slide-kicker">Closing</p>
+          <h2>The same move, three times</h2>
+          <div class="diagnose-grid">
+            <article class="slide-card">
+              <h3>Narrate</h3>
+              <p>One sequence, many true stories. Which one gets the model there is a judgment.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Analogy</h3>
+              <p>One new case, many old cases. Which one fits is a judgment.</p>
+            </article>
+            <article class="slide-card">
+              <h3>Workshop</h3>
+              <p>One statement, many readings. Which disagreement you have is something you find out by talking.</p>
+            </article>
+          </div>
+          <p class="slide-callout">The tools can draft. Deciding how to frame the problem, and answering for it, stays with you.</p>
+          <aside class="notes">
+            To pull it together. In the puzzles, one sequence of grids had many true stories, and choosing the one that worked was a judgment. In ethics, one new case can be compared to many old ones, and choosing the one that fits is a judgment. And in the workshop, one statement gets read many ways, and you find out which disagreement you have by talking.
+            The AI can help draft. It can't decide for you how to frame the problem, and it can't answer for the result. That part is yours, and you're already trained for it.
+          </aside>
+        </section>
+
+        <!-- 5.2 LINKS -->
+        <section>
+          <p class="slide-kicker">Closing</p>
+          <h2>Keep going</h2>
+          <div class="link-grid">
+            <a class="slide-card" href="https://narc.insight.uidaho.edu/" target="_blank" rel="noopener">
+              <h3>NARC puzzles</h3>
+              <p>narc.insight.uidaho.edu. Browse the puzzles and the Team Picks.</p>
+            </a>
+            <a class="slide-card" href="https://narc.insight.uidaho.edu/narrate" target="_blank" rel="noopener">
+              <h3>Narrate</h3>
+              <p>Write the story that gets the model there. Invite code given in the room.</p>
+            </a>
+            <a class="slide-card" href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener">
+              <h3>AI4RA</h3>
+              <p>ai4ra.uidaho.edu. Open-source tools, training modules, and the blog.</p>
+            </a>
+          </div>
+          <p class="slide-note">Questions now, and more in the open discussion after this. bbaum@uidaho.edu</p>
+          <aside class="notes">
+            The puzzles are public at narc.insight.uidaho.edu. Narrate is a research study, so it needs an invite code. I'll give you the code for this workshop here in the room. If you try it, you're helping our research, and you can stop any time.
+            Thanks. Let's take a couple of questions, and then Nathan and I will open it up for the last half hour.
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <script>
+      // NARC palette, matching narc.insight.uidaho.edu (static/css/grids.css)
+      window.NARC_PALETTE = {
+        0: "#000000", 1: "#0074D9", 2: "#FF4136", 3: "#2ECC40", 4: "#FFDC00",
+        5: "#AAAAAA", 6: "#F012BE", 7: "#FF851B", 8: "#7FDBFF", 9: "#870C25"
+      };
+    </script>
+    <script src="slides-interactive.js"></script>
+    <script src="slides-thinking-well.js"></script>
+    <script type="module">
+      import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
+      readKeyFromURL();
+      installLinkInterceptor();
+    </script>
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        slideNumber: true,
+        transition: "slide",
+        plugins: [RevealNotes]
+      });
+    </script>
+  </body>
+</html>
