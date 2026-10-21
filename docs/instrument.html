@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#191919" />
+    <title>Discussion Instrument | AI4RA Workshop</title>
+    <meta name="description" content="Research Administration and AI: A Discussion Instrument. Sixteen statements and a facilitator guide for a structured conversation about AI in research administration. Free to use under CC BY-NC-SA 4.0." />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .instrument-block {
+        width: min(calc(100% - 2rem), var(--shell));
+        margin: 0 auto;
+        padding: 1.25rem 0;
+      }
+
+      .instrument-panel {
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        background: var(--white);
+        border: 1px solid var(--line);
+      }
+
+      .instrument-panel h2 {
+        font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+        margin-bottom: 0.9rem;
+      }
+
+      .instrument-panel p + p,
+      .instrument-panel p + ul,
+      .instrument-panel ul + p {
+        margin-top: 0.8rem;
+      }
+
+      .instrument-panel p,
+      .instrument-panel li {
+        max-width: 70ch;
+        color: var(--ink);
+      }
+
+      .instrument-panel li + li {
+        margin-top: 0.35rem;
+      }
+
+      .facilitator-note {
+        border-left: 6px solid var(--gold);
+        background: #fffaf0;
+      }
+
+      .guide-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .guide-grid .content-card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .module-grid .content-card p {
+        font-size: 0.95rem;
+      }
+
+      .module-grid .core {
+        margin-top: 0.6rem;
+        font-style: italic;
+      }
+
+      .sheet-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .sheet-header h2 {
+        margin: 0;
+      }
+
+      .sheet-instructions {
+        margin-top: 0.9rem;
+      }
+
+      .sheet-module {
+        margin-top: 1.6rem;
+      }
+
+      .sheet-module h3 {
+        margin: 0;
+        font-size: 1.15rem;
+      }
+
+      .sheet-module .core {
+        margin-top: 0.25rem;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .statement-list {
+        list-style: none;
+        margin: 0.6rem 0 0;
+        padding: 0;
+      }
+
+      .statement-item {
+        padding: 0.75rem 0;
+        border-top: 1px solid var(--line);
+        break-inside: avoid;
+      }
+
+      .statement-item .stmt {
+        display: flex;
+        gap: 0.6rem;
+        font-weight: 650;
+        color: var(--ink);
+      }
+
+      .statement-item .num {
+        flex: 0 0 1.8rem;
+        font-family: var(--mono);
+        color: #9a7300;
+      }
+
+      .scale-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1.1rem;
+        margin: 0.45rem 0 0 2.4rem;
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+
+      .scale-row .meta {
+        margin-left: 0.6rem;
+      }
+
+      .box {
+        display: inline-block;
+        width: 0.85em;
+        height: 0.85em;
+        margin-right: 0.3em;
+        border: 1.5px solid #555;
+        border-radius: 2px;
+        vertical-align: -0.1em;
+      }
+
+      .credit-box {
+        margin-top: 0.8rem;
+        padding: 1rem 1.2rem;
+        border-radius: var(--radius-sm);
+        background: #f6f6f7;
+        border: 1px solid var(--line);
+        font-size: 0.95rem;
+      }
+
+      .sheet-credit {
+        margin-top: 1.4rem;
+        padding-top: 0.6rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted) !important;
+      }
+
+      .instrument-panel a {
+        color: #9a7300;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 860px) {
+        .guide-grid,
+        .module-grid {
+          grid-template-columns: 1fr;
+        }
+        .scale-row {
+          margin-left: 0;
+        }
+      }
+
+      @media print {
+        @page {
+          size: letter;
+          margin: 0.6in 0.65in;
+        }
+        body {
+          background: #fff;
+          font-size: 10.5pt;
+        }
+        .site-header,
+        .no-print {
+          display: none !important;
+        }
+        .page-intro,
+        .instrument-block {
+          width: 100%;
+          padding: 0.35rem 0;
+        }
+        .page-intro-panel,
+        .instrument-panel {
+          padding: 0.2rem 0;
+          border: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .facilitator-note {
+          padding: 0.6rem 0.9rem;
+          border-left: 4px solid #191919;
+          background: #fff;
+        }
+        .page-intro-panel h1 {
+          max-width: none;
+          font-size: 22pt;
+        }
+        .instrument-panel h2 {
+          font-size: 14pt;
+          margin-bottom: 0.4rem;
+        }
+        .guide-grid,
+        .module-grid {
+          gap: 0.5rem;
+        }
+        .content-card {
+          padding: 0.6rem 0.75rem;
+          break-inside: avoid;
+        }
+        .content-card h3 {
+          font-size: 11pt;
+          margin-bottom: 0.3rem;
+        }
+        .guide-grid .content-card ul,
+        .module-grid .content-card p {
+          font-size: 9pt;
+        }
+        .participant-sheet {
+          break-before: page;
+        }
+        .statement-item {
+          padding: 0.45rem 0;
+        }
+        .scale-row {
+          font-size: 9pt;
+        }
+        .instrument-panel a {
+          color: inherit;
+        }
+        /* Print at letter width trips the 860px single-column rule; restore the grids */
+        .guide-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        }
+        .module-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+        h1, h2, h3, .eyebrow, .sheet-module .core {
+          break-after: avoid;
+        }
+        .facilitator-note,
+        #credit .instrument-panel,
+        .credit-box {
+          break-inside: avoid;
+        }
+        .scale-row {
+          flex-wrap: nowrap;
+          gap: 0 0.75rem;
+          margin-left: 2.2rem;
+          font-size: 8.5pt;
+          white-space: nowrap;
+        }
+        .scale-row .meta {
+          margin-left: 0.5rem;
+        }
+        .sheet-module {
+          margin-top: 0.7rem;
+        }
+        .statement-item {
+          padding: 0.3rem 0;
+        }
+        .statement-item .scale-row {
+          margin-top: 0.25rem;
+        }
+        .sheet-instructions {
+          margin-top: 0.5rem;
+        }
+        .sheet-credit {
+          margin-top: 0.8rem;
+          font-size: 7.5pt;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-frame">
+      <header class="site-header">
+        <div class="shell">
+          <div class="brand-lockup">
+            <a class="brand-home" href="index.html">
+              <img class="brand-logo" src="img/logos/ai4ra-logo.png" alt="AI4RA logo" />
+              <span class="brand-line">AI4RA workshop companion for NCURA Region VI/VII 2026</span>
+            </a>
+          </div>
+          <nav aria-label="Primary">
+            <ul class="nav-list">
+              <li><a class="nav-link" href="index.html">Home</a></li>
+              <li><a class="nav-link" href="presenters.html">Presenters</a></li>
+              <li><a class="nav-link" href="course-content.html">Sessions</a></li>
+              <li><a class="nav-link is-active" href="resources.html">Resources</a></li>
+              <li><a class="nav-link" href="https://github.com/ui-insight/NCURARegionalWorkshop2026" target="_blank" aria-label="GitHub repository"><svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.63 7.63 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-intro">
+          <div class="page-intro-panel">
+            <p class="eyebrow">Take it home</p>
+            <h1 style="max-width:22ch;">Research Administration and AI: A Discussion Instrument</h1>
+            <p class="section-copy">
+              Sixteen statements about AI in research administration, with a
+              guide for running a facilitated conversation about them. Free to
+              use and adapt under a Creative Commons license.
+            </p>
+            <div class="hero-actions no-print" style="margin-top:1.25rem;">
+              <a class="button" href="files/ai4ra-discussion-instrument.pdf">Download PDF</a>
+              <a class="button-secondary" href="files/ai4ra-discussion-instrument.docx">Download Word (editable)</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="instrument-block">
+          <div class="instrument-panel">
+            <p class="eyebrow">What this is</p>
+            <h2>Built to start a conversation</h2>
+            <p>
+              The instrument is a set of sixteen statements. Participants say
+              how much they agree with each one, and then a facilitator leads a
+              discussion of where the group agrees and where it splits. It is
+              not a survey, and it is not meant to measure attitudes.
+            </p>
+            <p>
+              The statements use strong words on purpose: &ldquo;always,&rdquo;
+              &ldquo;must,&rdquo; &ldquo;never.&rdquo; A mild statement gets
+              mild agreement and leaves nothing to talk about. A strong one
+              makes people take a side, and when they explain why, you learn
+              what they actually care about. The statements come in four
+              modules, which help separate the reasons people hesitate about
+              AI: know-how, values and risk, what &ldquo;AI literacy&rdquo;
+              means, and wider economic and environmental costs.
+            </p>
+            <p>
+              We wrote the instrument for dialogue workshops with research
+              administrators in spring 2026. This version was prepared for
+              participants in the AI4RA workshop at the NCURA Region VI/VII
+              Regional Meeting in Denver, November 2026.
+            </p>
+          </div>
+        </section>
+
+        <section class="instrument-block">
+          <div class="instrument-panel facilitator-note">
+            <p class="eyebrow">Who should facilitate</p>
+            <h2>Free to use. Best with a trained facilitator.</h2>
+            <p>
+              The instrument is free. Ideally, the person who facilitates has
+              training in ethics, philosophy, or a related field. The
+              statements are designed to provoke, and a trained facilitator
+              keeps the disagreement useful: they help the group tell apart
+              disagreements about facts, about values, and about what a word
+              means, and they test arguments without steering the room toward
+              their own view.
+            </p>
+            <p>
+              If no one in your office has that background, a colleague from a
+              philosophy or ethics program on your campus may be glad to help.
+              Either way, the facilitator should not be anyone&rsquo;s
+              supervisor.
+            </p>
+          </div>
+        </section>
+
+        <section class="instrument-block">
+          <div class="instrument-panel">
+            <p class="eyebrow">Facilitator guide</p>
+            <h2>How to run a session</h2>
+            <div class="guide-grid">
+              <article class="content-card">
+                <h3>Before</h3>
+                <ul>
+                  <li>Choose your statements. All sixteen take about 10 to 15 minutes to answer. For a shorter session, use one module, or three or four statements.</li>
+                  <li>You can write your own statements about a decision your office faces. Keep the strong words.</li>
+                  <li>Find a neutral facilitator. Small groups work best.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h3>During</h3>
+                <ul>
+                  <li>Participation is voluntary. Anyone can pass on any statement.</li>
+                  <li>Everyone responds privately before anyone speaks. Use the sheet, a show of hands (one to five fingers, a fist for &ldquo;I don&rsquo;t know&rdquo;), or an anonymous poll.</li>
+                  <li>Show the group&rsquo;s spread, then discuss. Keep responses anonymous.</li>
+                  <li>&ldquo;I Don&rsquo;t Know&rdquo; and &ldquo;N/A&rdquo; are real answers. Count them.</li>
+                </ul>
+              </article>
+              <article class="content-card">
+                <h3>After</h3>
+                <ul>
+                  <li>Write down the reasoning, not just the result. A future colleague will need to know why you decided what you did.</li>
+                  <li>Many &ldquo;I Don&rsquo;t Know&rdquo; answers on one statement usually point to information your institution could supply.</li>
+                  <li>Run it again later. Positions change as the tools and policies do.</li>
+                </ul>
+              </article>
+            </div>
+
+            <h3 style="margin-top:1.6rem;">Questions for the discussion</h3>
+            <ul>
+              <li><strong>Where does the disagreement live?</strong> In the facts (what is the case), in values (what ought to be the case), or in words (what a key term means)?</li>
+              <li><strong>Which word in the statement is doing the work?</strong> Try the statement without &ldquo;always&rdquo; or &ldquo;never.&rdquo; Does your answer change?</li>
+              <li><strong>What would change your mind?</strong> If you can&rsquo;t name anything, the position hasn&rsquo;t been tested yet.</li>
+              <li><strong>Is someone arguing by analogy?</strong> (&ldquo;Using AI here is like using a form letter.&rdquo;) Look for a relevant difference: a difference between the two cases that matters for the conclusion.</li>
+              <li><strong>Where did your own answer surprise you?</strong> Where did the group&rsquo;s?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="instrument-block">
+          <div class="instrument-panel">
+            <p class="eyebrow">Facilitator guide</p>
+            <h2>What each module is for</h2>
+            <div class="module-grid">
+              <article class="content-card">
+                <span class="tag">Module A &middot; Statements 1 to 4</span>
+                <h3>Technical competency and methodology</h3>
+                <p>Finds out whether hesitancy comes from a lack of technical confidence or know-how. Many &ldquo;I Don&rsquo;t Know&rdquo; answers here point to a literacy gap.</p>
+                <p class="core">To what extent does effective research administration require technical proficiency in AI?</p>
+              </article>
+              <article class="content-card">
+                <span class="tag">Module B &middot; Statements 5 to 8</span>
+                <h3>Ethical values and risk</h3>
+                <p>Finds out whether hesitancy comes from moral obligation or from risk aversion. These statements force a trade-off between efficiency and correctness.</p>
+                <p class="core">Do ethical risks outweigh the efficiency gains of AI in research administration?</p>
+              </article>
+              <article class="content-card">
+                <span class="tag">Module C &middot; Statements 9 to 11</span>
+                <h3>Defining &ldquo;AI literacy&rdquo;</h3>
+                <p>Works on a messy concept. The statements are ambiguous on purpose, so the group has to negotiate a shared definition.</p>
+                <p class="core">What constitutes &ldquo;literacy&rdquo; in the context of automated administration?</p>
+              </article>
+              <article class="content-card">
+                <span class="tag">Module D &middot; Statements 12 to 16</span>
+                <h3>Economic and environmental impact</h3>
+                <p>Finds out whether hesitancy comes from wider concerns, such as job security or climate change, rather than day-to-day workflow or skills. It separates a &ldquo;local&rdquo; worry (I can&rsquo;t do this task) from a &ldquo;global&rdquo; one (this task shouldn&rsquo;t exist).</p>
+                <p class="core">To what extent should global economic and environmental factors influence local administrative decisions?</p>
+              </article>
+            </div>
+            <p style="margin-top:1rem;">
+              Module D often draws &ldquo;I Don&rsquo;t Know.&rdquo; These
+              resources ground the environmental conversation in real data:
+              <a href="https://what-uses-more.com" target="_blank" rel="noopener">what-uses-more.com</a>
+              (energy and water costs of everyday digital activities),
+              <a href="https://your-digital-life.org" target="_blank" rel="noopener">your-digital-life.org</a>
+              (the footprint of your own digital habits), and the University
+              of Idaho&rsquo;s
+              <a href="https://ai.uidaho.edu/gpu_telemetry_analysis.html" target="_blank" rel="noopener">GPU telemetry analysis</a>
+              (the footprint of one campus AI cluster).
+            </p>
+          </div>
+        </section>
+
+        <section class="instrument-block" id="credit">
+          <div class="instrument-panel">
+            <p class="eyebrow">How to credit us</p>
+            <h2>Attribution and license</h2>
+            <p>
+              The instrument was developed by Bert Baumgaertner (Department of
+              Philosophy) with the AI4RA project team at the University of
+              Idaho, led by Sarah Martonick. AI4RA is supported by the U.S.
+              National Science Foundation.
+            </p>
+            <p>When you use or adapt it, please credit it like this:</p>
+            <p class="credit-box">
+              &ldquo;Research Administration and AI: A Discussion
+              Instrument&rdquo; by Bert Baumgaertner and the AI4RA project team,
+              University of Idaho (Sarah Martonick, principal investigator),
+              2026. Supported by NSF Award No. 2427549. Licensed under CC BY-NC-SA 4.0.
+              If you changed it, add: &ldquo;Adapted by [your name or office].&rdquo;
+            </p>
+            <p>
+              &copy; 2026 Bert Baumgaertner and the AI4RA project, University of
+              Idaho. This work is licensed under the
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+              You may copy, share, and adapt it for non-commercial purposes, as
+              long as you give credit, say whether you made changes, and share
+              your adapted version under the same license.
+            </p>
+            <p>
+              This material is based upon work supported by the National
+              Science Foundation under Award No. 2427549. Any opinions,
+              findings, and conclusions or recommendations expressed in this
+              material are those of the authors and do not necessarily reflect
+              the views of the National Science Foundation.
+            </p>
+            <p>
+              Questions, or want to tell us how it went? Contact Bert
+              Baumgaertner at <a href="mailto:bbaum@uidaho.edu">bbaum@uidaho.edu</a>.
+              More from the project at
+              <a href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener">ai4ra.uidaho.edu</a>.
+              This version: October 21, 2026.
+            </p>
+          </div>
+        </section>
+
+        <section class="instrument-block participant-sheet" id="sheet">
+          <div class="instrument-panel">
+            <div class="sheet-header">
+              <h2>Research Administration and AI</h2>
+              <p class="eyebrow" style="margin:0;">Participant sheet</p>
+            </div>
+            <p class="sheet-instructions">
+              For each statement, mark the box that best fits your first
+              reaction. There are no right answers. The statements are strong
+              on purpose. You can mark &ldquo;I Don&rsquo;t Know&rdquo; or
+              &ldquo;N/A,&rdquo; or skip any statement. Please don&rsquo;t
+              write your name on this sheet.
+            </p>
+
+            <div class="sheet-module">
+              <h3>Module A. Technical competency and methodology</h3>
+              <p class="core">To what extent does effective research administration require technical proficiency in AI?</p>
+              <ol class="statement-list">
+                <li class="statement-item"><p class="stmt"><span class="num">1</span>A research administrator must understand the underlying algorithms of an AI tool to use it responsibly.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">2</span>If an administrator cannot verify the output of an AI tool manually, they should never use that tool for grant submissions.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">3</span>Technical skill in &ldquo;prompt engineering&rdquo; is now a fundamental requirement for the research administrator role.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">4</span>Human error is a greater risk to research compliance than AI &ldquo;hallucinations&rdquo; or software errors.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+              </ol>
+            </div>
+
+            <div class="sheet-module">
+              <h3>Module B. Ethical values and risk</h3>
+              <p class="core">Do ethical risks outweigh the efficiency gains of AI in research administration?</p>
+              <ol class="statement-list">
+                <li class="statement-item"><p class="stmt"><span class="num">5</span>Efficiency in processing grants always justifies the use of AI, even if the internal process is opaque.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">6</span>An AI-generated report is valid as long as the data is accurate, regardless of how the AI model was trained.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">7</span>It is unethical to utilize AI for drafting internal communications without explicitly disclosing it to the recipients.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">8</span>Protecting institutional data privacy is always more important than adopting tools that speed up workflow.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+              </ol>
+            </div>
+
+            <div class="sheet-module">
+              <h3>Module C. Defining &ldquo;AI literacy&rdquo;</h3>
+              <p class="core">What constitutes &ldquo;literacy&rdquo; in the context of automated administration?</p>
+              <ol class="statement-list">
+                <li class="statement-item"><p class="stmt"><span class="num">9</span>High AI literacy is more important for modern research administrators than knowledge of institutional policy.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">10</span>An administrator is &ldquo;AI literate&rdquo; only if they can identify when an AI output is biased or incorrect.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">11</span>&ldquo;AI Literacy&rdquo; is the responsibility of the IT department, not the individual research administrator.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+              </ol>
+            </div>
+
+            <div class="sheet-module">
+              <h3>Module D. Economic and environmental impact</h3>
+              <p class="core">To what extent should global economic and environmental factors influence local administrative decisions?</p>
+              <ol class="statement-list">
+                <li class="statement-item"><p class="stmt"><span class="num">12</span>The preservation of administrative jobs must always take precedence over the cost-savings offered by AI automation.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">13</span>Research administrators are ethically complicit in environmental harm when they use energy-intensive large language models (LLMs).</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">14</span>The operational efficiency gained from AI always justifies its environmental footprint.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">15</span>AI tools will eventually replace the need for human research administrators entirely.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+                <li class="statement-item"><p class="stmt"><span class="num">16</span>It is not the responsibility of a research administrator to consider the global economic impact of the software tools they use.</p><p class="scale-row"><span><i class="box"></i>Disagree</span><span><i class="box"></i>Somewhat Disagree</span><span><i class="box"></i>Neutral</span><span><i class="box"></i>Somewhat Agree</span><span><i class="box"></i>Agree</span><span class="meta"><i class="box"></i>I Don&rsquo;t Know</span><span><i class="box"></i>N/A</span></p></li>
+              </ol>
+            </div>
+
+            <p class="sheet-credit">
+              &ldquo;Research Administration and AI: A Discussion Instrument&rdquo;
+              by Bert Baumgaertner and the AI4RA project team, University of
+              Idaho (Sarah Martonick, PI). Supported by NSF Award No. 2427549.
+              CC BY-NC-SA 4.0. ui-insight.github.io/NCURARegionalWorkshop2026/instrument.html
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -481,6 +481,13 @@
   margin-top: 0.8rem;
 }
 
+.link-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .link-grid a.slide-card {
   display: block;
   text-decoration: none;
@@ -514,4 +521,19 @@
 /* Sentence-length text on the back of flip cards needs more room than the REACH default */
 .flip-grid.tall .flip-card-back p {
   font-size: 0.85rem !important;
+}
+
+/* Narrate invite code */
+.reveal p.invite-code {
+  margin: 0.5rem 0 0.2rem !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 1.6rem !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink) !important;
+}
+
+.reveal .title-slide .slide-lede {
+  margin-left: auto;
+  margin-right: auto;
 }

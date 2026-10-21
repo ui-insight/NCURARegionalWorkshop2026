@@ -69,7 +69,9 @@ python3 -m http.server 4173 -d docs
 - [x] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/` (#1)
 - [ ] Nathan: build the 90-minute deck from the REACH material
 - [x] Bert: draft the 60-minute deck, `docs/slides-thinking-well.html` (NARC puzzles, Narrate, arguments by analogy, a workshop in miniature)
-- [ ] Bert: review the deck and speaker notes, and create the Narrate invite code for the room
+- [x] Shareable discussion instrument: `docs/instrument.html`, with `docs/files/ai4ra-discussion-instrument.pdf` (printed from that page) and `.docx` (built from `resources/discussion-instrument.md` with pandoc). Keep the three in sync.
+- [ ] Bert: review the deck and speaker notes
+- [ ] Bert: create the Narrate invite code `NCURA2026` on the NARC server, valid through November 30, 2026 (the slides advertise it)
 - [ ] Link Bert's [NARC](https://narc.insight.uidaho.edu/) activity from Resources once it is cleared for public use
 - [ ] Confirm room, time, and A/V with NCURA program contacts
 
