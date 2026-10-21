@@ -46,7 +46,7 @@ The [Narrate](https://narc.insight.uidaho.edu/narrate) tab on the NARC site is a
 
 Bert plans to use an invite code for workshop participants, so the workshop group's Narrate submissions are traceable to the event.
 
-Slide decks and activities are still to be built. Track them in GitHub issues.
+Bert's deck is drafted at `docs/slides-thinking-well.html` (press `S` for speaker notes). Nathan's deck is still to be built. Track work in GitHub issues.
 
 ## Repo layout
 
@@ -66,9 +66,12 @@ python3 -m http.server 4173 -d docs
 
 - [x] Workshop accepted by NCURA Region VI/VII
 - [x] Presenter lineup and session split (90 min Nathan, 60 min Bert, 30 min break and discussion)
-- [ ] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/`
+- [x] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/` (#1)
 - [ ] Nathan: build the 90-minute deck from the REACH material
-- [ ] Bert: build the 60-minute ethics and MARC deck and puzzle activity
+- [x] Bert: draft the 60-minute deck, `docs/slides-thinking-well.html` (NARC puzzles, Narrate, arguments by analogy, a workshop in miniature)
+- [x] Shareable discussion instrument: `docs/instrument.html`, with `docs/files/ai4ra-discussion-instrument.pdf` (printed from that page) and `.docx` (built from `resources/discussion-instrument.md` with pandoc). Keep the three in sync.
+- [ ] Bert: review the deck and speaker notes
+- [ ] Bert: create the Narrate invite code `NCURA2026` on the NARC server, valid through November 30, 2026 (the slides advertise it)
 - [ ] Link Bert's [NARC](https://narc.insight.uidaho.edu/) activity from Resources once it is cleared for public use
 - [ ] Confirm room, time, and A/V with NCURA program contacts
 

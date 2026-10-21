@@ -1,0 +1,539 @@
+/* Part 2 deck (Thinking well with AI). Builds on slides.css. */
+
+/* --- Section dividers --- */
+.part-divider h2 {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.reveal .part-divider .slide-lede {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+}
+
+.reveal .part-divider .slide-kicker {
+  color: var(--gold) !important;
+}
+
+/* --- NARC puzzle strip --- */
+.narc-seq {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.1rem;
+  margin: 0.4rem auto 0;
+}
+
+.narc-seq.small { --cell: 16px; gap: 0.8rem; }
+
+.narc-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.narc-panel-label {
+  margin: 0 !important;
+  font-size: 0.62rem !important;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+}
+
+.narc-grid {
+  --cell: 22px;
+  display: grid;
+  gap: 2px;
+  padding: 2px;
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+.narc-seq.small .narc-grid { --cell: 16px; }
+.narc-seq.tiny .narc-grid { --cell: 11px; gap: 1px; padding: 1px; }
+
+.narc-cell {
+  display: block;
+  width: var(--cell);
+  height: var(--cell);
+  border-radius: 2px;
+}
+
+.narc-slot {
+  position: relative;
+}
+
+.narc-mask {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: #fffbeb;
+  border: 2px dashed #f59e0b;
+  color: #b45309;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* Hidden frame as Narrate shows it: visible to the writer, outlined for "the model won't see this" */
+.narc-hidden-from-model {
+  outline: 3px dashed #f59e0b;
+  outline-offset: 3px;
+}
+
+.narc-arrow {
+  align-self: center;
+  color: #9a7300;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 -0.3rem;
+}
+
+.narc-story {
+  max-width: 40rem;
+  margin: 0.9rem auto 0;
+  padding: 0.7rem 1rem;
+  border-left: 6px solid var(--gold);
+  background: rgba(241, 179, 0, 0.1);
+  text-align: left;
+  color: var(--ink) !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+.narc-story-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a7300;
+}
+
+.narc-credit {
+  margin-top: 0.6rem !important;
+  font-size: 0.72rem !important;
+  color: var(--muted) !important;
+}
+
+/* --- Results row (grids only vs. with story) --- */
+.result-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.9rem;
+}
+
+.result-chip {
+  min-width: 10rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.8rem;
+  background: rgba(25, 25, 25, 0.04);
+  border: 1px solid rgba(25, 25, 25, 0.12);
+}
+
+.result-chip strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.result-chip span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* --- Alternative narratives --- */
+.narr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  text-align: left;
+}
+
+.narr-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.narr-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.75rem 1.7rem;
+  border-radius: 0.8rem;
+  border: 2px solid rgba(25, 25, 25, 0.12);
+  background: rgba(25, 25, 25, 0.03);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.narr-card:hover { border-color: var(--gold); }
+
+.narr-tag {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a7300;
+}
+
+.narr-text {
+  margin: 0 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.34 !important;
+  color: var(--ink) !important;
+}
+
+.narr-verdict {
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.45rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.narr-verdict::before { content: "Click to reveal"; }
+.narr-card .narr-result { display: none; }
+
+.narr-card.revealed .narr-verdict::before { content: none; }
+.narr-card.revealed .narr-result { display: inline; }
+
+.narr-card.revealed[data-verdict="ok"] {
+  border-color: #2e7d4f;
+  background: rgba(46, 125, 79, 0.08);
+}
+.narr-card.revealed[data-verdict="ok"] .narr-verdict { color: #2e7d4f; }
+
+.narr-card.revealed[data-verdict="fail"] {
+  border-color: #b3261e;
+  background: rgba(179, 38, 30, 0.06);
+}
+.narr-card.revealed[data-verdict="fail"] .narr-verdict { color: #b3261e; }
+
+.narr-reveal-all,
+.tally-reset {
+  margin-top: 0.6rem;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  border: 2px solid rgba(25, 25, 25, 0.14);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.narr-reveal-all:hover,
+.tally-reset:hover { border-color: var(--gold); color: var(--ink); }
+
+/* --- Argument by analogy: the form --- */
+.analogy-form {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 38rem;
+  margin: 0.6rem auto 0;
+  text-align: left;
+}
+
+.analogy-step {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.8rem;
+  background: rgba(25, 25, 25, 0.04);
+  border: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.analogy-step.conclusion {
+  background: rgba(241, 179, 0, 0.12);
+  border-color: rgba(241, 179, 0, 0.45);
+}
+
+.analogy-key {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.analogy-step.conclusion .analogy-key { background: var(--gold); color: var(--ink); }
+
+.analogy-step p {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  color: var(--ink) !important;
+}
+
+.analogy-pushback {
+  max-width: 38rem;
+  margin: 0.8rem auto 0;
+  padding: 0.55rem 0.9rem;
+  border-left: 6px solid var(--ink);
+  background: rgba(25, 25, 25, 0.05);
+  text-align: left;
+  font-size: 0.92rem !important;
+  color: var(--ink) !important;
+}
+
+.analogy-quote {
+  max-width: 40rem;
+  margin: 0.4rem auto 0;
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.9rem;
+  background: rgba(241, 179, 0, 0.1);
+  border: 1px solid rgba(241, 179, 0, 0.4);
+  text-align: left;
+  color: var(--ink) !important;
+  font-size: 1.02rem !important;
+  line-height: 1.45 !important;
+}
+
+/* Taller flip cards for sentence-length text */
+.flip-grid.tall .flip-card { height: 8.5rem; }
+.flip-grid.two { grid-template-columns: repeat(2, 1fr); }
+.flip-grid.four { grid-template-columns: repeat(4, 1fr); }
+.flip-card-front p {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.35 !important;
+  color: var(--ink) !important;
+  font-weight: 700;
+}
+.flip-hint {
+  margin-top: 0.4rem !important;
+  font-size: 0.8rem !important;
+  color: var(--muted) !important;
+}
+
+/* --- Workshop statements and room tally --- */
+.statement {
+  max-width: 44rem;
+  margin: 0.4rem auto 0;
+  padding: 1rem 1.3rem;
+  border-radius: 1rem;
+  background: var(--ink);
+  color: #fff !important;
+  font-size: 1.35rem !important;
+  line-height: 1.3 !important;
+  font-weight: 750;
+  text-align: left;
+}
+
+.statement-meta {
+  margin-top: 0.4rem !important;
+  font-size: 0.8rem !important;
+  color: var(--muted) !important;
+}
+
+.statement mark {
+  background: rgba(241, 179, 0, 0.35);
+  color: #fff;
+  padding: 0 0.15em;
+  border-radius: 0.2em;
+}
+
+.tally {
+  max-width: 44rem;
+  margin: 0.7rem auto 0;
+}
+
+.tally-buttons {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.tally-btn {
+  padding: 0.35rem 0.2rem;
+  border-radius: 0.6rem;
+  border: 2px solid rgba(25, 25, 25, 0.12);
+  background: #fff;
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.tally-btn:hover { border-color: var(--gold); }
+
+.tally-n {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.tally-hand {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tally-bar {
+  display: flex;
+  height: 1.6rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: rgba(25, 25, 25, 0.05);
+}
+
+.tally-bar.empty::after {
+  content: "Count hands, then click the matching button. Shift-click removes one.";
+  margin: auto;
+  font-size: 0.62rem;
+  color: var(--muted);
+}
+
+.tally-seg {
+  display: grid;
+  place-items: center;
+  min-width: 1.4rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.tally-d  { background: #3d3d3d; }
+.tally-sd { background: #8a8a8a; }
+.tally-n0 { background: #cfcfcf; color: var(--ink); }
+.tally-sa { background: #f6d26b; color: var(--ink); }
+.tally-a  { background: #f1b300; color: var(--ink); }
+.tally-dk { background: #5b7fa6; }
+.tally-na { background: #ececec; color: var(--ink); }
+
+/* --- Three-way diagnosis (facts, values, words) --- */
+.diagnose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+  text-align: left;
+}
+
+.diagnose-grid .slide-card h3 {
+  margin: 0 0 0.3rem !important;
+  font-size: 1rem !important;
+}
+
+.diagnose-grid .slide-card p {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.38 !important;
+}
+
+.diagnose-grid .slide-card .eg {
+  margin-top: 0.5rem !important;
+  font-style: italic;
+  color: var(--ink) !important;
+}
+
+/* --- Design-rule list --- */
+.rule-list {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 42rem;
+  margin: 0.5rem auto 0;
+  text-align: left;
+}
+
+.rule-list .slide-card {
+  padding: 0.5rem 0.9rem;
+}
+
+.rule-list h3 {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+}
+
+.rule-list p {
+  margin: 0.15rem 0 0 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.35 !important;
+}
+
+/* --- Links slide --- */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.link-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-grid a.slide-card {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+}
+
+.link-grid a.slide-card:hover { border-color: var(--gold); }
+
+.link-grid h3 {
+  margin: 0 0 0.25rem !important;
+  font-size: 0.95rem !important;
+  color: var(--ink);
+}
+
+.link-grid p {
+  margin: 0 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Reveal's theme sets `.reveal p { margin: ... 0 }`, which un-centers boxed paragraphs */
+.reveal p.analogy-quote,
+.reveal p.statement,
+.reveal p.narc-story,
+.reveal p.analogy-pushback,
+.reveal p.statement-meta {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sentence-length text on the back of flip cards needs more room than the REACH default */
+.flip-grid.tall .flip-card-back p {
+  font-size: 0.85rem !important;
+}
+
+/* Narrate invite code */
+.reveal p.invite-code {
+  margin: 0.5rem 0 0.2rem !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 1.6rem !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink) !important;
+}
+
+.reveal .title-slide .slide-lede {
+  margin-left: auto;
+  margin-right: auto;
+}
