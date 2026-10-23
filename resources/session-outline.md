@@ -6,7 +6,7 @@ The first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, S
 
 ## The spine
 
-One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it. Ninety minutes in all: an opening of 6, blocks of 15, 15, 13, 10, 9, 7 and 11, and a close of 4.
+One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it.
 
 - **Opening.** A king who distrusted the written record, and one question to hold: who should remember, and who should be reminded?
 1. The model guesses the most likely next word, so it is a crowd, not an expert. Skill: know what to ask a crowd.
@@ -17,6 +17,8 @@ One sentence runs through all ninety minutes: **augment, not replace. AI prepare
 6. Start with what is on your desk. Skill: three small things this month.
 7. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
 - **Close.** Why we still know the king's name, and which half of his warning still stands.
+
+Ninety minutes in all: an opening of 6, blocks of 15, 15, 13, 10, 9, 7 and 11, and a close of 4.
 
 ## Opening (6 minutes)
 
@@ -34,7 +36,7 @@ Everyone opens Promptulus, a prompt-training page, picks a coach (your choice; T
 
 What an exchange looks like. You type: "Summarize this award notice." Telosa answers with questions, not a summary: Who reads the summary, and what will they do with it? Which terms would be expensive to miss, cost share, reporting dates, prior-approval requirements? How long should it be? You answer, and the prompt that finally goes to the model is three sentences longer and gets a summary a post-award officer can act on. The habit is the point, not the tool: the three questions work typed into any chat window.
 
-**Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. That is the next problem, and it has a very old name.
+**Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. The coach reminded you what to say; nothing yet has reminded the model what is true. That is the king's question, turned around.
 
 ## Block 3. Reminding the machine (13 minutes)
 
