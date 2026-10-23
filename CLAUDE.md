@@ -20,7 +20,7 @@ This is the companion site for the NCURA Region VI/VII Regional Meeting 2026 wor
 
 - `docs/` is the GitHub Pages source (all site HTML, CSS, JS, images, Reveal.js)
 - `resources/` holds reference materials not served by the site
-- Root holds only CLAUDE.md, README.md, LICENSE, .gitignore
+- Root holds only CLAUDE.md, README.md, LICENSE (Apache 2.0, code), LICENSE-CONTENT.md (CC BY 4.0, content), NOTICE, .gitignore
 
 ## Writing style
 

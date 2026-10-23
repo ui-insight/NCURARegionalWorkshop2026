@@ -1,0 +1,16 @@
+Augmenting Research Administration with AI
+NCURA Region VI/VII Regional Meeting 2026 companion site
+Copyright 2026 Nathan Layman and Bert Baumgaertner
+
+The source code in this repository is licensed under the Apache License,
+Version 2.0 (see LICENSE). The teaching content (text, slides, speaker
+notes, worksheets, images) is licensed under the Creative Commons
+Attribution 4.0 International License (see LICENSE-CONTENT.md).
+
+This site includes third-party software:
+
+- reveal.js (docs/reveal/), Copyright Hakim El Hattab and contributors,
+  MIT License, https://revealjs.com/
+- Site structure and styling carried over from ui-insight/REACHWorkshop2026,
+  and the key manager and API bridge adapted from AI4RA/promptulus, both by
+  the same authors.

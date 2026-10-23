@@ -52,7 +52,7 @@ Both decks are drafted: `docs/slides-where-ai-fits.html` (Nathan, Part 1) and `d
 
 - `docs/` is the GitHub Pages source (site HTML, CSS, JS, images, Reveal.js decks).
 - `resources/` holds reference materials not served by the site (abstract, planning notes).
-- Root holds only CLAUDE.md, README.md, LICENSE, and .gitignore.
+- Root holds only CLAUDE.md, README.md, LICENSE, LICENSE-CONTENT.md, NOTICE, and .gitignore.
 
 Site structure and styling are carried over from [ui-insight/REACHWorkshop2026](https://github.com/ui-insight/REACHWorkshop2026).
 
@@ -109,4 +109,7 @@ The gradient descent image is used by the token builder's sidebar in `docs/slide
 
 ## License
 
-Content is released under [CC BY-NC-SA 4.0](LICENSE).
+Copyright 2026 Nathan Layman and Bert Baumgaertner.
+
+- **Code** (HTML structure, CSS, JavaScript, scripts) is licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for attribution and third-party components.
+- **Content** (text, slides, speaker notes, worksheets, images) is licensed under [CC BY 4.0](LICENSE-CONTENT.md). Reuse it freely, commercially or not, with credit to the authors and a link back to this site.

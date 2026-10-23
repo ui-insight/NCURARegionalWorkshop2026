@@ -827,3 +827,16 @@ p {
   width: 90%;
   box-shadow: var(--shadow);
 }
+
+/* Footer: copyright and license line on every site page */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid rgba(25, 25, 25, 0.12);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: inherit; text-decoration: underline; }
+.site-footer a:hover { color: var(--ink); }
