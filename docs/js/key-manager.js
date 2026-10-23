@@ -20,6 +20,7 @@ export function setKey(k) {
   } else {
     sessionStorage.removeItem(STORAGE_KEY);
   }
+  armCrossOriginLinks();
 }
 
 let loadedFromURL = false;
@@ -58,8 +59,25 @@ function appendKeyToUrl(href, key) {
   }
 }
 
+// Rewrite the href of every Promptulus / Carl link so the key travels with it
+// however the link is opened: left click, middle click, "open in new tab",
+// or copy link. Safe to call repeatedly; a changed key replaces the old one.
+export function armCrossOriginLinks() {
+  const key = getKey();
+  document.querySelectorAll('a[href]').forEach(function (anchor) {
+    const href = anchor.getAttribute('href');
+    if (!isCrossOriginTarget(href)) return;
+    if (!anchor.dataset.baseHref) anchor.dataset.baseHref = href;
+    const base = anchor.dataset.baseHref;
+    anchor.setAttribute('href', key ? appendKeyToUrl(base, key) : base);
+  });
+}
+
 // Intercept clicks on interactive links to inject key at click time
+// (belt and braces alongside armCrossOriginLinks, and it covers links added
+// to the page after load).
 export function installLinkInterceptor() {
+  armCrossOriginLinks();
   document.addEventListener('click', function (e) {
     const key = getKey();
     if (!key) return;
