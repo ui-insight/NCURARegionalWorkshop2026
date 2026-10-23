@@ -1,103 +1,118 @@
-# Where AI fits in research administration: attendee guide to Part 1
+# Where AI fits in research administration: the Part 1 story, for review
 
-NCURA Region VI/VII Regional Meeting, Denver. Sunday, November 8, 2026. A three-hour workshop in two parts. This guide covers the first ninety minutes, led by Nathan Layman, a data scientist at the University of Idaho who works on AI4RA, an NSF-funded project (award 2427549) that builds open-source AI tools for research administration offices. After a ten-minute break, Bert Baumgaertner, a philosopher at the same university, leads an hour on thinking well with AI. The last half hour is open discussion with both presenters.
+This is the narrative plan for the first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, Sunday, November 8, 2026; time and room are in the NCURA program and on the companion site). It is written for a research administrator who will be in the seat, and it is here to be judged on two things: does the story flow, one block handing off to the next, and does the talk cover what you would need in order to act on it afterward. Logistics are on the companion site, **https://ui-insight.github.io/NCURARegionalWorkshop2026/**, and are not the point of this document.
 
-Everything linked here is also on the companion site: **https://ui-insight.github.io/NCURARegionalWorkshop2026/**. A QR code for it will be on screen throughout.
+Part 1 is led by Nathan Layman, a data scientist at the University of Idaho on AI4RA, an NSF-funded project (award 2427549) that builds open-source AI tools for research administration offices. "ui-insight" in the links below is the GitHub organization of the University of Idaho research data team that builds them. After a ten-minute break, Bert Baumgaertner, a philosopher at the same university, leads an hour on thinking well with AI: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format you can run at your own institution. The last half hour is open discussion with both.
+
+## The spine
+
+One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it.
+
+1. The model guesses the most likely next word, so it is a crowd, not an expert. Skill: know what to ask a crowd.
+2. The crowd answers better when you tell it what you want. Skill: prompt with intent, hands-on.
+3. The crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and know that the record you hand it travels.
+4. Only a person can be accountable. Skill: four questions and a sort.
+5. Start with what is on your desk. Skill: three small things this month.
+6. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
 
 ## Before you arrive
 
-- **Bring a laptop.** One block is you at a keyboard. A phone works for the polls but not for the hands-on block.
-- **Bring one real task from your desk.** An email you have to write, a notice you have to summarize, a budget you have to check. You will use it in the Promptulus block. Choose something that contains no personal, financial, or restricted data, because you will paste it into a web app.
-- **No account or install is needed.** Every tool used in the room is a web page. The one that needs a key gets it from a QR code in the room, and the key expires after the workshop.
+Bring a laptop and one real task from your desk that contains no personal, financial, or restricted data; you will paste it into a web app. Nothing needs an account or an install. In the room, Promptulus and Data Crawler Carl run on a shared workshop key delivered by QR code, which expires after the day. On Monday you use your own key: a free Google Gemini key from Google AI Studio, or an institutional one if your office has an AI gateway.
 
-## The tools, and what you can do with each after today
+## The tools
 
-| Tool | What it is | In the room | On Monday |
+| Tool | What it is | Room | After |
 |---|---|---|---|
-| [Promptulus](https://ai4ra.github.io/promptulus/) | A prompt-training web app with a set of coaching characters that critique your prompt before the model answers it | You use it on your laptop | Open source, free. Use it with your own Google Gemini key or an institutional key |
-| [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Upload a spreadsheet, ask questions in plain English, and watch the database query the model writes to answer them | Live demo from the podium | Open source, free, runs in your browser. Your data never leaves your machine; only the column names go to the model |
-| Remembering Thamus | A page that asks one compliance question three ways: from the model's memory, from a search index, and from a live lookup of the regulation | Live demo from the podium | In development at [github.com/nate-layman/thamus](https://github.com/nate-layman/thamus). The README tells the story even before the page is live |
-| [Vandalizer](https://vandalizer.uidaho.edu) | A document-extraction and review platform built for research administrators: pull facts out of award notices, check proposals against solicitations, chain tasks into reusable workflows | Live demo from the podium | A free trial is available at the site. Open source at [github.com/ui-insight/vandalizer](https://github.com/ui-insight/vandalizer) |
-| [AI4RA Unified Data Model](https://ui-insight.github.io/AI4RA-UDM/) | A draft shared vocabulary for research administration data: forty tables covering proposals, awards, finance, effort, compliance, people and organizations | Shown, with a request for your help evaluating it | Read it, then tell us where it gets your reality wrong on the [AI4RA community list](https://groups.ai4ra.uidaho.edu/g/main/join) |
-
-Nothing in Part 1 asks you to buy, install, or sign a contract for anything.
+| [Promptulus](https://ai4ra.github.io/promptulus/) | A prompt-training page. You pick a coach, each named for one habit: Telosa for intent, Mnemos for context, Modulus for breaking a task into steps, Sequita for an auditable trail, Dialogos for conversation, Vitrea for transparency, Veridex for evaluation, Clarion for reporting. The coach critiques your prompt before the model answers it | Hands-on | Free, open source, your own key |
+| [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Upload a spreadsheet, ask in plain English, see the database query the model wrote | Demo | Free, runs in your browser; only column names reach the model |
+| Remembering Thamus | One compliance question answered three ways: memory, search index, live lookup | Demo | In development at [github.com/nate-layman/thamus](https://github.com/nate-layman/thamus); the README carries the story |
+| [Vandalizer](https://vandalizer.uidaho.edu) | Document extraction and review workflows built for research administrators | Demo | Free trial at the site; open source; a university research project, not a vendor product, so pilot it as you would any pilot |
+| [AI4RA Unified Data Model](https://ui-insight.github.io/AI4RA-UDM/) | A draft shared vocabulary for research administration data | Shown, with a request for help | Read it and reply on the [AI4RA community list](https://groups.ai4ra.uidaho.edu/g/main/join) |
 
 ## The ninety minutes
 
 ### Opening (3 minutes)
 
-The one rule for the day: augment, not replace. AI prepares, a person decides. Every tool you see today follows that pattern, and so does every recommendation.
+The spine sentence, said once and plainly. Then a promise: the room will meet an Egyptian king in about half an hour, and he will explain the whole day.
 
 ### Block 1. How language models work (17 minutes)
 
-A language model builds a sentence one word at a time by picking the most likely next word. Two exercises make that visible: the room builds a sentence together, one word per person, and everyone picks a random number between 1 and 10, which shows that a model's picks cluster the same way a room's do. The mental model to carry out of the block: asking an AI is like asking a crowd of a thousand well-read non-experts. The crowd is excellent on consensus knowledge and unreliable on anything specialized, local, or recent. The block ends with a spot-the-fabrication exercise and one practical limit: the model can only read so many pages at once.
+A language model builds a sentence one word at a time by picking the most likely next word. Two exercises make that visible: the room builds a sentence together, one word per person, and everyone picks a random number between 1 and 10, which shows that a model's picks cluster the way a room's do. The mental model to carry: asking an AI is like asking a crowd of a thousand well-read non-experts. Excellent on consensus knowledge, unreliable on anything specialized, local, or recent. A spot-the-fabrication exercise shows what "most likely" does to a citation. One practical limit closes the block: the model can only read so many pages at once, which matters the moment you start handing it documents.
+
+**Hand-off:** if the model is a crowd guessing what you probably mean, the first skill is telling it what you actually mean.
 
 ### Block 2. Promptulus, hands-on (15 minutes)
 
-You open Promptulus on your laptop, pick a coach, and work your real task. The coaches ask what you want, who it is for, and what a good answer would contain before the model writes anything. Four minutes to get everyone in, eight minutes to work, three minutes of debrief: what did the coach make you say that you had not thought to say?
+You open Promptulus on your laptop, pick a coach, and work your real task. The coach asks what you want, who it is for, and what a good answer would contain before the model writes a word. Four minutes to get everyone in, eight to work, three to debrief on one question: what did the coach make you say that you had not thought to say?
+
+**Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. That is the next problem, and it has a very old name.
 
 ### Block 3. Remembering Thamus (22 minutes)
 
-The centerpiece, and the reason the companion page is named what it is.
+The centerpiece. It opens with a story from Plato's *Phaedrus*. The god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw.
 
-It opens with a story from Plato's *Phaedrus*. The god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves, and writing is a remedy not for memory but for reminding. He meant that as the flaw.
+Then the story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused.
 
-Then the lesson is turned onto the machine. A model's memory is its training: enormous, confident, frozen on a date, and stale after it. So the fix for a machine is exactly the reminding Thamus refused. The live demo asks one question three ways: what de minimis indirect cost rate may a recipient without a negotiated rate charge?
+**Demo one, three answers to one question.** What de minimis indirect cost rate may a recipient without a negotiated rate charge?
 
-- **From memory,** the model says 10 percent. That was the rule in most of what it read. It is wrong today.
-- **From a search index** of the regulation, the model gets close, but cannot show you which passage it leaned on.
-- **From a live lookup,** the model searches the eCFR, reads one paragraph, and answers 15 percent of modified total direct costs, citing 2 CFR 200.414(f) as in force on the day of the lookup. You can check it yourself at https://www.ecfr.gov/current/title-2/section-200.414. The rate changed on October 1, 2024, when the revised Uniform Guidance took effect; the equipment capitalization threshold ($5,000 to $10,000) and the subaward portion counted toward MTDC ($25,000 to $50,000) changed the same day, and both make good second questions.
+- From memory, the model says 10 percent. That was the rule in most of what it read. It is wrong today.
+- From a search index of the regulation, it gets close but cannot show which passage it leaned on.
+- From a live lookup, it searches the eCFR, reads one paragraph, and answers 15 percent of modified total direct costs, citing 2 CFR 200.414(f) as in force on the day of the lookup. Check it yourself: https://www.ecfr.gov/current/title-2/section-200.414. The rate changed on October 1, 2024, with the revised Uniform Guidance; the equipment threshold ($5,000 to $10,000) and the subaward portion counted toward MTDC ($25,000 to $50,000) changed the same day and make good second questions.
 
-Watch for one thing: the model sounds equally sure in all three columns. Confidence is not evidence.
+Watch one thing: the model sounds equally sure in all three columns. Confidence is not evidence.
 
-A second demo, with Data Crawler Carl, shows the same lesson on structured data. Asked for total federal funding by department on a small awards table, Carl writes a correct query that silently drops every award whose department was left blank, and nothing in its narrative says so. The model did nothing wrong. The table was not ready to answer the question.
+**Demo two, the same lesson on a spreadsheet.** Data Crawler Carl is asked for total federal funding by department on a small awards table. It writes a correct query that silently drops every award whose department was left blank, and nothing in its narrative says so. The model did nothing wrong. The table was not ready to answer the question. Reminding only works if the record is right.
 
-That failure opens the back half of the block:
+**So the record has to be right, and shared.** Every office tracks the same things, a sponsor, a PI, an award, a budget, and every system names them differently. Every report starts by reconciling them, and nothing built at one institution runs at the next. A shared data model is the fix. The AI4RA UDM is a draft of one, written by a small team at one institution, and the ask is for readers, not adopters: does it describe an award the way you would, what does your office track that is missing, what do you call differently.
 
-- **Why research administration needs a common language.** Every office tracks the same things, a sponsor, a PI, an award, a budget, and every system names them differently, so every report starts by reconciling them and nothing built at one institution runs at the next. A shared data model is the fix. The AI4RA UDM is a draft of one, written by a small team at one institution, and we are asking for readers, not adopters: does it describe an award the way you would, what does your office track that is missing, what do you call differently. Feedback goes to the AI4RA community list.
-- **Why that data needs one governed home.** Keep the raw sources so you can prove what they said, translate each one to the shared model once, and let the model answer from the reconciled copy rather than from whichever spreadsheet was open. The difference is between a tool that is confidently wrong and a pipeline that is honestly incomplete.
-- **Reminding has a cost.** Everything you hand the model to remind it, it reads. For Thamus the cost of the record was forgetting; for a machine, the cost is exposure. So: where does the model run? Vendor cloud, which has the best models and the least visibility; local, where data never leaves the building; or a hybrid. If you use a cloud model, use your institution's enterprise agreement, never a consumer account, because only the agreement gives you data protection terms, no training on your inputs, and an audit trail. And some data may not leave under any agreement. The usual list: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, and anything a sponsor's terms restrict. Your institution's data classification policy is the authority; if you do not know where to find it, that is the first thing to look up on Monday.
+**And the record has to live somewhere governed.** Keep the raw sources so you can prove what they said, translate each one to the shared model once, and let the model answer from the reconciled copy, not from whichever spreadsheet was open. The difference is a tool that is confidently wrong versus a pipeline that is honestly incomplete.
+
+**And reminding has a cost.** Everything you hand the model, it reads. For Thamus the cost of the record was forgetting. For a machine, the cost is exposure. So, where does the model run? Vendor cloud, with the best models and the least visibility; local, where the data never leaves the building; or hybrid. If cloud, use your institution's enterprise agreement, never a consumer account, because only the agreement gives you data protection terms, no training on your inputs, and an audit trail. And some data may not leave under any agreement: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, anything a sponsor's terms restrict. Your institution's data classification policy is the authority.
 
 The block ends on the reveal. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down.
 
+**Hand-off:** the record can be right, shared, governed, and safely handed over, and the answer can still be wrong. Someone has to own it.
+
 ### Block 4. Accountability (9 minutes)
 
-Four questions to ask before any task goes to a model, in thirty seconds:
+Four questions before any task goes to a model, in thirty seconds:
 
-1. Can you hand it everything it needs? If the answer depends on your award terms, your policy, or your data, those have to be in the question. If you cannot put them there, the task is "data first," not "AI now."
+1. Can you hand it everything it needs? If the answer depends on your award terms, your policy, or your data, those have to be in the question. If they cannot be, the task is "data first," not "AI now."
 2. Can you check the answer cheaply? Against a source, a known sample, a second run, or your own eyes, in under a minute. If checking costs as much as doing, you have saved nothing and added a risk.
 3. Who is accountable for the result? A name, a role, a signature. If the honest answer is "the AI," stop.
 4. Does it have to be the same tomorrow? Audit samples, determinations, and anything a reviewer might repeat need a reproducible method. The model gives a different answer each run, so reproducibility has to come from the method.
 
-Then a sorting exercise. You get a list of real research administration tasks and place each on a line from process-critical (financial audits, effort certification, misconduct investigations, where who did each step and how is the point) through human-in-the-loop (budget flag review, subrecipient risk summaries, compliance checks, where the model does the legwork and a professional signs) to output-driven (boilerplate drafting, formatting, where only the result is judged). Two test questions place any task: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? Where both answers are "not really," AI can lead. Where either is "yes," a person stays in the loop. You leave with your own sort, on paper, to compare with your office's practice.
+Then the sort. Nine real tasks, three bins, AI now, data first, keep human: pull deadlines and page limits out of a solicitation; draft a budget justification from a completed budget; compare a subaward budget to its justification and flag mismatches; report federal funding by department for the Vice President for Research; list every active award with an overdue effort certification; predict which proposals are most likely to be funded; decide whether a questionable cost transfer is allowable; negotiate a disputed IP clause with an industry sponsor; tell a PI their proposal missed the deadline. Two test questions place any task: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? Where both answers are "not really," AI can lead. Where either is "yes," a person stays in the loop. Three of the nine land in "data first," which is the sort's own argument for the data model you just saw.
+
+**Hand-off:** you know what the model is, how to ask it, what to hand it, and who owns the answer. Now the smallest thing you can do with that on Monday.
 
 ### Block 5. Start small (7 minutes)
 
-Three things an office can try this month, each with a recipe on the companion site:
+Three recipes, each with the same two rules: enterprise account, not personal, and read what it wrote before you trust it.
 
-- A portfolio dashboard built in an afternoon with a chat model that produces a web page from a spreadsheet export.
-- AI inside the spreadsheet you already use, through the add-in your institution's Microsoft 365 or Google Workspace agreement already covers, for the formulas and summaries you write by hand today.
-- The one task from your desk you worked in Promptulus, run for real on Monday with a colleague checking the result.
+- **An afternoon's dashboard.** Export a de-identified CSV of proposals by sponsor or awards by department. Paste it into a chat model and ask for an interactive dashboard: totals by sponsor type, awards ending within 90 days, a department filter. It writes the page in about a minute. Then check two numbers against a pivot table. It is a prototype for a conversation with leadership, not a system of record, and the blank-department lesson applies.
+- **AI inside the spreadsheet you already use.** The add-in your Microsoft 365 or Google agreement already covers sits beside the open workbook. Ask it to explain an F&A formula in plain language, write a formula that flags awards ending within 90 days, classify sponsors as federal, industry, or nonprofit and list the rows it was unsure about. Read every formula. Once you have read it, it is yours.
+- **Your Promptulus task, for real.** Run the task you worked in Block 2 on Monday, with a colleague checking the result.
 
 Each bigger step depends on the one below it: a clean spreadsheet before a dashboard, a dashboard before a shared data model, a shared model before any tool that runs across offices.
 
+**Hand-off:** small starts are checked by hand each time. When the same task repeats a hundred times, you want a workflow you can check once.
+
 ### Block 6. Vandalizer (11 minutes)
 
-Two demos. Extract the PI, the dates, the budget, and the terms from an award notice into a structured record. Then check a proposal against its solicitation and catch the mismatch. Vandalizer shows its sources for every extracted value, which is the point: a reusable workflow can be checked once and trusted many times. The block ends with three ways to check output you did not write: inspect it directly against the source, keep the trail of how it was produced, and test the tool on cases where you already know the answer before trusting it on ones where you do not.
+Two demos. Extract the PI, the dates, the budget, and the terms from an award notice into a structured record, with the source passage shown for every value. Then check a proposal against its solicitation and catch the mismatch. The point is the reusable workflow: same prompt, same steps, so accuracy can be measured once and trusted many times. The block ends with three ways to check output you did not write: inspect it directly against the source, keep the trail of how it was produced, and test the tool on cases where you already know the answer before trusting it on ones where you do not. As tools take more steps on their own, inspection carries less of the load and the other two carry more.
 
 ### Close (3 minutes)
 
-Three bins for every task on your desk: automate, augment, or leave alone. One thing to take home from the start-small list. Then the handoff to Bert, whose hour is the other half of the same problem. The machine needs to remember less and look things up more. People need to keep enough in their own heads to judge what comes back.
+Three bins for every task on your desk: automate, augment, or leave alone. One thing to take home from the start-small list. Then the handoff. The machine needs to remember less and look things up more; that was the first ninety minutes. People need to keep enough in their own heads to judge what comes back; that is Bert's hour.
 
 ## What a good Monday looks like
 
 - You have found your institution's AI guidance and data classification policy, or confirmed there is none and told someone.
 - You have run your Promptulus task for real, with a colleague checking the result.
-- You have sorted five tasks from your own desk onto the process-critical to output-driven line and talked about one of them with your supervisor.
+- You have sorted five tasks from your own desk into the three bins and talked about one with your supervisor.
 - You have read the UDM for ten minutes and sent one sentence about it to the AI4RA community list.
 
-## Questions, feedback, and staying in touch
+## Contact
 
-- Companion site: https://ui-insight.github.io/NCURARegionalWorkshop2026/
-- AI4RA project and community list: https://ai4ra.uidaho.edu and https://groups.ai4ra.uidaho.edu/g/main/join
-- Nathan Layman, nlayman@uidaho.edu. Bert Baumgaertner, bbaum@uidaho.edu.
+Nathan Layman, nlayman@uidaho.edu. Bert Baumgaertner, bbaum@uidaho.edu. AI4RA: https://ai4ra.uidaho.edu
