@@ -69,9 +69,9 @@ Same mechanism as REACH 2026, with a University of Idaho MindRouter key in place
 1. The QR code, `docs/img/workshop_QR_code.png`, encodes this site's address with `?key=mr2_...` appended. The key lives only in that image, never in the source. After the key is rotated the code still opens the site, but Promptulus will reject the old token until a new one is pasted in the home page modal.
 2. `docs/app.js` reads `?key=` on any page, stores it in tab-scoped sessionStorage, and strips it from the address bar.
 3. `docs/js/key-manager.js` appends the stored key to every Promptulus link at click time. Promptulus fills its key box on load and routes `mr2_` keys to MindRouter with nothing else to set.
-4. The home page has an "Enable interactive activities" button that opens the key modal (QR code, short link, paste box) and an "Expand for audience" view with the Wi-Fi details for projecting.
+4. The home page has an "Enable interactive activities" button that opens the key modal (QR code, site address, paste box) and an "Expand for audience" view for projecting.
 
-Before Denver: fill in the Wi-Fi placeholders in `docs/index.html`. Rotate the key on MindRouter afterward.
+Rotate the key on MindRouter after the workshop.
 
 ### Localizing Part 1 assets
 
@@ -97,7 +97,7 @@ The gradient descent image is used by the token builder's sidebar in `docs/slide
 - [x] Nathan: draft the 90-minute deck, `docs/slides-where-ai-fits.html` (how LLMs work and fail, Promptulus and Vandalizer hands-on, sorting the work, the data underneath)
 - [ ] Nathan: localize deck assets now hosted on the REACH site (Promptulus mascots, Vandalizer logo, data-model diagram, sample PDFs). See the note under Local preview.
 - [x] Nathan: mint the MindRouter key and the QR code (`docs/img/workshop_QR_code.png`)
-- [ ] Nathan: fill in the Wi-Fi details in `docs/index.html`; rotate the key after Denver
+- [ ] Nathan: rotate the MindRouter key after Denver
 - [ ] Nathan: arrange Vandalizer workshop logins for the hands-on block
 - [x] Bert: draft the 60-minute deck, `docs/slides-thinking-well.html` (NARC puzzles, Narrate, arguments by analogy, a workshop in miniature)
 - [x] Shareable discussion instrument: `docs/instrument.html`, with `docs/files/ai4ra-discussion-instrument.pdf` (printed from that page) and `.docx` (built from `resources/discussion-instrument.md` with pandoc). Keep the three in sync.
