@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1b300" />
+    <title>Where AI fits in research administration | AI4RA Workshop</title>
+    <meta
+      name="description"
+      content="Slide deck: Where AI fits in research administration. How LLMs work and fail, hands-on with Promptulus and Vandalizer, and the data underneath. Part 1 of the NCURA Region VI/VII 2026 workshop, led by Nathan Layman."
+    />
+    <link rel="stylesheet" href="reveal/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal/dist/theme/white.css" />
+    <link rel="stylesheet" href="slides.css" />
+    <style>
+      /* Awards-table demo: rows with a missing field light up when the trigger fragment is shown */
+      .awards-table { width:100%; border-collapse:collapse; font-size:0.5rem; line-height:1.25; }
+      .awards-table th { text-align:left; color:var(--muted); font-weight:600; border-bottom:2px solid var(--gold); padding:0.15rem 0.3rem; }
+      .awards-table td { padding:0.12rem 0.3rem; border-bottom:1px solid #eee; color:var(--ink); white-space:nowrap; }
+      .awards-table td.num { text-align:right; }
+      .awards-table td.blank { color:#bbb; font-style:italic; }
+      .gaps-trigger { display:inline-block; width:0; height:0; overflow:hidden; }
+      .gaps-trigger.visible ~ .awards-wrap tr.gap-row td { background:rgba(239,68,68,0.14); }
+      .gaps-trigger.visible ~ .awards-wrap tr.gap-row td.blank { color:#991b1b; font-weight:700; font-style:normal; }
+      .model-answer { font-size:0.68rem; }
+      .model-answer table { width:100%; border-collapse:collapse; margin-top:0.3rem; }
+      .model-answer td { padding:0.12rem 0.2rem; border-bottom:1px solid rgba(255,255,255,0.12); }
+      .model-answer td:last-child { text-align:right; }
+
+      /* Launch buttons shared by the two hands-on blocks */
+      .launch-row { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-top:0.8rem; }
+      .launch-primary { display:inline-block; padding:0.5rem 1.5rem; border-radius:999px; background:var(--gold); color:var(--ink); font-weight:800; font-size:1rem; text-decoration:none; border:2px solid var(--ink); }
+      .launch-secondary { display:inline-block; padding:0.5rem 1.5rem; border-radius:999px; background:#fff; color:var(--ink); font-weight:700; font-size:1rem; text-decoration:none; border:2px solid var(--ink); }
+
+      /* Vandalizer intro split */
+      .vz-feature { font-size:0.74rem; }
+      .vz-feature li { margin-bottom:0.25rem; }
+    </style>
+  </head>
+  <body class="slides-page">
+    <div class="slides-home">
+      <a href="course-content.html">Back to Sessions</a>
+    </div>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ═══════════════════════════════════════════
+             Opening (0:00 to 0:05)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 1. TITLE -->
+        <section class="title-slide" data-background-color="#f1b300">
+          <p class="slide-kicker slide-kicker-dark">AI4RA Workshop | NCURA Region VI/VII 2026</p>
+          <h1>Where AI fits in research administration</h1>
+          <img src="img/presenters/nathan-layman.jpeg" alt="Nathan Layman" style="width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #fff; margin:0.75rem auto 0;" />
+          <p class="slide-lede slide-dark">Led by Nathan Layman</p>
+          <aside class="notes">
+            Welcome. I'm Nathan Layman, a data scientist at the University of Idaho. I work on the AI4RA project, an NSF GRANTED award, building open-source tools for research administration offices.
+            The next ninety minutes are about what these tools actually do, where they fit in your work, and what has to be true about your data before they are worth trusting.
+            After the break, Bert Baumgaertner takes the part the tools cannot do for you: thinking well with AI.
+            Logistics: laptops out. Two hands-on blocks today. The companion site has every link; the address is on the Sessions page.
+          </aside>
+        </section>
+
+        <!-- 2. THE NEXT NINETY MINUTES -->
+        <section>
+          <p class="slide-kicker">Part 1 structure</p>
+          <h2>The next ninety minutes</h2>
+          <div class="preview-flow" role="list" aria-label="Part 1 flow">
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F9E0;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 1</p>
+                <h6 class="preview-part-title">How LLMs work and fail</h6>
+              </div>
+              <p class="preview-time">20 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 2</p>
+                <h6 class="preview-part-title">Hands-on: Promptulus</h6>
+              </div>
+              <p class="preview-time">20 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F9ED;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 3</p>
+                <h6 class="preview-part-title">Sorting the work</h6>
+              </div>
+              <p class="preview-time">10 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F4C4;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 4</p>
+                <h6 class="preview-part-title">Hands-on: Vandalizer</h6>
+              </div>
+              <p class="preview-time">20 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 5</p>
+                <h6 class="preview-part-title">The data underneath</h6>
+              </div>
+              <p class="preview-time">20 min</p>
+            </article>
+          </div>
+          <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
+          <aside class="notes">
+            Five blocks. Two of them are you at a keyboard. The thread running through all five: the value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself.
+            Timing targets: block 1 ends at 0:25, block 2 at 0:45, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30.
+          </aside>
+        </section>
+
+        <!-- 3. AI4RA -->
+        <section>
+          <p class="slide-kicker">AI4RA, an NSF GRANTED project</p>
+          <h2>Open-source tools you will use today</h2>
+          <div class="community-card-grid">
+            <a class="slide-card community-card" href="https://vandalizer.uidaho.edu" target="_blank" rel="noopener">
+              <h3>Vandalizer</h3>
+              <p>Document extraction and review workflows, with every value traced to its source passage.</p>
+              <img class="community-card-icon-image" src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/vandalizer.png" alt="Vandalizer" style="width:15rem;" />
+            </a>
+            <a class="slide-card community-card" href="https://github.com/ui-insight/lakehouse" target="_blank" rel="noopener">
+              <h3>Data lakehouse</h3>
+              <p>A governed institutional data layer that prepares your records for AI and analytics.</p>
+              <img class="community-card-icon-image" src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/data-lake.svg" alt="Data lakehouse" style="width:5rem;" />
+            </a>
+            <a class="slide-card community-card" href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener">
+              <h3>Promptulus</h3>
+              <p>An AI literacy trainer. Nine characters, each coaching one discipline of working with AI.</p>
+              <img class="community-card-icon-image" src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/owl.png" alt="Promptulus" style="width:3.5rem;" />
+            </a>
+            <a class="slide-card community-card" href="https://narc.insight.uidaho.edu/" target="_blank" rel="noopener">
+              <h3>NARC</h3>
+              <p>Narrative Augmented Reasoning Challenges. Bert's puzzles, after the break.</p>
+              <img class="community-card-icon-image" src="img/logos/ai4ra-logo.png" alt="AI4RA" style="width:10.5rem; margin:-1.5rem 0;" />
+            </a>
+          </div>
+          <p class="slide-note">NSF Award #2427549. Everything is open source and free to adopt. Four pillars: accuracy, reproducibility, flexibility, security.</p>
+          <aside class="notes">
+            AI4RA has three objectives: open-source data models and workflows, trustworthy AI-powered tools, and assessing their impact at partner institutions.
+            The four pillars matter for the rest of the morning. Accuracy: answers grounded in validated sources. Reproducibility: same input, same answer, and someone else can get it too. Flexibility: works at institutions that are not Idaho. Security: data stays where policy says it stays.
+            You will touch Promptulus and Vandalizer today. The lakehouse is what I will show you at the end. NARC is Bert's.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 1: How LLMs work and fail (0:05 to 0:25)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 4. TOKEN BUILDER -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>Build a sentence one token at a time</h2>
+          <p style="font-size:0.8rem; color:var(--muted);">Click the next word. Each choice shifts what comes next, exactly like an LLM.</p>
+          <div class="token-builder" id="token-builder"></div>
+          <p class="slide-note">No right answer, only probabilities. This is why the same prompt gives different output each time.</p>
+          <aside class="notes">
+            Ask for a volunteer to call out words. Build the sentence twice and get two different endings.
+            Three things to land here. One: the model is picking the next token from a probability distribution over everything in its window. Two: the numbers above the words are attention weights, how much each earlier word matters for the next pick. Three: the bar chart is the whole space of sentences the model could have produced. Your path is one of sixty-four. Click the chart for the gradient descent sidebar if someone asks how it learned the weights.
+            The practical consequence: run the same extraction twice and you can get different answers. That is not a bug you can configure away. It is the mechanism.
+          </aside>
+        </section>
+
+        <!-- 5. WHAT THAT MEANS -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>What the model is doing, and what it is not</h2>
+          <div class="slide-grid">
+            <article class="slide-card accent">
+              <span class="slide-label">It is</span>
+              <ul style="font-size:0.78rem;">
+                <li>Predicting the next token from everything currently in its window</li>
+                <li>Sampling, so the same input can produce different output</li>
+                <li>Drawing on patterns from an enormous training corpus</li>
+                <li>Very good at transforming text it has been given</li>
+              </ul>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">It is not</span>
+              <ul style="font-size:0.78rem;">
+                <li>Looking anything up unless a tool was wired in to do that</li>
+                <li>Remembering your last conversation, your policies, or your data</li>
+                <li>Checking whether what it wrote is true</li>
+                <li>Aware of what it does not know</li>
+              </ul>
+            </article>
+          </div>
+          <p class="slide-callout">Confidence is a writing style, not a signal. Every answer arrives in the same tone.</p>
+          <aside class="notes">
+            The single most useful mental model for this audience: the model only has what is in the window. Your award terms, your institutional policy, your cost-share rules are not in there unless you put them in there.
+            When it does not have the answer, it does not stop. It produces the most plausible continuation. That is where hallucination comes from, and the next slide makes you find one.
+          </aside>
+        </section>
+
+        <!-- 6. SPOT THE FABRICATION -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; Where LLMs fail</p>
+          <h2>Spot the fabrication</h2>
+          <div class="slide-card" style="text-align:left; font-size:0.66rem; margin:0.3rem auto 0.5rem; max-width:52rem; padding:0.5rem 0.9rem;">
+            <span class="slide-label">Source: excerpt from a (synthetic) award notice</span>
+            <p style="margin-top:0.25rem;">Award 2512345. PI: Dr. Maria Okafor, Department of Biology. Title: Soil Microbial Response to Prescribed Fire. Amount awarded: $412,500. Period of performance: 09/01/2026 to 08/31/2029. Indirect cost rate: 48.5% MTDC. Annual project reports are due 90 days before the end of each budget period. No cost sharing is required.</p>
+          </div>
+          <p style="font-size:0.72rem; color:var(--muted); margin:0;">The AI summary. Click every sentence the source does not support.</p>
+          <div class="hallucination-exercise">
+            <p class="h-paragraph" style="font-size:0.78rem; max-width:54rem;">
+              <span class="h-sentence" data-real="true">NSF has awarded Dr. Maria Okafor $412,500 for a three-year study of soil microbial response to prescribed fire.</span>
+              <span class="h-sentence" data-real="false">The project includes a $60,000 subaward to the U.S. Forest Service for field site access.</span>
+              <span class="h-sentence" data-real="true">The award runs from September 2026 through August 2029 at an indirect rate of 48.5% MTDC.</span>
+              <span class="h-sentence" data-real="false">Consistent with the program's standard terms, the award requires a one-to-one institutional cost share.</span>
+              <span class="h-sentence" data-real="true">Annual project reports are due 90 days before the end of each budget period.</span>
+              <span class="h-sentence" data-real="false">Dr. Okafor will be supported by two graduate students and a postdoctoral researcher.</span>
+            </p>
+            <button class="sort-reveal">Reveal answers</button>
+          </div>
+          <aside class="notes">
+            Give the room thirty seconds. Then reveal.
+            Three fabrications, and they are two different kinds. The subaward and the staffing are gap-filling: the model knows award summaries usually mention these things, so it supplies plausible ones. The cost share is worse: the source says no cost share, and the model overrode it with what is typical. Priors beat evidence.
+            The tell is that all six sentences read identically. Nothing in the prose marks which three were invented. The only way to catch them was to have the source next to it. Hold on to that: it is the whole argument for provenance in the Vandalizer block.
+          </aside>
+        </section>
+
+        <!-- 7. SHINE AND FAIL -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; Where LLMs fail</p>
+          <h2>Where they shine and where they fail</h2>
+          <div class="slide-grid">
+            <article class="slide-card accent">
+              <span class="slide-label">Reliable: the answer is in the window</span>
+              <ul style="font-size:0.76rem;">
+                <li>Summarize a document you give it</li>
+                <li>Pull named fields out of a notice or solicitation</li>
+                <li>Reformat, translate jargon, change the register</li>
+                <li>Draft from a source you supply</li>
+                <li>Compare two documents you supply</li>
+              </ul>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">Unreliable: the answer is not in the window</span>
+              <ul style="font-size:0.76rem;">
+                <li>Facts about your institution, your awards, your policies</li>
+                <li>Counting, arithmetic, and totals across long documents</li>
+                <li>Anything with a right answer it cannot see</li>
+                <li>Being consistent from one run to the next</li>
+                <li>Telling you when it is unsure</li>
+              </ul>
+            </article>
+          </div>
+          <p class="slide-callout">If the answer is in what you gave it, it will usually find it. If it is not, it will usually make one up.</p>
+          <aside class="notes">
+            This is the decision rule for the rest of the morning. Every "good use" on the left is a transformation of material the model can see. Every failure on the right is a case where it needs something it does not have.
+            Research administration is heavy on the left column: notices, solicitations, budgets, justifications, agreements. That is why document extraction is the first thing AI4RA built. It is also heavy on the right column: institutional questions that depend on your data. That is why we built the lakehouse.
+          </aside>
+        </section>
+
+        <!-- 8. CONTEXT WINDOW -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>Your AI has a page limit</h2>
+          <p style="font-size:0.8rem; color:var(--muted);">Everything competes for the same context window. Drag the handles or pick a preset.</p>
+          <div class="context-slider" id="ctx-slider">
+            <div class="slider-bar">
+              <div class="slider-region" data-idx="0" style="width:10%; background:#5B8C3E;">
+                <span class="slider-pct">10%</span>
+                <span class="slider-label">Intent</span>
+              </div>
+              <div class="slider-handle" data-handle="0"></div>
+              <div class="slider-region" data-idx="1" style="width:50%; background:#C4960C;">
+                <span class="slider-pct">50%</span>
+                <span class="slider-label">Information</span>
+              </div>
+              <div class="slider-handle" data-handle="1"></div>
+              <div class="slider-region" data-idx="2" style="width:25%; background:#1B6B7A;">
+                <span class="slider-pct">25%</span>
+                <span class="slider-label">Instructions</span>
+              </div>
+              <div class="slider-handle" data-handle="2"></div>
+              <div class="slider-region" data-idx="3" style="width:15%; background:#2A9D8F;">
+                <span class="slider-pct">15%</span>
+                <span class="slider-label">Conversation</span>
+              </div>
+            </div>
+            <div class="slider-presets">
+              <button class="slider-preset active" data-preset="compliance">Compliance review</button>
+              <button class="slider-preset" data-preset="draft">Draft a description</button>
+              <button class="slider-preset" data-preset="iterative">Iterative editing</button>
+              <button class="slider-preset" data-preset="scoping">New task scoping</button>
+            </div>
+          </div>
+          <div class="character-grid character-grid-lg" style="margin-top:0.6rem;">
+            <div class="character-card" data-tip="Purpose, accountability, and escape hatches. Decide these before you type.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/turtle.png" alt="Telosa" />
+              <div class="char-name">Intent</div>
+              <div class="char-role">Telosa</div>
+            </div>
+            <div class="character-card" data-tip="The documents, data, and policy the model needs. If it is not here, the model does not have it.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/elephant.png" alt="Mnemos" />
+              <div class="char-name">Information</div>
+              <div class="char-role">Mnemos</div>
+            </div>
+            <div class="character-card" data-tip="Role, format, constraints. What most people mean by a prompt.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/owl.png" alt="Promptulus" />
+              <div class="char-name">Instructions</div>
+              <div class="char-role">Promptulus</div>
+            </div>
+            <div class="character-card" data-tip="Every earlier turn is still in the window. Long chats crowd out the information that matters.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/parrot.png" alt="Dialogos" />
+              <div class="char-name">Conversation</div>
+              <div class="char-role">Dialogos</div>
+            </div>
+          </div>
+          <aside class="notes">
+            The window is finite and four things share it: what you want, what you gave it, how you told it to behave, and everything said so far.
+            Try the presets. Compliance review is information-heavy: the policy and the document have to be in there. Iterative editing is conversation-heavy, and that is the trap: by turn thirty the original document is a small fraction of what the model is looking at.
+            These four are four of the nine Promptulus characters. You will meet the rest in a minute.
+          </aside>
+        </section>
+
+        <!-- 9. WHERE DOES THE MODEL RUN -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; Where the data goes</p>
+          <h2>Where does the model run?</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="cloud">Cloud</button>
+              <button class="toggle-btn" data-panel="local">Local</button>
+              <button class="toggle-btn" data-panel="hybrid">Hybrid</button>
+            </div>
+            <div class="toggle-panel active" data-panel="cloud">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Vendor-hosted (Google, OpenAI, Anthropic, Microsoft Copilot)</p>
+              <ul>
+                <li>Access to the largest, most capable models</li>
+                <li>No hardware to buy or maintain</li>
+                <li>Pay per use, scales up and down</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>Security:</strong> your document leaves your network. Enterprise agreements and data protection terms matter. Some data (FERPA, HIPAA, export controlled) may not be allowed out at all. The free consumer tier is not the enterprise tier.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="local">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Self-hosted (Llama, GPT-oss, Qwen, and others)</p>
+              <ul>
+                <li>Data never leaves your infrastructure</li>
+                <li>Full control over the model and its environment</li>
+                <li>Fixed cost, hardware up front</li>
+                <li>Ollama and vLLM make this reachable for a small IT team</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>Security:</strong> data stays home, but now you own the security, the hardware, and the updates. Vandalizer runs this way for restricted documents.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="hybrid">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Cloud for most work, local for sensitive data</p>
+              <ul>
+                <li>Cloud models for general drafting and high throughput</li>
+                <li>A desktop-class server (Mac Studio, DGX Spark) for restricted material</li>
+                <li>Most institutions end up here whether they planned to or not</li>
+              </ul>
+              <div class="slide-callout" style="border-left-color:#f1b300;">
+                <strong>The hard part:</strong> governance. Which models are approved for which data, and who enforces it?
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Before anyone uploads a subaward agreement to a chatbot, this is the question. Where is the model, and what agreement covers the document once it gets there?
+            Point out the practical middle: the tools we built are provider-agnostic. Vandalizer will talk to a cloud model or to a local one on the same workflow, so the policy decision and the tool decision can be separated.
+            Transition: enough mechanism. Laptops.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 2: Hands-on with Promptulus (0:25 to 0:45)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 10. THE COMPANIONS -->
+        <section>
+          <p class="slide-kicker">Block 2 &middot; Hands-on with Promptulus</p>
+          <h2>The AI literacy companions</h2>
+          <div class="character-grid">
+            <div class="character-card" data-tip="Before AI. Does this task need a paper trail, or is a good answer enough?">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/squirrel.png" alt="Sequita" />
+              <div class="char-name">Sequita</div>
+              <div class="char-role">Auditability</div>
+            </div>
+            <div class="character-card" data-tip="Before AI. Break the job into pieces with checkpoints where a human should look.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/crab.png" alt="Modulus" />
+              <div class="char-name">Modulus</div>
+              <div class="char-role">Decomposition</div>
+            </div>
+            <div class="character-card" data-tip="During AI. Purpose, success criteria, and handoff points.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/turtle.png" alt="Telosa" />
+              <div class="char-name">Telosa</div>
+              <div class="char-role">Intent</div>
+            </div>
+            <div class="character-card" data-tip="During AI. Reviews your prompt and names one principle that would improve it.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/owl.png" alt="Promptulus" />
+              <div class="char-name">Promptulus</div>
+              <div class="char-role">Prompts</div>
+            </div>
+            <div class="character-card" data-tip="During AI. What context to provide, and what to leave out.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/elephant.png" alt="Mnemos" />
+              <div class="char-name">Mnemos</div>
+              <div class="char-role">Context</div>
+            </div>
+            <div class="character-card" data-tip="During AI. Keeps multi-turn conversations focused.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/parrot.png" alt="Dialogos" />
+              <div class="char-name">Dialogos</div>
+              <div class="char-role">Conversation</div>
+            </div>
+            <div class="character-card" data-tip="During AI. How the tool works and where your data goes.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/frog.png" alt="Vitrea" />
+              <div class="char-name">Vitrea</div>
+              <div class="char-role">Transparency</div>
+            </div>
+            <div class="character-card" data-tip="After AI. How to check the output before you rely on it.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/raccoon.png" alt="Veridex" />
+              <div class="char-name">Veridex</div>
+              <div class="char-role">Evaluation</div>
+            </div>
+            <div class="character-card" data-tip="After AI. Document and disclose AI-assisted work so others can reproduce it.">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/whale.png" alt="Clarion" />
+              <div class="char-name">Clarion</div>
+              <div class="char-role">Reporting</div>
+            </div>
+          </div>
+          <div class="slide-callout" style="margin-top:0.8rem;">
+            <a href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener" style="color:var(--ink);">
+              ai4ra.github.io/promptulus
+            </a>
+          </div>
+          <aside class="notes">
+            Nine characters, three phases. Before AI: should you use it at all, and how do you break the job up? During AI: the four context window disciplines plus Vitrea, who explains the tool. After AI: was the output good enough, and how do you report that you used AI?
+            Each character takes a prompt or a task description and gives you a rating, strengths, and one principle to apply. Then you revise and resubmit. It is a coach, not a chatbot.
+            Hover a card for the one-line description.
+          </aside>
+        </section>
+
+        <!-- 11. EXERCISE: BRING A TASK FROM YOUR DESK -->
+        <section>
+          <p class="slide-kicker">Block 2 &middot; Hands-on with Promptulus</p>
+          <h2>Bring a task from your desk</h2>
+          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Fifteen minutes. Work alone, then compare with a neighbor.</p>
+          <div class="sample-challenge-block" style="max-width:50rem; margin:0 auto;">
+            <h6>Challenges</h6>
+            <div class="challenge-checklist" role="list" aria-label="Promptulus exercise challenges">
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Describe the task to <strong>Sequita</strong>. Does it need a paper trail, or is a good answer enough?</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Write the prompt you would actually use. Give it to <strong>Promptulus</strong>. Apply the one principle it names, resubmit, and watch the rating move.</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Ask <strong>Mnemos</strong> what the model would need to see to do this well. Is that material something you can share with a cloud model?</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Ask <strong>Veridex</strong> how you would check the output before relying on it. Write that check down. You will want it later.</p></span>
+              </label>
+            </div>
+          </div>
+          <div class="launch-row">
+            <a class="launch-primary" href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener">Open Promptulus &rarr;</a>
+          </div>
+          <p class="slide-note">If you opened this site from the workshop QR code, the key is already loaded and this link carries it. It lives only in your browser tab and is sent only to the University of Idaho's MindRouter.</p>
+          <aside class="notes">
+            Setup: participants scan the QR code (home page: Enable interactive activities, then Expand for audience). The short link behind it redirects to this site with the MindRouter key on the address; the site stores it in the tab and strips it from the URL. Every Promptulus link in this deck (slides 3, 10, and 11) appends it at click time. Promptulus fills its key box on load, and a key starting with mr2_ routes to the University's models with nothing else to set.
+            Stragglers who typed the address by hand have no key: put the QR back up, or let them paste the key in the home page modal. Rotate the key on MindRouter after the conference.
+            Walk the room. The common failure is a vague prompt ("summarize this") with no success criteria. Promptulus will name it.
+            Good tasks: draft a budget justification paragraph, summarize terms of an award, explain an F&amp;A rate to a PI, turn a solicitation into a checklist. Bad task for today: anything with real restricted data. Synthetic is fine.
+            At twelve minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
+          </aside>
+        </section>
+
+        <!-- 12. DEBRIEF -->
+        <section>
+          <p class="slide-kicker">Block 2 &middot; Debrief</p>
+          <h2>What did you notice?</h2>
+          <div class="slide-grid">
+            <article class="slide-card" style="border-left:3px solid #ef4444;">
+              <span class="slide-label">Discussion</span>
+              <ul style="font-size:0.78rem;">
+                <li>Did Sequita send anyone back to <strong>not</strong> use AI for the task?</li>
+                <li>What did Promptulus ask you for that you had left out?</li>
+                <li>What did Mnemos want that you are not allowed to give a cloud model?</li>
+                <li>What was your Veridex check? Could a colleague run it?</li>
+              </ul>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">The takeaway</span>
+              <h3>Prompting is the small part</h3>
+              <p style="font-size:0.8rem;">Better models make prompt wording matter less every quarter. What does not go away: deciding whether the task should be done this way, giving the model what it needs to see, and knowing how you will check the result.</p>
+              <p style="margin-top:0.5rem; font-weight:600; font-size:0.8rem;">Intent, information, and evaluation outlast any prompt trick.</p>
+            </article>
+          </div>
+          <aside class="notes">
+            Take three or four answers. Listen for the Mnemos answer especially: "it would need our award data" or "it would need the policy manual" is the setup for the last block of the morning.
+            The Veridex answer sets up Vandalizer. Most people will say "I would read it." Ask: all of them? Every time? Hold that.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 3: Sorting the work (0:45 to 0:55)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 13. THREE ZONES -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; Sorting the work</p>
+          <h2>Does it matter how the work got done?</h2>
+          <div class="slide-split img-wide">
+            <div class="split-img">
+              <img src="https://ai4ra.uidaho.edu/wp-content/uploads/2026/03/AIContinuum.jpg" alt="AI appropriateness continuum, from process-critical to output-driven" style="margin:0; padding:0;" />
+            </div>
+            <div class="split-text">
+              <ul style="font-size:0.8rem;">
+                <li><strong>Human leads.</strong> Every step must be auditable. AI may assist, but a person owns the reasoning.</li>
+                <li><strong>Human in the loop.</strong> AI prepares, a qualified person reviews and decides.</li>
+                <li><strong>AI leads.</strong> Only the result matters. Validate with spot checks.</li>
+              </ul>
+              <p class="slide-micro" style="margin-top:0.6rem;">
+                <a href="https://ai4ra.uidaho.edu/when-can-ai-be-used-in-research-administration/" target="_blank" rel="noopener" style="color:var(--gold);">When can AI be used in research administration?</a>
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Sequita's question, drawn as a continuum. On the left, process-critical work: the method is the product. A compliance determination is not a compliance determination if nobody can explain how it was reached. On the right, output-driven work: nobody cares how the first draft of a boilerplate paragraph got written as long as the final one is right.
+            Most of research administration is in the middle. That is where the design question lives: what does the human see, and when?
+          </aside>
+        </section>
+
+        <!-- 14. TASK SORTER -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; Sorting the work</p>
+          <h2>Sort these research administration tasks</h2>
+          <p style="font-size:0.72rem; color:var(--muted); margin-bottom:0.3rem;">Three bins. Which tasks can AI help with today, which need your institutional data in order first, and which should stay with a person?</p>
+          <div class="task-sorter" style="max-width:56rem; margin:0 auto; display:flex; flex-direction:column; gap:0.25rem;">
+            <div class="sort-item" data-answer="ai">
+              <span class="sort-text">Pull deadlines, eligibility, and page limits out of a solicitation</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="ai">
+              <span class="sort-text">Draft a budget justification from a completed budget spreadsheet</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="ai">
+              <span class="sort-text">Compare a subaward budget to its justification and flag mismatches</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="data">
+              <span class="sort-text">Report federal funding by department for the Vice President for Research</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="data">
+              <span class="sort-text">List every active award with an overdue effort certification</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="data">
+              <span class="sort-text">Predict which of this year's proposals are most likely to be funded</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="human">
+              <span class="sort-text">Decide whether a questionable cost transfer is allowable</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="human">
+              <span class="sort-text">Negotiate a disputed IP clause with an industry sponsor</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <div class="sort-item" data-answer="human">
+              <span class="sort-text">Tell a PI their proposal missed the deadline</span>
+              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
+            </div>
+            <button class="sort-reveal">Reveal answers</button>
+          </div>
+          <aside class="notes">
+            Do this as a room: call out each task, hands for each bin, click the majority. Then reveal.
+            The answers are a position, not a fact, so argue with them. The point is the middle bin. "Report federal funding by department" sounds like a one-line prompt. It is not, because the answer lives in your award system, your HR system, and your chart of accounts, and the model can see none of them. Same for effort certification and funding prediction. Those tasks are blocked on data, not on AI.
+            The human bin is the process-critical end of the continuum: allowability, negotiation, and a conversation with a person who is about to be upset. AI can prepare material for all three. It cannot own them.
+            Bridge: the AI-now bin is all documents. Let's go do one.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 4: Hands-on with Vandalizer (0:55 to 1:15)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 15. VANDALIZER INTRO -->
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Hands-on with Vandalizer</p>
+          <div class="section-heading-with-logo">
+            <h2>Vandalizer</h2>
+            <img src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/vandalizer.png" alt="Vandalizer logo" class="section-logo section-logo-vandalizer" />
+          </div>
+          <div class="slide-split">
+            <div class="split-text">
+              <ul class="vz-feature">
+                <li><strong>Structured extraction.</strong> Pull dates, amounts, requirements, and terms out of PDFs into named fields.</li>
+                <li><strong>Every value has a source.</strong> Click a result and jump to the passage and page it came from, or see an explicit "no source found."</li>
+                <li><strong>Workflows.</strong> Chain extractions into a repeatable pipeline and run it on every new upload.</li>
+                <li><strong>Ask the documents.</strong> Chat against a document set with citation-backed answers.</li>
+                <li><strong>Validate and improve.</strong> Score an extraction against a test set and tune it.</li>
+                <li><strong>Self-hosted and model-agnostic.</strong> One server, any OpenAI-compatible model, including local ones.</li>
+              </ul>
+            </div>
+            <div class="split-text" style="flex:0 0 36%;">
+              <div class="slide-card dark" style="margin-top:0; text-align:center;">
+                <span class="slide-label">Open it</span>
+                <a class="launch-primary" href="https://vandalizer.uidaho.edu" target="_blank" rel="noopener" style="display:block; margin:0.6rem auto 0.4rem;">vandalizer.uidaho.edu &rarr;</a>
+                <p style="font-size:0.62rem; opacity:0.75; margin:0.4rem 0 0;">Log in with the workshop account on the board. Sample documents are on the next two slides.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. Remember the fabrication exercise. The only way to catch an invented value was to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
+            Logistics to settle before Denver: a shared workshop login or pre-created accounts, and confirm the room's wifi can handle thirty uploads at once. Have the three sample PDFs on a USB stick as a fallback.
+          </aside>
+        </section>
+
+        <!-- 16. EXERCISE 1: EXTRACT AN AWARD NOTICE -->
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Exercise 1</p>
+          <h2>Extract an award notice</h2>
+          <div class="sample-doc-grid" role="list" aria-label="Exercise 1 sample documents">
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_DEB-2412345.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 1</h3>
+              <p>PI Radagast Brownleaf</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_EAR-2418901.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 2</h3>
+              <p>PI Juniper Quillstone</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_OPP-2345678.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 3</h3>
+              <p>PI RJ MacReady</p>
+            </a>
+          </div>
+          <div class="sample-challenge-block">
+            <h6>Challenges</h6>
+            <div class="challenge-checklist" role="list" aria-label="Exercise 1 challenges">
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Upload one award notice and run the pre-built NSF award extraction</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Click three extracted values and confirm each one against the passage it points to</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Add an extraction term you know is <strong>not</strong> in the document. What comes back?</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Run it again on a second notice. Same fields, same shape?</p></span>
+              </label>
+            </div>
+          </div>
+          <aside class="notes">
+            Eight minutes. The synthetic notices are deliberately a little different from each other, so the fourth challenge shows whether the extraction generalizes.
+            The third challenge is the point of the exercise. A plain chatbot asked for a field that is not there will usually produce one. Vandalizer should return "no source found." Ask the room what their everyday tool would have done.
+            If the room is fast: run the same extraction twice on the same document and diff the two results. That previews the replication slide.
+          </aside>
+        </section>
+
+        <!-- 17. EXERCISE 2: CATCH THE MISMATCH -->
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Exercise 2</p>
+          <h2>Catch the mismatch</h2>
+          <div class="sample-doc-grid" role="list" aria-label="Exercise 2 sample documents">
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget.xlsx" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4CA;</span>
+              <h3>Budget</h3>
+              <p>Proposal budget for Frodo B. Underhill</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget_justification.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>Budget justification</h3>
+              <p>Narrative for the same proposal</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_research_strategy.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>Research strategy</h3>
+              <p>What the money is supposedly for</p>
+            </a>
+          </div>
+          <div class="sample-challenge-block">
+            <h6>Challenges</h6>
+            <div class="challenge-checklist" role="list" aria-label="Exercise 2 challenges">
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Upload the budget and the justification. Ask for every place they disagree.</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Find the inaccuracy. Verify it yourself from the citations before you believe it.</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Add the research strategy. Does the budget support what the science says it needs?</p></span>
+              </label>
+            </div>
+          </div>
+          <aside class="notes">
+            Eight minutes. This is the "compare two documents you supply" row from the shine-and-fail slide, and it is the kind of pre-award review that eats an afternoon by hand.
+            The second challenge matters more than the first. The tool will find a mismatch. Make them open the citation and confirm it is real before they say so out loud. One or two people will find the model flagged something that is not actually a mismatch. That is the lesson, not a failure of the exercise.
+            Pull the room back at 1:12 for the next slide.
+          </aside>
+        </section>
+
+        <!-- 18. THREE WAYS TO CHECK -->
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Debrief</p>
+          <h2>Three ways to check output you did not write</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
+            <article class="slide-card accent">
+              <span class="slide-label">Ground truth</span>
+              <p style="font-size:0.74rem;">Score the extraction against documents where you already know the answers. Ten documents, hand-checked once, tell you the error rate for the next thousand.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Replication</span>
+              <p style="font-size:0.74rem;">Run it three times. Fields that agree every time are cheap confidence. Fields that shift between runs go to a person. Concordance is your routing rule.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Provenance</span>
+              <p style="font-size:0.74rem;">Every value points at a passage. "No source found" is a feature. If a claim cannot be traced to a source, it is not ready to act on.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Reading every output does not scale. Designing the check does.</p>
+          <p class="slide-note">Go further: the four REACH evaluation experiments (OCR quality, cross-tool comparison, structured outputs, replicate consensus) with synthetic documents and ground truth are at <a href="https://ui-insight.github.io/REACHWorkshop2026/slides-putting-it-to-work.html#/8" target="_blank" rel="noopener" style="color:var(--gold);">the REACH workshop site</a>.</p>
+          <aside class="notes">
+            Back to the Veridex question from the first hands-on. "I would read it" works for one document. Your office does not process one document.
+            Ground truth is the bench-science move: measure the instrument before you trust it. Replication is the token-builder lesson applied: the variance is real, so use it as a signal. Provenance is the fabrication exercise applied: keep the source next to the claim.
+            All three are things Vandalizer does, and all three are things you can do with any tool, including the chatbot your institution already licenses. The method is the point, not the product.
+            Bridge: everything so far has been documents. Documents are the easy case, because the answer is in the window. Now the hard case.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 5: The data underneath (1:15 to 1:28)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 19. QUIZ -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; There are a lot of AI models, but</p>
+          <h1>Which is the most important one?</h1>
+          <div class="quiz-options" id="quiz-model" style="margin-top:1rem;">
+            <label class="quiz-option">
+              <span class="quiz-letter">A</span>
+              <span class="quiz-text">Large Language Model</span>
+              <span class="quiz-desc">A neural network trained on massive text corpora to predict and generate human-like language.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">B</span>
+              <span class="quiz-text">Generative Pre-trained Transformer</span>
+              <span class="quiz-desc">The architecture behind GPT. Uses self-attention to process sequences and generate text token by token.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">C</span>
+              <span class="quiz-text">Convolutional Neural Network (CNN)</span>
+              <span class="quiz-desc">Specialized for image and spatial data. Uses filters to detect edges, shapes, and objects.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">D</span>
+              <span class="quiz-text">Generative Adversarial Network (GAN)</span>
+              <span class="quiz-desc">Two networks compete. One generates fakes, the other detects them.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">E</span>
+              <span class="quiz-text">Diffusion Model</span>
+              <span class="quiz-desc">Generates images by gradually removing noise. The engine behind AI image and video generation.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">F</span>
+              <span class="quiz-text">Recurrent Neural Network (RNN/LSTM)</span>
+              <span class="quiz-desc">Processes sequences by keeping a memory of previous inputs. Time series, early language models, speech.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">G</span>
+              <span class="quiz-text">BERT / Encoder Model</span>
+              <span class="quiz-desc">Reads text bidirectionally to understand meaning. Used for classifying text, not generating it.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">H</span>
+              <span class="quiz-text">Reinforcement Learning (RL)</span>
+              <span class="quiz-desc">Learns by trial and error with rewards. AlphaGo, robotics, and the fine-tuning step behind chat models.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">I</span>
+              <span class="quiz-text">Random Forest / Decision Tree</span>
+              <span class="quiz-desc">Classic machine learning. Builds decision rules from data features. Everywhere in research analytics.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">J</span>
+              <span class="quiz-text">Support Vector Machine (SVM)</span>
+              <span class="quiz-desc">Finds the optimal boundary between categories. A traditional classification workhorse.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">K</span>
+              <span class="quiz-text">Variational Autoencoder (VAE)</span>
+              <span class="quiz-desc">Compresses data into a compact representation and generates new samples from it.</span>
+            </label>
+            <label class="quiz-option">
+              <span class="quiz-letter">L</span>
+              <span class="quiz-text">Graph Neural Network (GNN)</span>
+              <span class="quiz-desc">Learns from relationships between entities. Social networks, molecules, knowledge graphs.</span>
+            </label>
+          </div>
+          <aside class="notes">
+            Let the room pick. Click whatever they shout. Most rooms pick A. Next slide.
+          </aside>
+        </section>
+
+        <!-- 20. WRONG -->
+        <section>
+          <p class="slide-kicker">&nbsp;</p>
+          <h1 style="color:#ef4444; font-size:5rem;">Wrong!</h1>
+          <div class="slide-split">
+            <div class="split-img">
+              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/diagrams/data-model.png" alt="Data model diagram" />
+            </div>
+            <div class="split-text">
+              <p class="slide-quote" style="margin-top:0;">The most important model is <strong>your data model.</strong></p>
+              <p style="margin-top:0.6rem; font-size:1rem; color:var(--muted);">
+                AI models come and go. The way your institution organizes, governs, and shares its data decides whether any of them are useful.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Every model on the previous slide will be replaced within two years. Your award table will not be. The question that decides whether AI helps your office is not which model you license. It is whether the data it needs exists in a form it can be given.
+          </aside>
+        </section>
+
+        <!-- 21. AI ANALYZES WHAT YOU GIVE IT -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; The data underneath</p>
+          <h2>AI analyzes what you give it</h2>
+          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">A small awards table. Prompt: <em>"What is the total federal funding by department?"</em></p>
+          <div class="slide-split" style="align-items:flex-start; gap:1rem;">
+            <div class="split-text" style="flex:1 1 58%;">
+              <span class="fragment gaps-trigger" data-fragment-index="2" aria-hidden="true"></span>
+              <div class="awards-wrap">
+                <table class="awards-table">
+                  <thead><tr><th>Award</th><th>PI</th><th>Department</th><th>Sponsor</th><th>Type</th><th style="text-align:right;">Amount</th></tr></thead>
+                  <tbody>
+                    <tr><td>A-001</td><td>Martinez</td><td>Biology</td><td>NSF</td><td>Federal</td><td class="num">450,000</td></tr>
+                    <tr class="gap-row"><td>A-002</td><td>Chen</td><td class="blank">(blank)</td><td>NIH</td><td>Federal</td><td class="num">1,200,000</td></tr>
+                    <tr><td>A-003</td><td>Okafor</td><td>Engineering</td><td>DOE</td><td>Federal</td><td class="num">680,000</td></tr>
+                    <tr><td>A-004</td><td>Patel</td><td>Chemistry</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">320,000</td></tr>
+                    <tr class="gap-row"><td>A-005</td><td>Johnson</td><td class="blank">(blank)</td><td>NSF</td><td>Federal</td><td class="num">550,000</td></tr>
+                    <tr><td>A-006</td><td>Williams</td><td>Psychology</td><td>NIMH</td><td>Federal</td><td class="num">890,000</td></tr>
+                    <tr><td>A-007</td><td>Kim</td><td class="blank">(blank)</td><td>Pfizer</td><td>Industry</td><td class="num">275,000</td></tr>
+                    <tr><td>A-008</td><td>Thompson</td><td>Biology</td><td>USDA</td><td>Federal</td><td class="num">410,000</td></tr>
+                    <tr><td>A-009</td><td>Garcia</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">150,000</td></tr>
+                    <tr><td>A-010</td><td>Lee</td><td>Computer Science</td><td>NSF</td><td>Federal</td><td class="num">725,000</td></tr>
+                    <tr class="gap-row"><td>A-011</td><td>Davis</td><td class="blank">(blank)</td><td>NIH</td><td>Federal</td><td class="num">980,000</td></tr>
+                    <tr><td>A-012</td><td>Robinson</td><td>Engineering</td><td>Boeing</td><td>Industry</td><td class="num">185,000</td></tr>
+                    <tr><td>A-013</td><td>Nguyen</td><td>Physics</td><td>DOE</td><td>Federal</td><td class="num">560,000</td></tr>
+                    <tr><td>A-014</td><td>Brown</td><td class="blank">(blank)</td><td>Gates Foundation</td><td>Nonprofit</td><td class="num">1,500,000</td></tr>
+                    <tr><td>A-015</td><td>Miller</td><td>Sociology</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">95,000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="split-text" style="flex:0 0 38%;">
+              <div class="slide-card dark fragment model-answer" data-fragment-index="1" style="margin-top:0;">
+                <span class="slide-label">The model's answer</span>
+                <table>
+                  <tr><td>Psychology</td><td>$890,000</td></tr>
+                  <tr><td>Biology</td><td>$860,000</td></tr>
+                  <tr><td>Computer Science</td><td>$725,000</td></tr>
+                  <tr><td>Engineering</td><td>$680,000</td></tr>
+                  <tr><td>Physics</td><td>$560,000</td></tr>
+                  <tr><td><strong>Total federal</strong></td><td><strong>$3,715,000</strong></td></tr>
+                </table>
+                <p style="font-size:0.6rem; opacity:0.75; margin:0.3rem 0 0;">"Psychology leads federal funding, followed closely by Biology."</p>
+              </div>
+              <div class="slide-card fragment" data-fragment-index="2" style="margin-top:0.5rem; border-left:3px solid #ef4444;">
+                <span class="slide-label">What it could not see</span>
+                <p style="font-size:0.7rem; margin-top:0.2rem;"><strong>$2,730,000</strong> in federal awards have no department. They vanished from the breakdown. The total is unknowable from this table, and the answer did not say so.</p>
+              </div>
+            </div>
+          </div>
+          <p class="slide-callout fragment" data-fragment-index="3" style="margin-top:0.5rem;">It only evaluates data quality when you ask. Every answer comes with the same confidence.</p>
+          <aside class="notes">
+            Ask the room to eyeball the table first: what is the total federal funding by department? Give them twenty seconds. Then step through the fragments.
+            Fragment one: the answer a model gives. Correct arithmetic on the rows it could group. Polished sentence. Fragment two: the three federal awards with no department, nearly three million dollars, silently dropped. Fragment three: the point.
+            This is the "data first" bin from the sorter. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so.
+            If a laptop is handy, do it live in any chatbot and then ask it "what data quality issues do you see?" It will find them. It just will not volunteer them.
+          </aside>
+        </section>
+
+        <!-- 22. DATA MODEL AND UDM -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; The data underneath</p>
+          <h2>What a data model is, and why one should be shared</h2>
+          <div class="slide-grid">
+            <article class="slide-card">
+              <span class="slide-label">You already have several</span>
+              <h3>A data model is the blueprint for how a system stores information</h3>
+              <p style="font-size:0.78rem;">Tables, columns, relationships, and rules. Your post-award system has one. Your ERP has another. HR has a third. They all describe the same sponsor, the same PI, and the same award differently, and every report starts by reconciling them again.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">The AI4RA Universal Data Model</span>
+              <h3>One shared language across institutions</h3>
+              <p style="font-size:0.78rem;">Forty tables covering proposals, awards, finance, effort, compliance, and more. Map each of your systems to it once. Any tool built on the UDM then runs at any institution that has done the same.</p>
+              <p style="font-size:0.78rem; margin-top:0.4rem;">AI makes the mapping practical: it reads your schema and the UDM and proposes the translation. A person approves it.</p>
+              <p class="slide-micro">Browse it at <a href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener" style="color:var(--gold);">ui-insight.github.io/AI4RA-UDM</a></p>
+            </article>
+          </div>
+          <aside class="notes">
+            The awards table failed because "department" was a free-text column somebody sometimes filled in. A data model says: Award has a required link to a Personnel record, which has a required link to an Organization. The gap becomes a validation error instead of a silent omission.
+            The UDM is that model, shared. The reason to share it is the reason Vandalizer works at your institution without a rewrite: build once, map once, run anywhere.
+            The adapter mapping is the one place AI is in the lakehouse pipeline itself, and it is human-approved. Every adapter works without AI too.
+          </aside>
+        </section>
+
+        <!-- 23. FOUR APPROACHES -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; Infrastructure</p>
+          <h2>Four approaches to institutional data</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="warehouse">Warehouse</button>
+              <button class="toggle-btn" data-panel="lake">Data lake</button>
+              <button class="toggle-btn" data-panel="lakehouse">Lakehouse</button>
+              <button class="toggle-btn" data-panel="swamp">Data swamp</button>
+            </div>
+            <div class="toggle-panel active" data-panel="warehouse">
+              <ul>
+                <li><strong>Structured, governed, fast queries</strong></li>
+                <li>Pre-defined schemas enforce data quality</li>
+                <li>Great for reporting dashboards and compliance queries</li>
+                <li>Rigid schemas are expensive and slow to change</li>
+                <li>Cannot handle unstructured data (PDFs, images, JSON)</li>
+              </ul>
+              <div class="slide-callout">Best for stable reporting needs with predictable schemas.</div>
+            </div>
+            <div class="toggle-panel" data-panel="lake">
+              <ul>
+                <li><strong>Flexible raw storage, any format, cheap</strong></li>
+                <li>Store everything first, decide structure later</li>
+                <li>Great for archiving raw files and training data</li>
+                <li>No schema enforcement or query optimization</li>
+                <li>Without governance, becomes a data swamp</li>
+              </ul>
+              <div class="slide-callout">Handles structured, semi-structured, and unstructured data natively.</div>
+            </div>
+            <div class="toggle-panel" data-panel="lakehouse">
+              <ul>
+                <li><strong>Flexible storage with governance layers on top</strong></li>
+                <li>Open table formats (Apache Iceberg) give transactions and schema evolution</li>
+                <li>Medallion architecture turns raw data into governed views</li>
+                <li>Storage and compute are separate, which keeps cost down</li>
+                <li>Works for structured, semi-structured, and unstructured data</li>
+              </ul>
+              <div class="slide-callout">The architecture the GRANTED project chose for university research data.</div>
+            </div>
+            <div class="toggle-panel" data-panel="swamp">
+              <ul>
+                <li><strong>What happens when a data lake loses governance</strong></li>
+                <li>Data dumped in with no schema, no owner, no documentation</li>
+                <li>Nobody knows what is in there, how old it is, or whether to trust it</li>
+                <li>Queries return results, but nobody can verify them</li>
+                <li>Every new project starts by rediscovering and recleaning the same data</li>
+              </ul>
+              <div class="slide-callout" style="border-left-color:#ef4444; background:rgba(239,68,68,0.08);">The default outcome without deliberate governance. Most institutions are here, and the shared drive full of spreadsheets is the proof.</div>
+            </div>
+          </div>
+          <aside class="notes">
+            Quick tour. Warehouse: what central IT probably has, good for the dashboards it was built for, hard to change. Lake: everything in a bucket. Swamp: what a lake becomes in eighteen months. Lakehouse: a lake with the warehouse's discipline layered on top, using open formats so nothing is locked to a vendor.
+            The point for this audience is not the technology. It is that "AI-ready" is a governance property. If your office's reporting runs off a shared drive of spreadsheets, you are in the swamp panel, and no model fixes that.
+          </aside>
+        </section>
+
+        <!-- 24. MEDALLION LAYERS -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; Architecture</p>
+          <h2>The medallion layers</h2>
+          <div style="display:flex; align-items:center; justify-content:center; gap:0; margin:0.8rem auto 0.6rem; max-width:52rem;">
+            <div style="text-align:center; flex:1;">
+              <div style="background:#8B6914; color:#fff; padding:0.4rem 0.6rem; border-radius:8px; font-weight:700; font-size:0.8rem;">Bronze</div>
+              <p style="font-size:0.6rem; color:var(--muted); margin-top:0.3rem;">Raw data, exactly as received. No transformation.</p>
+            </div>
+            <span style="font-size:1.2rem; color:#94a3b8; margin:0 0.2rem;">&#x2192;</span>
+            <div style="text-align:center; flex:1;">
+              <div style="background:#9CA3AF; color:#fff; padding:0.4rem 0.6rem; border-radius:8px; font-weight:700; font-size:0.8rem;">Silver</div>
+              <p style="font-size:0.6rem; color:var(--muted); margin-top:0.3rem;">Per-source mapping to the UDM. One view per source per table.</p>
+            </div>
+            <span style="font-size:1.2rem; color:#94a3b8; margin:0 0.2rem;">&#x2192;</span>
+            <div style="text-align:center; flex:1;">
+              <div style="background:#D4A017; color:#fff; padding:0.4rem 0.6rem; border-radius:8px; font-weight:700; font-size:0.8rem;">Gold</div>
+              <p style="font-size:0.6rem; color:var(--muted); margin-top:0.3rem;">Unified UDM tables. Sources combined, deduplicated by primary key.</p>
+            </div>
+            <span style="font-size:1.2rem; color:#94a3b8; margin:0 0.2rem;">&#x2192;</span>
+            <div style="text-align:center; flex:1;">
+              <div style="background:#7C8B9A; color:#fff; padding:0.4rem 0.6rem; border-radius:8px; font-weight:700; font-size:0.8rem;">Platinum</div>
+              <p style="font-size:0.6rem; color:var(--muted); margin-top:0.3rem;">App-specific views. Joins, aggregations, access control.</p>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.4rem; font-size:0.6rem;">
+            <article class="slide-card" style="border-top:3px solid #8B6914;">
+              <p><strong>Store everything.</strong> Raw files, soft deletes, metadata. The audit trail starts here.</p>
+            </article>
+            <article class="slide-card" style="border-top:3px solid #9CA3AF;">
+              <p><strong>Translate once per source.</strong> AI proposes the column mapping, a person approves it. No business logic, only standardization.</p>
+            </article>
+            <article class="slide-card" style="border-top:3px solid #D4A017;">
+              <p><strong>One truth.</strong> If two sources describe the same award, priority rules pick the winner. Completeness checks live here.</p>
+            </article>
+            <article class="slide-card" style="border-top:3px solid #7C8B9A;">
+              <p><strong>Purpose-built.</strong> Each dashboard, report, or AI agent gets exactly the view it needs, and nothing it should not see.</p>
+            </article>
+          </div>
+          <p class="slide-callout" style="margin-top:0.6rem;">If the model reads from Gold instead of a spreadsheet, the missing departments are flagged before the question is ever asked.</p>
+          <aside class="notes">
+            Back to the awards table. Bronze keeps the table as it arrived, blanks and all, so you can always prove what the source said. Silver maps "Department" to the UDM's Organization link. Gold is where the completeness rule runs: an Award without an Organization does not pass. The VP's question gets answered from Gold, or it gets a flag that says the answer is incomplete and by how much.
+            That is the difference between a tool that is confidently wrong and a pipeline that is honestly incomplete.
+          </aside>
+        </section>
+
+        <!-- 25. GRANTED LAKEHOUSE ARCHITECTURE -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; Architecture</p>
+          <h2>The GRANTED data lakehouse</h2>
+          <div id="arch-diagram" style="margin:0 auto;"></div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:0.3rem;">
+            <span style="font-size:0.55rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em">Data flow</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.55rem;color:#64748b"><span style="display:inline-block;width:14px;height:2px;background:#CD7F32;border-radius:1px"></span>Bronze</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.55rem;color:#64748b"><span style="display:inline-block;width:14px;height:2px;background:#8E8E93;border-radius:1px"></span>Silver</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.55rem;color:#64748b"><span style="display:inline-block;width:14px;height:2px;background:#8b5cf6;border-radius:1px"></span>Platinum</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.55rem;color:#64748b"><span style="display:inline-block;width:14px;height:2px;background:#06b6d4;border-radius:1px"></span>Live</span>
+            <span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.55rem;color:#64748b"><span style="display:inline-block;width:14px;height:2px;background:#f97316;border-radius:1px"></span>Writeback</span>
+          </div>
+          <p class="slide-note">Open source, Docker-managed, built for a small team. Every layer is replaceable: MinIO or S3, Trino or DuckDB, our sync engine or Airbyte. <a href="https://github.com/ui-insight/lakehouse" target="_blank" rel="noopener" style="color:var(--gold);">github.com/ui-insight/lakehouse</a></p>
+          <aside class="notes">
+            Left to right: your source systems, the adapters that translate them to the shared schema, the lakehouse itself, an API gateway that enforces who can see what, and the apps on the end. The admin portal on top is where a small team configures all of it. The shared schema feeding the adapters is the UDM.
+            Only the gateway is exposed. Every request is authenticated, rate limited, and logged. That is what "governed" means in practice: the AI agent that answers the VP's question has a credential, a row-level scope, and an audit trail, same as a person.
+            This runs at Idaho today against our award system, ticketing, and Banner. One server. Do not let the diagram scare anyone: the deployment is a Docker compose file.
+          </aside>
+        </section>
+
+        <!-- 26. THE PAYOFF -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; The payoff</p>
+          <h2>What well-organized data lets you do</h2>
+          <div class="slide-grid">
+            <article class="slide-card accent">
+              <span class="slide-label">With governed data</span>
+              <ul style="font-size:0.78rem;">
+                <li>Ask the same question at any institution and get a comparable answer</li>
+                <li>Build AI workflows that cite their sources and can be audited</li>
+                <li>Generate reproducible reports that match across departments</li>
+                <li>Move tasks from the "data first" bin into the "AI now" bin</li>
+              </ul>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">Without it</span>
+              <ul style="font-size:0.78rem;">
+                <li>AI blends contradictory sources into confident wrong answers</li>
+                <li>Every new report requires a new integration from scratch</li>
+                <li>Nobody knows which spreadsheet is current or authoritative</li>
+                <li>Automation multiplies errors instead of eliminating them</li>
+              </ul>
+            </article>
+          </div>
+          <aside class="notes">
+            The last bullet on the left is the whole block in one line. The sorter had three tasks stuck in "data first." Governed data is what moves them. It is not that AI cannot answer the VP's question. It is that the question has to be answerable first.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Close (1:28 to 1:30)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 27. AUTOMATE, AUGMENT, LEAVE ALONE -->
+        <section>
+          <p class="slide-kicker">Close &middot; Decision framework</p>
+          <h2>Automate, augment, or leave alone</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
+            <article class="slide-card accent">
+              <span class="slide-label">Automate</span>
+              <p style="font-size:0.76rem;">Repetitive, low-stakes, output-driven, with a check you can run without a person. Extraction with provenance and a ground-truth sample.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Augment</span>
+              <p style="font-size:0.76rem;">AI prepares, a qualified person decides. The budget-versus-justification review. Most of research administration lives here.</p>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">Leave alone</span>
+              <p style="font-size:0.76rem;">Process-critical work where the reasoning is the product, and anything you cannot yet audit. Until you can, it stays here.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Sequita's question runs under all three: can you audit it? If yes, automate or augment. If not, not yet.</p>
+          <aside class="notes">
+            Three bins again, now as a policy. The sorter's "data first" tasks are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
+            Bert is about to spend an hour on the judgment underneath all of this. I am handing him the room with the framework; he will give you the discussion tool to argue about it at home.
+          </aside>
+        </section>
+
+        <!-- 28. WHAT TO TAKE HOME -->
+        <section>
+          <p class="slide-kicker">Close</p>
+          <h2>What to take home</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
+            <article class="slide-card">
+              <span class="slide-label">One task to try this week</span>
+              <p style="font-size:0.76rem;">The task you brought to Promptulus. Run it for real, with the Veridex check you wrote down. Any tool. Vandalizer if you want the provenance.</p>
+            </article>
+            <article class="slide-card">
+              <span class="slide-label">One evaluation rule</span>
+              <p style="font-size:0.76rem;">If you cannot trace it to a source, do not send it. If three runs disagree, a person looks. Confidence is a style, not a signal.</p>
+            </article>
+            <article class="slide-card">
+              <span class="slide-label">One question for your data</span>
+              <p style="font-size:0.76rem;">Pick the report leadership asks for most. Which system does each number come from, and who would notice if a third of the rows were blank?</p>
+            </article>
+          </div>
+          <p class="slide-note">Everything from this morning is on the companion site, open source, and free to adopt. <a href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener" style="color:var(--gold);">ai4ra.uidaho.edu</a> has the blog, the prompt library, and the community of practice.</p>
+          <aside class="notes">
+            Three things, one each. Say them slowly. The third one is the one that gets institutions to call us.
+            Point at the site. Mention the discussion instrument Bert will hand out; it is on the Resources page too.
+          </aside>
+        </section>
+
+        <!-- 29. BREAK AND BRIDGE -->
+        <section data-background-color="#f1b300">
+          <p class="slide-kicker slide-kicker-dark">Ten minute break</p>
+          <h2 class="slide-dark">Coming next: Thinking well with AI</h2>
+          <p class="slide-dark" style="max-width:40rem; margin:0.6rem auto 0;">
+            Bert Baumgaertner on the part the tools cannot do for you: NARC reasoning puzzles, arguments by analogy, and a discussion format you can run at your own institution.
+          </p>
+          <p class="slide-dark" style="margin-top:1rem;">
+            <a href="slides-thinking-well.html" style="color:var(--ink); text-decoration:underline;">Open Part 2</a>
+            &nbsp;&middot;&nbsp;
+            <a href="course-content.html" style="color:var(--ink); text-decoration:underline;">Back to Sessions</a>
+          </p>
+          <aside class="notes">
+            Ten minutes. Back at 1:40 on the session clock. Leave the Vandalizer tab open; Bert's NARC puzzles are the same muscle in a different setting.
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <script type="module">
+      import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
+      readKeyFromURL();
+      installLinkInterceptor();
+    </script>
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="slides-interactive.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        slideNumber: true,
+        transition: "slide",
+        plugins: [RevealNotes]
+      });
+
+      /* Quiz interaction: single select, click again to clear */
+      (function () {
+        document.querySelectorAll('.quiz-options').forEach(function (quiz) {
+          quiz.querySelectorAll('.quiz-option').forEach(function (opt) {
+            opt.addEventListener('click', function () {
+              var wasSelected = opt.classList.contains('selected');
+              quiz.querySelectorAll('.quiz-option').forEach(function (o) {
+                o.classList.remove('selected');
+              });
+              if (!wasSelected) opt.classList.add('selected');
+            });
+          });
+        });
+      })();
+
+      /* Context-window slider: presets and drag handles */
+      (function () {
+        var presets = {
+          compliance: [10, 50, 25, 15],
+          draft:      [10, 40, 35, 15],
+          iterative:  [5,  15, 20, 60],
+          scoping:    [20, 25, 25, 30]
+        };
+        var slider = document.getElementById('ctx-slider');
+        if (!slider) return;
+        var bar = slider.querySelector('.slider-bar');
+        var regions = slider.querySelectorAll('.slider-region');
+        var handles = slider.querySelectorAll('.slider-handle');
+        var buttons = slider.querySelectorAll('.slider-preset');
+        var MIN_PCT = 5;
+
+        function setWidths(vals) {
+          regions.forEach(function (r, i) {
+            r.style.width = vals[i] + '%';
+            r.querySelector('.slider-pct').textContent = vals[i] + '%';
+          });
+        }
+
+        function getWidths() {
+          return Array.from(regions).map(function (r) {
+            return parseFloat(r.style.width);
+          });
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setWidths(presets[btn.dataset.preset]);
+            buttons.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+          });
+        });
+
+        handles.forEach(function (handle) {
+          handle.addEventListener('mousedown', startDrag);
+          handle.addEventListener('touchstart', startDrag, { passive: false });
+
+          function startDrag(e) {
+            e.preventDefault();
+            handle.classList.add('dragging');
+            var idx = parseInt(handle.dataset.handle);
+            var barRect = bar.getBoundingClientRect();
+            var barW = barRect.width;
+
+            function onMove(ev) {
+              var clientX = ev.touches ? ev.touches[0].clientX : ev.clientX;
+              var pct = ((clientX - barRect.left) / barW) * 100;
+              var vals = getWidths();
+              var before = 0;
+              for (var i = 0; i <= idx; i++) before += vals[i];
+              var delta = pct - before;
+              var newLeft = vals[idx] + delta;
+              var newRight = vals[idx + 1] - delta;
+              if (newLeft >= MIN_PCT && newRight >= MIN_PCT) {
+                vals[idx] = Math.round(newLeft);
+                vals[idx + 1] = Math.round(newRight);
+                var sum = vals.reduce(function (a, b) { return a + b; }, 0);
+                vals[idx + 1] += (100 - sum);
+                setWidths(vals);
+                buttons.forEach(function (b) { b.classList.remove('active'); });
+              }
+            }
+
+            function onEnd() {
+              handle.classList.remove('dragging');
+              document.removeEventListener('mousemove', onMove);
+              document.removeEventListener('mouseup', onEnd);
+              document.removeEventListener('touchmove', onMove);
+              document.removeEventListener('touchend', onEnd);
+            }
+
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onEnd);
+            document.addEventListener('touchmove', onMove, { passive: false });
+            document.addEventListener('touchend', onEnd);
+          }
+        });
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script>
+    /* Architecture diagram, adapted from the Shipyard dashboard */
+    (function() {
+      var el = document.getElementById('arch-diagram');
+      if (!el || typeof d3 === 'undefined') return;
+
+      var W = 920, H = 380;
+      var nodes = [
+        { id: "sources", label: "Data Sources", sub: "External Systems",
+          fill: "#f8fafc", stroke: "#94a3b8", color: "#475569",
+          x: 55, y: 165, w: 110, h: 54 },
+        { id: "adapters", label: "Adapters", sub: "Schema Translators",
+          fill: "#eef2ff", stroke: "#6366f1", color: "#312e81",
+          x: 225, y: 165, w: 120, h: 54 },
+        { id: "harbor", label: "Lakehouse", sub: "Storage & Compute",
+          fill: "#fef9e7", stroke: "#FFD700", color: "#7c6800",
+          x: 405, y: 143, w: 150, h: 98 },
+        { id: "marina", label: "API Gateway", sub: "Access Control",
+          fill: "#ecfdf5", stroke: "#10b981", color: "#064e3b",
+          x: 625, y: 165, w: 110, h: 54 },
+        { id: "apps", label: "Apps", sub: "Consumers",
+          fill: "#f8fafc", stroke: "#94a3b8", color: "#475569",
+          x: 800, y: 165, w: 80, h: 54 },
+        { id: "shipyard", label: "Admin Portal", sub: "Config & Sync",
+          fill: "#f0f9ff", stroke: "#0ea5e9", color: "#0c4a6e",
+          x: 370, y: 30, w: 120, h: 44 },
+        { id: "udm", label: "Shared Schema", sub: "Universal Model",
+          fill: "#fffbeb", stroke: "#d97706", color: "#78350f",
+          x: 140, y: 310, w: 115, h: 38 },
+        { id: "bridge", label: "Live Translator", sub: "In-Memory",
+          fill: "#ecfeff", stroke: "#06b6d4", color: "#164e63",
+          x: 380, y: 310, w: 130, h: 42 }
+      ];
+
+      var nm = {};
+      nodes.forEach(function(n) { nm[n.id] = n; });
+
+      var links = [
+        { source: "sources", target: "adapters", type: "bronze" },
+        { source: "sources", target: "adapters", type: "live" },
+        { source: "adapters", target: "harbor", type: "silver" },
+        { source: "harbor", target: "marina", type: "platinum" },
+        { source: "marina", target: "apps", type: "platinum" },
+        { source: "udm", target: "adapters", type: "schema" },
+        { source: "adapters", target: "bridge", type: "bypass" },
+        { source: "bridge", target: "marina", type: "bypass" },
+        { source: "marina", target: "apps", type: "bypass" },
+        { source: "shipyard", target: "sources", type: "admin" },
+        { source: "shipyard", target: "adapters", type: "admin" },
+        { source: "shipyard", target: "apps", type: "admin" },
+        { source: "apps", target: "marina", type: "writeback" },
+        { source: "marina", target: "harbor", type: "writeback" }
+      ];
+
+      var svg = d3.select(el).append("svg")
+        .attr("viewBox", "0 0 " + W + " " + H)
+        .style("width", "100%").style("height", "auto").style("overflow", "visible");
+
+      var defs = svg.append("defs");
+
+      function mkMarker(id, col) {
+        defs.append("marker").attr("id", "arch-" + id)
+          .attr("viewBox", "0 0 10 10").attr("refX", 9).attr("refY", 5)
+          .attr("markerWidth", 7).attr("markerHeight", 7).attr("orient", "auto-start-reverse")
+          .append("path").attr("d", "M0 0L10 5L0 10z").attr("fill", col);
+      }
+      mkMarker("ai", "#8b5cf6");
+      mkMarker("ao", "#f97316");
+      mkMarker("ab", "#06b6d4");
+      mkMarker("abr", "#CD7F32");
+      mkMarker("as", "#8E8E93");
+
+      var pf = defs.append("filter").attr("id", "arch-pkt")
+        .attr("x", "-100%").attr("y", "-100%").attr("width", "300%").attr("height", "300%");
+      pf.append("feGaussianBlur").attr("in", "SourceGraphic").attr("stdDeviation", "3").attr("result", "b1");
+      pf.append("feGaussianBlur").attr("in", "SourceGraphic").attr("stdDeviation", "1").attr("result", "b2");
+      var pm = pf.append("feMerge");
+      pm.append("feMergeNode").attr("in", "b1");
+      pm.append("feMergeNode").attr("in", "b2");
+      pm.append("feMergeNode").attr("in", "SourceGraphic");
+
+      var sf = defs.append("filter").attr("id", "arch-sh")
+        .attr("x", "-20%").attr("y", "-20%").attr("width", "140%").attr("height", "140%");
+      sf.append("feDropShadow").attr("dx", 0).attr("dy", 1).attr("stdDeviation", 2).attr("flood-opacity", 0.06);
+
+      function lp(d) {
+        var s = nm[d.source], t = nm[d.target];
+        var x0, y0, x1, y1, mx, my, off;
+        if (d.type === "bronze") {
+          off = -8;
+          x0 = s.x + s.w; y0 = s.y + s.h / 2 + off;
+          x1 = t.x; y1 = t.y + t.h / 2 + off; mx = (x0 + x1) / 2;
+          return "M" + x0 + "," + y0 + " C" + mx + "," + y0 + " " + mx + "," + y1 + " " + x1 + "," + y1;
+        }
+        if (d.type === "live") {
+          off = 8;
+          x0 = s.x + s.w; y0 = s.y + s.h / 2 + off;
+          x1 = t.x; y1 = t.y + t.h / 2 + off; mx = (x0 + x1) / 2;
+          return "M" + x0 + "," + y0 + " C" + mx + "," + y0 + " " + mx + "," + y1 + " " + x1 + "," + y1;
+        }
+        if (d.type === "silver" || d.type === "platinum") {
+          x0 = s.x + s.w; y0 = s.y + s.h / 2;
+          x1 = t.x; y1 = t.y + t.h / 2; mx = (x0 + x1) / 2;
+          return "M" + x0 + "," + y0 + " C" + mx + "," + y0 + " " + mx + "," + y1 + " " + x1 + "," + y1;
+        }
+        if (d.type === "schema") {
+          x0 = s.x + s.w / 2; y0 = s.y;
+          x1 = t.x + t.w / 2; y1 = t.y + t.h; my = (y0 + y1) / 2;
+          return "M" + x0 + "," + y0 + " C" + x0 + "," + my + " " + x1 + "," + my + " " + x1 + "," + y1;
+        }
+        if (d.type === "bypass") {
+          if (d.source === "adapters") {
+            x0 = s.x + s.w / 2; y0 = s.y + s.h;
+            x1 = t.x; y1 = t.y + t.h / 2;
+            return "M" + x0 + "," + y0 + " C" + x0 + "," + (y0 + 55) + " " + (x1 - 20) + "," + y1 + " " + x1 + "," + y1;
+          }
+          if (d.source === "marina") {
+            off = 12;
+            x0 = s.x + s.w; y0 = s.y + s.h / 2 + off;
+            x1 = t.x; y1 = t.y + t.h / 2 + off; mx = (x0 + x1) / 2;
+            return "M" + x0 + "," + y0 + " C" + mx + "," + y0 + " " + mx + "," + y1 + " " + x1 + "," + y1;
+          }
+          x0 = s.x + s.w; y0 = s.y + s.h / 2;
+          x1 = t.x + t.w / 2; y1 = t.y + t.h;
+          return "M" + x0 + "," + y0 + " C" + (x0 + 50) + "," + y0 + " " + x1 + "," + (y1 + 50) + " " + x1 + "," + y1;
+        }
+        if (d.type === "writeback") {
+          off = -12;
+          x0 = s.x; y0 = s.y + s.h / 2 + off;
+          x1 = t.x + t.w; y1 = t.y + t.h / 2 + off; mx = (x0 + x1) / 2;
+          return "M" + x0 + "," + y0 + " C" + mx + "," + y0 + " " + mx + "," + y1 + " " + x1 + "," + y1;
+        }
+        if (d.type === "admin") {
+          x0 = s.x + s.w / 2; y0 = s.y + s.h;
+          x1 = t.x + t.w / 2; y1 = t.y; my = (y0 + y1) / 2;
+          return "M" + x0 + "," + y0 + " C" + x0 + "," + my + " " + x1 + "," + my + " " + x1 + "," + y1;
+        }
+        return "";
+      }
+
+      var isData = function(t) { return t === "bronze" || t === "live" || t === "silver" || t === "platinum" || t === "writeback" || t === "bypass"; };
+
+      var linkEls = svg.selectAll(".link").data(links).join("path")
+        .attr("d", lp).attr("fill", "none")
+        .attr("stroke", function(d) {
+          if (d.type === "bronze") return "#CD7F32";
+          if (d.type === "silver" || d.type === "bypass") return "#8E8E93";
+          if (d.type === "platinum") return "#8b5cf6";
+          if (d.type === "live") return "#06b6d4";
+          if (d.type === "writeback") return "#f97316";
+          if (d.type === "admin") return "#0ea5e9";
+          if (d.type === "schema") return "#d97706";
+          return "#94a3b8";
+        })
+        .attr("stroke-width", function(d) { return isData(d.type) ? 1.5 : 1; })
+        .attr("stroke-dasharray", function(d) { return isData(d.type) ? null : "6 4"; })
+        .attr("opacity", function(d) { return d.type === "admin" ? 0.4 : d.type === "schema" ? 0.5 : 0.35; })
+        .attr("pointer-events", "none")
+        .attr("marker-end", function(d) {
+          if (d.type === "bronze") return "url(#arch-abr)";
+          if (d.type === "silver") return "url(#arch-as)";
+          if (d.type === "platinum") return "url(#arch-ai)";
+          if (d.type === "live") return "url(#arch-ab)";
+          if (d.type === "bypass") return "url(#arch-as)";
+          if (d.type === "writeback") return "url(#arch-ao)";
+          return null;
+        });
+
+      /* Animated data packets */
+      var packetLayer = svg.append("g").attr("pointer-events", "none");
+      linkEls.each(function(d) {
+        if (!isData(d.type)) return;
+        var pathNode = this;
+        var pathLen = pathNode.getTotalLength();
+        var col = d.type === "writeback" ? "#f97316" :
+                  d.type === "live" ? "#06b6d4" :
+                  d.type === "bypass" ? "#8E8E93" :
+                  d.type === "bronze" ? "#CD7F32" :
+                  d.type === "silver" ? "#8E8E93" : "#8b5cf6";
+        var coreFill = d.type === "writeback" ? "#fff7ed" :
+                       d.type === "live" ? "#ecfeff" :
+                       d.type === "bypass" ? "#f0f0f0" :
+                       d.type === "bronze" ? "#f5e6d0" :
+                       d.type === "silver" ? "#f0f0f0" : "#ede9fe";
+        var dur = Math.max(2500, pathLen * 12);
+        var interval = dur / 3;
+
+        function spawnPacket() {
+          var g = packetLayer.append("g").style("filter", "url(#arch-pkt)");
+          g.append("circle").attr("r", 3).attr("fill", col).attr("opacity", 0.3);
+          g.append("circle").attr("r", 1.5).attr("fill", coreFill);
+          g.transition().duration(dur).ease(d3.easeLinear)
+            .attrTween("transform", function() {
+              return function(t) {
+                var p = pathNode.getPointAtLength(t * pathLen);
+                return "translate(" + p.x + "," + p.y + ")";
+              };
+            })
+            .on("end", function() { d3.select(this).remove(); });
+        }
+        for (var k = 0; k < 3; k++) setTimeout(spawnPacket, k * interval);
+        d3.interval(spawnPacket, interval);
+      });
+
+      /* Draw nodes */
+      var ff = "ui-sans-serif,system-ui,sans-serif";
+      var ng = svg.selectAll(".node").data(nodes).join("g")
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+      ng.append("rect")
+        .attr("width", function(d) { return d.w; })
+        .attr("height", function(d) { return d.h; })
+        .attr("rx", 10)
+        .attr("fill", function(d) { return d.fill; })
+        .attr("stroke", function(d) { return d.stroke; })
+        .attr("stroke-width", 1.5)
+        .attr("filter", "url(#arch-sh)");
+
+      ng.append("text")
+        .attr("x", function(d) { return d.w / 2; })
+        .attr("y", function(d) { return d.sub ? d.h / 2 - 5 : d.h / 2; })
+        .attr("text-anchor", "middle").attr("dominant-baseline", "central")
+        .attr("fill", function(d) { return d.color; })
+        .attr("font-size", 12).attr("font-weight", 600).attr("font-family", ff)
+        .text(function(d) { return d.label; });
+
+      ng.filter(function(d) { return d.sub; }).append("text")
+        .attr("x", function(d) { return d.w / 2; })
+        .attr("y", function(d) { return d.h / 2 + 10; })
+        .attr("text-anchor", "middle").attr("dominant-baseline", "central")
+        .attr("fill", function(d) { return d.color; })
+        .attr("font-size", 9).attr("opacity", 0.6).attr("font-family", ff)
+        .text(function(d) { return d.sub; });
+    })();
+    </script>
+  </body>
+</html>

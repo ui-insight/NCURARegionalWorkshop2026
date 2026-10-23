@@ -1,11 +1,12 @@
-// Key manager: reads ?key= from URL, stores in sessionStorage, propagates to links
-// sessionStorage is tab-scoped — cleared when the tab closes, never written to disk.
+// Key manager: reads ?key= from URL, stores in sessionStorage, propagates to links.
+// sessionStorage is tab-scoped, cleared when the tab closes, never written to disk.
 
 const STORAGE_KEY = 'ai4ra_gemini_key';
 
 // Cross-origin links that need ?key= appended (sessionStorage can't help here)
 const CROSS_ORIGIN_TARGETS = [
   'nate-layman.github.io/promptulus',
+  'ai4ra.github.io/promptulus',
   'ui-insight.github.io/data-crawler-carl'
 ];
 

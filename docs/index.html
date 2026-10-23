@@ -47,6 +47,7 @@
               <div class="hero-actions">
                 <a class="button" href="course-content.html">View the sessions</a>
                 <a class="button-secondary" href="presenters.html">Meet the presenters</a>
+                <button class="button-secondary" id="open-apikey-modal">Enable interactive activities</button>
               </div>
               <p class="section-copy">
                 Materials on this site will grow as the workshop takes shape.
@@ -135,10 +136,123 @@
             </div>
           </div>
         </section>
+
+        <!-- QR fullscreen overlay: project this so the room can scan it -->
+        <div id="qr-fullscreen" style="display:none; position:fixed; inset:0; z-index:9999; background:#fff; flex-direction:column; align-items:center; justify-content:flex-start; cursor:pointer; overflow-y:auto; padding:2rem 1rem; box-sizing:border-box;">
+          <p style="color:#666; font-size:clamp(0.9rem, 2vw, 1.1rem); margin:0 0 1rem;">Scan to follow along with the workshop key loaded</p>
+          <img src="img/workshop_QR_code.png" alt="QR code" style="width:min(300px, 60vw); max-width:100%; border-radius:12px;" onerror="this.style.display='none'" />
+          <p class="workshop-short-link" style="color:var(--ink, #191919); font-size:clamp(1.8rem, 6vw, 4rem); font-weight:800; margin:1rem 0 0; letter-spacing:0.02em; text-align:center; max-width:100%; word-break:break-all;"></p>
+          <div style="margin-top:1.5rem; background:rgba(241,179,0,0.12); border:1px solid rgba(241,179,0,0.4); border-radius:10px; padding:0.75rem 1.25rem; text-align:center; max-width:90%; box-sizing:border-box;">
+            <p style="color:#888; font-size:0.85rem; margin:0 0 0.25rem;">Conference Wi-Fi</p>
+            <p id="wifi-network" style="color:#191919; font-size:clamp(1rem, 3vw, 1.3rem); font-weight:700; margin:0; word-break:break-word;">TBA</p>
+            <p id="wifi-password" style="color:#444; font-size:1rem; margin:0.2rem 0 0;">Password: <strong>TBA</strong></p>
+          </div>
+          <p style="color:#999; font-size:0.9rem; margin:1.5rem 0 0;">Click anywhere or press Escape to close</p>
+        </div>
+
+        <!-- Workshop key modal -->
+        <div id="apikey-modal" class="modal-overlay">
+          <div class="modal-dialog">
+            <h2>Workshop key</h2>
+            <p>The hands-on activities use Promptulus, which needs an API key.
+              For this workshop the University of Idaho provides one through
+              MindRouter, so you do not need your own. Scan the code or open
+              the short link and the key is loaded for you.</p>
+            <div style="text-align:center; margin:1rem 0;">
+              <img src="img/workshop_QR_code.png" alt="Scan to open the workshop site with the key pre-filled" style="width:180px;" onerror="this.style.display='none'" />
+              <p style="font-size:0.75rem; color:var(--muted); margin-top:0.25rem;">Scan to auto-fill the key</p>
+              <p style="font-size:1.3rem; font-weight:700; margin-top:0.35rem;">
+                <a class="workshop-short-link-anchor" href="#" target="_blank" rel="noopener" style="color:var(--gold);"></a>
+              </p>
+              <button id="expand-qr-btn" class="button-secondary" style="margin-top:0.5rem; font-size:0.8rem;">Expand for audience</button>
+            </div>
+            <div class="api-key-input-row">
+              <input type="password" id="api-key-input" placeholder="Or paste a key here (mr2_... for MindRouter)">
+              <span id="api-key-status"></span>
+            </div>
+            <details style="margin-top:0.75rem;">
+              <summary style="cursor:pointer; color:var(--accent); font-size:0.9rem;">How is the key handled?</summary>
+              <ul style="line-height:1.8; padding-left:1.2em; margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">
+                <li><strong>Tab-scoped storage.</strong> The key is held in sessionStorage, which is scoped to this browser tab. It clears when you close the tab and is never written to disk or shared across tabs.</li>
+                <li><strong>Static site.</strong> This page is served as a static file from GitHub Pages. No server here stores or sees your key.</li>
+                <li><strong>Passed to Promptulus at click time.</strong> Links to Promptulus from this site carry the key once, and Promptulus removes it from its own address bar on load.</li>
+                <li><strong>Sent only to MindRouter.</strong> A key starting with <code>mr2_</code> routes requests to the University of Idaho's models. Nothing goes to a public AI vendor on your account.</li>
+                <li><strong>URL stripped.</strong> If the key arrives via <code>?key=</code>, it is read once and immediately removed from the address bar so it does not land in history or bookmarks.</li>
+                <li><strong>Workshop-scoped.</strong> The key is issued for this event and retired afterward. It is never stored in this site's source. A personal Gemini key pasted above works too.</li>
+              </ul>
+              <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem;">
+                <strong>Note:</strong> as with any client-side application, the key is visible in browser developer tools while the page is open. Do not paste a key attached to a paid production project.
+              </p>
+            </details>
+            <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">
+              <strong>Facilitators:</strong> pre-fill by sharing a link to this site with <code>?key=YOUR_KEY</code> appended. The short link and QR code do exactly that.
+            </p>
+            <button id="dismiss-apikey-modal" class="button" style="margin-top:1rem;">Done</button>
+          </div>
+        </div>
       </main>
 
     </div>
 
     <script type="module" src="app.js"></script>
+    <script type="module">
+      // Shown on screen next to the QR code. The QR (img/workshop_QR_code.png)
+      // encodes this site's address with ?key=mr2_... appended; the key lives
+      // only in that image, never in this source. Keep the text here key-free.
+      const WORKSHOP_SHORT_LINK = 'ui-insight.github.io/NCURARegionalWorkshop2026';
+
+      const km = window.__keyManager;
+      const input = document.getElementById('api-key-input');
+      const status = document.getElementById('api-key-status');
+      const modal = document.getElementById('apikey-modal');
+      const openBtn = document.getElementById('open-apikey-modal');
+
+      function setArmed(armed) {
+        openBtn.textContent = armed ? 'Interactive activities enabled' : 'Enable interactive activities';
+      }
+
+      // Pre-fill if the key came from the URL (or an earlier page in this tab)
+      const existingKey = km.getKey();
+      if (existingKey) {
+        input.value = existingKey;
+        status.textContent = existingKey.startsWith('mr2_') ? 'MindRouter key loaded' : 'Key loaded';
+        setArmed(true);
+      }
+
+      input.addEventListener('input', () => {
+        const key = input.value.trim();
+        km.setKey(key);
+        if (key) {
+          status.textContent = key.startsWith('mr2_') ? 'MindRouter key entered' : 'Key entered';
+          setArmed(true);
+        } else {
+          status.textContent = '';
+          setArmed(false);
+        }
+      });
+
+      // Open and close the modal
+      openBtn.addEventListener('click', () => modal.classList.add('visible'));
+      document.getElementById('dismiss-apikey-modal').addEventListener('click', () => modal.classList.remove('visible'));
+      modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('visible'); });
+
+      // On-screen short link text
+      const ready = !/TBD/.test(WORKSHOP_SHORT_LINK);
+      document.querySelectorAll('.workshop-short-link').forEach((el) => {
+        el.textContent = ready ? WORKSHOP_SHORT_LINK : 'Short link coming before Denver';
+      });
+      document.querySelectorAll('.workshop-short-link-anchor').forEach((el) => {
+        el.textContent = ready ? WORKSHOP_SHORT_LINK : 'Short link coming before Denver';
+        el.href = ready ? 'https://' + WORKSHOP_SHORT_LINK : '#';
+      });
+
+      // Fullscreen QR for the room
+      const qrFs = document.getElementById('qr-fullscreen');
+      document.getElementById('expand-qr-btn').addEventListener('click', () => { qrFs.style.display = 'flex'; });
+      qrFs.addEventListener('click', () => { qrFs.style.display = 'none'; });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && qrFs.style.display === 'flex') qrFs.style.display = 'none';
+      });
+    </script>
   </body>
 </html>

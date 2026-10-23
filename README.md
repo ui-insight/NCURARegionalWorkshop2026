@@ -46,7 +46,7 @@ The [Narrate](https://narc.insight.uidaho.edu/narrate) tab on the NARC site is a
 
 Bert plans to use an invite code for workshop participants, so the workshop group's Narrate submissions are traceable to the event.
 
-Bert's deck is drafted at `docs/slides-thinking-well.html` (press `S` for speaker notes). Nathan's deck is still to be built. Track work in GitHub issues.
+Both decks are drafted: `docs/slides-where-ai-fits.html` (Nathan, Part 1) and `docs/slides-thinking-well.html` (Bert, Part 2). Press `S` in either for speaker notes. Track work in GitHub issues.
 
 ## Repo layout
 
@@ -62,12 +62,43 @@ Site structure and styling are carried over from [ui-insight/REACHWorkshop2026](
 python3 -m http.server 4173 -d docs
 ```
 
+### Workshop key for Promptulus
+
+Same mechanism as REACH 2026, with a University of Idaho MindRouter key in place of a Gemini key. The key is never committed to this repo.
+
+1. The QR code, `docs/img/workshop_QR_code.png`, encodes this site's address with `?key=mr2_...` appended. The key lives only in that image, never in the source. After the key is rotated the code still opens the site, but Promptulus will reject the old token until a new one is pasted in the home page modal.
+2. `docs/app.js` reads `?key=` on any page, stores it in tab-scoped sessionStorage, and strips it from the address bar.
+3. `docs/js/key-manager.js` appends the stored key to every Promptulus link at click time. Promptulus fills its key box on load and routes `mr2_` keys to MindRouter with nothing else to set.
+4. The home page has an "Enable interactive activities" button that opens the key modal (QR code, short link, paste box) and an "Expand for audience" view with the Wi-Fi details for projecting.
+
+Before Denver: fill in the Wi-Fi placeholders in `docs/index.html`. Rotate the key on MindRouter afterward.
+
+### Localizing Part 1 assets
+
+`docs/slides-where-ai-fits.html` currently points at images and sample documents hosted on the REACH workshop site (`https://ui-insight.github.io/REACHWorkshop2026/`). To serve them from this repo instead, copy them from the sibling checkout and strip the prefix:
+
+```bash
+R=../REACHWorkshop2026/docs
+mkdir -p docs/img/promptulus docs/img/diagrams
+cp $R/img/promptulus/*.png docs/img/promptulus/
+cp $R/img/logos/vandalizer.png $R/img/logos/data-lake.svg docs/img/logos/
+cp $R/img/diagrams/gradient_descent.png $R/img/diagrams/data-model.png docs/img/diagrams/
+cp $R/files/nsf_award_notice_*.pdf $R/files/fbu_* docs/files/
+sed -i '' 's#https://ui-insight.github.io/REACHWorkshop2026/##g' docs/slides-where-ai-fits.html
+```
+
+The gradient descent image is used by the token builder's sidebar in `docs/slides-interactive.js`, which already expects it at `img/diagrams/gradient_descent.png`.
+
 ## Status
 
 - [x] Workshop accepted by NCURA Region VI/VII
 - [x] Presenter lineup and session split (90 min Nathan, 60 min Bert, 30 min break and discussion)
 - [x] Bert: add bio, email, and photo to `docs/presenters.html` and `docs/img/presenters/` (#1)
-- [ ] Nathan: build the 90-minute deck from the REACH material
+- [x] Nathan: draft the 90-minute deck, `docs/slides-where-ai-fits.html` (how LLMs work and fail, Promptulus and Vandalizer hands-on, sorting the work, the data underneath)
+- [ ] Nathan: localize deck assets now hosted on the REACH site (Promptulus mascots, Vandalizer logo, data-model diagram, sample PDFs). See the note under Local preview.
+- [x] Nathan: mint the MindRouter key and the QR code (`docs/img/workshop_QR_code.png`)
+- [ ] Nathan: fill in the Wi-Fi details in `docs/index.html`; rotate the key after Denver
+- [ ] Nathan: arrange Vandalizer workshop logins for the hands-on block
 - [x] Bert: draft the 60-minute deck, `docs/slides-thinking-well.html` (NARC puzzles, Narrate, arguments by analogy, a workshop in miniature)
 - [x] Shareable discussion instrument: `docs/instrument.html`, with `docs/files/ai4ra-discussion-instrument.pdf` (printed from that page) and `.docx` (built from `resources/discussion-instrument.md` with pandoc). Keep the three in sync.
 - [ ] Bert: review the deck and speaker notes
