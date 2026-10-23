@@ -903,12 +903,17 @@
             </div>
           </div>
           <p class="slide-callout fragment" data-fragment-index="3" style="margin-top:0.5rem;">It only evaluates data quality when you ask. Every answer comes with the same confidence.</p>
-          <p class="slide-micro" style="margin-top:0.4rem;">Try it live: <a href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener" style="color:var(--gold);">Data Crawler Carl</a> takes a CSV and plain-English questions, and carries the workshop key from this site.</p>
+          <div class="launch-row" style="margin-top:0.5rem; gap:0.6rem;">
+            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener" style="font-size:0.85rem; padding:0.4rem 1.2rem;">Open Data Crawler Carl &rarr;</a>
+            <a class="launch-secondary" href="files/awards_demo.csv" download="awards_demo.csv" style="font-size:0.85rem; padding:0.4rem 1.2rem;">Download this table (CSV)</a>
+          </div>
           <aside class="notes">
-            Ask the room to eyeball the table first: what is the total federal funding by department? Give them twenty seconds. Then step through the fragments.
-            Fragment one: the answer a model gives. Correct arithmetic on the rows it could group. Polished sentence. Fragment two: the three federal awards with no department, nearly three million dollars, silently dropped. Fragment three: the point.
-            This is the "data first" bin from the sorter. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so.
-            If a laptop is handy, do it live in any chatbot and then ask it "what data quality issues do you see?" It will find them. It just will not volunteer them.
+            Live demo. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. The fragments on this slide are the fallback if the network or the model misbehaves.
+            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
+            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
+            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
+            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
+            This is the "data first" bin from the sorter. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
           </aside>
         </section>
 

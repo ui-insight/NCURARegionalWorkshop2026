@@ -35,7 +35,7 @@ Participants will gain hands-on experience with open-source tools developed thro
 
 | Time | Part | Presenter |
 |------|------|-----------|
-| 0:00 – 1:30 | Where AI fits in research administration: how LLMs work, where they fail, and hands-on with Promptulus, Vandalizer, and the data lakehouse | Nathan Layman |
+| 0:00 – 1:30 | Where AI fits in research administration: how LLMs work, where they fail, hands-on with Promptulus and Vandalizer, a live Data Crawler Carl demo, and the data lakehouse | Nathan Layman |
 | 1:30 – 1:40 | Break | |
 | 1:40 – 2:40 | Thinking well with AI: an ethical discussion mini-workshop and the [NARC](https://narc.insight.uidaho.edu/) reasoning puzzles | Bert Baumgaertner |
 | 2:40 – 3:00 | Open discussion and take-home plan | Both |
@@ -99,6 +99,7 @@ The gradient descent image is used by the token builder's sidebar in `docs/slide
 - [x] Nathan: mint the MindRouter key and the QR code (`docs/img/workshop_QR_code.png`)
 - [ ] Nathan: rotate the MindRouter key after Denver
 - [ ] Nathan: arrange Vandalizer workshop logins for the hands-on block
+- [ ] Nathan: update [data-crawler-carl](https://github.com/ui-insight/data-crawler-carl) to route `mr2_` keys to MindRouter the way Promptulus's `api.js` does (it currently sends every key to Google Gemini), so the live demo on the awards-table slide works with the workshop key
 - [x] Bert: draft the 60-minute deck, `docs/slides-thinking-well.html` (NARC puzzles, Narrate, arguments by analogy, a workshop in miniature)
 - [x] Shareable discussion instrument: `docs/instrument.html`, with `docs/files/ai4ra-discussion-instrument.pdf` (printed from that page) and `.docx` (built from `resources/discussion-instrument.md` with pandoc). Keep the three in sync.
 - [ ] Bert: review the deck and speaker notes

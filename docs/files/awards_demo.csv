@@ -1,0 +1,16 @@
+Award_ID,PI_Name,Department,Sponsor,Sponsor_Type,Amount,Start_Date,End_Date
+A-001,Martinez,Biology,NSF,Federal,450000,2024-09-01,2027-08-31
+A-002,Chen,,NIH,Federal,1200000,2023-07-01,2026-06-30
+A-003,Okafor,Engineering,DOE,Federal,680000,2025-01-15,2027-12-31
+A-004,Patel,Chemistry,,,320000,2024-03-01,
+A-005,Johnson,,NSF,Federal,550000,2024-06-01,2027-05-31
+A-006,Williams,Psychology,NIMH,Federal,890000,2023-01-01,2025-12-31
+A-007,Kim,,Pfizer,Industry,275000,2025-04-01,2026-03-31
+A-008,Thompson,Biology,USDA,Federal,410000,2024-11-01,2027-10-31
+A-009,Garcia,,,,150000,,2026-09-30
+A-010,Lee,Computer Science,NSF,Federal,725000,2025-02-01,2028-01-31
+A-011,Davis,,NIH,Federal,980000,2024-08-15,2027-07-31
+A-012,Robinson,Engineering,Boeing,Industry,185000,2025-06-01,2026-05-31
+A-013,Nguyen,Physics,DOE,Federal,560000,2023-10-01,2026-09-30
+A-014,Brown,,Gates Foundation,Nonprofit,1500000,2024-01-01,2028-12-31
+A-015,Miller,Sociology,,,95000,2025-03-15,2026-03-14
