@@ -8,16 +8,18 @@ The first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, S
 
 One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it.
 
+0. The day opens with a king who distrusted the written record, and closes with why we still know his name.
 1. The model guesses the most likely next word, so it is a crowd, not an expert. Skill: know what to ask a crowd.
 2. The crowd answers better when you tell it what you want. Skill: prompt with intent, hands-on.
-3. The crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and know that the record you hand it travels.
-4. Only a person can be accountable. Skill: four questions and a sort.
-5. Start with what is on your desk. Skill: three small things this month.
-6. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
+3. The crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and ask what was left out.
+4. The record has to be right, shared, and governed, and handing it over has a cost. Skill: know where your data goes.
+5. Only a person can be accountable. Skill: four questions and a sort.
+6. Start with what is on your desk. Skill: three small things this month.
+7. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
 
-## Opening (3 minutes)
+## Opening (6 minutes)
 
-The spine sentence, said once and plainly. A disclosure in the same breath: the tools in this talk are open source, free, and built by the presenters' project on an NSF award, so judge them by the checks the talk teaches, not by who is showing them. And one rule for the hands-on block before it starts: paste only what you could post on a bulletin board. PI names, sponsor names, award titles, deadlines, and public solicitation text are fine. Salaries, student or patient information, export-controlled detail, anything a sponsor marks confidential, and the content of unfunded proposals, the abstracts, aims, and narratives that are the PI's confidential work, are not. At the edges, the sponsor's terms and your institution's data classification decide, and proposal content is the PI's call. The full account of where data goes comes later, deliberately, after the room has handed a model something and felt the question.
+The spine sentence, said once and plainly. Then the story, before any tool is shown. In Plato's *Phaedrus*, the god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw. The room is asked to hold one question for the next ninety minutes: who should remember, and who should be reminded? A disclosure in the same breath: the tools in this talk are open source, free, and built by the presenters' project on an NSF award, so judge them by the checks the talk teaches, not by who is showing them. And one rule for the hands-on block before it starts: paste only what you could post on a bulletin board. PI names, sponsor names, award titles, deadlines, and public solicitation text are fine. Salaries, student or patient information, export-controlled detail, anything a sponsor marks confidential, and the content of unfunded proposals, the abstracts, aims, and narratives that are the PI's confidential work, are not. At the edges, the sponsor's terms and your institution's data classification decide, and proposal content is the PI's call. The full account of where data goes comes later, deliberately, after the room has handed a model something and felt the question.
 
 ## Block 1. How language models work (17 minutes)
 
@@ -33,11 +35,9 @@ What an exchange looks like. You type: "Summarize this award notice." Telosa ans
 
 **Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. That is the next problem, and it has a very old name.
 
-## Block 3. Remembering Thamus (22 minutes)
+## Block 3. Reminding the machine (13 minutes)
 
-The centerpiece. It opens with a story from Plato's *Phaedrus*. The god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw.
-
-Then the story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused.
+Thamus's remedy, applied to the thing that needs it. The story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused.
 
 **Demo one, three answers to one question.** What de minimis indirect cost rate may a recipient without a negotiated rate charge?
 
@@ -51,17 +51,21 @@ Watch one thing: the model sounds equally sure in all three columns. Confidence 
 
 The habit that comes out of that demo, usable on Monday with any tool, is one follow-up question typed every time: "How many rows did you use, how many did you leave out, and why?" Then: "Which rows were you unsure about?" A model that volunteers its exclusions is one you can work with; one that does not can be made to by asking, and a report that cannot answer those two questions is not finished.
 
-**So the record has to be right, and shared.** Every office tracks the same things, a sponsor, a PI, an award, a budget, and every system names them differently. Every report starts by reconciling them, and nothing built at one institution runs at the next. A shared data model is the fix. The AI4RA Unified Data Model is a draft of one, written by a small team at one institution: forty tables with plain names, an Award with an Award_Title, a Start_Date, and a Funds_Obligated_Amount; a Proposal that points at three organizations by role, the sponsor, the submitting unit, and the administering unit; a Personnel record a research administrator could read without training. The ask is for readers, not adopters: does it describe an award the way you would, what does your office track that is missing, what do you call differently.
+**Hand-off:** the model can be reminded, and the reminder can be wrong. The next ten minutes are about what the record has to be, and what it costs to hand over.
 
-**And the record has to live somewhere governed.** Keep the raw sources so you can prove what they said, translate each one to the shared model once, and let the model answer from the reconciled copy, not from whichever spreadsheet was open. The difference is a tool that is confidently wrong versus a pipeline that is honestly incomplete.
+## Block 4. The data underneath (10 minutes)
 
-**And reminding has a cost.** Everything you hand the model, it reads. The room has been doing this all morning: the shared workshop key points at the University of Idaho's own model gateway, a campus-run service in front of models the university has chosen, which is the hybrid option below made concrete, and the reason the paste rule could be as relaxed as a bulletin board. For Thamus the cost of the record was forgetting. For a machine, the cost is exposure. So, where does the model run? Vendor cloud, with the best models and the least visibility; local, where the data never leaves the building; or hybrid. If cloud, two tiers, and the talk is explicit about both. For practice on public text, the kind of thing the bulletin-board rule allows, a personal key on a free tier is fine; that is what the Monday Promptulus exercise uses, and nothing from your institution's systems goes through it. For anything exported from those systems, an awards table, a workbook, a document from a file, use the account your institution has vetted, never a personal consumer login. Vendors' business and API tiers do carry no-training terms, but the institutional agreement, the contract the university signs with the vendor, is the one someone at your institution has read, and it adds what a tier alone does not: a named contact and an audit trail, meaning a log of who sent what and when that the institution can review if a question is ever asked. Most universities already hold such an agreement for Microsoft or Google even if nobody in the research office knows it; the chief information officer's office can say in one email whether the university has a Microsoft enterprise or campus agreement or a Google Workspace for Education agreement, and whether Copilot or Gemini is covered under it. Some data may not leave under any agreement: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, anything a sponsor's terms restrict. Your institution's data classification policy is the authority, and if it has none, the bulletin-board rule from the opening is the interim policy.
+Which AI model matters most? Wrong question. The data model.
 
-The block ends on the reveal. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down.
+**The record has to be right, and shared.** Every office tracks the same things, a sponsor, a PI, an award, a budget, and every system names them differently. Every report starts by reconciling them, and nothing built at one institution runs at the next. A shared data model is the fix. The AI4RA Unified Data Model is a draft of one, written by a small team at one institution: forty tables with plain names, an Award with an Award_Title, a Start_Date, and a Funds_Obligated_Amount; a Proposal that points at three organizations by role, the sponsor, the submitting unit, and the administering unit; a Personnel record a research administrator could read without training. The ask is for readers, not adopters: does it describe an award the way you would, what does your office track that is missing, what do you call differently.
 
-**Hand-off:** the record can be right, shared, governed, and safely handed over, and the answer can still be wrong. Someone has to own it.
+**The record has to live somewhere governed.** Keep the raw sources so you can prove what they said, translate each one to the shared model once, and let the model answer from the reconciled copy, not from whichever spreadsheet was open. The difference is a tool that is confidently wrong versus a pipeline that is honestly incomplete.
 
-## Block 4. Accountability (9 minutes)
+**Reminding has a cost.** Everything you hand the model, it reads. The room has been doing this all morning: the shared workshop key points at the University of Idaho's own model gateway, a campus-run service in front of models the university has chosen, which is the hybrid option below made concrete, and the reason the paste rule could be as relaxed as a bulletin board. For Thamus the cost of the record was forgetting. For a machine, the cost is exposure. So, where does the model run? Vendor cloud, with the best models and the least visibility; local, where the data never leaves the building; or hybrid. If cloud, two tiers, and the talk is explicit about both. For practice on public text, the kind of thing the bulletin-board rule allows, a personal key on a free tier is fine; that is what the Monday Promptulus exercise uses, and nothing from your institution's systems goes through it. For anything exported from those systems, an awards table, a workbook, a document from a file, use the account your institution has vetted, never a personal consumer login. Vendors' business and API tiers do carry no-training terms, but the institutional agreement, the contract the university signs with the vendor, is the one someone at your institution has read, and it adds what a tier alone does not: a named contact and an audit trail, meaning a log of who sent what and when that the institution can review if a question is ever asked. Most universities already hold such an agreement for Microsoft or Google even if nobody in the research office knows it; the chief information officer's office can say in one email whether the university has a Microsoft enterprise or campus agreement or a Google Workspace for Education agreement, and whether Copilot or Gemini is covered under it. Some data may not leave under any agreement: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, anything a sponsor's terms restrict. Your institution's data classification policy is the authority, and if it has none, the bulletin-board rule from the opening is the interim policy.
+
+**Hand-off:** the record can be right, shared, governed, and safely handed over, and the answer can still be wrong. The block ends on the question the next one answers: who owns the answer?
+
+## Block 5. Accountability (9 minutes)
 
 Four questions before any task goes to a model, in thirty seconds:
 
@@ -78,7 +82,7 @@ Filled in, for one office, it reads about like this. *Tools: the Copilot and Gem
 
 **Hand-off:** you know what the model is, how to ask it, what to hand it, and who owns the answer. Now the smallest thing you can do with that on Monday.
 
-## Block 5. Start small (7 minutes)
+## Block 6. Start small (7 minutes)
 
 Three recipes. The first two touch files exported from your systems, so they run on the institution's account, never a personal one; the third is practice on public text and a personal key is fine. All three share the second rule: read what it wrote before you trust it. The bulletin-board rule from the opening is the data rule throughout.
 
@@ -90,17 +94,17 @@ Each bigger step depends on the one below it: a clean spreadsheet before a dashb
 
 **Hand-off:** small starts are checked by hand each time. When the same task repeats a hundred times, you want a workflow you can check once.
 
-## Block 6. Vandalizer (11 minutes)
+## Block 7. Vandalizer (11 minutes)
 
 Two demos of Vandalizer, a document extraction and review platform built for research administrators by the presenters' own project, so the disclosure from the opening applies here most of all: judge it by the checks, not by who is showing it. Extract the PI, the dates, the budget, and the terms from an award notice into a structured record, with the source passage shown for every value. Then check a proposal against its solicitation and catch the mismatch. The point is the reusable workflow: same prompt, same steps, so accuracy can be measured once and trusted many times. The block ends with three ways to check output you did not write: inspect it directly against the source, keep the trail of how it was produced, and test the tool on cases where you already know the answer before trusting it on ones where you do not. As tools take more steps on their own, inspection carries less of the load and the other two carry more. That third check is also how to evaluate any tool, this one included: run twenty documents you have already processed by hand, count the misses, and decide.
 
-## Close (3 minutes)
+## Close (4 minutes)
 
-Three bins for every task on your desk: automate, augment, or leave alone. One thing to take home from the start-small list. Then the handoff. The machine needs to remember less and look things up more; that was the first ninety minutes. People need to keep enough in their own heads to judge what comes back; that is Bert's hour: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format to run at your own institution.
+Three bins for every task on your desk: automate, augment, or leave alone. One thing to take home from the start-small list. Then back to the king, for the first time since the opening. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down. The machine needs to remember less and look things up more; that was the first ninety minutes. People need to keep enough in their own heads to judge what comes back, which is the half of Thamus's warning that still stands, and that is Bert's hour: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format to run at your own institution.
 
 ## What a good Monday looks like
 
-- You have found your institution's AI guidance and data classification policy, or confirmed there is none, adopted the one-page interim policy from Block 4 for your own desk, and asked the three people named there for a meeting.
+- You have found your institution's AI guidance and data classification policy, or confirmed there is none, adopted the one-page interim policy from Block 5 for your own desk, and asked the three people named there for a meeting.
 - You have run your Promptulus task for real, with a colleague checking the result.
 - You have sorted five tasks from your own desk into the three bins and talked about one with your supervisor.
 - You have read the UDM for ten minutes and sent one sentence about it to the AI4RA community list.
@@ -112,7 +116,7 @@ Three bins for every task on your desk: automate, augment, or leave alone. One t
 | [Promptulus](https://ai4ra.github.io/promptulus/) | Prompt-training page with coaches | Hands-on, on the shared workshop key | Free and open source. Paste your own key into the key box on the page |
 | [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Spreadsheet questions in plain English, query shown | Demo | Free. Same key box as Promptulus. Rows stay in your browser; column names and your question go to the model your key points at |
 | Remembering Thamus | One question, three answers | Demo | In development at [github.com/nate-layman/thamus](https://github.com/nate-layman/thamus); the README carries the story |
-| [Vandalizer](https://vandalizer.uidaho.edu) | Document extraction and review workflows | Demo | Free trial at the site; open source at [github.com/ui-insight/vandalizer](https://github.com/ui-insight/vandalizer), a university research project rather than a vendor product. Documents you upload to the trial are processed on the project's host under the terms posted on its site; the talk's position is that until you have read those terms, the trial is for public documents only. Run your own copy from the repository and the documents never leave your building, which is the local option from Block 3 |
+| [Vandalizer](https://vandalizer.uidaho.edu) | Document extraction and review workflows | Demo | Free trial at the site; open source at [github.com/ui-insight/vandalizer](https://github.com/ui-insight/vandalizer), a university research project rather than a vendor product. Documents you upload to the trial are processed on the project's host under the terms posted on its site; the talk's position is that until you have read those terms, the trial is for public documents only. Run your own copy from the repository and the documents never leave your building, which is the local option from Block 4 |
 | [AI4RA Unified Data Model](https://ui-insight.github.io/AI4RA-UDM/) | Draft shared data vocabulary | Shown, with a request for help | Read it and reply on the [AI4RA community list](https://groups.ai4ra.uidaho.edu/g/main/join) |
 
 Bring a laptop and one bulletin-board-safe task. Nothing needs an account or an install. In the room, Promptulus and Carl run on a shared workshop key delivered by QR code, which points at the University of Idaho's model gateway and expires after the day; if a scan fails, the presenter reads the companion-site address aloud and the key travels with the link from there. On Monday the two tiers apply: for public-text practice, a free Google Gemini key takes two minutes at https://aistudio.google.com/app/apikey, unless your institution forbids personal keys for any work use, in which case ask whether it issues staff keys to a gateway of its own; for anything from your institution's systems, the institution's vetted account only.
