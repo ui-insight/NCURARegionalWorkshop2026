@@ -56,6 +56,22 @@
       /* Vandalizer intro split */
       .vz-feature { font-size:0.74rem; }
       .vz-feature li { margin-bottom:0.25rem; }
+
+      /* Recalled vs accessed comparator */
+      .compare-box { max-width: 68rem; margin: 0.8rem auto 0; text-align:left; }
+      .compare-row { display:flex; gap:0.6rem; align-items:center; }
+      .compare-input-row { background:#f7f7f7; border:1px solid rgba(25,25,25,0.12); border-radius:0.9rem; padding:0.55rem 0.6rem; }
+      .compare-label { font-size:0.72rem; font-weight:800; color:#555; text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
+      .compare-input-row input { flex:1; min-width:0; border:1px solid rgba(25,25,25,0.15); border-radius:0.6rem; padding:0.45rem 0.6rem; font-size:0.82rem; background:#fff; color:#191919; }
+      .compare-input-row button { border:2px solid #191919; background:#191919; color:#fff; font-size:0.76rem; font-weight:800; padding:0.45rem 0.8rem; border-radius:0.6rem; cursor:pointer; }
+      .compare-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0.8rem; margin-top:0.7rem; }
+      .compare-panel { border-radius:1rem; border:1px solid rgba(25,25,25,0.12); padding:0.8rem; background:#fff; }
+      .compare-panel h3 { margin:0.2rem 0 0.5rem; font-size:0.92rem; }
+      .compare-tag { margin:0; font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; }
+      .compare-left .compare-tag { color:#b91c1c; }
+      .compare-right .compare-tag { color:#166534; }
+      .compare-answer { margin:0; font-size:1rem; line-height:1.5; color:#191919; }
+      .compare-note { margin-top:0.6rem; font-size:0.72rem; color:#555; }
     </style>
   </head>
   <body class="slides-page">
@@ -74,6 +90,7 @@
         <section class="title-slide" data-background-color="#f1b300">
           <p class="slide-kicker slide-kicker-dark">AI4RA Workshop | NCURA Region VI/VII 2026</p>
           <h1>Where AI fits in research administration</h1>
+          <img src="img/generated/title-hero.png" alt="Abstract branching paths in a warm gold and white workshop theme" class="slide-img-small" style="max-height:9rem; margin-top:0.3rem; box-shadow:0 12px 30px rgba(0,0,0,0.12);" />
           <img src="img/presenters/nathan-layman.jpeg" alt="Nathan Layman" style="width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #fff; margin:0.75rem auto 0;" />
           <p class="slide-lede slide-dark">Led by Nathan Layman</p>
           <aside class="notes">
@@ -93,9 +110,9 @@
               <p class="preview-icon" aria-hidden="true">&#x1F9E0;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 1</p>
-                <h6 class="preview-part-title">How LLMs work and fail</h6>
+                <h6 class="preview-part-title">How LLMs work</h6>
               </div>
-              <p class="preview-time">25 min</p>
+              <p class="preview-time">20 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
@@ -103,37 +120,53 @@
                 <p class="preview-part-number">Block 2</p>
                 <h6 class="preview-part-title">Hands-on: Promptulus</h6>
               </div>
-              <p class="preview-time">15 min</p>
+              <p class="preview-time">12 min</p>
             </article>
             <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x1F9ED;</p>
+              <p class="preview-icon" aria-hidden="true">&#x1F50D;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 3</p>
-                <h6 class="preview-part-title">When to use it, and sorting the work</h6>
+                <h6 class="preview-part-title">Error modes: recalled vs. accessed</h6>
               </div>
-              <p class="preview-time">15 min</p>
+              <p class="preview-time">13 min</p>
             </article>
             <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x1F4C4;</p>
+              <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 4</p>
-                <h6 class="preview-part-title">Hands-on: Vandalizer</h6>
+                <h6 class="preview-part-title">Governance and security</h6>
               </div>
-              <p class="preview-time">20 min</p>
+              <p class="preview-time">12 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F331;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 5</p>
+                <h6 class="preview-part-title">Start small</h6>
+              </div>
+              <p class="preview-time">10 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Block 5</p>
-                <h6 class="preview-part-title">The data underneath</h6>
+                <p class="preview-part-number">Block 6</p>
+                <h6 class="preview-part-title">Building big: the data underneath</h6>
               </div>
-              <p class="preview-time">15 min</p>
+              <p class="preview-time">10 min</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F4C4;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Block 7</p>
+                <h6 class="preview-part-title">Vandalizer demo and close</h6>
+              </div>
+              <p class="preview-time">13 min</p>
             </article>
           </div>
           <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
-            Five blocks. Two of them are you at a keyboard. The thread running through all five: augment, not replace. The value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself, and the work itself is yours.
-            Timing targets, with the opening counted inside block 1: block 1 ends at 0:25, block 2 at 0:40, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30. If block 1 runs long, the fabrication exercise can be done as a show of hands instead of a click-through.
+            Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread running through all seven: augment, not replace. The value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself, and the work itself is yours.
+            Timing targets, with the opening counted inside block 1: block 1 ends at 0:20, block 2 at 0:32, block 3 at 0:45, block 4 at 0:57, block 5 at 1:07, block 6 at 1:17, block 7 and close at 1:30. If block 1 runs long, the fabrication exercise can be a show of hands instead of a click-through. If block 5 runs long, the dashboard is described rather than built.
           </aside>
         </section>
 
@@ -141,6 +174,7 @@
         <section>
           <p class="slide-kicker">The cornerstone</p>
           <h1 style="font-size:3.2rem;">Augment, not replace</h1>
+          <img src="img/generated/augment-not-replace.png" alt="A human research administrator and an AI assistant working side by side on documents" class="slide-img" style="max-height:11rem; margin-bottom:0.4rem;" />
           <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:1rem;">
             <article class="slide-card accent">
               <span class="slide-label">AI prepares, you decide</span>
@@ -198,7 +232,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 1: How LLMs work and fail (0:05 to 0:25)
+             Block 1: How LLMs work (0:05 to 0:20)
              ═══════════════════════════════════════════ -->
 
         <!-- 4. TOKEN BUILDER -->
@@ -358,6 +392,7 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; Where LLMs fail</p>
           <h2>Spot the fabrication</h2>
+          <img src="img/generated/fabrication.png" alt="A polished AI-generated document with a subtle crack revealing invented content underneath" class="slide-img-small" style="max-height:7.5rem;" />
           <div class="slide-card" style="text-align:left; font-size:0.66rem; margin:0.3rem auto 0.5rem; max-width:52rem; padding:0.5rem 0.9rem;">
             <span class="slide-label">Source: excerpt from a (synthetic) award notice</span>
             <p style="margin-top:0.25rem;">Award 2512345. PI: Dr. Maria Okafor, Department of Biology. Title: Soil Microbial Response to Prescribed Fire. Amount awarded: $412,500. Period of performance: 09/01/2026 to 08/31/2029. Indirect cost rate: 48.5% MTDC. Annual project reports are due 90 days before the end of each budget period. No cost sharing is required.</p>
@@ -386,6 +421,7 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Your AI has a page limit</h2>
+          <img src="img/generated/context-window.png" alt="A limited stack of glowing document pages, with one page slipping out of view" class="slide-img-small" style="max-height:7rem;" />
           <p style="font-size:0.8rem; color:var(--muted);">Everything competes for the same context window. Drag the handles or pick a preset.</p>
           <div class="context-slider" id="ctx-slider">
             <div class="slider-bar">
@@ -447,7 +483,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 2: Hands-on with Promptulus (0:25 to 0:45)
+             Block 2: Hands-on with Promptulus (0:20 to 0:32)
              ═══════════════════════════════════════════ -->
 
         <!-- 10. THE COMPANIONS -->
@@ -517,7 +553,7 @@
         <section>
           <p class="slide-kicker">Block 2 &middot; Hands-on with Promptulus</p>
           <h2>Bring a task from your desk</h2>
-          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Ten minutes. Work alone, then compare with a neighbor.</p>
+          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Eight minutes. Work alone, then compare with a neighbor.</p>
           <div class="sample-challenge-block" style="max-width:50rem; margin:0 auto;">
             <h6>Challenges</h6>
             <div class="challenge-checklist" role="list" aria-label="Promptulus exercise challenges">
@@ -552,7 +588,7 @@
             Stragglers who typed the address by hand have no key: put the QR back up, or let them paste the key in the home page modal. Rotate the key on MindRouter after the conference.
             Walk the room. The common failure is a vague prompt ("summarize this") with no success criteria. Promptulus will name it.
             Good tasks: draft a budget justification paragraph, summarize terms of an award, explain an F&amp;A rate to a PI, turn a solicitation into a checklist. Bad task for today: anything with real restricted data. Synthetic is fine.
-            At eight minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
+            At six minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
           </aside>
         </section>
 
@@ -579,17 +615,116 @@
           </div>
           <aside class="notes">
             Take three or four answers. Listen for the Mnemos answer especially: "it would need our award data" or "it would need the policy manual" is the setup for the last block of the morning.
-            The Veridex answer sets up Vandalizer. Most people will say "I would read it." Ask: all of them? Every time? Hold that.
+            The Veridex answer sets up the next block. Most people will say "I would read it." Ask: read it against what? If the model answered from memory, there is nothing to read it against. That is the difference between recalled and accessed, and it is next.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 3: Sorting the work (0:45 to 0:55)
+             Block 3: Error modes, recalled vs. accessed (0:32 to 0:45)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 3a. TWO KINDS OF KNOWING -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; Error modes</p>
+          <h2>Two kinds of knowing: recalled and accessed</h2>
+          <div class="slide-grid">
+            <article class="slide-card dark">
+              <span class="slide-label">Recalled</span>
+              <p style="font-size:0.78rem;">What the crowd remembers from training.</p>
+              <ul style="font-size:0.76rem;">
+                <li>Frozen at the training cutoff. The regulation it remembers is the one that was written about most, not the one in force.</li>
+                <li>Blurred. An average over everything ever published on the subject.</li>
+                <li>Fills gaps with the most plausible thing, in the same confident voice.</li>
+              </ul>
+              <p style="font-size:0.76rem; margin-top:0.4rem;"><strong>This is where hallucination lives.</strong></p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Accessed</span>
+              <p style="font-size:0.78rem;">What the model reads right now from a source you connected.</p>
+              <ul style="font-size:0.76rem;">
+                <li>A document in the window. A regulation fetched by section number. A query against your awards. An API response.</li>
+                <li>Current as of the source, and citable: it can point to where it looked.</li>
+                <li>Wrong only if the source is wrong, or the lookup missed. Both are checkable.</li>
+              </ul>
+            </article>
+          </div>
+          <p class="slide-callout">Hallucination is recalled knowledge standing in where accessed knowledge was needed. If the answer matters, make it accessed.</p>
+          <aside class="notes">
+            The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
+            Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
+            Accessed is the fix, and the rest of this block is about the plumbing that makes it possible. First, watch it happen.
+          </aside>
+        </section>
+
+        <!-- 3b. LIVE DEMO: COMPLIANCE QUESTIONS -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; Live demo</p>
+          <h2>Ask a compliance question twice</h2>
+          <div class="compare-box" id="compare-ecfr">
+            <div class="compare-row compare-input-row">
+              <label for="compare-question" class="compare-label">Question for the model</label>
+              <input id="compare-question" type="text" value="What de minimis indirect cost rate may a recipient without a negotiated rate charge?" />
+              <button type="button" id="compare-run">Ask both sides</button>
+            </div>
+            <div class="compare-grid">
+              <article class="compare-panel compare-left">
+                <p class="compare-tag">Recalled only</p>
+                <h3>Model answer, no source connected</h3>
+                <p id="compare-recalled" class="compare-answer">Click <strong>Ask both sides</strong> to see how the crowd answers from memory.</p>
+              </article>
+              <article class="compare-panel compare-right">
+                <p class="compare-tag">Accessed source</p>
+                <h3>Same model, source injected</h3>
+                <p id="compare-accessed" class="compare-answer">Click <strong>Ask both sides</strong> to see what happens when eCFR text is handed to it.</p>
+              </article>
+            </div>
+            <p class="compare-note">For the full build, set the MindRouter/eCFR endpoint in this slide and the right column will query it live. The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
+          </div>
+          <p class="slide-note">Round 1 is a fresh chat with no tools. Round 2 is the same question with an eCFR lookup tool connected. That is the difference between remembered and read.</p>
+          <aside class="notes">
+            Use this as the live comparator. Ask the same question twice: once with no source, once with the eCFR source connected. The left side is recalled, the right side is accessed. If you set the endpoint constant in the deck script, the right side becomes genuinely live; until then, fixed coach answers keep the contrast obvious.
+            The room should notice the same model sound confident in both cases. Confidence is not evidence. The accessed side should win because it got handed the rule, not because the model became more careful.
+          </aside>
+        </section>
+
+        <!-- 3c. HOW ACCESSED KNOWLEDGE GETS IN -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; How accessed knowledge gets in</p>
+          <h2>Four ways to hand the crowd a source</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
+            <article class="slide-card accent">
+              <span class="slide-label">1. Paste it into the window</span>
+              <p style="font-size:0.76rem;">The document itself, in the prompt. Simplest and most reliable. The limit is the page limit: one award notice fits, a hundred award files do not.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">2. RAG with a vector database</span>
+              <p style="font-size:0.76rem;">Your documents are cut into chunks and indexed by meaning. Each question retrieves the closest chunks and pastes them into the window. Good at "find the passage about cost share." Weak at totals, counts, and anything that needs every record. Vandalizer's document chat works this way.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">3. APIs</span>
+              <p style="font-size:0.76rem;">A structured call to a system of record: the eCFR, Grants.gov, your lakehouse gateway. Returns facts, not prose, and the same facts every time. Needs the data to be organized first, which is the last block of the morning.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">4. MCP, the Model Context Protocol</span>
+              <p style="font-size:0.76rem;">A standard way to give the model a set of tools ("fetch this CFR section," "list active awards for this PI") and let it decide when to call them. What the demo used. The model still has to choose to look, so ask it to, and check that it did.</p>
+            </article>
+          </div>
+          <p class="slide-callout">RAG finds passages. APIs return facts. MCP lets the model choose which to call. None of them replaces checking.</p>
+          <aside class="notes">
+            This is as technical as the morning gets, and the point is vocabulary, not engineering. When a vendor says RAG, they mean option two: a search engine over your documents that feeds the model the best few passages. When they say agent or tools or MCP, they mean option four: the model can call out to things. When they say integration, they usually mean option three underneath.
+            The practical rule: RAG is great for "where does it say" and bad for "how much in total," because it only ever sees a few chunks. For totals you want an API over organized data, which is the lakehouse.
+            All four are accessed knowledge. All four still fail when the source is wrong or the lookup misses, so the verification habit does not go away. It just gets cheaper, because now there is a citation to check.
+            Bridge: the model has a source now. Who is allowed to connect which source, and who is accountable for what comes back? That is governance.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Block 4: Governance and security (0:45 to 0:57)
              ═══════════════════════════════════════════ -->
 
         <!-- 12b. ACCOUNTABILITY -->
         <section>
-          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <p class="slide-kicker">Block 4 &middot; Governance and security</p>
           <div class="slide-split img-wide" style="align-items:center; margin-top:0.5rem;">
             <div class="split-img">
               <img src="img/ibm-1979-accountability.jpeg" alt="A page from a 1979 IBM training manual: A computer can never be held accountable, therefore a computer must never make a management decision" style="max-height:420px; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,0.18);" />
@@ -609,7 +744,7 @@
 
         <!-- 12c. FOUR QUESTIONS -->
         <section>
-          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <p class="slide-kicker">Block 4 &middot; Governance and security</p>
           <h2>Four questions before you hand it over</h2>
           <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
             <article class="slide-card accent">
@@ -640,8 +775,9 @@
 
         <!-- 12d. DATA SOVEREIGNTY -->
         <section>
-          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <p class="slide-kicker">Block 4 &middot; Governance and security</p>
           <h2>Data sovereignty: where does the model run?</h2>
+          <img src="img/generated/data-sovereignty.png" alt="Institutional data moving through a protected gateway into governed systems" class="slide-img-small" style="max-height:7.5rem;" />
           <div class="toggle-compare">
             <div class="toggle-header">
               <button class="toggle-btn active" data-panel="cloud">Cloud</button>
@@ -695,7 +831,7 @@
 
         <!-- 13. THREE ZONES -->
         <section>
-          <p class="slide-kicker">Block 3 &middot; Sorting the work</p>
+          <p class="slide-kicker">Block 4 &middot; Sorting the work</p>
           <h2>Does it matter how the work got done?</h2>
           <div class="slide-split img-wide">
             <div class="split-img">
@@ -720,7 +856,7 @@
 
         <!-- 14. TASK SORTER -->
         <section>
-          <p class="slide-kicker">Block 3 &middot; Sorting the work</p>
+          <p class="slide-kicker">Block 4 &middot; Sorting the work</p>
           <h2>Sort these research administration tasks</h2>
           <p style="font-size:0.72rem; color:var(--muted); margin-bottom:0.3rem;">Three bins. Which tasks can AI help with today, which need your institutional data in order first, and which should stay with a person?</p>
           <div class="task-sorter" style="max-width:56rem; margin:0 auto; display:flex; flex-direction:column; gap:0.25rem;">
@@ -766,182 +902,182 @@
             Do this as a room: call out each task, hands for each bin, click the majority. Then reveal.
             The answers are a position, not a fact, so argue with them. The point is the middle bin. "Report federal funding by department" sounds like a one-line prompt. It is not, because the answer lives in your award system, your HR system, and your chart of accounts, and the model can see none of them. Same for effort certification and funding prediction. Those tasks are blocked on data, not on AI.
             The human bin is the process-critical end of the continuum: allowability, negotiation, and a conversation with a person who is about to be upset. AI can prepare material for all three. It cannot own them.
-            Bridge: the AI-now bin is all documents. Let's go do one.
+            Bridge: the AI-now bin is where you start small, and that is next.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 4: Hands-on with Vandalizer (0:55 to 1:15)
+             Block 5: Start small (0:57 to 1:07)
              ═══════════════════════════════════════════ -->
 
-        <!-- 15. VANDALIZER INTRO -->
+        <!-- 5a. DASHBOARD -->
         <section>
-          <p class="slide-kicker">Block 4 &middot; Hands-on with Vandalizer</p>
-          <div class="section-heading-with-logo">
-            <h2>Vandalizer</h2>
-            <img src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/vandalizer.png" alt="Vandalizer logo" class="section-logo section-logo-vandalizer" />
-          </div>
-          <div class="slide-split">
-            <div class="split-text">
-              <ul class="vz-feature">
-                <li><strong>Structured extraction.</strong> Pull dates, amounts, requirements, and terms out of PDFs into named fields.</li>
-                <li><strong>Every value has a source.</strong> Click a result and jump to the passage and page it came from, or see an explicit "no source found."</li>
-                <li><strong>Workflows.</strong> Chain extractions into a repeatable pipeline and run it on every new upload.</li>
-                <li><strong>Ask the documents.</strong> Chat against a document set with citation-backed answers.</li>
-                <li><strong>Validate and improve.</strong> Score an extraction against a test set and tune it.</li>
-                <li><strong>Self-hosted and model-agnostic.</strong> One server, any OpenAI-compatible model, including local ones.</li>
-              </ul>
+          <p class="slide-kicker">Block 5 &middot; Start small</p>
+          <h2>An afternoon's dashboard with Claude artifacts</h2>
+          <div class="slide-split" style="align-items:flex-start;">
+            <div class="split-text" style="flex:1 1 56%;">
+              <ol style="font-size:0.8rem; padding-left:1.2rem;">
+                <li>Export a CSV. Proposals by sponsor, awards by department. Synthetic today, de-identified at home.</li>
+                <li>Paste it into Claude and ask for an interactive dashboard: totals by sponsor type, awards ending within 90 days, a filter by department.</li>
+                <li>It writes the page. You get something clickable in about a minute, and you can ask for changes in plain English.</li>
+                <li><strong>Then verify.</strong> Pick two numbers on the dashboard and check them against a pivot table. If they match, show it to someone.</li>
+              </ol>
+              <div class="launch-row" style="justify-content:flex-start; margin-top:0.4rem;">
+                <a class="launch-secondary" href="files/awards_demo.csv" download="awards_demo.csv" style="font-size:0.8rem; padding:0.35rem 1.1rem;">Download the demo CSV</a>
+              </div>
             </div>
-            <div class="split-text" style="flex:0 0 36%;">
-              <div class="slide-card dark" style="margin-top:0; text-align:center;">
-                <span class="slide-label">Open it</span>
-                <a class="launch-primary" href="https://vandalizer.uidaho.edu" target="_blank" rel="noopener" style="display:block; margin:0.6rem auto 0.4rem;">vandalizer.uidaho.edu &rarr;</a>
-                <p style="font-size:0.62rem; opacity:0.75; margin:0.4rem 0 0;">Log in with the workshop account on the board. Sample documents are on the next two slides.</p>
+            <div class="split-text" style="flex:0 0 40%;">
+              <div class="slide-card dark" style="margin-top:0;">
+                <span class="slide-label">What this is, and is not</span>
+                <ul style="font-size:0.74rem;">
+                  <li>A prototype for a conversation with leadership. Not a system of record.</li>
+                  <li>It will compute confidently on messy columns. Remember the blank departments.</li>
+                  <li>The CSV went to the vendor. The sovereignty slide applies: enterprise account, synthetic or de-identified data.</li>
+                  <li>If leadership likes it, that is the moment to ask where the real numbers should come from. Which is the next block.</li>
+                </ul>
               </div>
             </div>
           </div>
           <aside class="notes">
-            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. Remember the fabrication exercise. The only way to catch an invented value was to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
-            Logistics to settle before Denver: a shared workshop login or pre-created accounts, and confirm the room's wifi can handle thirty uploads at once. Have the three sample PDFs on a USB stick as a fallback.
+            Live if time allows, otherwise describe it. Paste awards_demo.csv into Claude and ask: "Build an interactive dashboard from this table: total funding by sponsor type, a bar chart by department, and a list of awards ending in the next twelve months, with a department filter." It produces an artifact in under a minute. Click the filter. Then ask the room: which number on this would you check first, and against what?
+            The lesson is the fourth step. The dashboard is a draft. The pivot table is the check. The value is that an administrator with no developer can get from a spreadsheet to a conversation in an afternoon, and the cost is that a confident dashboard built on a dirty export is more dangerous than no dashboard. Augment, not replace, applies to the analyst too.
           </aside>
         </section>
 
-        <!-- 16. EXERCISE 1: EXTRACT AN AWARD NOTICE -->
+        <!-- 5b. AI INSIDE EXCEL -->
         <section>
-          <p class="slide-kicker">Block 4 &middot; Exercise 1</p>
-          <h2>Extract an award notice</h2>
-          <div class="sample-doc-grid" role="list" aria-label="Exercise 1 sample documents">
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_DEB-2412345.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 1</h3>
-              <p>PI Radagast Brownleaf</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_EAR-2418901.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 2</h3>
-              <p>PI Juniper Quillstone</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_OPP-2345678.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 3</h3>
-              <p>PI RJ MacReady</p>
-            </a>
-          </div>
-          <div class="sample-challenge-block">
-            <h6>Challenges</h6>
-            <div class="challenge-checklist" role="list" aria-label="Exercise 1 challenges">
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Upload one award notice and run the pre-built NSF award extraction</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Click three extracted values and confirm each one against the passage it points to</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Add an extraction term you know is <strong>not</strong> in the document. What comes back?</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Run it again on a second notice. Same fields, same shape?</p></span>
-              </label>
+          <p class="slide-kicker">Block 5 &middot; Start small</p>
+          <h2>AI inside the spreadsheet you already live in</h2>
+          <div class="slide-split" style="align-items:flex-start;">
+            <div class="split-text" style="flex:1 1 56%;">
+              <p style="font-size:0.82rem;">Claude's add-in for Excel sits in a side panel and reads the open workbook. No export, no paste. Things worth asking it this month:</p>
+              <ul style="font-size:0.78rem;">
+                <li>"Explain what this F&amp;A formula is doing, in plain language."</li>
+                <li>"Write a formula that flags awards ending within 90 days of today."</li>
+                <li>"Add a column that classifies each sponsor as federal, industry, or nonprofit, and list the rows you were unsure about."</li>
+                <li>"Turn this tab into a reconciliation checklist I can hand to a new hire."</li>
+              </ul>
+            </div>
+            <div class="split-text" style="flex:0 0 40%;">
+              <div class="slide-card dark" style="margin-top:0;">
+                <span class="slide-label">Same rules</span>
+                <ul style="font-size:0.74rem;">
+                  <li>The workbook, or the part it reads, goes to the vendor. Enterprise agreement, not a personal account.</li>
+                  <li>Read every formula it writes before you trust the column. Once you have read it, it is yours.</li>
+                  <li>Ask it to show which rows it was unsure about. A model that volunteers its uncertainty is one you can work with.</li>
+                  <li>Personnel and student data: check the sovereignty slide before the workbook ever opens.</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <p class="slide-callout">The smallest possible start: the spreadsheet you already have, one formula at a time, with you reading each one.</p>
           <aside class="notes">
-            Eight minutes. The synthetic notices are deliberately a little different from each other, so the fourth challenge shows whether the extraction generalizes.
-            The third challenge is the point of the exercise. A plain chatbot asked for a field that is not there will usually produce one. Vandalizer should return "no source found." Ask the room what their everyday tool would have done.
-            If the room is fast: run the same extraction twice on the same document and diff the two results. That previews the replication slide.
+            For most of this room the spreadsheet is the system of record, whatever central IT thinks. So the lowest-friction place to start is inside it.
+            The side-panel pattern is the augment pattern made literal: the model drafts into a column, you look at it, you keep or discard. Nothing leaves your review. The third prompt is the one to push: asking the model to flag what it was unsure about turns the classification from a guess into a worklist.
+            Say the enterprise-agreement line one more time. The add-in reads the workbook. If the workbook has names and salaries on it, that is personnel data leaving the building.
           </aside>
         </section>
 
-        <!-- 17. EXERCISE 2: CATCH THE MISMATCH -->
+        <!-- 5c. REAL-WORLD EXAMPLES -->
         <section>
-          <p class="slide-kicker">Block 4 &middot; Exercise 2</p>
-          <h2>Catch the mismatch</h2>
-          <div class="sample-doc-grid" role="list" aria-label="Exercise 2 sample documents">
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget.xlsx" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4CA;</span>
-              <h3>Budget</h3>
-              <p>Proposal budget for Frodo B. Underhill</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget_justification.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>Budget justification</h3>
-              <p>Narrative for the same proposal</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_research_strategy.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>Research strategy</h3>
-              <p>What the money is supposedly for</p>
-            </a>
-          </div>
-          <div class="sample-challenge-block">
-            <h6>Challenges</h6>
-            <div class="challenge-checklist" role="list" aria-label="Exercise 2 challenges">
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Upload the budget and the justification. Ask for every place they disagree.</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Find the inaccuracy. Verify it yourself from the citations before you believe it.</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Add the research strategy. Does the budget support what the science says it needs?</p></span>
-              </label>
-            </div>
-          </div>
-          <aside class="notes">
-            Eight minutes. This is "summarization and synthesis" from the ask-the-crowd slide, applied to two documents you hand over, and it is the kind of pre-award review that eats an afternoon by hand.
-            The second challenge matters more than the first. The tool will find a mismatch. Make them open the citation and confirm it is real before they say so out loud. One or two people will find the model flagged something that is not actually a mismatch. That is the lesson, not a failure of the exercise.
-            Pull the room back at 1:12 for the next slide.
-          </aside>
-        </section>
-
-        <!-- 18. THREE WAYS TO CHECK -->
-        <section>
-          <p class="slide-kicker">Block 4 &middot; Debrief</p>
-          <h2>Three ways to check output you did not write</h2>
+          <p class="slide-kicker">Block 5 &middot; Augment, not replace, in practice</p>
+          <h2>Where it saves a research administrator time this month</h2>
           <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
-            <article class="slide-card accent">
-              <span class="slide-label">Ground truth</span>
-              <p style="font-size:0.74rem;">Score the extraction against documents where you already know the answers. Ten documents, hand-checked once, tell you the error rate for the next thousand.</p>
+            <article class="slide-card">
+              <span class="slide-label">Sponsor terms into a setup checklist</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> pulls reporting dates, special terms, cost share, and prior-approval triggers out of the notice.<br /><strong>You:</strong> confirm each against the notice and sign the setup.</p>
             </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Replication</span>
-              <p style="font-size:0.74rem;">Run it three times. Fields that agree every time are cheap confidence. Fields that shift between runs go to a person. Concordance is your routing rule.</p>
+            <article class="slide-card">
+              <span class="slide-label">Solicitation into a requirements list</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> lists deadlines, page limits, eligibility, required documents.<br /><strong>You:</strong> verify the two that would sink the proposal if wrong.</p>
             </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Provenance</span>
-              <p style="font-size:0.74rem;">Every value points at a passage. "No source found" is a feature. If a claim cannot be traced to a source, it is not ready to act on.</p>
+            <article class="slide-card">
+              <span class="slide-label">Budget against justification</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> flags every place the numbers and the narrative disagree.<br /><strong>You:</strong> decide which flags are real and which are style.</p>
+            </article>
+            <article class="slide-card">
+              <span class="slide-label">The F&amp;A explanation for a PI</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> drafts the plain-language version.<br /><strong>You:</strong> check the number and send it under your own name.</p>
+            </article>
+            <article class="slide-card">
+              <span class="slide-label">The shared inbox</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> tags each message by type and summarizes the long ones.<br /><strong>You:</strong> answer the ones that need judgment, which is most of them.</p>
+            </article>
+            <article class="slide-card">
+              <span class="slide-label">Meeting notes into action items</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> drafts the list with owners it inferred.<br /><strong>You:</strong> fix the owners. It does not know who actually agreed to what.</p>
             </article>
           </div>
-          <p class="slide-callout">Reading every output does not scale. Designing the check does. That is what augmentation looks like at volume: the tool does the pass, you own the verification.</p>
-          <p class="slide-note">Go further: the four REACH evaluation experiments (OCR quality, cross-tool comparison, structured outputs, replicate consensus) with synthetic documents and ground truth are at <a href="https://ui-insight.github.io/REACHWorkshop2026/slides-putting-it-to-work.html#/8" target="_blank" rel="noopener" style="color:var(--gold);">the REACH workshop site</a>.</p>
+          <p class="slide-callout">Minutes per task, not jobs per office. The human step is named in every row, and it is the step that carries the accountability.</p>
           <aside class="notes">
-            Back to the Veridex question from the first hands-on. "I would read it" works for one document. Your office does not process one document.
-            Ground truth is the bench-science move: measure the instrument before you trust it. Replication is the token-builder lesson applied: the variance is real, so use it as a signal. Provenance is the fabrication exercise applied: keep the source next to the claim.
-            All three are things Vandalizer does, and all three are things you can do with any tool, including the chatbot your institution already licenses. The method is the point, not the product.
-            Bridge: everything so far has been documents. Documents are the easy case, because the answer is in the window. Now the hard case.
+            Six things people in this room could do next week with the tools they already have. Each one saves minutes, not hours, and that is the honest pitch. Minutes across a hundred actions a week is where the time comes from.
+            Read the "you" line on each. That is the augment pattern, and it is the same pattern as the IBM slide: the model prepares, a person with a name decides. Ask the room for a seventh. Someone will have one.
+            Then: these are small. The next slide is how small becomes big without skipping steps.
+          </aside>
+        </section>
+
+        <!-- 5d. FROM SMALL STARTS TO BUILDING BIG -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; From small starts to building big</p>
+          <h2>Each rung needs the one below it</h2>
+          <div class="preview-flow" role="list" aria-label="Ladder from a prompt to a governed data layer">
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x270D;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 1</p>
+                <h6 class="preview-part-title">A prompt you keep</h6>
+              </div>
+              <p class="preview-time">minutes</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F4DA;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 2</p>
+                <h6 class="preview-part-title">A shared prompt library and templates</h6>
+              </div>
+              <p class="preview-time">hours</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F4CA;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 3</p>
+                <h6 class="preview-part-title">An artifact or an add-in</h6>
+              </div>
+              <p class="preview-time">an afternoon</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F50C;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 4</p>
+                <h6 class="preview-part-title">A connected tool: RAG, API, MCP</h6>
+              </div>
+              <p class="preview-time">weeks</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 5</p>
+                <h6 class="preview-part-title">A governed data layer</h6>
+              </div>
+              <p class="preview-time">months</p>
+            </article>
+          </div>
+          <p class="slide-callout">Start at the left. Rung 4 needs a source worth connecting, and rung 5 is what makes one. That is the next ten minutes.</p>
+          <p class="slide-micro">Rung 2 is free: the <a href="https://github.com/AI4RA/prompt-library" target="_blank" rel="noopener" style="color:var(--gold);">AI4RA prompt library</a> has tested extraction prompts and schemas for award notices and solicitations.</p>
+          <aside class="notes">
+            The failure mode we see most is an office that tries to start at rung four or five because a vendor sold them an agent, with no prompts anyone has tested, no templates, and no idea what their data looks like. It does not work, and it sours the office on all of it.
+            The ladder is the cure. A prompt you keep becomes a library the office shares. The library becomes a template an artifact can run. The artifact shows leadership what a connected tool could do. The connected tool exposes, immediately, whether the data underneath is any good. And that is where the lakehouse comes in.
+            Everything on this ladder is augment. Nobody is replaced by a prompt library.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 5: The data underneath (1:15 to 1:28)
+             Block 6: Building big, the data underneath (1:07 to 1:17)
              ═══════════════════════════════════════════ -->
 
         <!-- 19. QUIZ -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; There are a lot of AI models, but</p>
+          <p class="slide-kicker">Block 6 &middot; There are a lot of AI models, but</p>
           <h1>Which is the most important one?</h1>
           <div class="quiz-options" id="quiz-model" style="margin-top:1rem;">
             <label class="quiz-option">
@@ -1032,7 +1168,7 @@
 
         <!-- 21. AI ANALYZES WHAT YOU GIVE IT -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; The data underneath</p>
+          <p class="slide-kicker">Block 6 &middot; The data underneath</p>
           <h2>AI analyzes what you give it</h2>
           <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">A small awards table. Prompt: <em>"What is the total federal funding by department?"</em></p>
           <div class="slide-split" style="align-items:flex-start; gap:1rem;">
@@ -1097,7 +1233,7 @@
 
         <!-- 22. DATA MODEL AND UDM -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; The data underneath</p>
+          <p class="slide-kicker">Block 6 &middot; The data underneath</p>
           <h2>What a data model is, and why one should be shared</h2>
           <div class="slide-grid">
             <article class="slide-card">
@@ -1120,67 +1256,9 @@
           </aside>
         </section>
 
-        <!-- 23. FOUR APPROACHES -->
-        <section>
-          <p class="slide-kicker">Block 5 &middot; Infrastructure</p>
-          <h2>Four approaches to institutional data</h2>
-          <div class="toggle-compare">
-            <div class="toggle-header">
-              <button class="toggle-btn active" data-panel="warehouse">Warehouse</button>
-              <button class="toggle-btn" data-panel="lake">Data lake</button>
-              <button class="toggle-btn" data-panel="lakehouse">Lakehouse</button>
-              <button class="toggle-btn" data-panel="swamp">Data swamp</button>
-            </div>
-            <div class="toggle-panel active" data-panel="warehouse">
-              <ul>
-                <li><strong>Structured, governed, fast queries</strong></li>
-                <li>Pre-defined schemas enforce data quality</li>
-                <li>Great for reporting dashboards and compliance queries</li>
-                <li>Rigid schemas are expensive and slow to change</li>
-                <li>Cannot handle unstructured data (PDFs, images, JSON)</li>
-              </ul>
-              <div class="slide-callout">Best for stable reporting needs with predictable schemas.</div>
-            </div>
-            <div class="toggle-panel" data-panel="lake">
-              <ul>
-                <li><strong>Flexible raw storage, any format, cheap</strong></li>
-                <li>Store everything first, decide structure later</li>
-                <li>Great for archiving raw files and training data</li>
-                <li>No schema enforcement or query optimization</li>
-                <li>Without governance, becomes a data swamp</li>
-              </ul>
-              <div class="slide-callout">Handles structured, semi-structured, and unstructured data natively.</div>
-            </div>
-            <div class="toggle-panel" data-panel="lakehouse">
-              <ul>
-                <li><strong>Flexible storage with governance layers on top</strong></li>
-                <li>Open table formats (Apache Iceberg) give transactions and schema evolution</li>
-                <li>Medallion architecture turns raw data into governed views</li>
-                <li>Storage and compute are separate, which keeps cost down</li>
-                <li>Works for structured, semi-structured, and unstructured data</li>
-              </ul>
-              <div class="slide-callout">The architecture the GRANTED project chose for university research data.</div>
-            </div>
-            <div class="toggle-panel" data-panel="swamp">
-              <ul>
-                <li><strong>What happens when a data lake loses governance</strong></li>
-                <li>Data dumped in with no schema, no owner, no documentation</li>
-                <li>Nobody knows what is in there, how old it is, or whether to trust it</li>
-                <li>Queries return results, but nobody can verify them</li>
-                <li>Every new project starts by rediscovering and recleaning the same data</li>
-              </ul>
-              <div class="slide-callout" style="border-left-color:#ef4444; background:rgba(239,68,68,0.08);">The default outcome without deliberate governance. Most institutions are here, and the shared drive full of spreadsheets is the proof.</div>
-            </div>
-          </div>
-          <aside class="notes">
-            Quick tour. Warehouse: what central IT probably has, good for the dashboards it was built for, hard to change. Lake: everything in a bucket. Swamp: what a lake becomes in eighteen months. Lakehouse: a lake with the warehouse's discipline layered on top, using open formats so nothing is locked to a vendor.
-            The point for this audience is not the technology. It is that "AI-ready" is a governance property. If your office's reporting runs off a shared drive of spreadsheets, you are in the swamp panel, and no model fixes that.
-          </aside>
-        </section>
-
         <!-- 24. MEDALLION LAYERS -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; Architecture</p>
+          <p class="slide-kicker">Block 6 &middot; Architecture</p>
           <h2>The medallion layers</h2>
           <div style="display:flex; align-items:center; justify-content:center; gap:0; margin:0.8rem auto 0.6rem; max-width:52rem;">
             <div style="text-align:center; flex:1;">
@@ -1226,7 +1304,7 @@
 
         <!-- 25. GRANTED LAKEHOUSE ARCHITECTURE -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; Architecture</p>
+          <p class="slide-kicker">Block 6 &middot; Architecture</p>
           <h2>The GRANTED data lakehouse</h2>
           <div id="arch-diagram" style="margin:0 auto;"></div>
           <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:0.3rem;">
@@ -1247,7 +1325,7 @@
 
         <!-- 26. THE PAYOFF -->
         <section>
-          <p class="slide-kicker">Block 5 &middot; The payoff</p>
+          <p class="slide-kicker">Block 6 &middot; The payoff</p>
           <h2>What well-organized data lets you do</h2>
           <div class="slide-grid">
             <article class="slide-card accent">
@@ -1275,7 +1353,173 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Close (1:28 to 1:30)
+             Block 7: Vandalizer demo (1:17 to 1:27)
+             ═══════════════════════════════════════════ -->
+
+        <!-- 15. VANDALIZER INTRO -->
+        <section>
+          <p class="slide-kicker">Block 7 &middot; Vandalizer demo</p>
+          <div class="section-heading-with-logo">
+            <h2>Vandalizer</h2>
+            <img src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/vandalizer.png" alt="Vandalizer logo" class="section-logo section-logo-vandalizer" />
+          </div>
+          <div class="slide-split">
+            <div class="split-text">
+              <ul class="vz-feature">
+                <li><strong>Structured extraction.</strong> Pull dates, amounts, requirements, and terms out of PDFs into named fields.</li>
+                <li><strong>Every value has a source.</strong> Click a result and jump to the passage and page it came from, or see an explicit "no source found."</li>
+                <li><strong>Workflows.</strong> Chain extractions into a repeatable pipeline and run it on every new upload.</li>
+                <li><strong>Ask the documents.</strong> Chat against a document set with citation-backed answers.</li>
+                <li><strong>Validate and improve.</strong> Score an extraction against a test set and tune it.</li>
+                <li><strong>Self-hosted and model-agnostic.</strong> One server, any OpenAI-compatible model, including local ones.</li>
+              </ul>
+            </div>
+            <div class="split-text" style="flex:0 0 36%;">
+              <div class="slide-card dark" style="margin-top:0; text-align:center;">
+                <span class="slide-label">Open it</span>
+                <a class="launch-primary" href="https://vandalizer.uidaho.edu" target="_blank" rel="noopener" style="display:block; margin:0.6rem auto 0.4rem;">vandalizer.uidaho.edu &rarr;</a>
+                <p style="font-size:0.62rem; opacity:0.75; margin:0.4rem 0 0;">Demo from the podium. The sample documents on the next two slides are on the site if you want to follow along, now or later.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. Remember the fabrication exercise. The only way to catch an invented value was to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
+            This is the last block, run as a demo from the podium so it does not depend on thirty laptops and the room's wifi. Anyone who wants to follow along has the documents on the site and can run them later. Have the three sample PDFs on a USB stick as a fallback for your own machine.
+            This is also the capstone of the ladder: a connected tool (rung four) that shows its work, built on a data model (rung five) so every extraction lands in the same shape.
+          </aside>
+        </section>
+
+        <!-- 16. EXERCISE 1: EXTRACT AN AWARD NOTICE -->
+        <section>
+          <p class="slide-kicker">Block 7 &middot; Demo 1</p>
+          <h2>Extract an award notice</h2>
+          <div class="sample-doc-grid" role="list" aria-label="Exercise 1 sample documents">
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_DEB-2412345.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 1</h3>
+              <p>PI Radagast Brownleaf</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_EAR-2418901.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 2</h3>
+              <p>PI Juniper Quillstone</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_OPP-2345678.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>NSF award 3</h3>
+              <p>PI RJ MacReady</p>
+            </a>
+          </div>
+          <div class="sample-challenge-block">
+            <h6>Challenges</h6>
+            <div class="challenge-checklist" role="list" aria-label="Exercise 1 challenges">
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Upload one award notice and run the pre-built NSF award extraction</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Click three extracted values and confirm each one against the passage it points to</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Add an extraction term you know is <strong>not</strong> in the document. What comes back?</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Run it again on a second notice. Same fields, same shape?</p></span>
+              </label>
+            </div>
+          </div>
+          <aside class="notes">
+            Four minutes. The synthetic notices are deliberately a little different from each other, so the fourth challenge shows whether the extraction generalizes.
+            The third challenge is the point of the exercise. A plain chatbot asked for a field that is not there will usually produce one. Vandalizer should return "no source found." Ask the room what their everyday tool would have done.
+            If the room is fast: run the same extraction twice on the same document and diff the two results. That previews the replication slide.
+          </aside>
+        </section>
+
+        <!-- 17. EXERCISE 2: CATCH THE MISMATCH -->
+        <section>
+          <p class="slide-kicker">Block 7 &middot; Demo 2</p>
+          <h2>Catch the mismatch</h2>
+          <div class="sample-doc-grid" role="list" aria-label="Exercise 2 sample documents">
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget.xlsx" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4CA;</span>
+              <h3>Budget</h3>
+              <p>Proposal budget for Frodo B. Underhill</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget_justification.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>Budget justification</h3>
+              <p>Narrative for the same proposal</p>
+            </a>
+            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_research_strategy.pdf" target="_blank" rel="noopener" role="listitem">
+              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
+              <h3>Research strategy</h3>
+              <p>What the money is supposedly for</p>
+            </a>
+          </div>
+          <div class="sample-challenge-block">
+            <h6>Challenges</h6>
+            <div class="challenge-checklist" role="list" aria-label="Exercise 2 challenges">
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Upload the budget and the justification. Ask for every place they disagree.</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Find the inaccuracy. Verify it yourself from the citations before you believe it.</p></span>
+              </label>
+              <label class="challenge-item" role="listitem">
+                <input type="checkbox" />
+                <span class="challenge-box" aria-hidden="true"></span>
+                <span class="challenge-text"><p>Add the research strategy. Does the budget support what the science says it needs?</p></span>
+              </label>
+            </div>
+          </div>
+          <aside class="notes">
+            Four minutes. This is "summarization and synthesis" from the ask-the-crowd slide, applied to two documents you hand over, and it is the kind of pre-award review that eats an afternoon by hand.
+            The second challenge matters more than the first. The tool will find a mismatch. Make them open the citation and confirm it is real before they say so out loud. One or two people will find the model flagged something that is not actually a mismatch. That is the lesson, not a failure of the exercise.
+            Keep an eye on the clock: the close needs three minutes.
+          </aside>
+        </section>
+
+        <!-- 18. THREE WAYS TO CHECK -->
+        <section>
+          <p class="slide-kicker">Block 7 &middot; Before you trust it</p>
+          <h2>Three ways to check output you did not write</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
+            <article class="slide-card accent">
+              <span class="slide-label">Ground truth</span>
+              <p style="font-size:0.74rem;">Score the extraction against documents where you already know the answers. Ten documents, hand-checked once, tell you the error rate for the next thousand.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Replication</span>
+              <p style="font-size:0.74rem;">Run it three times. Fields that agree every time are cheap confidence. Fields that shift between runs go to a person. Concordance is your routing rule.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Provenance</span>
+              <p style="font-size:0.74rem;">Every value points at a passage. "No source found" is a feature. If a claim cannot be traced to a source, it is not ready to act on.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Reading every output does not scale. Designing the check does. That is what augmentation looks like at volume: the tool does the pass, you own the verification.</p>
+          <p class="slide-note">Go further: the four REACH evaluation experiments (OCR quality, cross-tool comparison, structured outputs, replicate consensus) with synthetic documents and ground truth are at <a href="https://ui-insight.github.io/REACHWorkshop2026/slides-putting-it-to-work.html#/8" target="_blank" rel="noopener" style="color:var(--gold);">the REACH workshop site</a>.</p>
+          <aside class="notes">
+            Back to the Veridex question from the first hands-on. "I would read it" works for one document. Your office does not process one document.
+            Ground truth is the bench-science move: measure the instrument before you trust it. Replication is the token-builder lesson applied: the variance is real, so use it as a signal. Provenance is the fabrication exercise applied: keep the source next to the claim.
+            All three are things Vandalizer does, and all three are things you can do with any tool, including the chatbot your institution already licenses. The method is the point, not the product.
+            Bridge: that is the morning. Automate, augment, or leave alone, then what to take home, then Bert.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Close (1:27 to 1:30)
              ═══════════════════════════════════════════ -->
 
         <!-- 27. AUTOMATE, AUGMENT, LEAVE ALONE -->
@@ -1333,6 +1577,7 @@
         <section data-background-color="#f1b300">
           <p class="slide-kicker slide-kicker-dark">Ten minute break</p>
           <h2 class="slide-dark">Coming next: Thinking well with AI</h2>
+          <img src="img/generated/break-bridge.png" alt="Warm abstract campus and conversation motifs for a short conference break" class="slide-img-small" style="max-height:9rem; margin-top:0.4rem; box-shadow:0 12px 30px rgba(0,0,0,0.12);" />
           <p class="slide-dark" style="max-width:40rem; margin:0.6rem auto 0;">
             Bert Baumgaertner on the part the tools cannot do for you: NARC reasoning puzzles, arguments by analogy, and a discussion format you can run at your own institution.
           </p>
@@ -1350,10 +1595,12 @@
     </div>
 
     <script type="module">
-      import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
+      import { readKeyFromURL, installLinkInterceptor, getKey } from './js/key-manager.js';
+      import { fetchText } from './js/mindrouter-fetch.js';
       import { initKeyStatus } from './js/key-status.js';
       readKeyFromURL();
       installLinkInterceptor();
+      window.__mindrouter = { getKey, fetchText };
       // Badge next to "Back to Sessions" saying whether the key is loaded in this tab
       initKeyStatus({ container: document.querySelector('.slides-home'), href: 'index.html#key' });
     </script>
@@ -1370,6 +1617,72 @@
         transition: "slide",
         plugins: [RevealNotes]
       });
+
+      /* Recalled vs accessed comparator */
+      (function () {
+        var button = document.getElementById('compare-run');
+        var input = document.getElementById('compare-question');
+        var recalled = document.getElementById('compare-recalled');
+        var accessed = document.getElementById('compare-accessed');
+        if (!button || !input || !recalled || !accessed) return;
+
+        const MINDROUTER_ECFR_URL = ''; // wire this to your MindRouter/Flux endpoint when ready
+        const fixtures = [
+          {
+            match: /de minimis|indirect cost rate/i,
+            recalled: 'The model tends to answer from memory: “Recipients can use a 10% de minimis rate.” It sounds plausible, but it is stale.',
+            accessed: 'With eCFR text injected, the answer shifts to the current rule: “Up to 15% of MTDC under 2 CFR 200.414(f). Same question, different evidence.”'
+          },
+          {
+            match: /equipment|per-unit cost threshold/i,
+            recalled: 'Without a source, the model often reaches for old numbers: “$5,000 per unit.” Confident, but no citation.',
+            accessed: 'With eCFR access, the model can cite 2 CFR 200.1 and answer the current threshold: $10,000 per unit.'
+          },
+          {
+            match: /modified total direct costs|subaward/i,
+            recalled: 'Memory says “the first $25,000 of each subaward,” which is the older remembered version.',
+            accessed: 'Connected to the regulation, the model answers from the text: the first $50,000 under 2 CFR 200.1.'
+          }
+        ];
+
+        function fixtureAnswer(question) {
+          var hit = fixtures.find(function (f) { return f.match.test(question); });
+          if (hit) return hit;
+          return {
+            recalled: 'The model will make a confident guess from training memory, then stop.',
+            accessed: 'Hand it the source and the model can quote or summarize the relevant passage instead of guessing.'
+          };
+        }
+
+        async function fetchLiveAnswer(question) {
+          if (!MINDROUTER_ECFR_URL || !window.__mindrouter || !window.__mindrouter.getKey()) return null;
+          try {
+            const payload = { question, source: '2 CFR 200' };
+            const data = await window.__mindrouter.fetchText(MINDROUTER_ECFR_URL, {
+              method: 'POST',
+              body: payload,
+              headers: { Authorization: 'Bearer ' + window.__mindrouter.getKey() }
+            });
+            if (!data) return null;
+            if (typeof data === 'string') return data;
+            return data.text || data.answer || data.result || JSON.stringify(data, null, 2);
+          } catch (err) {
+            return 'Live lookup failed: ' + (err && err.message ? err.message : String(err));
+          }
+        }
+
+        button.addEventListener('click', async function () {
+          var question = input.value.trim() || input.placeholder || 'Ask a question';
+          var fallback = fixtureAnswer(question);
+          button.disabled = true;
+          button.textContent = 'Asking…';
+          const live = await fetchLiveAnswer(question);
+          button.disabled = false;
+          button.textContent = 'Ask both sides';
+          recalled.textContent = fallback.recalled;
+          accessed.textContent = live || fallback.accessed;
+        });
+      })();
 
       /* Random-number tally: tap a number for each answer the room calls out */
       (function () {
