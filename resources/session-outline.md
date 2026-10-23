@@ -1,6 +1,8 @@
 # Where AI fits in research administration: the Part 1 story, for review
 
-This is the narrative plan for the first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, Sunday, November 8, 2026; time and room are in the NCURA program and on the companion site). It is written for a research administrator who will be in the seat, and it is here to be judged on two things: does the story flow, one block handing off to the next, and does the talk cover what you would need in order to act on it afterward. Logistics are on the companion site, **https://ui-insight.github.io/NCURARegionalWorkshop2026/**, and are not the point of this document.
+This is the narrative plan for the first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, Sunday, November 8, 2026; time and room are in the NCURA program and on the companion site). It is written for a research administrator who will be in the seat, and it is here to be judged on two things: does the story flow, one block handing off to the next, and does the talk cover what you would need in order to act on it afterward. Logistics, slides, the exercise sheets, and the start-small recipes are all on the companion site, **https://ui-insight.github.io/NCURARegionalWorkshop2026/**, and stay there after the day; the materials are open (CC BY 4.0), so take and reuse them.
+
+**How to read this.** You are not being asked to build anything from this page. Read it as the person in the seat and answer four questions: Where does the story lose you? What would you need to hear that is not here? Is any block in the wrong place? And at the end, do you know what to do differently on Monday, and why?
 
 Part 1 is led by Nathan Layman, a data scientist at the University of Idaho on AI4RA, an NSF-funded project (award 2427549) that builds open-source AI tools for research administration offices. "ui-insight" in the links below is the GitHub organization of the University of Idaho research data team that builds them. After a ten-minute break, Bert Baumgaertner, a philosopher at the same university, leads an hour on thinking well with AI: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format you can run at your own institution. The last half hour is open discussion with both.
 
@@ -17,14 +19,16 @@ One sentence runs through all ninety minutes: **augment, not replace. AI prepare
 
 ## Before you arrive
 
-Bring a laptop and one real task from your desk that contains no personal, financial, or restricted data; you will paste it into a web app. Nothing needs an account or an install. In the room, Promptulus and Data Crawler Carl run on a shared workshop key delivered by QR code, which expires after the day. On Monday you use your own key: a free Google Gemini key from Google AI Studio, or an institutional one if your office has an AI gateway.
+Bring a laptop and one real task from your desk; you will paste it into a web app, so pick something you could post on a bulletin board. A rule of thumb for the room, which the presenter repeats before the hands-on starts: PI names, sponsor names, award titles, deadlines, and public solicitation text are fine. Salaries, student or patient information, export-controlled technical detail, and anything a sponsor's terms mark confidential are not. If you are unsure, bring the public version of the task. The full treatment of where data may go comes in Block 3, deliberately after you have already handed a model something and felt the question.
+
+Nothing needs an account or an install. In the room, Promptulus and Data Crawler Carl run on a shared workshop key delivered by QR code, which expires after the day. On Monday you use your own key. A free Google Gemini key takes two minutes at https://aistudio.google.com/app/apikey, and both tools have a box to paste it into. If your institution runs its own model gateway, meaning the university licenses or hosts a model endpoint and issues staff keys, use that instead. If it has neither, a personal key with public or de-identified data is acceptable for everything in this talk, and nothing restricted ever goes through a personal key.
 
 ## The tools
 
 | Tool | What it is | Room | After |
 |---|---|---|---|
 | [Promptulus](https://ai4ra.github.io/promptulus/) | A prompt-training page. You pick a coach, each named for one habit: Telosa for intent, Mnemos for context, Modulus for breaking a task into steps, Sequita for an auditable trail, Dialogos for conversation, Vitrea for transparency, Veridex for evaluation, Clarion for reporting. The coach critiques your prompt before the model answers it | Hands-on | Free, open source, your own key |
-| [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Upload a spreadsheet, ask in plain English, see the database query the model wrote | Demo | Free, runs in your browser; only column names reach the model |
+| [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Upload a spreadsheet, ask in plain English, see the database query the model wrote | Demo | Free. The rows stay in your browser; only the column names and your question go to the model, wherever your key points |
 | Remembering Thamus | One compliance question answered three ways: memory, search index, live lookup | Demo | In development at [github.com/nate-layman/thamus](https://github.com/nate-layman/thamus); the README carries the story |
 | [Vandalizer](https://vandalizer.uidaho.edu) | Document extraction and review workflows built for research administrators | Demo | Free trial at the site; open source; a university research project, not a vendor product, so pilot it as you would any pilot |
 | [AI4RA Unified Data Model](https://ui-insight.github.io/AI4RA-UDM/) | A draft shared vocabulary for research administration data | Shown, with a request for help | Read it and reply on the [AI4RA community list](https://groups.ai4ra.uidaho.edu/g/main/join) |
@@ -59,7 +63,7 @@ Then the story turns onto the machine. A model's memory is its training: enormou
 - From a search index of the regulation, it gets close but cannot show which passage it leaned on.
 - From a live lookup, it searches the eCFR, reads one paragraph, and answers 15 percent of modified total direct costs, citing 2 CFR 200.414(f) as in force on the day of the lookup. Check it yourself: https://www.ecfr.gov/current/title-2/section-200.414. The rate changed on October 1, 2024, with the revised Uniform Guidance; the equipment threshold ($5,000 to $10,000) and the subaward portion counted toward MTDC ($25,000 to $50,000) changed the same day and make good second questions.
 
-Watch one thing: the model sounds equally sure in all three columns. Confidence is not evidence.
+Watch one thing: the model sounds equally sure in all three columns. Confidence is not evidence. (Every live demo in the talk has a fixed fallback on the slide, so if the room's network fails, the lesson still lands, more slowly.)
 
 **Demo two, the same lesson on a spreadsheet.** Data Crawler Carl is asked for total federal funding by department on a small awards table. It writes a correct query that silently drops every award whose department was left blank, and nothing in its narrative says so. The model did nothing wrong. The table was not ready to answer the question. Reminding only works if the record is right.
 
@@ -67,7 +71,7 @@ Watch one thing: the model sounds equally sure in all three columns. Confidence 
 
 **And the record has to live somewhere governed.** Keep the raw sources so you can prove what they said, translate each one to the shared model once, and let the model answer from the reconciled copy, not from whichever spreadsheet was open. The difference is a tool that is confidently wrong versus a pipeline that is honestly incomplete.
 
-**And reminding has a cost.** Everything you hand the model, it reads. For Thamus the cost of the record was forgetting. For a machine, the cost is exposure. So, where does the model run? Vendor cloud, with the best models and the least visibility; local, where the data never leaves the building; or hybrid. If cloud, use your institution's enterprise agreement, never a consumer account, because only the agreement gives you data protection terms, no training on your inputs, and an audit trail. And some data may not leave under any agreement: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, anything a sponsor's terms restrict. Your institution's data classification policy is the authority.
+**And reminding has a cost.** Everything you hand the model, it reads. For Thamus the cost of the record was forgetting. For a machine, the cost is exposure. So, where does the model run? Vendor cloud, with the best models and the least visibility; local, where the data never leaves the building; or hybrid. If cloud, use your institution's enterprise agreement, never a consumer account. An enterprise agreement is the contract your university signs with the vendor; it is the only thing that gives you data protection terms, a promise of no training on your inputs, a named contact, and an audit trail, and most universities already have one for Microsoft or Google even if nobody in your office knows it. If yours has none, the rule from the start of this page holds: public or de-identified data only. And some data may not leave under any agreement: student records under FERPA, health information under HIPAA, export-controlled technical data, personally identifiable information, anything a sponsor's terms restrict. Your institution's data classification policy is the authority.
 
 The block ends on the reveal. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down.
 
@@ -108,7 +112,7 @@ Three bins for every task on your desk: automate, augment, or leave alone. One t
 
 ## What a good Monday looks like
 
-- You have found your institution's AI guidance and data classification policy, or confirmed there is none and told someone.
+- You have found your institution's AI guidance and data classification policy, or confirmed there is none and said so to whoever owns research compliance at your institution.
 - You have run your Promptulus task for real, with a colleague checking the result.
 - You have sorted five tasks from your own desk into the three bins and talked about one with your supervisor.
 - You have read the UDM for ten minutes and sent one sentence about it to the AI4RA community list.
