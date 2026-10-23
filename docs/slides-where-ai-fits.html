@@ -903,6 +903,7 @@
             </div>
           </div>
           <p class="slide-callout fragment" data-fragment-index="3" style="margin-top:0.5rem;">It only evaluates data quality when you ask. Every answer comes with the same confidence.</p>
+          <p class="slide-micro" style="margin-top:0.4rem;">Try it live: <a href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener" style="color:var(--gold);">Data Crawler Carl</a> takes a CSV and plain-English questions, and carries the workshop key from this site.</p>
           <aside class="notes">
             Ask the room to eyeball the table first: what is the total federal funding by department? Give them twenty seconds. Then step through the fragments.
             Fragment one: the answer a model gives. Correct arithmetic on the rows it could group. Polished sentence. Fragment two: the three federal awards with no department, nearly three million dollars, silently dropped. Fragment three: the point.
@@ -1166,8 +1167,11 @@
 
     <script type="module">
       import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
+      import { initKeyStatus } from './js/key-status.js';
       readKeyFromURL();
       installLinkInterceptor();
+      // Badge next to "Back to Sessions" saying whether the key is loaded in this tab
+      initKeyStatus({ container: document.querySelector('.slides-home'), href: 'index.html#key' });
     </script>
     <script src="reveal/dist/reveal.js"></script>
     <script src="reveal/plugin/notes/notes.js"></script>

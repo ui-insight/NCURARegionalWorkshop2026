@@ -64,12 +64,12 @@ python3 -m http.server 4173 -d docs
 
 ### Workshop key for Promptulus
 
-Same mechanism as REACH 2026, with a University of Idaho MindRouter key in place of a Gemini key. The key is never committed to this repo.
+Same mechanism as REACH 2026, with a University of Idaho MindRouter key in place of a Gemini key. The key is workshop-scoped and sits in two places in this repo: the QR image and the `WORKSHOP_KEY_LINK` constant in `docs/index.html`. Rotate it on MindRouter after Denver.
 
-1. The QR code, `docs/img/workshop_QR_code.png`, encodes this site's address with `?key=mr2_...` appended. The key lives only in that image, never in the source. After the key is rotated the code still opens the site, but Promptulus will reject the old token until a new one is pasted in the home page modal.
+1. The QR code, `docs/img/workshop_QR_code.png`, encodes this site's address with `?key=mr2_...` appended. The modal's clickable link (`WORKSHOP_KEY_LINK`) is the same URL, for laptop users who cannot scan. After the key is rotated both still open the site, but Promptulus will reject the old token until a new one is pasted in the home page modal.
 2. `docs/app.js` reads `?key=` on any page, stores it in tab-scoped sessionStorage, and strips it from the address bar.
 3. `docs/js/key-manager.js` appends the stored key to every Promptulus link at click time. Promptulus fills its key box on load and routes `mr2_` keys to MindRouter with nothing else to set.
-4. The home page has an "Enable interactive activities" button that opens the key modal (QR code, site address, paste box) and an "Expand for audience" view for projecting.
+4. The home page has an "Enable interactive activities" button that opens the key modal (QR code, keyed link, paste box) and an "Expand for audience" view for projecting. Every page shows a badge saying whether the key is loaded in this tab, and a toast confirms it the moment it arrives via the URL.
 
 Rotate the key on MindRouter after the workshop.
 

@@ -1,4 +1,5 @@
 import { readKeyFromURL, installLinkInterceptor, getKey, setKey } from './js/key-manager.js';
+import { initKeyStatus } from './js/key-status.js';
 
 // Read API key from ?key= URL parameter (strips from address bar)
 readKeyFromURL();
@@ -8,6 +9,9 @@ installLinkInterceptor();
 
 // Expose key manager for inline scripts (e.g., index.html key input)
 window.__keyManager = { getKey, setKey };
+
+// Badge in the nav saying whether the key is loaded, plus a toast when it just arrived
+initKeyStatus({ container: document.querySelector('.nav-list'), href: 'index.html#key' });
 
 // Scroll-reveal animations
 const reveals = document.querySelectorAll(".reveal");

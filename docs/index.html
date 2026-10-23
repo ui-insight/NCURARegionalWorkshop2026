@@ -155,7 +155,7 @@
               the short link and the key is loaded for you.</p>
             <div style="text-align:center; margin:1rem 0;">
               <img src="img/workshop_QR_code.png" alt="Scan to open the workshop site with the key pre-filled" style="width:180px;" onerror="this.style.display='none'" />
-              <p style="font-size:0.75rem; color:var(--muted); margin-top:0.25rem;">Scan to auto-fill the key</p>
+              <p style="font-size:0.75rem; color:var(--muted); margin-top:0.25rem;">Scan the code, or click the link below, to load the key</p>
               <p style="font-size:1.3rem; font-weight:700; margin-top:0.35rem;">
                 <a class="workshop-short-link-anchor" href="#" target="_blank" rel="noopener" style="color:var(--gold);"></a>
               </p>
@@ -191,10 +191,15 @@
 
     <script type="module" src="app.js"></script>
     <script type="module">
-      // Shown on screen next to the QR code. The QR (img/workshop_QR_code.png)
-      // encodes this site's address with ?key=mr2_... appended; the key lives
-      // only in that image, never in this source. Keep the text here key-free.
+      // Shown on screen next to the QR code. Keep this text key-free: it is
+      // projected. The QR (img/workshop_QR_code.png) encodes the keyed URL.
       const WORKSHOP_SHORT_LINK = 'ui-insight.github.io/NCURARegionalWorkshop2026';
+
+      // The same keyed URL as the QR code, for the clickable link in the modal,
+      // so a laptop user can load the key without scanning. Workshop-scoped;
+      // rotate the token on MindRouter after Denver and update this line.
+      // Leave empty to link to the plain address instead.
+      const WORKSHOP_KEY_LINK = 'https://ui-insight.github.io/NCURARegionalWorkshop2026/?key=mr2_4ctSCEEhRcoOMjyMd2NxfIWt1ni0kNHyG6uzP7nnHtc';
 
       const km = window.__keyManager;
       const input = document.getElementById('api-key-input');
@@ -217,6 +222,7 @@
       input.addEventListener('input', () => {
         const key = input.value.trim();
         km.setKey(key);
+        if (window.__keyStatus) window.__keyStatus();
         if (key) {
           status.textContent = key.startsWith('mr2_') ? 'MindRouter key entered' : 'Key entered';
           setArmed(true);
@@ -228,6 +234,7 @@
 
       // Open and close the modal
       openBtn.addEventListener('click', () => modal.classList.add('visible'));
+      if (window.location.hash === '#key') modal.classList.add('visible');
       document.getElementById('dismiss-apikey-modal').addEventListener('click', () => modal.classList.remove('visible'));
       modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('visible'); });
 
@@ -238,7 +245,12 @@
       });
       document.querySelectorAll('.workshop-short-link-anchor').forEach((el) => {
         el.textContent = ready ? WORKSHOP_SHORT_LINK : 'Short link coming before Denver';
-        el.href = ready ? 'https://' + WORKSHOP_SHORT_LINK : '#';
+        // The keyed link opens in this tab so the key lands here, not in a new one.
+        el.href = WORKSHOP_KEY_LINK || (ready ? 'https://' + WORKSHOP_SHORT_LINK : '#');
+        if (WORKSHOP_KEY_LINK) {
+          el.removeAttribute('target');
+          el.title = 'Opens this site with the workshop key loaded';
+        }
       });
 
       // Fullscreen QR for the room

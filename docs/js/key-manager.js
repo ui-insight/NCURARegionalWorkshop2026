@@ -22,11 +22,19 @@ export function setKey(k) {
   }
 }
 
+let loadedFromURL = false;
+
+// True when this page load carried ?key= (the moment after scanning the QR code)
+export function wasKeyLoadedFromURL() {
+  return loadedFromURL;
+}
+
 export function readKeyFromURL() {
   const params = new URLSearchParams(window.location.search);
   const key = params.get('key');
   if (key) {
     setKey(key);
+    loadedFromURL = true;
     const cleanUrl = new URL(window.location);
     cleanUrl.searchParams.delete('key');
     window.history.replaceState({}, '', cleanUrl);
