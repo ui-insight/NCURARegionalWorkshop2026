@@ -32,7 +32,7 @@ Pulled from granted-notes on 2026-10-19. Update here as things change.
 ## To do
 
 - [ ] Tell NCURA program contacts that Bert replaces Nathan Wiggins as co-presenter
-- [x] Session split decided 2026-10-19: 90 min Nathan (REACH-style AI4RA pitch), 60 min Bert (ethics and MARC), 30 min break and discussion
+- [x] Session split decided 2026-10-19: 90 min Nathan (REACH-style AI4RA pitch), 60 min Bert (ethics and NARC), 30 min break and discussion
 - [ ] Confirm hands-on tools: Promptulus, Vandalizer, data lakehouse (Nathan) and NARC or Narrate (Bert)
 - [ ] Get Bert's spring 2026 ethics discussion materials into resources/
 - [ ] Build decks

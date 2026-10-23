@@ -1237,25 +1237,34 @@
         <!-- 22. DATA MODEL AND UDM -->
         <section>
           <p class="slide-kicker">Block 6 &middot; The data underneath</p>
-          <h2>What a data model is, and why one should be shared</h2>
+          <h2>Why research administration needs a common language</h2>
           <div class="slide-grid">
             <article class="slide-card">
-              <span class="slide-label">You already have several</span>
-              <h3>A data model is the blueprint for how a system stores information</h3>
-              <p style="font-size:0.78rem;">Tables, columns, relationships, and rules. Your post-award system has one. Your ERP has another. HR has a third. They all describe the same sponsor, the same PI, and the same award differently, and every report starts by reconciling them again.</p>
+              <span class="slide-label">Today</span>
+              <h3>Three institutions, three solutions, zero shared work</h3>
+              <p style="font-size:0.78rem;">One office writes its effort certification query against its ERP. The next rebuilds it against a different ERP. A third rebuilds it against a custom eRA system. Each office holds the same things, a sponsor, a PI, an award, a budget, and every system names them differently. Every report starts by reconciling them again.</p>
+              <p style="font-size:0.78rem; margin-top:0.4rem;">And a free-text <em>Department</em> column, filled in when somebody remembered, silently drops three million dollars from a total.</p>
             </article>
             <article class="slide-card accent">
-              <span class="slide-label">The AI4RA Universal Data Model</span>
-              <h3>One shared language across institutions</h3>
-              <p style="font-size:0.78rem;">Forty tables covering proposals, awards, finance, effort, compliance, and more. Map each of your systems to it once. Any tool built on the UDM then runs at any institution that has done the same.</p>
-              <p style="font-size:0.78rem; margin-top:0.4rem;">AI makes the mapping practical: it reads your schema and the UDM and proposes the translation. A person approves it.</p>
-              <p class="slide-micro">Browse it at <a href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener" style="color:var(--gold);">ui-insight.github.io/AI4RA-UDM</a></p>
+              <span class="slide-label">With a shared language</span>
+              <h3>One solution, and the next thirty institutions run it unchanged</h3>
+              <p style="font-size:0.78rem;">A data model is a shared agreement about what things exist, how they relate, and what they are called, before any database is involved. Map each of your systems to it once, and a query, a dashboard, or an AI workflow written anywhere runs at your institution too.</p>
+              <p style="font-size:0.78rem; margin-top:0.4rem;">Queries read like English: <code style="font-size:0.72rem;">Funds_Obligated_Amount</code>, not <code style="font-size:0.72rem;">FOA_AMT</code>. And a blank department becomes a validation error instead of a silent omission.</p>
             </article>
           </div>
+          <div class="compare-row" style="margin-top:0.7rem; gap:1rem; align-items:center; max-width:68rem; margin-left:auto; margin-right:auto; text-align:left;">
+            <img src="img/udm_QR_code.png" alt="QR code for the AI4RA Unified Data Model site" style="width:5.2rem; height:5.2rem; flex:none; border-radius:0.5rem;" />
+            <div>
+              <p style="margin:0; font-size:0.86rem; font-weight:700;">The AI4RA Unified Data Model is a draft of that language. Help us evaluate it.</p>
+              <p style="margin:0.2rem 0 0; font-size:0.76rem; color:#555;">Forty tables, written by a small team at one institution. Read it against your own world and tell us where it gets your reality wrong, what your office tracks that is missing, and what you call differently. Feedback goes to the AI4RA community list.</p>
+              <p class="slide-micro" style="margin-top:0.25rem;"><a href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener" style="color:var(--gold);">ui-insight.github.io/AI4RA-UDM</a> &middot; <a href="https://groups.ai4ra.uidaho.edu/g/main/join" target="_blank" rel="noopener" style="color:var(--gold);">groups.ai4ra.uidaho.edu</a></p>
+            </div>
+          </div>
           <aside class="notes">
-            The awards table failed because "department" was a free-text column somebody sometimes filled in. A data model says: Award has a required link to a Personnel record, which has a required link to an Organization. The gap becomes a validation error instead of a silent omission.
-            The UDM is that model, shared. The reason to share it is the reason Vandalizer works at your institution without a rewrite: build once, map once, run anywhere.
-            The adapter mapping is the one place AI is in the lakehouse pipeline itself, and it is human-approved. Every adapter works without AI too.
+            Pick up from Carl. The awards table failed because "department" was a free-text column somebody sometimes filled in. A data model says: an Award has a required link to a Personnel record, which has a required link to an Organization. The gap becomes a validation error instead of a silent omission. That is the small version of the problem. The large version is on the left: three institutions, three ERPs, three rebuilds of the same effort certification query, zero shared work. Do not name any institution; let the room supply their own.
+            A data model is a shared agreement about what things exist and what they are called, before any database is chosen. The UDM is a specification, not a database: you implement it in whatever you already run and map your local data to it once. The test for what belongs in it is simple. Is this something a research administrator would describe as "our data"? If yes, it belongs. Workflow engines and application internals do not.
+            Then the ask, and be honest about it. The UDM is version three, released last week, written by a small team at one institution. It is only universal if other institutions can map to it, and nobody in this room has to adopt anything to help. We need readers. Does it describe an award, a sponsor, a person the way you would? What does your office track that is not there? What do you call something that it names differently? And the real ask: would you give us thirty minutes to walk through it against one of your systems?
+            Scan the code for the site. The feedback conversation lives on the AI4RA groups.io list; the link is on the slide and on the site. Do not read the forty tables. If someone asks what is in it: proposals, awards, finance, effort, compliance, people, organizations, and the submission trail.
           </aside>
         </section>
 
