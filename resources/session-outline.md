@@ -6,8 +6,9 @@ The first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, S
 
 ## The spine
 
-One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it. The day opens with a king who distrusted the written record and closes with why we still know his name; everything between is the argument he started.
+One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it. Ninety minutes in all: an opening of 6, blocks of 15, 15, 13, 10, 9, 7 and 11, and a close of 4.
 
+- **Opening.** A king who distrusted the written record, and one question to hold: who should remember, and who should be reminded?
 1. The model guesses the most likely next word, so it is a crowd, not an expert. Skill: know what to ask a crowd.
 2. The crowd answers better when you tell it what you want. Skill: prompt with intent, hands-on.
 3. The crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and ask what was left out.
@@ -15,6 +16,7 @@ One sentence runs through all ninety minutes: **augment, not replace. AI prepare
 5. Only a person can be accountable. Skill: four questions and a sort.
 6. Start with what is on your desk. Skill: three small things this month.
 7. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
+- **Close.** Why we still know the king's name, and which half of his warning still stands.
 
 ## Opening (6 minutes)
 
