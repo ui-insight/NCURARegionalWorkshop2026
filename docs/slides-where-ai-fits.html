@@ -32,6 +32,27 @@
       .launch-primary { display:inline-block; padding:0.5rem 1.5rem; border-radius:999px; background:var(--gold); color:var(--ink); font-weight:800; font-size:1rem; text-decoration:none; border:2px solid var(--ink); }
       .launch-secondary { display:inline-block; padding:0.5rem 1.5rem; border-radius:999px; background:#fff; color:var(--ink); font-weight:700; font-size:1rem; text-decoration:none; border:2px solid var(--ink); }
 
+      /* Random-number tally */
+      .tally { max-width: 46rem; margin: 0 auto; }
+      .tally-bars { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0.4rem; align-items: end; height: 11rem; padding: 0 0.2rem; border-bottom: 2px solid rgba(25,25,25,0.15); }
+      .tally-bar { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+      .tally-bar .fill { width: 100%; background: var(--gold); border-radius: 0.3rem 0.3rem 0 0; transition: height 200ms ease; min-height: 0; }
+      .tally-bar .count { font-size: 0.75rem; font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; min-height: 1rem; }
+      .tally-buttons { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0.4rem; margin-top: 0.4rem; padding: 0 0.2rem; }
+      .tally-buttons button { font-size: 1.1rem; font-weight: 800; padding: 0.45rem 0; border-radius: 0.5rem; border: 2px solid rgba(25,25,25,0.15); background: #fff; color: var(--ink); cursor: pointer; }
+      .tally-buttons button:hover { border-color: var(--gold); background: rgba(241,179,0,0.12); }
+      .tally-buttons button:active { transform: translateY(1px); }
+      .tally-foot { font-size: 0.7rem; color: var(--muted); margin: 0.4rem 0 0; }
+      .tally-reset { font-size: 0.65rem; padding: 0.15rem 0.6rem; border-radius: 999px; border: 1.5px solid rgba(25,25,25,0.2); background: transparent; color: var(--muted); cursor: pointer; }
+      .tally-reset:hover { border-color: var(--gold); color: var(--ink); }
+
+      /* Three-ways-to-pick chart */
+      .pick-chart-wrap { max-width: 50rem; margin: 0.2rem auto 0; }
+      .pick-chart-wrap svg { width: 100%; height: auto; display: block; }
+      .pick-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; max-width: 50rem; margin: 0.4rem auto 0; font-size: 0.68rem; color: var(--muted); text-align: left; line-height: 1.35; }
+      .pick-item strong { color: var(--c); margin-right: 0.3rem; }
+      .pick-item .swatch { display: inline-block; width: 0.9rem; height: 0.35rem; border-radius: 2px; background: var(--c); margin-right: 0.35rem; vertical-align: middle; }
+
       /* Vandalizer intro split */
       .vz-feature { font-size:0.74rem; }
       .vz-feature li { margin-bottom:0.25rem; }
@@ -74,7 +95,7 @@
                 <p class="preview-part-number">Block 1</p>
                 <h6 class="preview-part-title">How LLMs work and fail</h6>
               </div>
-              <p class="preview-time">20 min</p>
+              <p class="preview-time">30 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
@@ -82,7 +103,7 @@
                 <p class="preview-part-number">Block 2</p>
                 <h6 class="preview-part-title">Hands-on: Promptulus</h6>
               </div>
-              <p class="preview-time">20 min</p>
+              <p class="preview-time">15 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F9ED;</p>
@@ -106,13 +127,13 @@
                 <p class="preview-part-number">Block 5</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">20 min</p>
+              <p class="preview-time">15 min</p>
             </article>
           </div>
           <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
             Five blocks. Two of them are you at a keyboard. The thread running through all five: the value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself.
-            Timing targets: block 1 ends at 0:25, block 2 at 0:45, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30.
+            Timing targets: block 1 ends at 0:35, block 2 at 0:50, block 3 at 1:00, block 4 at 1:20, block 5 and close at 1:30.
           </aside>
         </section>
 
@@ -165,6 +186,79 @@
             Ask for a volunteer to call out words. Build the sentence twice and get two different endings.
             Three things to land here. One: the model is picking the next token from a probability distribution over everything in its window. Two: the numbers above the words are attention weights, how much each earlier word matters for the next pick. Three: the bar chart is the whole space of sentences the model could have produced. Your path is one of sixty-four. Click the chart for the gradient descent sidebar if someone asks how it learned the weights.
             The practical consequence: run the same extraction twice and you can get different answers. That is not a bug you can configure away. It is the mechanism.
+          </aside>
+        </section>
+
+        <!-- 4b. RANDOM NUMBER EXPERIMENT -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>Pick a random number between 1 and 10</h2>
+          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.4rem;">Open a <strong>new</strong> chat in any AI tool and ask it exactly that. Call out what you got.</p>
+          <div class="tally" id="tally">
+            <div class="tally-bars" id="tally-bars"></div>
+            <div class="tally-buttons" id="tally-buttons"></div>
+            <p class="tally-foot"><span id="tally-total">0 answers</span> &middot; <button type="button" class="tally-reset" id="tally-reset">Reset</button></p>
+          </div>
+          <p class="slide-note">Tap a number for each answer the room calls out. Watch where they pile up.</p>
+          <aside class="notes">
+            Two minutes. Everyone opens a fresh chat, any tool, and asks for a random number between 1 and 10. As they shout answers, tap the buttons. You will almost certainly get a tall bar on 7, and a few on 3. If someone has a tool that returns a spread, ask whether it ran code; some do now.
+            If the room is small or shy, run it yourself on the screen in three different tools. Same result.
+            Variation if there is time: ask for a number between 1 and 100. Expect 37, 42, and 73.
+            Do not explain yet. Let the bar chart sit there for a beat, then advance.
+          </aside>
+        </section>
+
+        <!-- 4c. THREE WAYS TO PICK A NUMBER -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>Three ways to pick a number between 1 and 10</h2>
+          <div class="pick-chart-wrap">
+            <svg id="pick-chart" viewBox="0 0 800 330" role="img" aria-label="Three distributions over the numbers 1 to 10: random is flat, human is bumpy with a peak at 7, and the LLM is a sharp spike at 7"></svg>
+          </div>
+          <div class="pick-legend">
+            <div class="pick-item" style="--c:#1B6B7A;"><span class="swatch"></span><strong>Random</strong> Every number equally likely. Dice, RANDBETWEEN, a sampler.</div>
+            <div class="pick-item" style="--c:#e0a100;"><span class="swatch"></span><strong>Human</strong> Skips the obvious ones, drifts toward numbers that feel random. 7 wins.</div>
+            <div class="pick-item" style="--c:#c8102e;"><span class="swatch"></span><strong>LLM</strong> Trained on humans, then tuned to be confident. The human bump becomes a spike.</div>
+          </div>
+          <p class="slide-callout">The least surprising graph in the world, once you know how the model was trained.</p>
+          <p class="slide-micro">After a chart shared by Adam Zachary Wasserman. Lesson from <a href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener" style="color:var(--gold);">AI4RA Tip of the Week #25</a>.</p>
+          <aside class="notes">
+            Hold this next to the tally you just built. Your bars are the red curve.
+            Walk the three curves. Random is what people think they are asking for. Human is what people actually do: nobody says 1 or 10, few say 5, lots say 7. The model learned from millions of humans doing exactly that, so it inherits the bump. Then it was tuned, over and over, to give the answer people rate highest, and that tuning pushes weight toward the single most likely answer. Gradient descent rewards the peak. The bump becomes a spike.
+            Three mechanisms to say out loud. One: it learned from people, and people are bad at random. Two: training to be confident sharpens the favorites. Three: every new chat starts from scratch, so it cannot notice it has said 7 a hundred times today; inside one chat it may avoid repeating itself and moves to the next most human answer, usually 3.
+            Then the sentence that carries the whole morning: it is not rolling dice. It is predicting what a person would say.
+            If someone asks how it learned: click the bar chart on the token-builder slide for the gradient descent sidebar. Same idea, same picture.
+          </aside>
+        </section>
+
+        <!-- 4d. WHERE THIS BITES -->
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>Where "most likely" bites in research administration</h2>
+          <div class="slide-grid">
+            <article class="slide-card dark">
+              <span class="slide-label">When you asked for random and got "most likely"</span>
+              <ul style="font-size:0.78rem;">
+                <li>"Randomly select ten awards for a spot check." The pick looks random and follows hidden patterns. That is a defensibility problem, not a statistics problem.</li>
+                <li>Transactions for an audit sample. Files for a quality review. Participants for a survey.</li>
+                <li>AI-written training quizzes put the correct answer in the same few positions, often B. Human test-writers do the same, and it learned from them.</li>
+              </ul>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">What to do instead</span>
+              <ul style="font-size:0.78rem;">
+                <li><strong>Use a random tool when randomness matters.</strong> RANDBETWEEN, a generator, your audit software's sampler.</li>
+                <li><strong>Make the model run code and show it.</strong> "Use code to randomly select 10 rows from this spreadsheet. Show me the code so I can verify the selection."</li>
+                <li><strong>Check AI-written quizzes.</strong> Count which letter is correct and shuffle if it is lopsided.</li>
+                <li><strong>Write down the method.</strong> An audit sample should be reproducible by someone who was not in the room.</li>
+              </ul>
+            </article>
+          </div>
+          <p class="slide-callout">The most likely answer is not the same thing as the right answer.</p>
+          <aside class="notes">
+            Dwell on the audit sample. A sample that was "randomly selected" by a chatbot follows the habits of every human who ever wrote the words "random sample" on the internet. If an auditor asks how it was drawn, "I asked the AI" is not a method.
+            The fixes are cheap. A real random function is one cell in Excel. Asking the model to run code and show the code is the same move the whole morning comes back to: make the tool show its work, then verify the work instead of the vibe. That is exactly what the Vandalizer block does with document extraction.
+            Say the callout line once more. Then the next slide generalizes it: what the model is doing, and what it is not.
           </aside>
         </section>
 
@@ -445,7 +539,7 @@
         <section>
           <p class="slide-kicker">Block 2 &middot; Hands-on with Promptulus</p>
           <h2>Bring a task from your desk</h2>
-          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Fifteen minutes. Work alone, then compare with a neighbor.</p>
+          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Ten minutes. Work alone, then compare with a neighbor.</p>
           <div class="sample-challenge-block" style="max-width:50rem; margin:0 auto;">
             <h6>Challenges</h6>
             <div class="challenge-checklist" role="list" aria-label="Promptulus exercise challenges">
@@ -480,7 +574,7 @@
             Stragglers who typed the address by hand have no key: put the QR back up, or let them paste the key in the home page modal. Rotate the key on MindRouter after the conference.
             Walk the room. The common failure is a vague prompt ("summarize this") with no success criteria. Promptulus will name it.
             Good tasks: draft a budget justification paragraph, summarize terms of an award, explain an F&amp;A rate to a PI, turn a solicitation into a checklist. Bad task for today: anything with real restricted data. Synthetic is fine.
-            At twelve minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
+            At eight minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
           </aside>
         </section>
 
@@ -1191,6 +1285,113 @@
         transition: "slide",
         plugins: [RevealNotes]
       });
+
+      /* Random-number tally: tap a number for each answer the room calls out */
+      (function () {
+        var bars = document.getElementById('tally-bars');
+        var buttons = document.getElementById('tally-buttons');
+        var total = document.getElementById('tally-total');
+        var reset = document.getElementById('tally-reset');
+        if (!bars || !buttons) return;
+        var counts = [];
+        for (var i = 0; i < 10; i++) counts.push(0);
+
+        function render() {
+          var max = Math.max.apply(null, counts.concat([1]));
+          var sum = counts.reduce(function (a, b) { return a + b; }, 0);
+          bars.innerHTML = counts.map(function (c) {
+            var h = c ? Math.max(6, (c / max) * 100) : 0;
+            return '<div class="tally-bar"><div class="count">' + (c || '') + '</div>' +
+                   '<div class="fill" style="height:' + h + '%"></div></div>';
+          }).join('');
+          total.textContent = sum + (sum === 1 ? ' answer' : ' answers');
+        }
+
+        buttons.innerHTML = counts.map(function (_, i) {
+          return '<button type="button" data-n="' + i + '">' + (i + 1) + '</button>';
+        }).join('');
+        buttons.addEventListener('click', function (e) {
+          var b = e.target.closest('button[data-n]');
+          if (!b) return;
+          counts[parseInt(b.dataset.n, 10)] += 1;
+          render();
+        });
+        reset.addEventListener('click', function () {
+          counts = counts.map(function () { return 0; });
+          render();
+        });
+        render();
+      })();
+
+      /* Three-ways-to-pick chart: random, human, LLM distributions over 1 to 10 */
+      (function () {
+        var svg = document.getElementById('pick-chart');
+        if (!svg) return;
+        var NS = 'http://www.w3.org/2000/svg';
+        var left = 50, right = 770, base = 280, top = 30;
+        var xs = [];
+        for (var n = 0; n < 10; n++) xs.push(left + n * (right - left) / 9);
+        function y(h) { return base - h * (base - top); }
+
+        /* Heights are illustrative, scaled so the LLM spike is 1.0 */
+        var human  = [0.02, 0.09, 0.22, 0.19, 0.28, 0.40, 0.72, 0.46, 0.22, 0.10];
+        var random = [0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12];
+        /* LLM: dense points so the spike is narrow */
+        var llmPts = [];
+        for (var i = 0; i <= 180; i++) {
+          var v = 1 + i * 9 / 180;                     /* value on the 1..10 axis */
+          var h = Math.exp(-Math.pow((v - 7.15) / 0.32, 2));
+          llmPts.push([left + (v - 1) * (right - left) / 9, y(h)]);
+        }
+
+        /* Catmull-Rom to cubic Bezier for a smooth line through the points */
+        function smoothPath(pts) {
+          var d = 'M' + pts[0][0] + ',' + pts[0][1];
+          for (var i = 0; i < pts.length - 1; i++) {
+            var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+            var c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+            var c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+            d += ' C' + c1x + ',' + c1y + ' ' + c2x + ',' + c2y + ' ' + p2[0] + ',' + p2[1];
+          }
+          return d;
+        }
+        function area(pathD, firstX, lastX) {
+          return pathD + ' L' + lastX + ',' + base + ' L' + firstX + ',' + base + ' Z';
+        }
+        function add(tag, attrs, parent) {
+          var el = document.createElementNS(NS, tag);
+          for (var k in attrs) el.setAttribute(k, attrs[k]);
+          (parent || svg).appendChild(el);
+          return el;
+        }
+
+        var humanPts = human.map(function (h, i) { return [xs[i], y(h)]; });
+        var randomPts = random.map(function (h, i) { return [xs[i], y(h)]; });
+        var hd = smoothPath(humanPts), rd = smoothPath(randomPts), ld = smoothPath(llmPts);
+
+        /* Fills, back to front */
+        add('path', { d: area(rd, xs[0], xs[9]), fill: '#1B6B7A', opacity: 0.16 });
+        add('path', { d: area(hd, xs[0], xs[9]), fill: '#e0a100', opacity: 0.22 });
+        add('path', { d: area(ld, llmPts[0][0], llmPts[llmPts.length - 1][0]), fill: '#c8102e', opacity: 0.22 });
+        /* Lines */
+        add('path', { d: rd, fill: 'none', stroke: '#1B6B7A', 'stroke-width': 3, 'stroke-linecap': 'round' });
+        add('path', { d: hd, fill: 'none', stroke: '#e0a100', 'stroke-width': 3.5, 'stroke-linecap': 'round' });
+        add('path', { d: ld, fill: 'none', stroke: '#c8102e', 'stroke-width': 3.5, 'stroke-linecap': 'round' });
+        /* Axis and ticks */
+        add('line', { x1: left - 10, y1: base, x2: right + 10, y2: base, stroke: '#191919', 'stroke-width': 2 });
+        xs.forEach(function (x, i) {
+          var t = add('text', { x: x, y: base + 28, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 600, fill: '#191919', 'font-family': 'ui-sans-serif, system-ui, sans-serif' });
+          t.textContent = String(i + 1);
+        });
+        /* Curve labels */
+        function label(txt, x, yy, color, anchor) {
+          var t = add('text', { x: x, y: yy, 'text-anchor': anchor || 'start', 'font-size': 20, 'font-weight': 700, fill: color, 'font-family': 'ui-sans-serif, system-ui, sans-serif' });
+          t.textContent = txt;
+        }
+        label('random', xs[0], y(0.12) - 10, '#1B6B7A');
+        label('human', xs[4] - 10, y(0.40) - 14, '#e0a100', 'end');
+        label('LLM', xs[6] + 26, y(1.0) + 6, '#c8102e');
+      })();
 
       /* Quiz interaction: single select, click again to clear */
       (function () {
