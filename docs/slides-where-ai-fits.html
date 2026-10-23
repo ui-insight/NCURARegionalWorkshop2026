@@ -132,8 +132,34 @@
           </div>
           <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
-            Five blocks. Two of them are you at a keyboard. The thread running through all five: the value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself.
+            Five blocks. Two of them are you at a keyboard. The thread running through all five: augment, not replace. The value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself, and the work itself is yours.
             Timing targets: block 1 ends at 0:35, block 2 at 0:50, block 3 at 1:00, block 4 at 1:20, block 5 and close at 1:30.
+          </aside>
+        </section>
+
+        <!-- 2b. THE CORNERSTONE -->
+        <section>
+          <p class="slide-kicker">The cornerstone</p>
+          <h1 style="font-size:3.2rem;">Augment, not replace</h1>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:1rem;">
+            <article class="slide-card accent">
+              <span class="slide-label">AI prepares, you decide</span>
+              <p style="font-size:0.78rem;">The draft, the extraction, the first pass at a comparison. The determination, the signature, the conversation with the PI stay with a person.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Tools show their work</span>
+              <p style="font-size:0.78rem;">Every tool you see today points at its source, writes down its query, or runs the code in front of you. You verify the work, not the vibe.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Your judgment is the product</span>
+              <p style="font-size:0.78rem;">Research administration runs on interpretation, ethics, and relationships. The point of the tools is to give you more time for that, not less.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Everything this morning is in service of one question: where does AI make a research administrator better at the job, and where does it just make the job look done?</p>
+          <aside class="notes">
+            Say this before anything technical, because everything technical is in service of it. The workshop title is "Augmenting Research Administration with AI," and the word was chosen on purpose.
+            Three commitments. AI prepares, you decide: the pattern you will see in every tool. Tools show their work: provenance in Vandalizer, the SQL in Carl, the code in the random-sample fix, so that verifying is cheap. Your judgment is the product: the thing an office is for cannot be delegated to a crowd, and we are going to meet the crowd in a minute.
+            The last line is the test to apply to any vendor pitch, including ours. "Better at the job" is augment. "Looks done" is replace, and it is where the confident wrong answers live.
           </aside>
         </section>
 
@@ -285,6 +311,7 @@
           <aside class="notes">
             The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is why the human bump on the chart became a spike: the crowd's favorite got amplified. It is also why the voice is so confident. The loud ones were rewarded for sounding sure.
             This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
+            And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
             Everything so far fits it. The token builder is the crowd voting on the next word. The 7 is the crowd's favorite number. The fabricated subaward, coming up, is what the crowd assumes an award summary usually says.
             And it tells you what to hand them. The crowd has read the whole internet and none of your award terms. If you want them to answer about your award, the award has to be in the question. That is the context window slide, two slides from now.
           </aside>
@@ -873,7 +900,7 @@
               <p style="font-size:0.74rem;">Every value points at a passage. "No source found" is a feature. If a claim cannot be traced to a source, it is not ready to act on.</p>
             </article>
           </div>
-          <p class="slide-callout">Reading every output does not scale. Designing the check does.</p>
+          <p class="slide-callout">Reading every output does not scale. Designing the check does. That is what augmentation looks like at volume: the tool does the pass, you own the verification.</p>
           <p class="slide-note">Go further: the four REACH evaluation experiments (OCR quality, cross-tool comparison, structured outputs, replicate consensus) with synthetic documents and ground truth are at <a href="https://ui-insight.github.io/REACHWorkshop2026/slides-putting-it-to-work.html#/8" target="_blank" rel="noopener" style="color:var(--gold);">the REACH workshop site</a>.</p>
           <aside class="notes">
             Back to the Veridex question from the first hands-on. "I would read it" works for one document. Your office does not process one document.
@@ -1244,9 +1271,9 @@
               <p style="font-size:0.76rem;">Process-critical work where the reasoning is the product, and anything you cannot yet audit. Until you can, it stays here.</p>
             </article>
           </div>
-          <p class="slide-callout">Sequita's question runs under all three: can you audit it? If yes, automate or augment. If not, not yet.</p>
+          <p class="slide-callout">Augment is the default. Automate only what you have measured. Leave alone what you cannot audit. Sequita's question runs under all three: can you check it?</p>
           <aside class="notes">
-            Three bins again, now as a policy. The sorter's "data first" tasks are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
+            Three bins again, now as a policy, and the cornerstone sits in the middle one. Augment is where research administration lives. Automate is earned, by measuring a workflow until you trust the check more than you trust your own reading. Leave alone is honest, not timid. The sorter's "data first" tasks are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
             Bert is about to spend an hour on the judgment underneath all of this. I am handing him the room with the framework; he will give you the discussion tool to argue about it at home.
           </aside>
         </section>
@@ -1269,6 +1296,7 @@
               <p style="font-size:0.76rem;">Pick the report leadership asks for most. Which system does each number come from, and who would notice if a third of the rows were blank?</p>
             </article>
           </div>
+          <p class="slide-callout">Augment, not replace. The tools do the pass. You own the call.</p>
           <p class="slide-note">Everything from this morning is on the companion site, open source, and free to adopt. <a href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener" style="color:var(--gold);">ai4ra.uidaho.edu</a> has the blog, the prompt library, and the community of practice.</p>
           <aside class="notes">
             Three things, one each. Say them slowly. The third one is the one that gets institutions to call us.
