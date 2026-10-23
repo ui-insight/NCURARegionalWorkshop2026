@@ -133,7 +133,7 @@
           <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
             Five blocks. Two of them are you at a keyboard. The thread running through all five: augment, not replace. The value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself, and the work itself is yours.
-            Timing targets, with the opening counted inside block 1: block 1 ends at 0:25, block 2 at 0:40, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30. If block 1 runs long, the cloud-versus-local slide can be thirty seconds.
+            Timing targets, with the opening counted inside block 1: block 1 ends at 0:25, block 2 at 0:40, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30. If block 1 runs long, the fabrication exercise can be done as a show of hands instead of a click-through.
           </aside>
         </section>
 
@@ -442,57 +442,6 @@
             The window is finite and four things share it: what you want, what you gave it, how you told it to behave, and everything said so far.
             Try the presets. Compliance review is information-heavy: the policy and the document have to be in there. Iterative editing is conversation-heavy, and that is the trap: by turn thirty the original document is a small fraction of what the model is looking at.
             These four are four of the nine Promptulus characters. You will meet the rest in a minute.
-          </aside>
-        </section>
-
-        <!-- 9. WHERE DOES THE MODEL RUN -->
-        <section>
-          <p class="slide-kicker">Block 1 &middot; Where the data goes</p>
-          <h2>Where does the model run?</h2>
-          <div class="toggle-compare">
-            <div class="toggle-header">
-              <button class="toggle-btn active" data-panel="cloud">Cloud</button>
-              <button class="toggle-btn" data-panel="local">Local</button>
-              <button class="toggle-btn" data-panel="hybrid">Hybrid</button>
-            </div>
-            <div class="toggle-panel active" data-panel="cloud">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Vendor-hosted (Google, OpenAI, Anthropic, Microsoft Copilot)</p>
-              <ul>
-                <li>Access to the largest, most capable models</li>
-                <li>No hardware to buy or maintain</li>
-                <li>Pay per use, scales up and down</li>
-              </ul>
-              <div class="slide-callout">
-                <strong>Security:</strong> your document leaves your network. Enterprise agreements and data protection terms matter. Some data (FERPA, HIPAA, export controlled) may not be allowed out at all. The free consumer tier is not the enterprise tier.
-              </div>
-            </div>
-            <div class="toggle-panel" data-panel="local">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Self-hosted (Llama, GPT-oss, Qwen, and others)</p>
-              <ul>
-                <li>Data never leaves your infrastructure</li>
-                <li>Full control over the model and its environment</li>
-                <li>Fixed cost, hardware up front</li>
-                <li>Ollama and vLLM make this reachable for a small IT team</li>
-              </ul>
-              <div class="slide-callout">
-                <strong>Security:</strong> data stays home, but now you own the security, the hardware, and the updates. Vandalizer runs this way for restricted documents.
-              </div>
-            </div>
-            <div class="toggle-panel" data-panel="hybrid">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Cloud for most work, local for sensitive data</p>
-              <ul>
-                <li>Cloud models for general drafting and high throughput</li>
-                <li>A desktop-class server (Mac Studio, DGX Spark) for restricted material</li>
-                <li>Most institutions end up here whether they planned to or not</li>
-              </ul>
-              <div class="slide-callout" style="border-left-color:#f1b300;">
-                <strong>The hard part:</strong> governance. Which models are approved for which data, and who enforces it?
-              </div>
-            </div>
-          </div>
-          <aside class="notes">
-            Before anyone uploads a subaward agreement to a chatbot, this is the question. Where is the model, and what agreement covers the document once it gets there?
-            Point out the practical middle: the tools we built are provider-agnostic. Vandalizer will talk to a cloud model or to a local one on the same workflow, so the policy decision and the tool decision can be separated.
             Transition: enough mechanism. Laptops.
           </aside>
         </section>
@@ -686,6 +635,61 @@
             One is the context window. Two is the verification habit from the random-number slide and the whole Vandalizer block. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model.
             Run one example out loud. "Summarize the terms of this award notice." Hand it the notice: yes. Check it against the notice: yes. Accountable: the administrator who reads the summary before acting on it. Reproducible: it does not need to be, the notice is the record. Use it. Now "decide whether this cost transfer is allowable." Hand it the policy and the transaction: maybe. Check it: only by doing the analysis yourself. Accountable: a person, by regulation. Reproducible: it had better be. A person leads; the model can prepare the file.
             Then the continuum and the sorter make the room do this nine times.
+          </aside>
+        </section>
+
+        <!-- 12d. DATA SOVEREIGNTY -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <h2>Data sovereignty: where does the model run?</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="cloud">Cloud</button>
+              <button class="toggle-btn" data-panel="local">Local</button>
+              <button class="toggle-btn" data-panel="hybrid">Hybrid</button>
+            </div>
+            <div class="toggle-panel active" data-panel="cloud">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Vendor-hosted (Google, OpenAI, Anthropic, Microsoft Copilot)</p>
+              <ul>
+                <li>The largest, most capable models, with no hardware to buy or maintain</li>
+                <li>Pay per use, scales with the funding cycle</li>
+                <li>Your document leaves the building, and so does the computing. You do not see where it ran or what it cost in energy.</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>If you use cloud models, use an enterprise agreement.</strong> Data protection terms, no training on your inputs, a named contact, and an audit trail. A consumer account has none of that. FERPA, HIPAA, export-controlled, and PII data may not be allowed to leave at all, under any agreement.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="local">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Self-hosted (Llama, GPT-oss, Qwen, and others, through Ollama or vLLM)</p>
+              <ul>
+                <li>Data never leaves your house. FERPA, HIPAA, PII, and export-controlled material stay where policy says they stay.</li>
+                <li>You know exactly where the computing is done, by whom, and on what hardware.</li>
+                <li>You know how much energy you are using. A desktop-class server runs a day of extraction for a few kilowatt-hours; cloud inference is bundled and invisible.</li>
+                <li>Fixed cost, up front. Vandalizer and MindRouter run this way at Idaho.</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>The trade:</strong> you own the security, the hardware, and the updates. Smaller models than the cloud frontier, though the gap closes every year.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="hybrid">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Cloud for general work, local for anything restricted</p>
+              <ul>
+                <li>Enterprise cloud for drafting, summarizing public documents, and high throughput</li>
+                <li>A local server for award files, personnel data, and anything with a regulation attached</li>
+                <li>Where most institutions land, whether they planned to or not</li>
+              </ul>
+              <div class="slide-callout" style="border-left-color:#f1b300;">
+                <strong>The hard part is governance:</strong> which models are approved for which data, written down, and someone whose job it is to enforce it.
+              </div>
+            </div>
+          </div>
+          <p class="slide-callout" style="margin-top:0.6rem;">Three questions for any AI tool: where is the computing done, what leaves the building, and what agreement covers it when it does.</p>
+          <aside class="notes">
+            Brief, but do not skip it. Sovereignty means you decide where your data goes and who can compute on it. Every AI tool answers that question somewhere in its terms of service, and most people never read the answer.
+            Cloud: the best models, and the least visibility. Say the enterprise-agreement line plainly. The free tier of a chatbot is a consumer product; your institution almost certainly has, or can get, an enterprise agreement with data protection terms and no training on inputs. Use that one. And some data cannot go out under any agreement; know which of your documents those are.
+            Local: the benefits are concrete. You know where the computing happened. The data never left. And you can read the energy use off the wall: a desktop-class server does a day of extraction on a few kilowatt-hours, where cloud inference is bundled into a bill you cannot itemize. The cost is that you run it.
+            Hybrid is where everyone ends up. The work is not the hardware, it is the policy that says which model touches which data. If your institution does not have that policy yet, this is a good week to ask who is writing it.
+            The tools we built are provider-agnostic on purpose. Vandalizer will talk to an enterprise cloud model or a local one on the same workflow, so the sovereignty decision and the tool decision stay separate.
           </aside>
         </section>
 
