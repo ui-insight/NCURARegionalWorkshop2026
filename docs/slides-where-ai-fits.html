@@ -678,9 +678,9 @@
                 <p id="compare-accessed" class="compare-answer">Click <strong>Ask both sides</strong> to see what happens when eCFR text is handed to it.</p>
               </article>
             </div>
-            <p class="compare-note">For the full build, set the MindRouter/eCFR endpoint in this slide and the right column will query it live. The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
+            <p class="compare-note">The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
           </div>
-          <p class="slide-note">Round 1 is a fresh chat with no tools. Round 2 is the same question with an eCFR lookup tool connected. That is the difference between remembered and read.</p>
+          <p class="slide-note">No tool on the left. eCFR connected on the right.</p>
           <aside class="notes">
             Use this as the live comparator. Ask the same question twice: once with no source, once with the eCFR source connected. The left side is recalled, the right side is accessed. If you set the endpoint constant in the deck script, the right side becomes genuinely live; until then, fixed coach answers keep the contrast obvious.
             The room should notice the same model sound confident in both cases. Confidence is not evidence. The accessed side should win because it got handed the rule, not because the model became more careful.
@@ -690,26 +690,26 @@
         <!-- 3c. HOW ACCESSED KNOWLEDGE GETS IN -->
         <section>
           <p class="slide-kicker">Block 3 &middot; How accessed knowledge gets in</p>
-          <h2>Four ways to hand the crowd a source</h2>
+          <h2>How the model gets a source</h2>
           <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
             <article class="slide-card accent">
-              <span class="slide-label">1. Paste it into the window</span>
-              <p style="font-size:0.76rem;">The document itself, in the prompt. Simplest and most reliable. The limit is the page limit: one award notice fits, a hundred award files do not.</p>
+              <span class="slide-label">Paste</span>
+              <p style="font-size:0.76rem;">Put the document in the prompt. Simple and direct.</p>
             </article>
             <article class="slide-card accent">
-              <span class="slide-label">2. RAG with a vector database</span>
-              <p style="font-size:0.76rem;">Your documents are cut into chunks and indexed by meaning. Each question retrieves the closest chunks and pastes them into the window. Good at "find the passage about cost share." Weak at totals, counts, and anything that needs every record. Vandalizer's document chat works this way.</p>
+              <span class="slide-label">Retrieve</span>
+              <p style="font-size:0.76rem;">RAG finds the closest passages for the question.</p>
             </article>
             <article class="slide-card accent">
-              <span class="slide-label">3. APIs</span>
-              <p style="font-size:0.76rem;">A structured call to a system of record: the eCFR, Grants.gov, your lakehouse gateway. Returns facts, not prose, and the same facts every time. Needs the data to be organized first, which is the last block of the morning.</p>
+              <span class="slide-label">Search</span>
+              <p style="font-size:0.76rem;">Web search can find current material, but it can just as easily find a blog post as an authoritative source, so stale information is always a risk.</p>
             </article>
             <article class="slide-card accent">
-              <span class="slide-label">4. MCP, the Model Context Protocol</span>
-              <p style="font-size:0.76rem;">A standard way to give the model a set of tools ("fetch this CFR section," "list active awards for this PI") and let it decide when to call them. What the demo used. The model still has to choose to look, so ask it to, and check that it did.</p>
+              <span class="slide-label">MCP</span>
+              <p style="font-size:0.76rem;">MCP gives the model source-backed tools and lets it choose when to call them.</p>
             </article>
           </div>
-          <p class="slide-callout">RAG finds passages. APIs return facts. MCP lets the model choose which to call. None of them replaces checking.</p>
+          <p class="slide-callout">These get the source in front of the model. They do not replace checking.</p>
           <aside class="notes">
             This is as technical as the morning gets, and the point is vocabulary, not engineering. When a vendor says RAG, they mean option two: a search engine over your documents that feeds the model the best few passages. When they say agent or tools or MCP, they mean option four: the model can call out to things. When they say integration, they usually mean option three underneath.
             The practical rule: RAG is great for "where does it say" and bad for "how much in total," because it only ever sees a few chunks. For totals you want an API over organized data, which is the lakehouse.
@@ -1626,7 +1626,10 @@
         var accessed = document.getElementById('compare-accessed');
         if (!button || !input || !recalled || !accessed) return;
 
-        const MINDROUTER_ECFR_URL = ''; // wire this to your MindRouter/Flux endpoint when ready
+        const MINDROUTER_BASE_URL = 'https://mindrouter.uidaho.edu/v1';
+        const MINDROUTER_CHAT_URL = MINDROUTER_BASE_URL + '/chat/completions';
+        const MINDROUTER_ECFR_URL = 'https://www.ecfr.gov/api/search/v1/results.json';
+        const MINDROUTER_MODEL = 'qwen/qwen3.8-27b';
         const fixtures = [
           {
             match: /de minimis|indirect cost rate/i,
@@ -1657,15 +1660,51 @@
         async function fetchLiveAnswer(question) {
           if (!MINDROUTER_ECFR_URL || !window.__mindrouter || !window.__mindrouter.getKey()) return null;
           try {
-            const payload = { question, source: '2 CFR 200' };
-            const data = await window.__mindrouter.fetchText(MINDROUTER_ECFR_URL, {
+            const regulationResponse = await fetch(MINDROUTER_ECFR_URL + '?query=' + encodeURIComponent(question) + '&per_page=3', {
+              headers: { Accept: 'application/json' }
+            });
+            if (!regulationResponse.ok) {
+              throw new Error('eCFR request failed: ' + regulationResponse.status);
+            }
+            const regulationData = await regulationResponse.json();
+            const regulationText = (regulationData.results || []).map(function (item, index) {
+              const section = item && item.hierarchy_headings && item.hierarchy_headings.section
+                ? item.hierarchy_headings.section
+                : 'Result ' + (index + 1);
+              const title = item && item.headings && item.headings.title ? item.headings.title : '';
+              const heading = item && item.headings && item.headings.section ? item.headings.section : '';
+              const excerpt = item && item.full_text_excerpt ? item.full_text_excerpt.replace(/<[^>]+>/g, '') : '';
+              return [section, title, heading, excerpt].filter(Boolean).join(' | ');
+            }).join('\n\n');
+            const payload = {
+              model: MINDROUTER_MODEL,
+              messages: [
+                {
+                  role: 'system',
+                  content: 'Answer the compliance question using only the supplied eCFR search excerpts when they are relevant. Keep the answer to one or two sentences and say what the source says. If the excerpts do not answer the question, say that the source did not answer it.'
+                },
+                {
+                  role: 'user',
+                  content: 'Question: ' + question + '\n\nRegulation text:\n' + regulationText
+                }
+              ],
+              temperature: 0
+            };
+            const data = await window.__mindrouter.fetchText(MINDROUTER_CHAT_URL, {
               method: 'POST',
               body: payload,
               headers: { Authorization: 'Bearer ' + window.__mindrouter.getKey() }
             });
             if (!data) return null;
             if (typeof data === 'string') return data;
-            return data.text || data.answer || data.result || JSON.stringify(data, null, 2);
+            const choice = data.choices && data.choices[0];
+            return (
+              (choice && choice.message && choice.message.content) ||
+              data.text ||
+              data.answer ||
+              data.result ||
+              JSON.stringify(data, null, 2)
+            );
           } catch (err) {
             return 'Live lookup failed: ' + (err && err.message ? err.message : String(err));
           }
