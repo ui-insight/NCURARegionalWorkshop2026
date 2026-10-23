@@ -95,7 +95,7 @@
                 <p class="preview-part-number">Block 1</p>
                 <h6 class="preview-part-title">How LLMs work and fail</h6>
               </div>
-              <p class="preview-time">30 min</p>
+              <p class="preview-time">25 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
@@ -109,9 +109,9 @@
               <p class="preview-icon" aria-hidden="true">&#x1F9ED;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 3</p>
-                <h6 class="preview-part-title">Sorting the work</h6>
+                <h6 class="preview-part-title">When to use it, and sorting the work</h6>
               </div>
-              <p class="preview-time">10 min</p>
+              <p class="preview-time">15 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F4C4;</p>
@@ -133,7 +133,7 @@
           <p class="slide-note">Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
             Five blocks. Two of them are you at a keyboard. The thread running through all five: augment, not replace. The value of any AI tool is bounded by the quality of the data underneath it, and by the nature of the work itself, and the work itself is yours.
-            Timing targets: block 1 ends at 0:35, block 2 at 0:50, block 3 at 1:00, block 4 at 1:20, block 5 and close at 1:30.
+            Timing targets, with the opening counted inside block 1: block 1 ends at 0:25, block 2 at 0:40, block 3 at 0:55, block 4 at 1:15, block 5 and close at 1:30. If block 1 runs long, the cloud-versus-local slide can be thirty seconds.
           </aside>
         </section>
 
@@ -284,7 +284,7 @@
           <aside class="notes">
             Dwell on the audit sample. A sample that was "randomly selected" by a chatbot follows the habits of every human who ever wrote the words "random sample" on the internet. If an auditor asks how it was drawn, "I asked the AI" is not a method.
             The fixes are cheap. A real random function is one cell in Excel. Asking the model to run code and show the code is the same move the whole morning comes back to: make the tool show its work, then verify the work instead of the vibe. That is exactly what the Vandalizer block does with document extraction.
-            Say the callout line once more. Then the next slide generalizes it: what the model is doing, and what it is not.
+            Say the callout line once more. Then the next slide gives the room the metaphor to carry all of it: the crowd.
           </aside>
         </section>
 
@@ -354,37 +354,6 @@
           </aside>
         </section>
 
-        <!-- 5. WHAT THAT MEANS -->
-        <section>
-          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <h2>What the model is doing, and what it is not</h2>
-          <div class="slide-grid">
-            <article class="slide-card accent">
-              <span class="slide-label">It is</span>
-              <ul style="font-size:0.78rem;">
-                <li>Predicting the next token from everything currently in its window</li>
-                <li>Sampling, so the same input can produce different output</li>
-                <li>Drawing on patterns from an enormous training corpus</li>
-                <li>Very good at transforming text it has been given</li>
-              </ul>
-            </article>
-            <article class="slide-card dark">
-              <span class="slide-label">It is not</span>
-              <ul style="font-size:0.78rem;">
-                <li>Looking anything up unless a tool was wired in to do that</li>
-                <li>Remembering your last conversation, your policies, or your data</li>
-                <li>Checking whether what it wrote is true</li>
-                <li>Aware of what it does not know</li>
-              </ul>
-            </article>
-          </div>
-          <p class="slide-callout">Confidence is a writing style, not a signal. Every answer arrives in the same tone.</p>
-          <aside class="notes">
-            The single most useful mental model for this audience: the model only has what is in the window. Your award terms, your institutional policy, your cost-share rules are not in there unless you put them in there.
-            When it does not have the answer, it does not stop. It produces the most plausible continuation. That is where hallucination comes from, and the next slide makes you find one.
-          </aside>
-        </section>
-
         <!-- 6. SPOT THE FABRICATION -->
         <section>
           <p class="slide-kicker">Block 1 &middot; Where LLMs fail</p>
@@ -405,6 +374,7 @@
             </p>
             <button class="sort-reveal">Reveal answers</button>
           </div>
+          <p class="slide-callout">Confidence is a writing style, not a signal. Every sentence arrived in the same tone.</p>
           <aside class="notes">
             Give the room thirty seconds. Then reveal.
             Three fabrications, and they are two different kinds. The subaward and the staffing are gap-filling: the model knows award summaries usually mention these things, so it supplies plausible ones. The cost share is worse: the source says no cost share, and the model overrode it with what is typical. Priors beat evidence.
@@ -667,6 +637,57 @@
         <!-- ═══════════════════════════════════════════
              Block 3: Sorting the work (0:45 to 0:55)
              ═══════════════════════════════════════════ -->
+
+        <!-- 12b. ACCOUNTABILITY -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <div class="slide-split img-wide" style="align-items:center; margin-top:0.5rem;">
+            <div class="split-img">
+              <img src="img/ibm-1979-accountability.jpeg" alt="A page from a 1979 IBM training manual: A computer can never be held accountable, therefore a computer must never make a management decision" style="max-height:420px; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,0.18);" />
+            </div>
+            <div class="split-text">
+              <p class="slide-quote" style="margin-top:0; font-size:1.25rem;">A computer can never be held accountable. Therefore a computer must never make a management decision.</p>
+              <p style="font-size:0.8rem; color:var(--muted); margin-top:0.6rem;">IBM training manual, 1979.</p>
+              <p style="font-size:0.85rem; margin-top:0.8rem;">Forty-seven years old, written about mainframes, and still the sharpest test we have. Nothing about the crowd changes it.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            Let the room read it. Then ask: what is a management decision in research administration? Allowability. A compliance determination. Effort certification. A conflict-of-interest finding. The call on whether a late proposal goes out the door. Each one has a name attached to it, and that name is not the vendor's.
+            The crowd can draft the memo. It can find the clause. It can list the precedents. It cannot be the one who signs, because when the auditor comes, "the model decided" is not an answer anyone will accept, and it should not be.
+            This is the hard edge of augment, not replace. The deciding stays with a person not because the model is bad at it, but because accountability cannot be delegated to something that cannot be held to account.
+          </aside>
+        </section>
+
+        <!-- 12c. FOUR QUESTIONS -->
+        <section>
+          <p class="slide-kicker">Block 3 &middot; When should AI be used?</p>
+          <h2>Four questions before you hand it over</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
+            <article class="slide-card accent">
+              <span class="slide-label">1. Can you hand it everything it needs?</span>
+              <p style="font-size:0.78rem;">The crowd has read nothing of yours. If the answer depends on your award terms, your policy, or your data, they have to be in the question. If you cannot put them there, the task is "data first," not "AI now."</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">2. Can you check the answer cheaply?</span>
+              <p style="font-size:0.78rem;">Against a source, a ground-truth sample, a second run, or your own eyes in under a minute. If checking costs as much as doing, you have not saved anything, and you have added a risk.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">3. Who is accountable for the result?</span>
+              <p style="font-size:0.78rem;">A name, a role, a signature. If the honest answer is "the AI," stop. If it is a person who will review before acting, that is augment, and it is fine.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">4. Does it have to be the same tomorrow?</span>
+              <p style="font-size:0.78rem;">Audit samples, determinations, and anything a reviewer might repeat need a reproducible method. The crowd gives a different answer each time it is asked. Write the method down or use a tool that does.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Yes, yes, a named person, and a written method: use it, as augmentation. Any other answer: a person leads, or the data comes first.</p>
+          <aside class="notes">
+            This is the decision rule. Four questions, thirty seconds, before any task goes to a model.
+            One is the context window. Two is the verification habit from the random-number slide and the whole Vandalizer block. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model.
+            Run one example out loud. "Summarize the terms of this award notice." Hand it the notice: yes. Check it against the notice: yes. Accountable: the administrator who reads the summary before acting on it. Reproducible: it does not need to be, the notice is the record. Use it. Now "decide whether this cost transfer is allowable." Hand it the policy and the transaction: maybe. Check it: only by doing the analysis yourself. Accountable: a person, by regulation. Reproducible: it had better be. A person leads; the model can prepare the file.
+            Then the continuum and the sorter make the room do this nine times.
+          </aside>
+        </section>
 
         <!-- 13. THREE ZONES -->
         <section>
