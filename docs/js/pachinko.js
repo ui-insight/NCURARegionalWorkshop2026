@@ -16,6 +16,7 @@
   var BIN_TOP = H - 150;          // top of the bin dividers
   var FLOOR = H - 30;             // balls stop here
   var BALL_R = 3.5, NAIL_R = 3;
+  var HIT_R = BALL_R;                   // a ball's size for bumping nails: smaller than it is drawn, so it slips between nails packed close together
   var GRAVITY = 0.11, BOUNCE = 0.3, JITTER = 1.2, MAX_V = 3.2, MAX_UP = 0.8;
   var DROP_X = 2.5 * BIN_W;          // set by the previous word; dragged by hand too
   var DROP_Y = 40, PREV = 'proposal';
@@ -58,7 +59,7 @@
       for (var j = 0; j < nails.length; j++) {
         var n = nails[j];
         var dx = b.x - n.x, dy = b.y - n.y;
-        var d2 = dx * dx + dy * dy, min = BALL_R + NAIL_R;
+        var d2 = dx * dx + dy * dy, min = HIT_R + NAIL_R;
         if (d2 < min * min) {
           var d = Math.sqrt(d2) || 0.01, nx = dx / d, ny = dy / d;
           b.x = n.x + nx * min; b.y = n.y + ny * min;
@@ -226,7 +227,7 @@
   // rolls off that end, and drops onto the next shelf. The rest of each row's
   // nails spread out to the left of its shelf; nothing sits under or right of
   // the band. Balls that roll off a shelf's left end make the tail.
-  var shifted = false, SHELF = 6, PACK = 9, CLEAR = 14;
+  var shifted = false, SHELF = 6, PACK = 2 * NAIL_R + 0.5, CLEAR = 14, RIGHT_CLEAR = 70;
   var RIGHT_END = [-10, 9, 15, 24, 36, 52, 72, 96, 124];      // shelf right end, measured from the drop point
   function shiftNails() {
     shifted = true;
@@ -239,9 +240,17 @@
       var start = end - PACK * (SHELF - 1);
       var shelf = idx.slice(-SHELF), rest = idx.slice(0, idx.length - SHELF);
       shelf.forEach(function (i, k) { nails[i].tx = start + PACK * k; });
-      var leftEnd = start - CLEAR;
+      // The rest go left of the shelf, never closer together than a ball can pass
+      // between. Any that do not fit spread thinly across the right side, well
+      // clear of the shelf's end.
+      var leftEnd = start - CLEAR, MIN_GAP = 2 * NAIL_R + 2 * BALL_R + 1;
+      var fit = Math.max(1, Math.min(rest.length, Math.floor((leftEnd - NAIL_R) / MIN_GAP) + 1));
+      var extra = rest.length - fit;
+      var rStart = end + RIGHT_CLEAR, rEnd = W - NAIL_R;
       rest.forEach(function (i, k) {
-        nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (rest.length > 1 ? k / (rest.length - 1) : 0.5));
+        if (k < fit) { nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (fit > 1 ? k / (fit - 1) : 0.5)); return; }
+        var j = k - fit;
+        nails[i].tx = rStart < rEnd ? rStart + (rEnd - rStart) * (extra > 1 ? j / (extra - 1) : 0.5) : NAIL_R;
       });
     });
   }
