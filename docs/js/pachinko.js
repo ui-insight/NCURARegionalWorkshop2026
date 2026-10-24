@@ -214,18 +214,27 @@
       if (a === 'drop1') drop(1);
       else if (a === 'drop25') drop(25);
       else if (a === 'reset') { counts = new Array(BINS).fill(0); balls = []; }
-      else if (a === 'nails') { nails.forEach(function (n, i) { n.tx = home[i].x; }); }
+      else if (a === 'nails') { shifted = false; nails.forEach(function (n, i) { n.tx = home[i].x; }); }
       else if (a === 'shift') { shiftNails(); }
     });
   });
 
-  // "Shift the nails": slide every nail toward the left wall, more strongly
-  // near the left, so the left half ends up crowded and the right half sparse.
-  // Nails only ever move sideways.
-  var SQUEEZE = 2.2;
+  // "Shift the nails": a lopsided funnel under the drop point. The right wall
+  // hugs the drop point so balls cannot escape right; the left wall stands
+  // further off, so the balls that do escape go left. Most land in the bin
+  // under the drop point, with a tail to the left. Nails only move sideways.
+  var shifted = false, RIGHT_TOP = 8, RIGHT_BOTTOM = 8, LEFT_TOP = 40, LEFT_BOTTOM = 30;
   function shiftNails() {
+    shifted = true;
+    var top = nails[0].y, bottom = nails[nails.length - 1].y;
     nails.forEach(function (n, i) {
-      n.tx = Math.max(NAIL_R, W * Math.pow(home[i].x / W, SQUEEZE));
+      var t = (n.y - top) / ((bottom - top) || 1);
+      var right = RIGHT_TOP + (RIGHT_BOTTOM - RIGHT_TOP) * t;
+      var left = LEFT_TOP + (LEFT_BOTTOM - LEFT_TOP) * t;
+      var d = home[i].x - DROP_X;
+      if (d >= 0 && d < right) n.tx = DROP_X + right;
+      else if (d < 0 && -d < left) n.tx = DROP_X - left;
+      else n.tx = home[i].x;
     });
   }
 
@@ -236,6 +245,7 @@
       PREV = chip.getAttribute('data-pk-prev');
       DROP_X = parseFloat(chip.getAttribute('data-pk-x')) * W;
       counts = new Array(BINS).fill(0); balls = [];
+      if (shifted) shiftNails();           // the funnel follows the drop point
       chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
       var q = root.querySelector('.pk-prompt');
       if (q) q.textContent = '"The ' + PREV + ' was ___."';
