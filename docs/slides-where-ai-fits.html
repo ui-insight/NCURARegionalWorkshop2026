@@ -82,8 +82,6 @@
       /* Cards in a row are always the same height */
       .reveal .slide-grid { align-items: stretch; }
       .reveal .slide-grid > .slide-card { height: 100%; box-sizing: border-box; margin-top: 0; margin-bottom: 0; }
-      .h-why { display:none; font-size:0.66rem; color:#b91c1c; margin-top:0.15rem; }
-      .hallucination-exercise.revealed .h-why { display:block; }
     </style>
   </head>
   <body class="slides-page">
@@ -172,7 +170,7 @@
           </div>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:33, block 3 at 0:49, block 4 at 0:59, block 5 at 1:08, block 6 at 1:15, block 7 at 1:26, close at 1:30. If block 1 runs long, the fabrication exercise becomes a show of hands. If block 3 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:33, block 3 at 0:49, block 4 at 0:59, block 5 at 1:08, block 6 at 1:15, block 7 at 1:26, close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 3 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -420,7 +418,7 @@
             The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is why the human bump on the chart became a spike: the crowd's favorite got amplified. It is also why the voice is so confident. The loud ones were rewarded for sounding sure.
             This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
             And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
-            Everything so far fits it. The token builder is the crowd voting on the next word. The 7 is the crowd's favorite number. The fabricated subaward, coming up, is what the crowd assumes an award summary usually says.
+            Everything so far fits it. The token builder is the crowd voting on the next word. The 7 is the crowd's favorite number.
             And it tells you what to hand them. The crowd has read the whole internet and none of your award terms. If you want them to answer about your award, the award has to be in the question. That is the context window slide, two slides from now.
           </aside>
         </section>
@@ -455,44 +453,6 @@
             Say the caveat honestly. Reasoning models, tool use, and code execution are moving items from the right column leftward every year. Multi-step reasoning in particular is much better than it was. The habit to build is not "never," it is "not without checking." Bert will spend an hour on the ethical-judgment row.
             Point at "Anything recent" and leave it hanging; it is the whole of block 3.
             Research administration maps onto this cleanly: the documents go left, the determinations go right. That comes back in block 5.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 1 &middot; Where LLMs fail</p>
-          <h2>Spot the fabrication</h2>
-          <div class="slide-grid" style="grid-template-columns:minmax(0, 0.8fr) minmax(0, 1.2fr); align-items:start; gap:1rem; margin-top:0.4rem; text-align:left;">
-            <div class="slide-card" style="padding:0.6rem 0.9rem;">
-              <span class="slide-label">The source: a (synthetic) award notice</span>
-              <table style="font-size:0.84rem; margin-top:0.35rem; border-collapse:collapse; line-height:1.3;">
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Award</td><td style="font-size:0.88rem; padding:0.14rem 0;">2512345</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Sponsor</td><td style="font-size:0.88rem; padding:0.14rem 0;">National Science Foundation</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">PI</td><td style="font-size:0.88rem; padding:0.14rem 0;">Dr. Maria Okafor, Biology</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Title</td><td style="font-size:0.88rem; padding:0.14rem 0;">Soil Microbial Response to Prescribed Fire</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Amount</td><td style="font-size:0.88rem; padding:0.14rem 0;">$412,500</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Period</td><td style="font-size:0.88rem; padding:0.14rem 0;">09/01/2026 to 08/31/2029</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Indirect rate</td><td style="font-size:0.88rem; padding:0.14rem 0;">48.5% MTDC</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Reports</td><td style="font-size:0.88rem; padding:0.14rem 0;">Annual, due 90 days before each budget period ends</td></tr>
-                <tr><td style="font-size:0.88rem; padding:0.14rem 0.6rem 0.14rem 0; font-weight:700; white-space:nowrap; vertical-align:top;">Cost sharing</td><td style="font-size:0.88rem; padding:0.14rem 0;">None required</td></tr>
-              </table>
-            </div>
-            <div class="hallucination-exercise" style="margin:0;">
-              <span class="slide-label">The AI summary. Click every sentence the source does not support.</span>
-              <ol class="h-paragraph" style="font-size:0.88rem !important; line-height:1.45 !important; text-align:left; margin:0.35rem 0 0.4rem; padding-left:1.2rem; max-width:none;">
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="true">NSF has awarded Dr. Maria Okafor $412,500 for a three-year study of soil microbial response to prescribed fire.</span></li>
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="false">The project includes a $60,000 subaward to the U.S. Forest Service for field site access.</span><span class="h-why">Not in the source. Summaries usually mention a subaward, so it supplied one.</span></li>
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="true">The award runs from September 2026 through August 2029 at an indirect rate of 48.5% MTDC.</span></li>
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="false">Consistent with the program's standard terms, the award requires a one-to-one institutional cost share.</span><span class="h-why">Contradicts the source, which says no cost sharing. What is typical beat what is written.</span></li>
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="true">Annual project reports are due 90 days before the end of each budget period.</span></li>
-                <li style="margin:0 0 0.35rem;"><span class="h-sentence" data-real="false">Dr. Okafor will be supported by two graduate students and a postdoctoral researcher.</span><span class="h-why">Not in the source. Invented staffing.</span></li>
-              </ol>
-              <button class="sort-reveal">Reveal answers</button>
-            </div>
-          </div>
-          <p class="slide-callout">Confidence is a writing style, not a signal. Every sentence arrived in the same tone.</p>
-          <aside class="notes">
-            Give the room thirty seconds. Then reveal.
-            Three fabrications, and they are two different kinds. The subaward and the staffing are gap-filling: the model knows award summaries usually mention these things, so it supplies plausible ones. The cost share is worse: the source says no cost share, and the model overrode it with what is typical. Priors beat evidence.
-            The tell is that all six sentences read identically. Nothing in the prose marks which three were invented. The only way to catch them was to have the source next to it. Hold on to that: it is the whole argument for provenance in the Vandalizer block.
           </aside>
         </section>
         <section>
@@ -1274,7 +1234,7 @@
             </div>
           </div>
           <aside class="notes">
-            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. Remember the fabrication exercise. The only way to catch an invented value was to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
+            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. A model can invent a value in the same confident tone as a real one, and the only way to catch it is to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
             This is the last block, run as a demo from the podium so it does not depend on thirty laptops and the room's wifi. Anyone who wants to follow along has the documents on the site and can run them later. Have the three sample PDFs on a USB stick as a fallback for your own machine.
             Hand-off from start small: small starts are checked by hand each time; a task that repeats a hundred times wants a workflow you check once.
             This is also the capstone of the ladder: a connected tool (rung four) that shows its work, built on a data model (rung five) so every extraction lands in the same shape.
