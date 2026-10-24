@@ -330,11 +330,11 @@
               <p style="font-size:0.8rem;">Compare the guess with what the writer actually wrote, and shift the nails a little so the right word gets a bit more likely. Then do it again, billions of times.</p>
             </article>
           </div>
-          <p class="slide-callout">With a big enough board and enough nudging, you get a statistical machine that sounds like a person. It has learned what is likely to be written, not what is true.</p>
+          <p class="slide-callout">With a big enough board and enough nudging, you get a statistical machine that sounds like a person. It has learned what is likely to be written, not what is true. And the data you choose to train on is not a neutral choice.</p>
           <aside class="notes">
             This answers the question the pachinko board raises: who decides where the nails go? Nobody places them by hand. Training does, by checking the model against text people already wrote.
             Walk the three cards. Take a real sentence from the library. Hide the next word and let the board guess. Compare the guess with the real word and nudge the nails toward it. The gradient descent sidebar on the token-builder slide is the formal version of the nudge.
-            Repeat that across billions of sentences and the board reproduces the words that most often come next in its training text. Land the last line slowly: likely, not true. If the library mostly says the de minimis rate is ten percent, the nails learn ten percent. That sets up block 3.
+            Repeat that across billions of sentences and the board reproduces the words that most often come next in its training text. Land the last line slowly: likely, not true. If the library mostly says the de minimis rate is ten percent, the nails learn ten percent. And someone chose that library: what went in, what was left out, and whose writing counts. That choice shapes every answer, and it is very hard to see from the outside. That sets up block 3.
             Then: let's illustrate that point by playing a short game.
           </aside>
         </section>
