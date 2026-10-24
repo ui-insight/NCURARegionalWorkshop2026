@@ -301,6 +301,33 @@
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
           </aside>
         </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>How do we know where the nails should go?</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:0.8rem;">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">1. Take a real sentence</span>
+              <p style="font-size:0.8rem;">From the training data: an enormous library of books, articles and web pages that people wrote.</p>
+              <p style="font-size:0.85rem; font-weight:700; margin-top:0.4rem;">&ldquo;The proposal was submitted on time.&rdquo;</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">2. Hide the next word</span>
+              <p style="font-size:0.8rem;">Drop a ball and see where it lands.</p>
+              <p style="font-size:0.85rem; font-weight:700; margin-top:0.4rem;">&ldquo;The proposal was ___&rdquo;</p>
+            </article>
+            <article class="slide-card accent" style="text-align:left;">
+              <span class="slide-label">3. Nudge the nails toward the real word</span>
+              <p style="font-size:0.8rem;">Compare the guess with what the writer actually wrote, and shift the nails a little so the right word gets a bit more likely. Then do it again, billions of times.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Training shifts the nails until the board lands where the training text usually goes next. The model learns what is likely to be written, not what is true.</p>
+          <aside class="notes">
+            This answers the question the pachinko board raises: who decides where the nails go? Nobody places them by hand. Training does, by checking the model against text people already wrote.
+            Walk the three cards. Take a real sentence from the library. Hide the next word and let the board guess. Compare the guess with the real word and nudge the nails toward it. The gradient descent sidebar on the token-builder slide is the formal version of the nudge.
+            Repeat that across billions of sentences and the board reproduces the words that most often come next in its training text. Land the last line slowly: likely, not true. If the library mostly says the de minimis rate is ten percent, the nails learn ten percent. That sets up block 3.
+          </aside>
+        </section>
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Pick a random number between 1 and 10</h2>
