@@ -79,6 +79,12 @@
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
       .pk-chip { border:1.5px solid rgba(25,25,25,0.25); background:#fff; color:#191919; border-radius:999px; padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:700; cursor:pointer; }
       .pk-chip.is-active { background:#f1b300; border-color:#f1b300; }
+      #ctx-slider .slider-bar { overflow: visible; position: relative; z-index: 30; }
+      #ctx-slider .slider-region:first-child { border-radius: 0.5rem 0 0 0.5rem; }
+      #ctx-slider .slider-region:nth-last-child(1) { border-radius: 0 0.5rem 0.5rem 0; }
+      #ctx-slider .slider-region[data-tip] { position: relative; cursor: help; }
+      #ctx-slider .slider-region[data-tip]::after { content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 0.5rem); transform: translateX(-50%); width: 15rem; padding: 0.55rem 0.75rem; background: #191919; color: #fff; font-size: 0.72rem; line-height: 1.4; font-weight: 500; text-align: left; letter-spacing: 0; text-transform: none; border-radius: 6px; pointer-events: none; opacity: 0; z-index: 40; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+      #ctx-slider .slider-region[data-tip]:hover::after { opacity: 1; }
       /* Cards in a row are always the same height */
       .reveal .slide-grid { align-items: stretch; }
       .reveal .slide-grid > .slide-card { height: 100%; box-sizing: border-box; margin-top: 0; margin-bottom: 0; }
@@ -553,25 +559,25 @@
           <p class="slide-kicker">Block 3 &middot; How much context</p>
           <h2>Your AI has a page limit</h2>
           <p style="font-size:0.88rem; max-width:50rem; margin:0.3rem auto 0.5rem; line-height:1.45;">The <strong>context window</strong> is everything a model can read at once: your question, the documents you paste or it looks up, its instructions, and the whole conversation so far. It is measured in tokens, pieces of words. When it fills up, the oldest material is dropped or squeezed into a summary, and the model no longer sees it.</p>
-          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">Four things share the space. Drag the handles or pick a preset.</p>
+          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">Four things share the space. Hover over each to see what it holds; drag the handles or pick a preset.</p>
           <div class="context-slider" id="ctx-slider">
             <div class="slider-bar">
-              <div class="slider-region" data-idx="0" style="width:10%; background:#5B8C3E;">
+              <div class="slider-region" data-idx="0" data-tip="Intent: what you want and why. Decide it before you type." style="width:10%; background:#5B8C3E;">
                 <span class="slider-pct">10%</span>
                 <span class="slider-label">Intent</span>
               </div>
               <div class="slider-handle" data-handle="0"></div>
-              <div class="slider-region" data-idx="1" style="width:50%; background:#C4960C;">
+              <div class="slider-region" data-idx="1" data-tip="Information: the documents, data and policy it needs. If it is not here, the model does not have it." style="width:50%; background:#C4960C;">
                 <span class="slider-pct">50%</span>
                 <span class="slider-label">Information</span>
               </div>
               <div class="slider-handle" data-handle="1"></div>
-              <div class="slider-region" data-idx="2" style="width:25%; background:#1B6B7A;">
+              <div class="slider-region" data-idx="2" data-tip="Instructions: role, format, constraints. What most people mean by a prompt." style="width:25%; background:#1B6B7A;">
                 <span class="slider-pct">25%</span>
                 <span class="slider-label">Instructions</span>
               </div>
               <div class="slider-handle" data-handle="2"></div>
-              <div class="slider-region" data-idx="3" style="width:15%; background:#2A9D8F;">
+              <div class="slider-region" data-idx="3" data-tip="Conversation: every earlier turn is still in the window. Long chats crowd out what matters." style="width:15%; background:#2A9D8F;">
                 <span class="slider-pct">15%</span>
                 <span class="slider-label">Conversation</span>
               </div>
@@ -582,24 +588,6 @@
               <button class="slider-preset" data-preset="iterative">Iterative editing</button>
               <button class="slider-preset" data-preset="scoping">New task scoping</button>
             </div>
-          </div>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(4, 1fr); margin-top:0.6rem;">
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label" style="color:#5B8C3E;">Intent</span>
-              <p style="font-size:0.72rem; margin:0.25rem 0 0;">What you want and why. Decide it before you type.</p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label" style="color:#9a7300;">Information</span>
-              <p style="font-size:0.72rem; margin:0.25rem 0 0;">The documents, data and policy it needs. If it is not here, the model does not have it.</p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label" style="color:#1B6B7A;">Instructions</span>
-              <p style="font-size:0.72rem; margin:0.25rem 0 0;">Role, format, constraints. What most people mean by a prompt.</p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label" style="color:#2A9D8F;">Conversation</span>
-              <p style="font-size:0.72rem; margin:0.25rem 0 0;">Every earlier turn is still in the window. Long chats crowd out what matters.</p>
-            </article>
           </div>
           <aside class="notes">
             The bridge from Thamus: the fix is to hand the model the record, its context. But it can only read so much at once, so what you put on that page, and how much, is the real skill. That is what the next fifteen minutes practice.
