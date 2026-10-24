@@ -29,7 +29,7 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 ## Format
 
-About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 17), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 10). There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl, Vandalizer). The talk is allowed to run a little long.
+About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 21), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 3), a three-minute buffer, and the close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl). The talk is allowed to run a little long.
 
 ## Changes this plan proposes to the current deck
 
@@ -37,9 +37,10 @@ The slide-by-slide below describes the talk as proposed. It differs from the cur
 
 1. One name, "Unified Data Model," on slide 4.
 2. The error modes and IBM slides (28 and 29) move from the middle of Block 4 to open Block 5.
-3. A closing slide (47) after the Vandalizer demos, with the exit question and the handoff to Bert.
+3. A closing slide (47) after the Vandalizer slide, with the exit question and the handoff to Bert.
 4. Before the hands-on block, a short slide or spoken rule on what to paste, and where it goes (see below).
 5. One line on slide 19 about which record to hand a model.
+6. Block 7 shrinks from three slides to one: how to join the Vandalizer demo and how to start its certification course. The two podium demos (slides 45 and 46) come out; Vandalizer has been demonstrated at earlier AI4RA sessions, so a pointer is enough. Of the seven minutes this frees, four go to the hands-on block's working time and three are a buffer before the close.
 
 ## Where attendee text goes in our own tools
 
@@ -52,13 +53,13 @@ The talk asks the room to judge AI4RA's tools by the checks it teaches, so it ow
 - **Re-run the demos the morning of the talk.** The numbers quoted here come from rehearsal; if the room's results differ, use the room's.
 
 - **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. Vandalizer is shown from the podium and needs no attendee key. Test the QR from a phone on the venue network.
-- **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, Promptulus, and Vandalizer with the synthetic documents loaded.
-- **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), Carl's dropped departments (about 2.7 million dollars of federal funding), and the Vandalizer extraction. The token builder, pachinko board, tally and context slider run without a network.
-- **Time for the hands-on block.** Of its seventeen minutes: about three for the page limit slide, four to get everyone into Promptulus, eight to work, two to debrief. If fewer than half the room is in by the four-minute mark, switch to pairs.
+- **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, and Promptulus.
+- **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), and Carl's dropped departments (about 2.7 million dollars of federal funding). The token builder, pachinko board, tally and context slider run without a network.
+- **Time for the hands-on block.** Of its twenty-one minutes: about three for the page limit slide, four to get everyone into Promptulus, twelve to work, two to debrief. If fewer than half the room is in by the four-minute mark, switch to pairs.
 - **If half the room cannot get into Promptulus.** Pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
 - **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos showed in rehearsal, not recordings; the fallbacks use them only if the network fails.
-- **Why Vandalizer comes last.** It is the most cuttable block: everything it teaches (extraction, sources next to every value, comparing documents) has already been said earlier in the talk, so it is a capstone, not a dependency. Putting it last means a late running clock costs a demo, not an idea. The closing slide comes after it, so the talk ends on a conclusion whether Vandalizer runs in full, in part, or not at all.
-- **If time runs short.** Cut in this order: the token builder (the pachinko board covers the same idea), the model-bias aside, the time-savers slide in Block 6, then the second Vandalizer demo.
+- **Why Vandalizer comes last.** It is the most cuttable part of the talk: everything it would teach (extraction, a source next to every value, comparing documents) has already been said. As one pointer slide it takes three minutes at most and can be skipped; the closing slide follows either way.
+- **If time runs short.** Cut in this order: the Vandalizer slide, then the token builder (the pachinko board covers the same idea), then the model-bias aside, then the time-savers slide in Block 6.
 
 ## The interactive demos
 
@@ -72,7 +73,7 @@ A short review of each, as it stands.
 - **Context window slider** (slide 20). A bar split into intent, information, instructions and conversation, with draggable handles, four presets (compliance review, drafting a description, iterative editing, scoping a new task), and hover tooltips. Clear and quick. Risk: low; it is explanatory rather than a task.
 - **Promptulus** (slides 21 to 23). The only hands-on block. For attendees who already use AI daily, a stretch challenge: take a prompt they use every week and get Veridex, the evaluation coach, to rate it, then write down the check they would run on its output. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. The four challenges: describe the task to Sequita (does it need a paper trail?); give your real prompt to Promptulus and apply the one principle it names; ask Mnemos what the model would need to see; ask Veridex how you would check the output. Risk: getting a room of people onto a site with a key takes time, and four different characters can be a lot to follow.
 - **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail. The bias point itself does not depend on it: slide 8 says training data is not a neutral choice, and slide 19 says accessed answers leave less room for that bias.
-- **Vandalizer** (slides 44 to 46). Two podium demos on synthetic documents: extract an award notice with every value linked to its source, including asking for a field that is not there; and compare a budget, its justification and a research strategy for mismatches. Placed last on purpose, as the most cuttable block; the closing slide follows it either way.
+- **Vandalizer** (slide 44). Not demonstrated live in this talk (proposed change 6). One slide with a one-line description (a document extraction and review platform where every value points back to the passage it came from), a link and QR code to join the demo instance, and how to start the Vandal Workflow Architect certification: a self-paced course of modules inside Vandalizer that ends in a badge and a printable certificate. Risk: low.
 
 ## Slide by slide
 
@@ -150,9 +151,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 
 ### Block 7. Vandalizer
 
-44. **Vandalizer.** A document extraction and review platform where every value has a source.
-45. **Extract an award notice.** A demo with three synthetic notices and challenges, including asking for a field that is not there.
-46. **Catch the mismatch.** A demo comparing a budget, its justification and a research strategy.
+44. **Vandalizer: try it yourself.** What it is in one line, a link and QR code to join the demo instance, and the three steps to start the Vandal Workflow Architect certification: sign in, open the certification from your profile menu, and begin the first module.
 
 ### Close
 
