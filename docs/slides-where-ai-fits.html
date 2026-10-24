@@ -79,6 +79,9 @@
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
       .pk-chip { border:1.5px solid rgba(25,25,25,0.25); background:#fff; color:#191919; border-radius:999px; padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:700; cursor:pointer; }
       .pk-chip.is-active { background:#f1b300; border-color:#f1b300; }
+      /* Cards in a row are always the same height */
+      .reveal .slide-grid { align-items: stretch; }
+      .reveal .slide-grid > .slide-card { height: 100%; box-sizing: border-box; margin-top: 0; margin-bottom: 0; }
       .h-why { display:none; font-size:0.66rem; color:#b91c1c; margin-top:0.15rem; }
       .hallucination-exercise.revealed .h-why { display:block; }
     </style>
@@ -421,7 +424,7 @@
             Right column: things a crowd is bad at no matter how big, unless someone hands it the source. Your sponsor's unusual term. A rule that changed last year. Whether a claim nobody has made before is true. What you ought to do. And reproducibility: ask the crowd twice, get two answers. The heading says "alone" on purpose; some of these move left once the model is given the record, which is block 3.
             Say the caveat honestly. Reasoning models, tool use, and code execution are moving items from the right column leftward every year. Multi-step reasoning in particular is much better than it was. The habit to build is not "never," it is "not without checking." Bert will spend an hour on the ethical-judgment row.
             Point at "Anything recent" and leave it hanging; it is the whole of block 3.
-            Research administration maps onto this cleanly: the documents go left, the determinations go right. The room will sort real tasks this way in block 5.
+            Research administration maps onto this cleanly: the documents go left, the determinations go right. That comes back in block 5.
           </aside>
         </section>
         <section>
@@ -995,82 +998,18 @@
             This is the decision rule. Four questions, thirty seconds, before any task goes to a model.
             One is the context window. Two is the verification habit from the random-number slide and the whole Vandalizer block. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model.
             Run one example out loud. "Summarize the terms of this award notice." Hand it the notice: yes. Check it against the notice: yes. Accountable: the administrator who reads the summary before acting on it. Reproducible: it does not need to be, the notice is the record. Use it. Now "decide whether this cost transfer is allowable." Hand it the policy and the transaction: maybe. Check it: only by doing the analysis yourself. Accountable: a person, by regulation. Reproducible: it had better be. A person leads; the model can prepare the file.
-            Then the continuum and the sorter make the room do this nine times.
+            Then the continuum gives the room two questions to place any task.
           </aside>
         </section>
         <section>
           <p class="slide-kicker">Block 5 &middot; Sorting the work</p>
           <h2>Does it matter how the work got done?</h2>
-          <div class="slide-split img-wide">
-            <div class="split-img">
-              <img src="https://ai4ra.uidaho.edu/wp-content/uploads/2026/03/AIContinuum.jpg" alt="AI appropriateness continuum, from process-critical to output-driven" style="margin:0; padding:0;" />
-            </div>
-            <div class="split-text">
-              <ul style="font-size:0.8rem;">
-                <li><strong>Human leads.</strong> Every step must be auditable. AI may assist, but a person owns the reasoning.</li>
-                <li><strong>Human in the loop.</strong> AI prepares, a qualified person reviews and decides.</li>
-                <li><strong>AI leads.</strong> Only the result matters. Validate with spot checks.</li>
-              </ul>
-              <p class="slide-callout" style="margin:0.6rem 0 0; font-size:0.8rem;">Two questions place any task. If someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? Both "not really": AI can lead. Either "yes": a person stays in the loop.</p>
-              <p class="slide-micro" style="margin-top:0.6rem;">
-                <a href="https://ai4ra.uidaho.edu/when-can-ai-be-used-in-research-administration/" target="_blank" rel="noopener" style="color:var(--gold);">When can AI be used in research administration?</a>
-              </p>
-            </div>
-          </div>
+          <img src="https://ai4ra.uidaho.edu/wp-content/uploads/2026/03/AIContinuum.jpg" alt="AI appropriateness continuum, from process-critical to output-driven" style="display:block; max-height:15rem; max-width:100%; margin:0.6rem auto 0;" />
+          <p class="slide-callout" style="margin-top:0.8rem;">Two questions place any task. If someone asked how it was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really", AI can lead. If either is yes, a person stays in the loop.</p>
+          <p class="slide-micro"><a href="https://ai4ra.uidaho.edu/when-can-ai-be-used-in-research-administration/" target="_blank" rel="noopener" style="color:var(--gold);">When can AI be used in research administration?</a></p>
           <aside class="notes">
             Sequita's question, drawn as a continuum. On the left, process-critical work: the method is the product. A compliance determination is not a compliance determination if nobody can explain how it was reached. On the right, output-driven work: nobody cares how the first draft of a boilerplate paragraph got written as long as the final one is right.
             Most of research administration is in the middle. That is where the design question lives: what does the human see, and when?
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 5 &middot; Sorting the work</p>
-          <h2>Sort these research administration tasks</h2>
-          <p style="font-size:0.72rem; color:var(--muted); margin-bottom:0.3rem;">Three bins. Which tasks can AI help with today, which need your institutional data in order first, and which should stay with a person?</p>
-          <div class="task-sorter" style="max-width:56rem; margin:0 auto; display:flex; flex-direction:column; gap:0.25rem;">
-            <div class="sort-item" data-answer="ai">
-              <span class="sort-text">Pull deadlines, eligibility, and page limits out of a solicitation</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="ai">
-              <span class="sort-text">Draft a budget justification from a completed budget spreadsheet</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="ai">
-              <span class="sort-text">Compare a subaward budget to its justification and flag mismatches</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="data">
-              <span class="sort-text">Report federal funding by department for the Vice President for Research</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="data">
-              <span class="sort-text">List every active award with an overdue effort certification</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="data">
-              <span class="sort-text">Predict which of this year's proposals are most likely to be funded</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="human">
-              <span class="sort-text">Decide whether a questionable cost transfer is allowable</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="human">
-              <span class="sort-text">Negotiate a disputed IP clause with an industry sponsor</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <div class="sort-item" data-answer="human">
-              <span class="sort-text">Tell a PI their proposal missed the deadline</span>
-              <div class="sort-buttons"><button class="sort-btn" data-zone="ai">AI now</button><button class="sort-btn" data-zone="data">Data first</button><button class="sort-btn" data-zone="human">Keep human</button></div>
-            </div>
-            <button class="sort-reveal">Reveal answers</button>
-          </div>
-          <aside class="notes">
-            Do this as a room: call out each task, hands for each bin, click the majority. Then reveal.
-            The answers are a position, not a fact, so argue with them. The point is the middle bin. "Report federal funding by department" sounds like a one-line prompt. It is not, because the answer lives in your award system, your HR system, and your chart of accounts, and the model can see none of them. Same for effort certification and funding prediction. Those tasks are blocked on data, not on AI.
-            The human bin is the process-critical end of the continuum: allowability, negotiation, and a conversation with a person who is about to be upset. AI can prepare material for all three. It cannot own them.
-            Three of the nine land in "data first," which is the sort's own argument for the data model you just showed.
-            Bridge: one more slide for the people whose institution has no policy at all, then the AI-now bin is where you start small.
           </aside>
         </section>
         <section>
@@ -1402,7 +1341,7 @@
           </div>
           <p class="slide-callout">Augment is the default. Automate only what you have measured. Leave alone what you cannot audit. Sequita's question runs under all three: can you check it?</p>
           <aside class="notes">
-            Three bins again, now as a policy, and the cornerstone sits in the middle one. Augment is where research administration lives. Automate is earned, by measuring a workflow until you trust the check more than you trust your own reading. Leave alone is honest, not timid. The sorter's "data first" tasks are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
+            Three bins again, now as a policy, and the cornerstone sits in the middle one. Augment is where research administration lives. Automate is earned, by measuring a workflow until you trust the check more than you trust your own reading. Leave alone is honest, not timid. Tasks that are waiting on data are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
             Keep it to a minute. Two slides left: what Monday looks like, and the king.
           </aside>
         </section>
