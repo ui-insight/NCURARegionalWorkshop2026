@@ -845,15 +845,13 @@
           <div class="slide-grid">
             <article class="slide-card">
               <span class="slide-label">Today</span>
-              <h3>Three institutions, three solutions, zero shared work</h3>
-              <p style="font-size:0.78rem;">One office writes its effort certification query against its ERP. The next rebuilds it against a different ERP. A third rebuilds it against a custom eRA system. Each office holds the same things, a sponsor, a PI, an award, a budget, and every system names them differently. Every report starts by reconciling them again.</p>
-              <p style="font-size:0.78rem; margin-top:0.4rem;">And a free-text <em>Department</em> column, filled in when somebody remembered, silently drops three million dollars from a total.</p>
+              <h3>Same data, different names</h3>
+              <p style="font-size:0.8rem;">Every office tracks the same things: sponsors, PIs, awards, budgets. Every system names and stores them differently, so every report starts by reconciling them, and a tool built at one university has to be rebuilt at the next.</p>
             </article>
             <article class="slide-card accent">
               <span class="slide-label">With a shared language</span>
-              <h3>One solution, and the next thirty institutions run it unchanged</h3>
-              <p style="font-size:0.78rem;">A data model is a shared agreement about what things exist, how they relate, and what they are called, before any database is involved. Map each of your systems to it once, and a query, a dashboard, or an AI workflow written anywhere runs at your institution too.</p>
-              <p style="font-size:0.78rem; margin-top:0.4rem;">Queries read like English: <code style="font-size:0.72rem;">Funds_Obligated_Amount</code>, not <code style="font-size:0.72rem;">FOA_AMT</code>. And a blank department becomes a validation error instead of a silent omission.</p>
+              <h3>Map once, reuse everywhere</h3>
+              <p style="font-size:0.8rem;">A data model is an agreement about what things exist and what they are called. Map each of your systems to it once, and a report or AI workflow built anywhere can run at your institution too.</p>
             </article>
           </div>
           <div class="compare-row" style="margin-top:0.7rem; gap:1rem; align-items:center; max-width:68rem; margin-left:auto; margin-right:auto; text-align:left;">
@@ -865,7 +863,7 @@
             </div>
           </div>
           <aside class="notes">
-            Pick up from Carl. The awards table failed because "department" was a free-text column somebody sometimes filled in. A data model says: an Award has a required link to a Personnel record, which has a required link to an Organization. The gap becomes a validation error instead of a silent omission. That is the small version of the problem. The large version is on the left: three institutions, three ERPs, three rebuilds of the same effort certification query, zero shared work. Do not name any institution; let the room supply their own.
+            The point is on the left: every office holds the same things, and every system names them differently, so nothing built at one institution runs at the next. An example the room will recognize: an effort certification report rebuilt three times for three ERPs. Do not name any institution; let the room supply their own.
             A data model is a shared agreement about what things exist and what they are called, before any database is chosen. The UDM is a specification, not a database: you implement it in whatever you already run and map your local data to it once. The test for what belongs in it is simple. Is this something a research administrator would describe as "our data"? If yes, it belongs. Workflow engines and application internals do not.
             Then the ask, and be honest about it. The UDM is version three, released last week, written by a small team at one institution. It is only universal if other institutions can map to it, and nobody in this room has to adopt anything to help. We need readers. Does it describe an award, a sponsor, a person the way you would? What does your office track that is not there? What do you call something that it names differently? And the real ask: would you give us thirty minutes to walk through it against one of your systems?
             Scan the code for the site. The feedback conversation lives on the AI4RA groups.io list; the link is on the slide and on the site. Do not read the forty tables. If someone asks what is in it: proposals, awards, finance, effort, compliance, people, organizations, and the submission trail.
