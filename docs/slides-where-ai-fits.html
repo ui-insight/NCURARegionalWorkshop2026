@@ -270,17 +270,18 @@
         <section data-prevent-swipe>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Drop a ball, get a word</h2>
-          <div id="pachinko" style="max-width:56rem; margin:0.4rem auto 0;">
-            <canvas width="900" height="440" style="width:100%; height:auto; display:block; background:#fffdf5; border:1px solid rgba(25,25,25,0.12); border-radius:0.9rem; touch-action:none;"></canvas>
-            <div class="launch-row" style="margin-top:0.5rem; gap:0.5rem; align-items:center;">
-              <button type="button" class="launch-primary" data-pk="drop1" style="font-size:0.8rem; padding:0.35rem 1rem;">Drop 1</button>
-              <button type="button" class="launch-primary" data-pk="drop25" style="font-size:0.8rem; padding:0.35rem 1rem;">Drop 25</button>
-              <button type="button" class="launch-secondary" data-pk="reset" style="font-size:0.8rem; padding:0.35rem 1rem;">Clear the bins</button>
-              <button type="button" class="launch-secondary" data-pk="nails" style="font-size:0.8rem; padding:0.35rem 1rem;">Reset the nails</button>
-              <span class="pk-total" style="font-size:0.75rem; color:var(--muted);">0 balls</span>
+          <div id="pachinko" style="display:flex; gap:1.4rem; align-items:center; justify-content:center; margin:0.2rem auto 0;">
+            <canvas width="480" height="640" style="height:28rem; width:auto; display:block; background:#fffdf5; border:1px solid rgba(25,25,25,0.12); border-radius:0.9rem; touch-action:none;"></canvas>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; align-items:stretch; max-width:16rem; text-align:left;">
+              <p style="font-size:0.95rem; font-weight:700; margin:0 0 0.3rem;">"The proposal was ___."</p>
+              <button type="button" class="launch-primary" data-pk="drop1" style="font-size:0.8rem; padding:0.4rem 1rem;">Drop 1</button>
+              <button type="button" class="launch-primary" data-pk="drop25" style="font-size:0.8rem; padding:0.4rem 1rem;">Drop 25</button>
+              <button type="button" class="launch-secondary" data-pk="reset" style="font-size:0.8rem; padding:0.4rem 1rem;">Clear the bins</button>
+              <button type="button" class="launch-secondary" data-pk="nails" style="font-size:0.8rem; padding:0.4rem 1rem;">Reset the nails</button>
+              <span class="pk-total" style="font-size:0.75rem; color:var(--muted); text-align:center;">0 balls</span>
+              <p style="font-size:0.74rem; color:var(--muted); margin:0.4rem 0 0;">Every ball starts in the same place. Drag a nail sideways and watch the pile move.</p>
             </div>
           </div>
-          <p class="slide-note">"The proposal was ___." Every ball starts in the same place. Drag a nail sideways and watch the pile move.</p>
           <aside class="notes">
             The token builder showed the odds as numbers. This is the same thing you can watch. Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
             Drop 25. Now there is a pile, and the pile is the model: most balls land in a couple of bins and a few bounce somewhere odd. That odd ball is the confident wrong answer, said in the same voice as the others.

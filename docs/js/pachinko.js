@@ -13,17 +13,17 @@
   var WORDS = ['rejected', 'returned', 'submitted', 'reviewed', 'approved', 'funded'];
   var BINS = WORDS.length;
   var BIN_W = W / BINS;
-  var BIN_TOP = H - 120;          // top of the bin dividers
-  var FLOOR = H - 26;             // balls stop here
-  var BALL_R = 7, NAIL_R = 7;
-  var GRAVITY = 0.32, BOUNCE = 0.45, JITTER = 0.35;
-  var DROP_X = W / 2;
+  var BIN_TOP = H - 150;          // top of the bin dividers
+  var FLOOR = H - 30;             // balls stop here
+  var BALL_R = 5, NAIL_R = 6;
+  var GRAVITY = 0.11, BOUNCE = 0.5, JITTER = 0.3, MAX_V = 3.2;
+  var DROP_X = 2.5 * BIN_W;        // over the middle of a bin, not a divider
 
   var GOLD = '#f1b300', INK = '#191919', MUTED = '#8a8a8a';
 
   // Staggered nail grid
-  var ROWS = 4, TOP = 80, ROW_GAP = (BIN_TOP - TOP - 40) / (ROWS - 1);
-  var SPACING = 84;
+  var ROWS = 7, TOP = 70, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
+  var SPACING = 64;
   var home = [];
   for (var r = 0; r < ROWS; r++) {
     var offset = (r % 2) ? SPACING / 2 : 0;
@@ -39,7 +39,7 @@
 
   function drop(n) {
     for (var i = 0; i < n; i++) {
-      balls.push({ x: DROP_X + (Math.random() - 0.5) * 2, y: 18 - i * 14, vx: 0, vy: 0, done: false });
+      balls.push({ x: DROP_X + (Math.random() - 0.5) * 2, y: 18 - i * 22, vx: 0, vy: 0, done: false });
     }
   }
 
@@ -50,6 +50,8 @@
       b.vy += GRAVITY;
       b.x += b.vx; b.y += b.vy;
       b.vx *= 0.995;
+      var sp = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+      if (sp > MAX_V) { b.vx *= MAX_V / sp; b.vy *= MAX_V / sp; }
 
       // nails
       for (var j = 0; j < nails.length; j++) {
@@ -109,12 +111,12 @@
       ctx.fillStyle = counts[i] === max && total ? GOLD : 'rgba(241,179,0,0.45)';
       ctx.fillRect(x0 + 6, FLOOR - h, BIN_W - 12, h);
       ctx.fillStyle = INK;
-      ctx.font = '600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.font = '700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(WORDS[i], x0 + BIN_W / 2, H - 8);
+      ctx.fillText(WORDS[i], x0 + BIN_W / 2, H - 4);
       if (total) {
         ctx.fillStyle = MUTED;
-        ctx.font = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctx.fillText(Math.round(100 * counts[i] / total) + '%', x0 + BIN_W / 2, FLOOR - h - 6);
       }
     }
