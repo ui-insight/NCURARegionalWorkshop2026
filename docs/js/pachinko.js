@@ -157,6 +157,12 @@
   }
 
   function loop() {
+    // nails glide toward a target when a button moves them
+    nails.forEach(function (n) {
+      if (n.tx === undefined) return;
+      n.x += (n.tx - n.x) * 0.12;
+      if (Math.abs(n.tx - n.x) < 0.2) { n.x = n.tx; n.tx = undefined; }
+    });
     // two physics steps per frame keeps fast balls from passing through nails
     step(); step();
     draw();
@@ -188,6 +194,7 @@
       DROP_X = Math.max(14, Math.min(W - 14, p.x));
       e.preventDefault();
     } else if (dragging) {
+      dragging.tx = undefined;
       dragging.x = Math.max(NAIL_R, Math.min(W - NAIL_R, p.x)); // side to side only
       e.preventDefault();
     } else {
@@ -207,9 +214,27 @@
       if (a === 'drop1') drop(1);
       else if (a === 'drop25') drop(25);
       else if (a === 'reset') { counts = new Array(BINS).fill(0); balls = []; }
-      else if (a === 'nails') { nails.forEach(function (n, i) { n.x = home[i].x; }); }
+      else if (a === 'nails') { shifted = false; nails.forEach(function (n, i) { n.tx = home[i].x; }); }
+      else if (a === 'shift') { shiftNails(); }
     });
   });
+
+  // "Shift the nails": open a funnel under the drop point, wide at the top and
+  // narrowing toward the bins, so most balls fall into one bin (a sharp peak)
+  // and the few that clip the funnel walls scatter (long tails). A model trained
+  // hard toward one answer looks like this.
+  var shifted = false, FUNNEL_TOP = 46, FUNNEL_BOTTOM = 12;
+  function shiftNails() {
+    shifted = true;
+    var top = nails[0].y, bottom = nails[nails.length - 1].y;
+    nails.forEach(function (n, i) {
+      var t = (n.y - top) / ((bottom - top) || 1);      // 0 at the top row, 1 at the bottom
+      var half = FUNNEL_TOP - (FUNNEL_TOP - FUNNEL_BOTTOM) * t;   // funnel half-width, narrowing
+      var d = home[i].x - DROP_X;
+      if (Math.abs(d) < half) n.tx = DROP_X + (d < 0 ? -half : half);
+      else n.tx = home[i].x;
+    });
+  }
 
   // The previous word moves the drop point. Same board, different starting place.
   var chips = root.querySelectorAll('[data-pk-prev]');
@@ -218,6 +243,7 @@
       PREV = chip.getAttribute('data-pk-prev');
       DROP_X = parseFloat(chip.getAttribute('data-pk-x')) * W;
       counts = new Array(BINS).fill(0); balls = [];
+      if (shifted) shiftNails();           // the funnel follows the drop point
       chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
       var q = root.querySelector('.pk-prompt');
       if (q) q.textContent = '"The ' + PREV + ' was ___."';
