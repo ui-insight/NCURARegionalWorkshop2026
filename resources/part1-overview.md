@@ -31,9 +31,11 @@ About ninety minutes in seven blocks: three short opening slides, then Block 1 (
 
 ## Before the session, and if something fails
 
-- **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page; it loads in the browser tab and travels on every Promptulus, Thamus and Carl link. Test the QR from a phone on the venue network.
+- **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. Vandalizer is shown from the podium and needs no attendee key. Test the QR from a phone on the venue network.
 - **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, Promptulus, and Vandalizer with the synthetic documents loaded.
 - **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), Carl's dropped departments (about 2.7 million dollars of federal funding), and the Vandalizer extraction. The token builder, pachinko board, tally and context slider run without a network.
+- **If half the room cannot get into Promptulus.** Pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
+- **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos reliably show, not recordings; the fallbacks use them only if the network fails.
 - **If time runs short.** Cut in this order: the token builder (the pachinko board covers the same idea), the model-bias aside, the time-savers slide in Block 6, then the second Vandalizer demo.
 
 ## The interactive demos
@@ -51,6 +53,8 @@ A short review of each, as it stands.
 - **Vandalizer** (slides 44 to 46). Two podium demos on synthetic documents: extract an award notice with every value linked to its source, including asking for a field that is not there; and compare a budget, its justification and a research strategy for mismatches. Risk: these are the last slides, so they get cut first if time runs short, and the talk ends on a demo rather than a conclusion.
 
 ## Slide by slide
+
+Slide numbers follow the current deck, so where this plan proposes moving a slide, its number stays the same.
 
 ### Opening
 
@@ -78,7 +82,7 @@ A short review of each, as it stands.
 16. **Would you trust someone else's memory alone to answer a compliance question?** Then: do you ever have to look up the answer? If you would not trust a person's memory, why trust an AI's? The solution is to let AI look things up too, which is called context. An aside: agents are helpers that go look things up for the main model.
 17. **Remembering Thamus.** The irony: we only know Thamus's story because Plato wrote it down. A link out to the Remembering Thamus page, which answers one compliance question five ways: memory, pasted text, web search, a vector index, and the regulation read live. Speaker notes carry the presenter's own hope and fear about AI and a handoff to Bert's hour.
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department.
-19. **Two kinds of knowing: recalled and accessed.** Recalled is frozen, blurred, and fills gaps confidently; this is where hallucination and hidden bias live. Accessed is current, citable, and checkable, with less room for training-data bias, though how much less is an open question.
+19. **Two kinds of knowing: recalled and accessed.** *(Add one line on which record to hand over: the current version, from the system of record, not a copy from someone's downloads.)* Recalled is frozen, blurred, and fills gaps confidently; this is where hallucination and hidden bias live. Accessed is current, citable, and checkable, with less room for training-data bias, though how much less is an open question.
 
 ### Block 3. Context: hands-on with Promptulus
 
@@ -89,13 +93,13 @@ A short review of each, as it stands.
 
 ### Block 4. The data underneath
 24. **Which is the most important one?** A quiz listing AI model types, plus Claude, Gemini and Grok. A small "An aside" button opens a popup, "All models are biased," with three documented cases about Grok.
-25. **Wrong!** The most important model is your data model.
+25. **Wrong!** The most important model is your data model. The argument is the Carl demo the room just saw: the same capable model gave a confidently wrong total because the table was not ready. A better model would not have fixed it; a required department field would have.
 26. **Structured and unstructured data.** Tables versus documents; most of an office's knowledge is in documents, most of its reporting needs tables.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
 30. **What is a data model?** A small diagram of award, sponsor, person and department, and the four parts: things, details, connections, rules.
 31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code.
 32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
-33. **Data sovereignty: where does the model run?** Cloud, local or hybrid, with a two-tier rule on personal keys and institutional accounts.
+33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted.
 
 ### Block 5. Accountability and guidance
 
@@ -109,7 +113,7 @@ A short review of each, as it stands.
 36. **Check the sponsor before you check the tool.** NSF, NIH (including no generative AI in peer review), and going up to a parent agency when a sponsor has no policy, with links.
 37. **Your AI guidance is probably out of date.** A review of twenty institutions' policies against a 61-item checklist: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
 38. **How strict should it be?** Five levels from principles to strict, with examples.
-39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
+39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
 40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership.
 
 ### Block 6. Start small
@@ -118,7 +122,7 @@ A short review of each, as it stands.
     - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.
     - "List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one." Confirm each quote before it goes in the file.
     - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
-    None asks the model to do math.
+    None asks the model to do math. Each passes the four questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
 42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
 43. **Each rung needs the one below it.** A ladder from a prompt you keep up to a governed data layer; start at the bottom and write down the rung you can reach this month.
 
