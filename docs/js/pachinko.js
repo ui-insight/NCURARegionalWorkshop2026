@@ -104,8 +104,10 @@
     ctx.textAlign = 'center';
     ctx.fillStyle = INK;
     ctx.font = '700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    var tx = Math.max(40, Math.min(W - 40, DROP_X));
-    ctx.fillText(PREV, tx, 16);
+    var phrase = 'The ' + PREV + ' was';
+    var half = ctx.measureText(phrase).width / 2 + 6;
+    var tx = Math.max(half, Math.min(W - half, DROP_X));
+    ctx.fillText(phrase, tx, 16);
     ctx.fillStyle = (dragging === 'funnel' || funnelHover) ? GOLD : MUTED;
     ctx.beginPath(); ctx.moveTo(DROP_X - 14, 22); ctx.lineTo(DROP_X + 14, 22); ctx.lineTo(DROP_X, 38); ctx.closePath(); ctx.fill();
 
