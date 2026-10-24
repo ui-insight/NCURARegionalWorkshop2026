@@ -10,20 +10,20 @@
   var ctx = canvas.getContext('2d');
   var W = canvas.width, H = canvas.height;
 
-  var WORDS = ['rejected', 'returned', 'submitted', 'reviewed', 'approved', 'funded'];
+  var WORDS = ['rejected', 'returned', 'submitted', 'approved', 'funded'];
   var BINS = WORDS.length;
   var BIN_W = W / BINS;
   var BIN_TOP = H - 150;          // top of the bin dividers
   var FLOOR = H - 30;             // balls stop here
   var BALL_R = 5, NAIL_R = 6;
   var GRAVITY = 0.11, BOUNCE = 0.5, JITTER = 0.3, MAX_V = 3.2;
-  var DROP_X = 2.5 * BIN_W;        // over the middle of a bin, not a divider
+  var DROP_X = 2.5 * BIN_W;          // over the middle of a bin, not a divider
 
   var GOLD = '#f1b300', INK = '#191919', MUTED = '#8a8a8a';
 
   // Staggered nail grid
-  var ROWS = 7, TOP = 70, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
-  var SPACING = 64;
+  var ROWS = 9, TOP = 70, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
+  var SPACING = 50;
   var home = [];
   for (var r = 0; r < ROWS; r++) {
     var offset = (r % 2) ? SPACING / 2 : 0;
@@ -111,7 +111,7 @@
       ctx.fillStyle = counts[i] === max && total ? GOLD : 'rgba(241,179,0,0.45)';
       ctx.fillRect(x0 + 6, FLOOR - h, BIN_W - 12, h);
       ctx.fillStyle = INK;
-      ctx.font = '700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.font = '700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(WORDS[i], x0 + BIN_W / 2, H - 4);
       if (total) {
