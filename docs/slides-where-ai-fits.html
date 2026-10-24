@@ -552,7 +552,8 @@
         <section>
           <p class="slide-kicker">Block 3 &middot; How much context</p>
           <h2>Your AI has a page limit</h2>
-          <p style="font-size:0.8rem; color:var(--muted);">Everything competes for the same context window. Drag the handles or pick a preset.</p>
+          <p style="font-size:0.88rem; max-width:50rem; margin:0.3rem auto 0.5rem; line-height:1.45;">The <strong>context window</strong> is everything a model can read at once: your question, the documents you paste or it looks up, its instructions, and the whole conversation so far. It is measured in tokens, pieces of words. When it fills up, the oldest material is dropped or squeezed into a summary, and the model no longer sees it.</p>
+          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">Four things share the space. Drag the handles or pick a preset.</p>
           <div class="context-slider" id="ctx-slider">
             <div class="slider-bar">
               <div class="slider-region" data-idx="0" style="width:10%; background:#5B8C3E;">
@@ -582,33 +583,29 @@
               <button class="slider-preset" data-preset="scoping">New task scoping</button>
             </div>
           </div>
-          <div class="character-grid character-grid-lg" style="margin-top:0.6rem;">
-            <div class="character-card" data-tip="Purpose, accountability, and escape hatches. Decide these before you type.">
-              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/turtle.png" alt="Telosa" />
-              <div class="char-name">Intent</div>
-              <div class="char-role">Telosa</div>
-            </div>
-            <div class="character-card" data-tip="The documents, data, and policy the model needs. If it is not here, the model does not have it.">
-              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/elephant.png" alt="Mnemos" />
-              <div class="char-name">Information</div>
-              <div class="char-role">Mnemos</div>
-            </div>
-            <div class="character-card" data-tip="Role, format, constraints. What most people mean by a prompt.">
-              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/owl.png" alt="Promptulus" />
-              <div class="char-name">Instructions</div>
-              <div class="char-role">Promptulus</div>
-            </div>
-            <div class="character-card" data-tip="Every earlier turn is still in the window. Long chats crowd out the information that matters.">
-              <img src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/parrot.png" alt="Dialogos" />
-              <div class="char-name">Conversation</div>
-              <div class="char-role">Dialogos</div>
-            </div>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(4, 1fr); margin-top:0.6rem;">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label" style="color:#5B8C3E;">Intent</span>
+              <p style="font-size:0.72rem; margin:0.25rem 0 0;">What you want and why. Decide it before you type.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label" style="color:#9a7300;">Information</span>
+              <p style="font-size:0.72rem; margin:0.25rem 0 0;">The documents, data and policy it needs. If it is not here, the model does not have it.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label" style="color:#1B6B7A;">Instructions</span>
+              <p style="font-size:0.72rem; margin:0.25rem 0 0;">Role, format, constraints. What most people mean by a prompt.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label" style="color:#2A9D8F;">Conversation</span>
+              <p style="font-size:0.72rem; margin:0.25rem 0 0;">Every earlier turn is still in the window. Long chats crowd out what matters.</p>
+            </article>
           </div>
           <aside class="notes">
             The bridge from Thamus: the fix is to hand the model the record, its context. But it can only read so much at once, so what you put on that page, and how much, is the real skill. That is what the next fifteen minutes practice.
             The window is finite and four things share it: what you want, what you gave it, how you told it to behave, and everything said so far.
             Try the presets. Compliance review is information-heavy: the policy and the document have to be in there. Iterative editing is conversation-heavy, and that is the trap: by turn thirty the original document is a small fraction of what the model is looking at.
-            These four are four of the nine Promptulus characters. You will meet the rest in a minute.
+            Each of these four has a Promptulus character, and the room meets them on the next slide.
             Transition: enough mechanism. Laptops.
           </aside>
         </section>
