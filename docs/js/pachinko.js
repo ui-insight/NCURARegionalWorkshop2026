@@ -227,7 +227,7 @@
   // nails spread out to the left of its shelf; nothing sits under or right of
   // the band. Balls that roll off a shelf's left end make the tail.
   var shifted = false, SHELF = 6, PACK = 2 * NAIL_R + 0.5, CLEAR = 14;
-  var RIGHT_END = [6, 9, 15, 24, 36, 52, 72, 96, 124];      // shelf right end, measured from the drop point
+  var RIGHT_END = [-10, 9, 15, 24, 36, 52, 72, 96, 124];      // shelf right end, measured from the drop point
   function shiftNails() {
     shifted = true;
     var rows = {};
