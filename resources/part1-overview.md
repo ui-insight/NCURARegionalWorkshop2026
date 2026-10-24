@@ -1,8 +1,8 @@
 # Where AI fits in research administration: Part 1 overview
 
-Nathan Layman, University of Idaho, AI4RA. NCURA Region VI/VII Regional Meeting, Denver, Sunday, November 8, 2026. The first ninety minutes of a three-hour workshop; after a break, Bert Baumgaertner, a philosopher, leads an hour on thinking well with AI.
+Nathan Layman, University of Idaho, AI4RA. NCURA Region VI/VII Regional Meeting, Denver, Sunday, November 8, 2026. The first ninety minutes of a three-hour workshop; after a break, Bert Baumgaertner, a philosopher, leads an hour on thinking well with AI. Nathan presents Part 1 alone.
 
-**How to read this.** This is the plan for a talk, not a manual. Read it as someone deciding whether the talk works: does each part lead to the next, is each idea clear to a research administrator with no technical background, and is anything missing that the goals promise?
+**How to read this.** This is the plan for a talk, not a manual. Read it as someone deciding whether the talk works: does each part lead to the next, is each idea clear to a research administrator with no technical background, and is anything missing that the goals promise? Timing is planned separately and is left out on purpose; this document covers order and content only.
 
 ## Goals
 
@@ -15,7 +15,7 @@ By the end of the ninety minutes, someone in the room should:
 5. Keep accountability with a person: verify everyone's work, human or not, and know that a machine cannot be held accountable.
 6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, and three small things to try on Monday.
 
-**If time runs out, protect the goals in this order:** 2 (recalled versus accessed), 5 (a person stays accountable), 1 (how the model works), 3 (context, hands-on), 6 (guidance and Monday starts), 4 (the data underneath). The first two are the ideas an attendee most needs on Monday; the hands-on block is the most expensive in minutes.
+**Which goals matter most:** 2 (recalled versus accessed) and 5 (a person stays accountable) are the ideas an attendee most needs on Monday; 1 (how the model works) is what makes them believable; 3, 6 and 4 build on those.
 
 How the room shows it got there: a one-line exit question on the closing slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check. That tests goals 2, 3 and 5; goals 1 and 4 are checked in the room as it happens, by whether the tally surprises anyone and whether people spot the dropped departments in the Carl demo.
 
@@ -29,7 +29,7 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 ## Format
 
-About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 21), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 3), a three-minute buffer, and the close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl). The talk is allowed to run a little long.
+Seven blocks after three short opening slides: how language models work; memory and the record; context, with hands-on Promptulus; the data underneath; accountability and guidance; start small; and Vandalizer; then a close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl).
 
 ## Changes this plan proposes to the current deck
 
@@ -40,7 +40,7 @@ The slide-by-slide below describes the talk as proposed. It differs from the cur
 3. A closing slide (47) after the Vandalizer slide, with the exit question and the handoff to Bert.
 4. Before the hands-on block, a short slide or spoken rule on what to paste, and where it goes (see below).
 5. One line on slide 19 about which record to hand a model.
-6. Block 7 shrinks from three slides to one: how to join the Vandalizer demo and how to start its certification course. The two podium demos (slides 45 and 46) come out; Vandalizer has been demonstrated at earlier AI4RA sessions, so a pointer is enough. Of the seven minutes this frees, four go to the hands-on block's working time and three are a buffer before the close.
+6. Block 7 shrinks from three slides to one: how to join the Vandalizer demo and how to start its certification course. The two podium demos (slides 45 and 46) come out; Vandalizer has been demonstrated at earlier AI4RA sessions, so a pointer is enough.
 
 ## Where attendee text goes in our own tools
 
@@ -55,23 +55,21 @@ The talk asks the room to judge AI4RA's tools by the checks it teaches, so it ow
 - **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. Vandalizer is shown from the podium and needs no attendee key. Test the QR from a phone on the venue network.
 - **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, and Promptulus.
 - **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), and Carl's dropped departments (about 2.7 million dollars of federal funding). The token builder, pachinko board, tally and context slider run without a network.
-- **Time for the hands-on block.** Of its twenty-one minutes: about three for the page limit slide, four to get everyone into Promptulus, twelve to work, two to debrief. If fewer than half the room is in by the four-minute mark, switch to pairs.
-- **If half the room cannot get into Promptulus.** Pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
-- **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos showed in rehearsal, not recordings; the fallbacks use them only if the network fails.
-- **Why Vandalizer comes last.** It is the most cuttable part of the talk: everything it would teach (extraction, a source next to every value, comparing documents) has already been said. As one pointer slide it takes three minutes at most and can be skipped; the closing slide follows either way.
-- **If time runs short.** Cut in this order: the Vandalizer slide, then the token builder (the pachinko board covers the same idea), then the model-bias aside, then the time-savers slide in Block 6.
+- **If half the room cannot get into Promptulus.** Nathan presents Part 1 alone, with no one else to walk the room, so pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
+- **Live, not staged.** Every demo runs live. Vandalizer is a pointer slide, not a demo. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos showed in rehearsal, not recordings; the fallbacks use them only if the network fails.
+- **Why Vandalizer comes last.** It is the most optional part of the talk: everything it would teach (extraction, a source next to every value, comparing documents) has already been said, so it is a pointer for people who want to go further. The closing slide follows it either way.
 
 ## The interactive demos
 
 A short review of each, as it stands.
 
-- **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need, and the pachinko board that follows teaches the same idea more physically. This is the first thing to cut if time runs short.
+- **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need, and the pachinko board that follows teaches the same idea more physically.
 - **Pachinko board** (slide 7). A tall board of nails with five word bins. Balls fall from a funnel and pile up in bins; chips change the previous word, which moves the funnel; nails can be dragged sideways; "Shift the nails" rearranges them into a banana that sends most balls to "funded." It shows randomness, how context shifts the odds, and what training does, all on one screen. Risk: it carries three lessons at once. The fix is to teach them one click at a time: drop balls (randomness), then change the word (context), then shift the nails (training), and let the next slide explain the shift.
-- **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly. Fallback: the presenter runs it on screen in three different chatbots, a fresh chat each time; the next slide's chart makes the point either way.
+- **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones. Fallback: the presenter runs it on screen in three different chatbots, a fresh chat each time; the next slide's chart makes the point either way.
 - **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, usually the de minimis indirect cost rate (under 2 CFR 200.414(f), up to 15 percent of modified total direct costs since October 1, 2024; 10 percent before that, which is what most training data says), answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. The teaching moment is the difference between the five: memory guesses; pasting works only if you pasted the right version; web search finds a blog post as happily as the rule; a vector index finds passages that look similar, which can be the wrong one; reading the regulation itself gives the current rule with its citation. The goal is recalled versus accessed, not the mechanics of each method. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
-- **Data Crawler Carl** (slide 18). A separate web page. Upload a spreadsheet, ask in plain English, and see the database query the model wrote, the rows, and its narrative. Asked for federal funding by department on a sample awards table, it silently drops awards with a blank department. Risk: Carl's built-in sample is an unrelated salary table, so the presenter must upload the awards file; three prompts can run long.
+- **Data Crawler Carl** (slide 18). A separate web page. Upload a spreadsheet, ask in plain English, and see the database query the model wrote, the rows, and its narrative. Asked for federal funding by department on a sample awards table, it silently drops awards with a blank department. Risk: Carl's built-in sample is an unrelated salary table, so the presenter must upload the awards file.
 - **Context window slider** (slide 20). A bar split into intent, information, instructions and conversation, with draggable handles, four presets (compliance review, drafting a description, iterative editing, scoping a new task), and hover tooltips. Clear and quick. Risk: low; it is explanatory rather than a task.
-- **Promptulus** (slides 21 to 23). The only hands-on block. For attendees who already use AI daily, a stretch challenge: take a prompt they use every week and get Veridex, the evaluation coach, to rate it, then write down the check they would run on its output. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. The four challenges: describe the task to Sequita (does it need a paper trail?); give your real prompt to Promptulus and apply the one principle it names; ask Mnemos what the model would need to see; ask Veridex how you would check the output. Risk: getting a room of people onto a site with a key takes time, and four different characters can be a lot to follow.
+- **Promptulus** (slides 21 to 23). The only hands-on block. For attendees who already use AI daily, a stretch challenge: take a prompt they use every week and get Veridex, the evaluation coach, to rate it, then write down the check they would run on its output. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Work time, then a debrief. The four challenges: describe the task to Sequita (does it need a paper trail?); give your real prompt to Promptulus and apply the one principle it names; ask Mnemos what the model would need to see; ask Veridex how you would check the output. Risk: getting a whole room onto a site with a key, and four different characters can be a lot to follow.
 - **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail. The bias point itself does not depend on it: slide 8 says training data is not a neutral choice, and slide 19 says accessed answers leave less room for that bias.
 - **Vandalizer** (slide 44). Not demonstrated live in this talk (proposed change 6). One slide with a one-line description (a document extraction and review platform where every value points back to the passage it came from), a link and QR code to join the demo instance, and how to start the Vandal Workflow Architect certification: a self-paced course of modules inside Vandalizer that ends in a badge and a printable certificate. Risk: low.
 
@@ -82,7 +80,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 ### Opening
 
 1. **Title.** "Where AI fits in research administration," with the presenter's photo.
-2. **The next ninety minutes.** The seven blocks and their minutes.
+2. **The next ninety minutes.** The seven blocks, in order.
 3. **Augment, not replace.** Three cards: use the output but check the work; keep people in the loop for decisions, signatures and PI conversations; let tools handle routine work so people have time for judgment. Callout: the question is not whether AI can do the work, but whether it helps you do it better, and how you know.
 4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Unified Data Model (proposed change 1).
 
@@ -111,7 +109,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 
 20. **Your AI has a page limit.** Opens with the paste rule and where text goes (proposed change 4). What a context window is, and a slider showing four things that share it: intent, information, instructions, conversation, with presets and hover tooltips.
 21. **The AI literacy companions.** What Promptulus is, and its nine coaching characters.
-22. **Bring a task from your desk.** Eight minutes of hands-on challenges with four of the characters, and a link to open Promptulus.
+22. **Bring a task from your desk.** Hands-on challenges with four of the characters, and a link to open Promptulus.
 23. **What did you notice?** Debrief questions, and the takeaway that prompting is the small part: deciding whether to use AI, giving it what it needs, and knowing how you will check it outlast any prompt trick.
 
 ### Block 4. The data underneath
@@ -147,7 +145,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
     - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
     None asks the model to do math. Each passes the four questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
 42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
-43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep (minutes), a shared prompt library (hours), an artifact or add-in (an afternoon), a connected tool (weeks), a governed data layer (months); start at the bottom and write down the rung you can reach this month.
+43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the rung you can reach this month.
 
 ### Block 7. Vandalizer
 
