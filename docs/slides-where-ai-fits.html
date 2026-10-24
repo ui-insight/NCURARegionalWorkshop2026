@@ -131,7 +131,7 @@
                 <p class="preview-part-number">Block 2</p>
                 <h6 class="preview-part-title">What the model remembers, and what it reads</h6>
               </div>
-              <p class="preview-time">12 min</p>
+              <p class="preview-time">16 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
@@ -147,7 +147,7 @@
                 <p class="preview-part-number">Block 4</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">14 min</p>
+              <p class="preview-time">10 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
@@ -176,7 +176,7 @@
           </div>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:30, block 3 at 0:47, block 4 at 1:01, block 5 at 1:10, block 6 at 1:17, block 7 at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 4 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:51, block 4 at 1:01, block 5 at 1:10, block 6 at 1:17, block 7 at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -521,6 +521,25 @@
             If the network fails, describe the five answers from the speaker notes above; the page itself is the demo.
           </aside>
         </section>
+
+        <section>
+          <p class="slide-kicker">Block 2 &middot; Live demo</p>
+          <h2>AI analyzes what you give it</h2>
+          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
+          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
+          <div class="launch-row" style="margin-top:1.6rem;">
+            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
+          </div>
+          <aside class="notes">
+            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
+            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
+            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
+            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
+            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
+            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
+                      Hand-off: two demos, one lesson. Hand the model the record and it can answer from it; hand it a record that is not ready and it answers confidently anyway. Next, the name for what we just watched.
+          </aside>
+        </section>
         <section>
           <p class="slide-kicker">Block 2 &middot; Memory and the record</p>
           <h2>Two kinds of knowing: recalled and accessed</h2>
@@ -549,7 +568,7 @@
           <aside class="notes">
             Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
-            Accessed is the fix, and the room just watched it on the Thamus page. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
+            Accessed is the fix, and the room just watched it twice, on the Thamus page and in Carl. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
           </aside>
         </section>
 
@@ -719,31 +738,13 @@
           <aside class="notes">
             Take three or four answers. Listen for the Mnemos answer especially: "it would need our award data" or "it would need the policy manual" is the setup for the data block, next.
             Listen to the Veridex answer too. Most people will say "I would read it." Ask: read it against what? If the model answered from memory, there is nothing to read it against; that is recalled versus accessed, from a few minutes ago.
-            Hand-off: prompting is deciding what to hand the model. Sometimes what it needs is not a document but a table, and that is where the next block starts.
+            Hand-off: prompting is deciding what to hand the model. Remember Carl's table: the best prompt in the world cannot fix data that is not ready. That is the next block, the data underneath.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
              Block 4: The data underneath
              ═══════════════════════════════════════════ -->
-        <section>
-          <p class="slide-kicker">Block 4 &middot; Live demo</p>
-          <h2>AI analyzes what you give it</h2>
-          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
-          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
-          <div class="launch-row" style="margin-top:1.6rem;">
-            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
-          </div>
-          <aside class="notes">
-            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
-            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
-            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
-            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
-            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
-            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
-                      Hand-off: the model can be reminded, and the reminder can be wrong. The next ten minutes are about what the record has to be, and what it costs to hand over.
-          </aside>
-        </section>
         <section>
           <p class="slide-kicker">Block 4 &middot; There are a lot of AI models, but</p>
           <h1>Which is the most important one?</h1>
