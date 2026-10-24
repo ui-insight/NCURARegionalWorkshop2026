@@ -224,7 +224,7 @@
   // below. Balls slide off its sides. The nails left over go mostly to the
   // left side, so the right side is clearer: most of the pile goes right and
   // a tail trails left. Nails only move sideways.
-  var shifted = false, WEDGE_TOP = 3, PACK = 2 * NAIL_R + 0.5, LEFT_SHARE = 0.75, APEX_SHIFT = -2;
+  var shifted = false, WEDGE_TOP = 3, PACK = 2 * NAIL_R + 0.5, LEFT_SHARE = 0.75, APEX_SHIFT = -2, CURVE = 60;
   function shiftNails() {
     shifted = true;
     var blocked = WORDS.indexOf('submitted');
@@ -234,7 +234,7 @@
     var ys = Object.keys(rows).map(Number).sort(function (p, q) { return p - q; });
     ys.forEach(function (y, r) {
       var t = ys.length > 1 ? r / (ys.length - 1) : 1;
-      var centre = DROP_X + APEX_SHIFT * (1 - t);
+      var centre = DROP_X + APEX_SHIFT * (1 - t) + CURVE * t * t;   // CURVE > 0 bends the wedge right, a banana
       var half = WEDGE_TOP + (bottomHalf - WEDGE_TOP) * t;
       var inWedge = Math.max(1, Math.floor((2 * half) / PACK) + 1);
       var idx = rows[y].slice().sort(function (p, q) { return Math.abs(home[p].x - centre) - Math.abs(home[q].x - centre); });
