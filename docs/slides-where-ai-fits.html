@@ -928,6 +928,44 @@
             Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions, and that shape is a data model. Vandalizer, at the end, is extraction and comparison at scale.
           </aside>
         </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; How AI gets it wrong</p>
+          <h2>Four ways an answer goes wrong</h2>
+          <p style="font-size:0.85rem; max-width:48rem; margin:0.2rem auto 0.6rem; line-height:1.45;">&ldquo;Hallucination&rdquo; is a misleading name. Psychology has a better one: <strong>confabulation</strong>, a reconstructive memory error, where the mind fills a gap with something plausible and believes it.</p>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(4, 1fr);">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Missed it</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false negative</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something in the source never made it into the answer.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A prior-approval requirement left off the award setup.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Made it up</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false positive</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something appears that the source never said.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A subaward, or a citation, that does not exist.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Changed a detail</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A distortion</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">The right item, with one piece quietly altered.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>15 percent becomes 10; an end date slips a year; &ldquo;may&rdquo; becomes &ldquo;must.&rdquo;</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Put it in the wrong place</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A misattribution</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">A real fact, attached to the wrong field, person or source.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The co-PI listed as the PI; a clause quoted from the wrong section.</em></p>
+            </article>
+          </div>
+          <p class="slide-callout">All four arrive in the same confident tone. Each has its own check: a list of what must be there, a quote you can find, a side-by-side comparison, and a field-by-field read.</p>
+          <aside class="notes">
+            Start with the word. "Hallucination" suggests the model is seeing things. What it actually does is closer to what psychologists call confabulation: a reconstructive memory error. People do it too. Ask someone to recall a meeting and they will fill the gaps with what probably happened, and believe it. A model is built to do exactly that, all the time, which is why it does it so smoothly.
+            Then the four modes, in the language this room already uses for checking work. Missed it is a false negative: the requirement was in the notice and never made the checklist. Made it up is a false positive: the subaward that does not exist. Changed a detail is the most dangerous for compliance, because the item looks right and only one number or word moved; the de minimis rate from block 2 is this one. Put it in the wrong place is real information in the wrong slot.
+            The callout is the practical part: each mode has a matching check. A checklist of what must be present catches misses. Asking for the quote catches inventions. A side-by-side with the source catches changed details. Reading field by field catches misplacement. Vandalizer, at the end, builds those checks in.
+          </aside>
+        </section>
         <section>
           <p class="slide-kicker">Block 4 &middot; The data underneath</p>
           <h2>What is a data model?</h2>
