@@ -29,11 +29,26 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 17), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 10). There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl, Vandalizer). The talk is allowed to run a little long.
 
+## Changes this plan proposes to the current deck
+
+The slide-by-slide below describes the talk as proposed. It differs from the current deck in these ways:
+
+1. One name, "Unified Data Model," on slide 4.
+2. The error modes and IBM slides (28 and 29) move from the middle of Block 4 to open Block 5.
+3. A closing slide (47) after the Vandalizer demos, with the exit question and the handoff to Bert.
+4. Before the hands-on block, a short slide or spoken rule on what to paste, and where it goes (see below).
+5. One line on slide 19 about which record to hand a model.
+
+## Where attendee text goes in our own tools
+
+The talk asks the room to judge AI4RA's tools by the checks it teaches, so it owes them the facts. With the workshop key, Promptulus, Thamus and Carl send what you type to the University of Idaho's own model gateway, which runs open models on university servers and logs each request; nothing goes to a commercial AI company. Carl keeps the spreadsheet's rows in the browser and sends only the column names and the question. Even so, the rule for the hands-on block is the bulletin-board rule: paste only what you could post publicly. Award titles, sponsors, deadlines and solicitation text are fine; salaries, student or patient data, export-controlled detail and unfunded proposal text are not. Say this before anyone opens a laptop.
+
 ## Before the session, and if something fails
 
 - **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. Vandalizer is shown from the podium and needs no attendee key. Test the QR from a phone on the venue network.
 - **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, Promptulus, and Vandalizer with the synthetic documents loaded.
 - **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), Carl's dropped departments (about 2.7 million dollars of federal funding), and the Vandalizer extraction. The token builder, pachinko board, tally and context slider run without a network.
+- **Time for the hands-on block.** Of its seventeen minutes: about three for the page limit slide, four to get everyone into Promptulus, eight to work, two to debrief. If fewer than half the room is in by the four-minute mark, switch to pairs.
 - **If half the room cannot get into Promptulus.** Pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
 - **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos reliably show, not recordings; the fallbacks use them only if the network fails.
 - **If time runs short.** Cut in this order: the token builder (the pachinko board covers the same idea), the model-bias aside, the time-savers slide in Block 6, then the second Vandalizer demo.
@@ -45,11 +60,11 @@ A short review of each, as it stands.
 - **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need, and the pachinko board that follows teaches the same idea more physically. This is the first thing to cut if time runs short.
 - **Pachinko board** (slide 7). A tall board of nails with five word bins. Balls fall from a funnel and pile up in bins; chips change the previous word, which moves the funnel; nails can be dragged sideways; "Shift the nails" rearranges them into a banana that sends most balls to "funded." It shows randomness, how context shifts the odds, and what training does, all on one screen. Risk: it carries three lessons at once, and the "Shift the nails" step needs the training slide that follows it to make sense.
 - **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly. Fallback: the presenter runs it on screen in three different chatbots, a fresh chat each time; the next slide's chart makes the point either way.
-- **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, such as the de minimis rate, answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
+- **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, such as the de minimis rate, answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. The teaching moment is the difference between the five: memory guesses; pasting works only if you pasted the right version; web search finds a blog post as happily as the rule; a vector index finds passages that look similar, which can be the wrong one; reading the regulation itself gives the current rule with its citation. The goal is recalled versus accessed, not the mechanics of each method. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
 - **Data Crawler Carl** (slide 18). A separate web page. Upload a spreadsheet, ask in plain English, and see the database query the model wrote, the rows, and its narrative. Asked for federal funding by department on a sample awards table, it silently drops awards with a blank department. Risk: Carl's built-in sample is an unrelated salary table, so the presenter must upload the awards file; three prompts can run long.
 - **Context window slider** (slide 20). A bar split into intent, information, instructions and conversation, with draggable handles, four presets, and hover tooltips. Clear and quick. Risk: low; it is explanatory rather than a task.
 - **Promptulus** (slides 21 to 23). The only hands-on block. For attendees who already use AI daily, a stretch challenge: take a prompt they use every week and get Veridex, the evaluation coach, to rate it, then write down the check they would run on its output. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. Risk: getting a room of people onto a site with a key takes time, and the four challenges name four different characters, which can be a lot to follow.
-- **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail.
+- **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail. The bias point itself does not depend on it: slide 8 says training data is not a neutral choice, and slide 19 says accessed answers leave less room for that bias.
 - **Vandalizer** (slides 44 to 46). Two podium demos on synthetic documents: extract an award notice with every value linked to its source, including asking for a field that is not there; and compare a budget, its justification and a research strategy for mismatches. Risk: these are the last slides, so they get cut first if time runs short, and the talk ends on a demo rather than a conclusion.
 
 ## Slide by slide
@@ -61,7 +76,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 1. **Title.** "Where AI fits in research administration," with the presenter's photo.
 2. **The next ninety minutes.** The seven blocks and their minutes.
 3. **Augment, not replace.** Three cards: use the output but check the work; keep people in the loop for decisions, signatures and PI conversations; let tools handle routine work so people have time for judgment. Callout: the question is not whether AI can do the work, but whether it helps you do it better, and how you know.
-4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Unified Data Model. *(The current deck labels this card "Universal"; everywhere else it is "Unified." Use one name.)*
+4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Unified Data Model (proposed change 1).
 
 ### Block 1. How language models work
 
@@ -82,11 +97,11 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 16. **Would you trust someone else's memory alone to answer a compliance question?** Then: do you ever have to look up the answer? If you would not trust a person's memory, why trust an AI's? The solution is to let AI look things up too, which is called context. An aside: agents are helpers that go look things up for the main model.
 17. **Remembering Thamus.** The irony: we only know Thamus's story because Plato wrote it down. A link out to the Remembering Thamus page, which answers one compliance question five ways: memory, pasted text, web search, a vector index, and the regulation read live. Speaker notes carry the presenter's own hope and fear about AI and a handoff to Bert's hour.
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department.
-19. **Two kinds of knowing: recalled and accessed.** *(Add one line on which record to hand over: the current version, from the system of record, not a copy from someone's downloads.)* Recalled is frozen, blurred, and fills gaps confidently; this is where hallucination and hidden bias live. Accessed is current, citable, and checkable, with less room for training-data bias, though how much less is an open question.
+19. **Two kinds of knowing: recalled and accessed.** Plus one line on which record to hand over: the current version, from the system of record, not a copy from someone's downloads (proposed change 5). Recalled is frozen, blurred, and fills gaps confidently; this is where hallucination and hidden bias live. Accessed is current, citable, and checkable, with less room for training-data bias, though how much less is an open question.
 
 ### Block 3. Context: hands-on with Promptulus
 
-20. **Your AI has a page limit.** What a context window is, and a slider showing four things that share it: intent, information, instructions, conversation, with presets and hover tooltips.
+20. **Your AI has a page limit.** Opens with the paste rule and where text goes (proposed change 4). What a context window is, and a slider showing four things that share it: intent, information, instructions, conversation, with presets and hover tooltips.
 21. **The AI literacy companions.** What Promptulus is, and its nine coaching characters.
 22. **Bring a task from your desk.** Eight minutes of hands-on challenges with four of the characters, and a link to open Promptulus.
 23. **What did you notice?** Debrief questions, and the takeaway that prompting is the small part: deciding whether to use AI, giving it what it needs, and knowing how you will check it outlast any prompt trick.
@@ -103,7 +118,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 
 ### Block 5. Accountability and guidance
 
-*Proposed order: the error modes and the IBM slide open this block, where they lead straight into the four questions, rather than sitting between the data slides in Block 4. The numbers below keep the current deck's slide numbers.*
+*The error modes and the IBM slide open this block (proposed change 2), leading straight into the four questions.*
 
 28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
 29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
@@ -134,4 +149,4 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 
 ### Close
 
-47. **What to take with you.** The closing slide, which the current deck does not yet have. It pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
+47. **What to take with you** (proposed change 3). It pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
