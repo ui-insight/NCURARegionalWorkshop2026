@@ -219,29 +219,34 @@
     });
   });
 
-  // "Shift the nails": row by row, pack the nails into a covered region that
-  // grows as you go down. The top row is all on the left; each row below moves
-  // a few nails across to a region growing in from the right wall; the bottom
-  // row covers the whole board except the "submitted" bin. Nails only move
-  // sideways, and every row keeps all its nails.
-  var shifted = false, TOP_LEFT = 0.4;      // the top row's nails fill this share of the board, from the left wall
+  // "Shift the nails": a wedge of tightly packed nails under the drop point,
+  // a point at the top widening toward the bottom, blocks the bin straight
+  // below. Balls slide off its sides. The nails left over go mostly to the
+  // left side, so the right side is clearer: most of the pile goes right and
+  // a tail trails left. Nails only move sideways.
+  var shifted = false, WEDGE_TOP = 3, PACK = 2 * NAIL_R + 0.5, LEFT_SHARE = 0.75, APEX_SHIFT = -2;
   function shiftNails() {
     shifted = true;
-    var gapL = WORDS.indexOf('submitted') * BIN_W, gapR = gapL + BIN_W;
+    var blocked = WORDS.indexOf('submitted');
+    var bottomHalf = BIN_W / 2;                              // the wedge's base covers the bin under the drop point
     var rows = {};
     nails.forEach(function (n, i) { (rows[n.y] = rows[n.y] || []).push(i); });
     var ys = Object.keys(rows).map(Number).sort(function (p, q) { return p - q; });
     ys.forEach(function (y, r) {
       var t = ys.length > 1 ? r / (ys.length - 1) : 1;
-      var leftEnd = W * TOP_LEFT + (gapL - W * TOP_LEFT) * t;   // left region: [0, leftEnd]
-      var rightStart = W + (gapR - W) * t;                      // right region: [rightStart, W]
-      var lenL = Math.max(0, leftEnd - NAIL_R), lenR = Math.max(0, W - NAIL_R - rightStart);
-      var idx = rows[y].slice().sort(function (p, q) { return home[p].x - home[q].x; });
-      var nR = Math.round(idx.length * lenR / ((lenL + lenR) || 1));
-      var nL = idx.length - nR;
-      idx.forEach(function (i, k) {
-        if (k < nL) nails[i].tx = NAIL_R + (nL > 1 ? lenL * k / (nL - 1) : 0);
-        else { var j = k - nL; nails[i].tx = rightStart + (nR > 1 ? lenR * j / (nR - 1) : lenR / 2); }
+      var centre = DROP_X + APEX_SHIFT * (1 - t);
+      var half = WEDGE_TOP + (bottomHalf - WEDGE_TOP) * t;
+      var inWedge = Math.max(1, Math.floor((2 * half) / PACK) + 1);
+      var idx = rows[y].slice().sort(function (p, q) { return Math.abs(home[p].x - centre) - Math.abs(home[q].x - centre); });
+      var wedge = idx.slice(0, Math.min(inWedge, idx.length)), rest = idx.slice(wedge.length);
+      wedge.sort(function (p, q) { return home[p].x - home[q].x; }).forEach(function (i, k) {
+        nails[i].tx = wedge.length > 1 ? centre - half + (2 * half) * k / (wedge.length - 1) : centre;
+      });
+      var nLeft = Math.round(rest.length * LEFT_SHARE), nRight = rest.length - nLeft;
+      var leftEnd = centre - half - PACK, rightStart = centre + half + PACK;
+      rest.sort(function (p, q) { return home[p].x - home[q].x; }).forEach(function (i, k) {
+        if (k < nLeft) nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (nLeft > 1 ? k / (nLeft - 1) : 0.5));
+        else { var j = k - nLeft; nails[i].tx = Math.min(W - NAIL_R, rightStart + (W - NAIL_R - rightStart) * (nRight > 1 ? j / (nRight - 1) : 0.5)); }
       });
     });
   }
