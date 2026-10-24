@@ -15,7 +15,11 @@ By the end of the ninety minutes, someone in the room should:
 5. Keep accountability with a person: verify everyone's work, human or not, and know that a machine cannot be held accountable.
 6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, and three small things to try on Monday.
 
+How the room shows it got there: a one-line exit question on the break slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check.
+
 The thread through all of it is "augment, not replace": AI prepares, a person decides.
+
+**A disclosure the room should hear early.** Promptulus, Remembering Thamus, Data Crawler Carl, Vandalizer and the Unified Data Model are open-source tools built by the presenters' own NSF-funded project, AI4RA. The talk says so on the opening slides and asks the room to judge the tools by the checks it teaches, not by who is showing them.
 
 ## Audience
 
@@ -25,11 +29,18 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 17), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 10). There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl, Vandalizer). The talk is allowed to run a little long.
 
+## Before the session, and if something fails
+
+- **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page; it loads in the browser tab and travels on every Promptulus, Thamus and Carl link. Test the QR from a phone on the venue network.
+- **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, Promptulus, and Vandalizer with the synthetic documents loaded.
+- **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), Carl's dropped departments (about 2.7 million dollars of federal funding), and the Vandalizer extraction. The token builder, pachinko board, tally and context slider run without a network.
+- **If time runs short.** Cut in this order: the token builder (the pachinko board covers the same idea), the model-bias aside, the time-savers slide in Block 6, then the second Vandalizer demo.
+
 ## The interactive demos
 
 A short review of each, as it stands.
 
-- **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need.
+- **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need, and the pachinko board that follows teaches the same idea more physically. This is the first thing to cut if time runs short.
 - **Pachinko board** (slide 7). A tall board of nails with five word bins. Balls fall from a funnel and pile up in bins; chips change the previous word, which moves the funnel; nails can be dragged sideways; "Shift the nails" rearranges them into a banana that sends most balls to "funded." It shows randomness, how context shifts the odds, and what training does, all on one screen. Risk: it carries three lessons at once, and the "Shift the nails" step needs the training slide that follows it to make sense.
 - **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly.
 - **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, such as the de minimis rate, answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
@@ -96,12 +107,16 @@ A short review of each, as it stands.
 36. **Check the sponsor before you check the tool.** NSF, NIH (including no generative AI in peer review), and going up to a parent agency when a sponsor has no policy, with links.
 37. **Your AI guidance is probably out of date.** A review of twenty institutions' policies against a 61-item checklist: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
 38. **How strict should it be?** Five levels from principles to strict, with examples.
-39. **Ten sections of a strong policy,** and the items that land on a research administrator's desk.
+39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
 40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership.
 
 ### Block 6. Start small
 
-41. **Three small starts you can try Monday.** Prompts that ask the model to quote its source: a solicitation into a checklist, an award notice into setup notes, sponsor terms in plain language. None asks the model to do math.
+41. **Three small starts you can try Monday.** Three prompts, each ending in a check:
+    - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.
+    - "List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one." Confirm each quote before it goes in the file.
+    - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
+    None asks the model to do math.
 42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
 43. **Each rung needs the one below it.** A ladder from a prompt you keep up to a governed data layer; start at the bottom and write down the rung you can reach this month.
 
@@ -111,4 +126,6 @@ A short review of each, as it stands.
 45. **Extract an award notice.** A demo with three synthetic notices and challenges, including asking for a field that is not there.
 46. **Catch the mismatch.** A demo comparing a budget, its justification and a research strategy.
 
-The deck ends here; the break and Bert's hour follow.
+### Close
+
+47. **What to take with you.** One slide that pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break." *(Proposed; the current deck ends on slide 46.)*
