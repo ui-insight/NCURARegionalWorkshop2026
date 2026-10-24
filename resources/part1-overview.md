@@ -2,6 +2,8 @@
 
 Nathan Layman, University of Idaho, AI4RA. NCURA Region VI/VII Regional Meeting, Denver, Sunday, November 8, 2026. The first ninety minutes of a three-hour workshop; after a break, Bert Baumgaertner, a philosopher, leads an hour on thinking well with AI.
 
+**How to read this.** This is the plan for a talk, not a manual. Read it as someone deciding whether the talk works: does each part lead to the next, is each idea clear to a research administrator with no technical background, and is anything missing that the goals promise?
+
 ## Goals
 
 By the end of the ninety minutes, someone in the room should:
@@ -22,6 +24,20 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 ## Format
 
 About ninety minutes in seven blocks: three short opening slides, then Block 1 (how language models work, 15 minutes), Block 2 (memory and the record, 16), Block 3 (context and Promptulus, 17), Block 4 (the data underneath, 13), Block 5 (accountability and guidance, 9), Block 6 (start small, 7), Block 7 (Vandalizer, 10). There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl, Vandalizer). The talk is allowed to run a little long.
+
+## The interactive demos
+
+A short review of each, as it stands.
+
+- **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need.
+- **Pachinko board** (slide 7). A tall board of nails with five word bins. Balls fall from a funnel and pile up in bins; chips change the previous word, which moves the funnel; nails can be dragged sideways; "Shift the nails" rearranges them into a banana that sends most balls to "funded." It shows randomness, how context shifts the odds, and what training does, all on one screen. Risk: it carries three lessons at once, and the "Shift the nails" step needs the training slide that follows it to make sense.
+- **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly.
+- **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, such as the de minimis rate, answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
+- **Data Crawler Carl** (slide 18). A separate web page. Upload a spreadsheet, ask in plain English, and see the database query the model wrote, the rows, and its narrative. Asked for federal funding by department on a sample awards table, it silently drops awards with a blank department. Risk: Carl's built-in sample is an unrelated salary table, so the presenter must upload the awards file; three prompts can run long.
+- **Context window slider** (slide 20). A bar split into intent, information, instructions and conversation, with draggable handles, four presets, and hover tooltips. Clear and quick. Risk: low; it is explanatory rather than a task.
+- **Promptulus** (slides 21 to 23). The only hands-on block. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. Risk: getting a room of people onto a site with a key takes time, and the four challenges name four different characters, which can be a lot to follow.
+- **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail.
+- **Vandalizer** (slides 44 to 46). Two podium demos on synthetic documents: extract an award notice with every value linked to its source, including asking for a field that is not there; and compare a budget, its justification and a research strategy for mismatches. Risk: these are the last slides, so they get cut first if time runs short, and the talk ends on a demo rather than a conclusion.
 
 ## Slide by slide
 
