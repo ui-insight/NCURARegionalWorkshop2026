@@ -79,6 +79,8 @@
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
       .pk-chip { border:1.5px solid rgba(25,25,25,0.25); background:#fff; color:#191919; border-radius:999px; padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:700; cursor:pointer; }
       .pk-chip.is-active { background:#f1b300; border-color:#f1b300; }
+      .grok-open { border:1px solid rgba(25,25,25,0.18); background:#fff; color:#777; font-size:0.55rem; padding:0.15rem 0.5rem; border-radius:999px; cursor:pointer; }
+      .grok-open:hover { color:#191919; border-color:#191919; }
       .grok-pop { position:absolute; inset:0; background:rgba(25,25,25,0.45); display:flex; align-items:center; justify-content:center; z-index:50; }
       .grok-pop[hidden] { display:none; }
       .grok-card { position:relative; background:#fff; color:#191919; max-width:40rem; text-align:left; padding:1.1rem 1.4rem; border-radius:0.9rem; box-shadow:0 20px 50px rgba(0,0,0,0.3); }
@@ -820,7 +822,7 @@
               <span class="quiz-desc">xAI&rsquo;s large language model, built into X.</span>
             </label>
           </div>
-          <button type="button" class="launch-secondary grok-open" style="font-size:0.7rem; padding:0.3rem 0.9rem; margin-top:0.6rem;">Why I don&rsquo;t use Grok</button>
+          <div style="max-width:48rem; margin:0.35rem auto 0; text-align:right;"><button type="button" class="grok-open" title="An aside">Why I don&rsquo;t use Grok</button></div>
           <div class="grok-pop" role="dialog" aria-label="Why I don't use Grok" hidden>
             <div class="grok-card">
               <button type="button" class="grok-close" aria-label="Close">&times;</button>
@@ -1555,7 +1557,7 @@
 
       /* "Why I don't use Grok" popup on the model quiz */
       document.querySelectorAll('.grok-open').forEach(function (btn) {
-        var pop = btn.parentNode.querySelector('.grok-pop');
+        var pop = btn.closest('section').querySelector('.grok-pop');
         if (!pop) return;
         btn.addEventListener('click', function () { pop.hidden = false; });
         pop.addEventListener('click', function (e) { if (e.target === pop || e.target.classList.contains('grok-close')) pop.hidden = true; });
