@@ -15,11 +15,11 @@ By the end of the ninety minutes, someone in the room should:
 5. Keep accountability with a person: verify everyone's work, human or not, and know that a machine cannot be held accountable.
 6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, and three small things to try on Monday.
 
-How the room shows it got there: a one-line exit question on the break slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check.
+How the room shows it got there: a one-line exit question on the closing slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check.
 
 The thread through all of it is "augment, not replace": AI prepares, a person decides.
 
-**A disclosure the room should hear early.** Promptulus, Remembering Thamus, Data Crawler Carl, Vandalizer and the Unified Data Model are open-source tools built by the presenters' own NSF-funded project, AI4RA. The talk says so on the opening slides and asks the room to judge the tools by the checks it teaches, not by who is showing them.
+**A disclosure the room should hear early.** Promptulus, Remembering Thamus, Data Crawler Carl, Vandalizer and the AI4RA Unified Data Model are open-source tools built by the presenters' own NSF-funded project, AI4RA. The talk says so on the opening slides and asks the room to judge the tools by the checks it teaches, not by who is showing them.
 
 ## Audience
 
@@ -42,11 +42,11 @@ A short review of each, as it stands.
 
 - **Token builder** (slide 6). The presenter clicks the next word of a sentence while bars show how likely each choice was, and a chart shows every sentence that could have come out. It makes "picks the next likely word" visible. Risk: the attention weights and gradient descent sidebar add technical detail most of this audience does not need, and the pachinko board that follows teaches the same idea more physically. This is the first thing to cut if time runs short.
 - **Pachinko board** (slide 7). A tall board of nails with five word bins. Balls fall from a funnel and pile up in bins; chips change the previous word, which moves the funnel; nails can be dragged sideways; "Shift the nails" rearranges them into a banana that sends most balls to "funded." It shows randomness, how context shifts the odds, and what training does, all on one screen. Risk: it carries three lessons at once, and the "Shift the nails" step needs the training slide that follows it to make sense.
-- **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly.
+- **Random number tally** (slide 9). The room asks a fresh chat for a random number and the presenter taps each answer into a bar chart. Nearly always a spike on 7. Strong and participatory. Risk: depends on the room having laptops or phones and calling answers out quickly. Fallback: the presenter runs it on screen in three different chatbots, a fresh chat each time; the next slide's chart makes the point either way.
 - **Remembering Thamus** (slide 17). A separate web page, opened full screen. One compliance question, such as the de minimis rate, answered five ways by the same model: from memory, from pasted text, from a web search, from a vector index of the regulation, and from the regulation read live with a citation. The research administrator is framed as a quiz show contestant who gives an answer before any "lifeline." The memory answer is typically outdated; the live read is current and cited. Risk: needs the network and the workshop key; the presenter must cache the page before the session.
 - **Data Crawler Carl** (slide 18). A separate web page. Upload a spreadsheet, ask in plain English, and see the database query the model wrote, the rows, and its narrative. Asked for federal funding by department on a sample awards table, it silently drops awards with a blank department. Risk: Carl's built-in sample is an unrelated salary table, so the presenter must upload the awards file; three prompts can run long.
 - **Context window slider** (slide 20). A bar split into intent, information, instructions and conversation, with draggable handles, four presets, and hover tooltips. Clear and quick. Risk: low; it is explanatory rather than a task.
-- **Promptulus** (slides 21 to 23). The only hands-on block. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. Risk: getting a room of people onto a site with a key takes time, and the four challenges name four different characters, which can be a lot to follow.
+- **Promptulus** (slides 21 to 23). The only hands-on block. For attendees who already use AI daily, a stretch challenge: take a prompt they use every week and get Veridex, the evaluation coach, to rate it, then write down the check they would run on its output. Attendees open a separate site on their laptops, pick one of nine coaching characters, and work a real task from their desk; each character rates their request and names one principle to fix. Eight minutes of work, then a debrief. Risk: getting a room of people onto a site with a key takes time, and the four challenges name four different characters, which can be a lot to follow.
 - **Model quiz and aside** (slide 24). The room picks "the most important model" from a list; the answer is "your data model." A small button opens a popup on model bias with three documented cases. Risk: the popup is optional and could be skipped or could derail.
 - **Vandalizer** (slides 44 to 46). Two podium demos on synthetic documents: extract an award notice with every value linked to its source, including asking for a field that is not there; and compare a budget, its justification and a research strategy for mismatches. Risk: these are the last slides, so they get cut first if time runs short, and the talk ends on a demo rather than a conclusion.
 
@@ -57,7 +57,7 @@ A short review of each, as it stands.
 1. **Title.** "Where AI fits in research administration," with the presenter's photo.
 2. **The next ninety minutes.** The seven blocks and their minutes.
 3. **Augment, not replace.** Three cards: use the output but check the work; keep people in the loop for decisions, signatures and PI conversations; let tools handle routine work so people have time for judgment. Callout: the question is not whether AI can do the work, but whether it helps you do it better, and how you know.
-4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Universal Data Model.
+4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Unified Data Model. *(The current deck labels this card "Universal"; everywhere else it is "Unified." Use one name.)*
 
 ### Block 1. How language models work
 
@@ -88,19 +88,21 @@ A short review of each, as it stands.
 23. **What did you notice?** Debrief questions, and the takeaway that prompting is the small part: deciding whether to use AI, giving it what it needs, and knowing how you will check it outlast any prompt trick.
 
 ### Block 4. The data underneath
-
 24. **Which is the most important one?** A quiz listing AI model types, plus Claude, Gemini and Grok. A small "An aside" button opens a popup, "All models are biased," with three documented cases about Grok.
 25. **Wrong!** The most important model is your data model.
 26. **Structured and unstructured data.** Tables versus documents; most of an office's knowledge is in documents, most of its reporting needs tables.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
-28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
-29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
 30. **What is a data model?** A small diagram of award, sponsor, person and department, and the four parts: things, details, connections, rules.
 31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code.
 32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid, with a two-tier rule on personal keys and institutional accounts.
 
 ### Block 5. Accountability and guidance
+
+*Proposed order: the error modes and the IBM slide open this block, where they lead straight into the four questions, rather than sitting between the data slides in Block 4. The numbers below keep the current deck's slide numbers.*
+
+28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
+29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
 
 34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
 35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions.
@@ -128,4 +130,4 @@ A short review of each, as it stands.
 
 ### Close
 
-47. **What to take with you.** One slide that pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break." *(Proposed; the current deck ends on slide 46.)*
+47. **What to take with you.** The closing slide, which the current deck does not yet have. It pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
