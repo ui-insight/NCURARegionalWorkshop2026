@@ -691,6 +691,7 @@
             Say the irony first and let it sit: everything we know about a king who distrusted the written record, we know because someone wrote it down. Then open the page named for it. The link carries the workshop key.
             Open the page before the session starts so the embedding model is cached and the key is loaded; the link from this slide carries the key, and the page strips it from the address bar.
             Pick the de minimis question. Poll the room first and type their answer into the box; it stays beside every lifeline. Then step through the ways with Next: memory says 10 percent in a confident voice; pasted context is only as good as the paste, and the page can fill the 2023 text to show that; web search finds a blog post as happily as the rule; the vector database lands near the right paragraph, and sometimes on the wrong one, and is only as current as the day its index was built; the regulation read over MCP gives 15 percent with 2 CFR 200.414(f) and the date. Confidence is identical all the way down. Confidence is not evidence.
+            Vocabulary while it is on screen: when a vendor says RAG, they mean the vector database way. When they say agent, tools or MCP, they mean the model can call out to a source, which is how the regulation got read.
             The rule to say out loud: an index is fine for finding and summarizing your own documents. Anything you will cite, and anything that changes on a schedule, wants the record read live. Then the page's closing question: whichever lifeline you used, you are the one who says final answer. What did you have to already know to catch the memory answer?
             If the network fails, the appendix slide after the break slide has the two-column comparison with fixed answers.
           </aside>
@@ -723,40 +724,7 @@
           <aside class="notes">
             Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
-            Accessed is the fix, and the rest of this block is about the plumbing that makes it possible. First, watch it happen.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 3 &middot; How the model gets a source</p>
-          <h2>How the model gets a source</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
-            <article class="slide-card accent">
-              <span class="slide-label">Paste it</span>
-              <p style="font-size:0.74rem;">Put the passage in the prompt. Simple, and only as good as the paste.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Search the web</span>
-              <p style="font-size:0.74rem;">Current, and as happy with a blog post as with the rule.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Search a vector index</span>
-              <p style="font-size:0.74rem;">The nearest passages by meaning. What vendors call RAG. Close, and sometimes the wrong passage.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Read the regulation</span>
-              <p style="font-size:0.74rem;">A tool fetches the current record and hands it back with a citation. MCP is the plumbing.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Query a table</span>
-              <p style="font-size:0.74rem;">The model writes the query, the database answers, the model narrates. Exact, if the table is ready. Carl, next.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Five ways to remind the model, and none of them replaces checking. An index is enough for finding and summarizing your own documents; anything you will cite wants the record read live.</p>
-          <aside class="notes">
-            This is as technical as the morning gets, and the point is vocabulary, not engineering. The room just watched four of these on the Thamus page. When a vendor says RAG, they mean the vector index: a search engine over your documents that feeds the model the best few passages. When they say agent or tools or MCP, they mean the model can call out to things, which is how the regulation got read. When they say integration, they usually mean one of these underneath.
-            The practical rule: RAG is great for "where does it say" and bad for "how much in total," because it only ever sees a few chunks. For totals you want an API over organized data, which is the lakehouse.
-            All four are accessed knowledge. All four still fail when the source is wrong or the lookup misses, so the verification habit does not go away. It just gets cheaper, because now there is a citation to check.
-            Bridge: the model has a source now. Next, the query route, live, and what happens when the source is not ready.
+            Accessed is the fix, and the room just watched it on the Thamus page. One more way to hand a model a source, and the one most of this room lives in: a table. That is Carl, next.
           </aside>
         </section>
         <section>
