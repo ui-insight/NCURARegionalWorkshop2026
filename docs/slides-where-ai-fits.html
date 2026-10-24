@@ -229,6 +229,33 @@
              ═══════════════════════════════════════════ -->
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>What we mean by AI</h2>
+          <div style="max-width:52rem; margin:0.8rem auto 0; border:2px solid rgba(25,25,25,0.12); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.05); text-align:left;">
+            <span class="slide-label">Artificial intelligence</span>
+            <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Any computer system doing a task we would otherwise call intelligent. Spell check, fraud detection, chess.</p>
+            <div style="border:2px solid rgba(25,25,25,0.2); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.12000000000000001); text-align:left;">
+              <span class="slide-label">Machine learning</span>
+              <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Systems that learn the pattern from examples instead of being given the rules.</p>
+              <div style="border:2px solid rgba(25,25,25,0.28); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.19); text-align:left;">
+                <span class="slide-label">Deep learning</span>
+                <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Machine learning with very large networks, trained on very large piles of data.</p>
+                <div style="border:2px solid rgba(25,25,25,0.36); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.26); text-align:left; background:#191919; color:#fff; border-color:#191919;">
+                  <span class="slide-label" style="color:var(--gold);">Large language models</span>
+                  <p style="font-size:0.8rem; margin:0.15rem 0 0; color:#ffffff !important; opacity:1;">Deep learning trained on an enormous amount of text to do one thing: predict the next word. ChatGPT, Claude, Gemini, Copilot.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="slide-callout">When people say "AI" today they almost always mean the inner box. Everything in the next fifteen minutes follows from that one job: predict the next word.</p>
+          <aside class="notes">
+            Thirty seconds on the boxes, outside in. AI is the big umbrella, and most of it is old and boring: spell check, spam filters, the fraud alert on your card. Machine learning is the part that learns from examples. Deep learning is machine learning at very large scale. Large language models are deep learning trained on text, and they are what everyone means by AI right now.
+            If anyone asks how the people who regulate and fund this define it: the National AI Initiative Act (15 U.S.C. 9401) calls it a machine-based system that makes predictions, recommendations or decisions for human-defined objectives. NIH's data science plan calls it the power of a machine to copy intelligent human behavior. University guidelines, Utah's for example, say a system that performs tasks that typically require human intelligence. Notice that all three define it by what it does. None says where its knowledge comes from. Hold that; it comes back in block 3.
+            Then: the one job is predict the next word. Let's watch it do that.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Build a sentence one token at a time</h2>
           <p style="font-size:0.8rem; color:var(--muted);">Click the next word. Each choice shifts what comes next, exactly like an LLM.</p>
           <div class="token-builder" id="token-builder"></div>
