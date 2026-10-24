@@ -696,7 +696,7 @@
             Pick the de minimis question. Poll the room first and type their answer into the box; it stays beside every lifeline. Then step through the ways with Next: memory says 10 percent in a confident voice; pasted context is only as good as the paste, and the page can fill the 2023 text to show that; web search finds a blog post as happily as the rule; the vector database lands near the right paragraph, and sometimes on the wrong one, and is only as current as the day its index was built; the regulation read over MCP gives 15 percent with 2 CFR 200.414(f) and the date. Confidence is identical all the way down. Confidence is not evidence.
             Vocabulary while it is on screen: when a vendor says RAG, they mean the vector database way. When they say agent, tools or MCP, they mean the model can call out to a source, which is how the regulation got read.
             The rule to say out loud: an index is fine for finding and summarizing your own documents. Anything you will cite, and anything that changes on a schedule, wants the record read live. Then the page's closing question: whichever lifeline you used, you are the one who says final answer. What did you have to already know to catch the memory answer?
-            If the network fails, the appendix slide after the break slide has the two-column comparison with fixed answers.
+            If the network fails, describe the five answers from the speaker notes above; the page itself is the demo.
           </aside>
         </section>
                 <section>
@@ -739,7 +739,7 @@
             <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
           </div>
           <aside class="notes">
-            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, the appendix slide after the break slide has the whole table and the model's answer as fixed fragments.
+            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
             Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
             Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
             Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
@@ -1042,31 +1042,32 @@
              ═══════════════════════════════════════════ -->
         <section>
           <p class="slide-kicker">Block 6 &middot; Start small</p>
-          <h2>Two small starts: a dashboard, and the spreadsheet you already use</h2>
-          <div class="slide-grid">
-            <article class="slide-card">
-              <span class="slide-label">An afternoon's dashboard</span>
-              <ol style="font-size:0.76rem; padding-left:1.2rem; margin:0.3rem 0 0;">
-                <li>Export a CSV that passes the bulletin-board rule: titles, sponsors, departments, amounts, PI names on funded awards. No salaries, no people data.</li>
-                <li>Paste it into the chat model your institution's account covers and ask for an interactive dashboard: totals by sponsor type, awards ending within 90 days, a department filter.</li>
-                <li>It writes the page in about a minute. Then check two numbers against a pivot table. If they match, show someone.</li>
-              </ol>
+          <h2>Three small starts you can try Monday</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">A solicitation into a checklist</span>
+              <p style="font-size:0.72rem; margin:0.3rem 0 0.35rem;">Paste a funding announcement.</p>
+              <p style="font-size:0.7rem; margin:0; padding:0.45rem 0.55rem; background:rgba(25,25,25,0.05); border-radius:0.4rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; line-height:1.4;">List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from.</p>
+              <p style="font-size:0.7rem; margin:0.4rem 0 0;"><strong>Check:</strong> pick two quotes and find them in the document.</p>
             </article>
-            <article class="slide-card">
-              <span class="slide-label">AI inside the workbook</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.2rem;">The add-in your Microsoft or Google agreement already covers sits beside the open sheet. Ask it to:</p>
-              <ul style="font-size:0.76rem; margin:0;">
-                <li>"Explain what this F&amp;A formula does, in plain language."</li>
-                <li>"Write a formula that flags awards ending within 90 days of today."</li>
-                <li>"Classify each sponsor as federal, industry or nonprofit, and list the rows you were unsure about."</li>
-              </ul>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">An award notice into setup notes</span>
+              <p style="font-size:0.72rem; margin:0.3rem 0 0.35rem;">Paste the terms of a new award.</p>
+              <p style="font-size:0.7rem; margin:0; padding:0.45rem 0.55rem; background:rgba(25,25,25,0.05); border-radius:0.4rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; line-height:1.4;">List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one.</p>
+              <p style="font-size:0.7rem; margin:0.4rem 0 0;"><strong>Check:</strong> confirm each quote before it goes in the award file.</p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Sponsor terms in plain language</span>
+              <p style="font-size:0.72rem; margin:0.3rem 0 0.35rem;">Paste a dense paragraph of terms for a first-time PI.</p>
+              <p style="font-size:0.7rem; margin:0; padding:0.45rem 0.55rem; background:rgba(25,25,25,0.05); border-radius:0.4rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; line-height:1.4;">Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any.</p>
+              <p style="font-size:0.7rem; margin:0.4rem 0 0;"><strong>Check:</strong> read the two versions side by side, one requirement at a time.</p>
             </article>
           </div>
-          <p class="slide-callout">Same two rules for both: the institution's account, not a personal one, and read what it wrote before you trust it. The dashboard page has your CSV inside it, so the file travels under the same rules as the spreadsheet.</p>
-          <p class="slide-micro"><a href="files/awards_demo.csv" download="awards_demo.csv" style="color:var(--gold);">Download the demo CSV</a> to try the dashboard with synthetic data.</p>
+          <p class="slide-callout">Each prompt asks the model to quote its source, so checking it takes a minute. None of them asks the model to do the math.</p>
           <aside class="notes">
-            Seven minutes for the block, so describe the dashboard rather than build it unless you are ahead of the clock. If live: paste awards_demo.csv and ask for total funding by sponsor type, a bar chart by department, and a list of awards ending in the next twelve months with a department filter. Click the filter. Ask the room which number they would check first, and against what.
-            The dashboard is a prototype for a conversation with leadership, not a system of record, and the blank-department lesson applies to it. The workbook add-in is the smallest possible start: one formula at a time, with you reading each one. The third prompt is the one to push; a model that lists the rows it was unsure about turns a guess into a worklist.
+            Three things anyone can try on Monday with a document already on their desk. Each one asks the model to quote its source, so checking takes a minute: you read the quote and find it in the document. None of them asks the model to add up numbers, and that is deliberate; arithmetic is exactly where a confident model is most likely to be quietly wrong.
+            Read one prompt out loud. Point out the last sentence of each: quote it, keep every requirement, do not add any. That sentence is the whole habit.
+            Same two rules as before: the institution's account for anything from your files, and only what you could post on a bulletin board if you are practicing on a personal key.
           </aside>
         </section>
         <section>
@@ -1074,12 +1075,12 @@
           <h2>Where it saves a research administrator time this month</h2>
           <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
             <article class="slide-card">
-              <span class="slide-label">Sponsor terms into a setup checklist</span>
-              <p style="font-size:0.72rem;"><strong>AI:</strong> pulls reporting dates, special terms, cost share, and prior-approval triggers out of the notice.<br /><strong>You:</strong> confirm each against the notice and sign the setup.</p>
+              <span class="slide-label">A no-cost extension request</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> drafts the justification from your notes on what slipped and why.<br /><strong>You:</strong> check the dates and the reasons, and sign it.</p>
             </article>
             <article class="slide-card">
-              <span class="slide-label">Solicitation into a requirements list</span>
-              <p style="font-size:0.72rem;"><strong>AI:</strong> lists deadlines, page limits, eligibility, required documents.<br /><strong>You:</strong> verify the two that would sink the proposal if wrong.</p>
+              <span class="slide-label">A biosketch in the new format</span>
+              <p style="font-size:0.72rem;"><strong>AI:</strong> moves a CV into the sponsor&rsquo;s required template.<br /><strong>You:</strong> check nothing was added or dropped.</p>
             </article>
             <article class="slide-card">
               <span class="slide-label">Budget against justification</span>
@@ -1098,7 +1099,7 @@
               <p style="font-size:0.72rem;"><strong>AI:</strong> drafts the list with owners it inferred.<br /><strong>You:</strong> fix the owners. It does not know who actually agreed to what.</p>
             </article>
           </div>
-          <p class="slide-callout">Minutes per task, not jobs per office. The human step is named in every row, and it is the step that carries the accountability.</p>
+          <p class="slide-callout">Each of these saves a few minutes, and in every one a person checks the work and puts their name on it.</p>
           <aside class="notes">
             Six things people in this room could do next week with the tools they already have. Each one saves minutes, not hours, and that is the honest pitch. Minutes across a hundred actions a week is where the time comes from.
             Read the "you" line on each. That is the augment pattern, and it is the same pattern as the IBM slide: the model prepares, a person with a name decides. Ask the room for a seventh. Someone will have one.
@@ -1108,30 +1109,14 @@
         <section>
           <p class="slide-kicker">Block 6 &middot; From small starts to building big</p>
           <h2>Each rung needs the one below it</h2>
-          <div class="preview-flow compact" role="list" aria-label="Ladder from a prompt to a governed data layer">
+          <div class="preview-flow compact" role="list" aria-label="Ladder from a prompt to a governed data layer" style="grid-template-columns:1fr; max-width:34rem;">
             <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x270D;&#xFE0F;</p>
+              <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 1</p>
-                <h6 class="preview-part-title">A prompt you keep</h6>
+                <p class="preview-part-number">Rung 5</p>
+                <h6 class="preview-part-title">A governed data layer</h6>
               </div>
-              <p class="preview-time">minutes</p>
-            </article>
-            <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x1F4DA;</p>
-              <div class="preview-content">
-                <p class="preview-part-number">Rung 2</p>
-                <h6 class="preview-part-title">A shared prompt library and templates</h6>
-              </div>
-              <p class="preview-time">hours</p>
-            </article>
-            <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x1F4CA;</p>
-              <div class="preview-content">
-                <p class="preview-part-number">Rung 3</p>
-                <h6 class="preview-part-title">An artifact or an add-in</h6>
-              </div>
-              <p class="preview-time">an afternoon</p>
+              <p class="preview-time">months</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F50C;</p>
@@ -1142,15 +1127,31 @@
               <p class="preview-time">weeks</p>
             </article>
             <article class="preview-step" role="listitem">
-              <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
+              <p class="preview-icon" aria-hidden="true">&#x1F4CA;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 5</p>
-                <h6 class="preview-part-title">A governed data layer</h6>
+                <p class="preview-part-number">Rung 3</p>
+                <h6 class="preview-part-title">An artifact or an add-in</h6>
               </div>
-              <p class="preview-time">months</p>
+              <p class="preview-time">an afternoon</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x1F4DA;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 2</p>
+                <h6 class="preview-part-title">A shared prompt library and templates</h6>
+              </div>
+              <p class="preview-time">hours</p>
+            </article>
+            <article class="preview-step" role="listitem">
+              <p class="preview-icon" aria-hidden="true">&#x270D;&#xFE0F;</p>
+              <div class="preview-content">
+                <p class="preview-part-number">Rung 1</p>
+                <h6 class="preview-part-title">A prompt you keep</h6>
+              </div>
+              <p class="preview-time">minutes</p>
             </article>
           </div>
-          <p class="slide-callout">Start at the left. Pick the one rung you can reach this month and write it down now. That is the thing you take home.</p>
+          <p class="slide-callout">Start at the bottom. Pick the one rung you can reach this month and write it down now. That is the thing you take home.</p>
           <p class="slide-micro">Rung 2 is free: the <a href="https://github.com/AI4RA/prompt-library" target="_blank" rel="noopener" style="color:var(--gold);">AI4RA prompt library</a> has tested extraction prompts and schemas for award notices and solicitations.</p>
           <aside class="notes">
             The failure mode we see most is an office that tries to start at rung four or five because a vendor sold them an agent, with no prompts anyone has tested, no templates, and no idea what their data looks like. It does not work, and it sours the office on all of it.
@@ -1289,202 +1290,6 @@
             Four minutes. This is "summarization and synthesis" from the ask-the-crowd slide, applied to two documents you hand over, and it is the kind of pre-award review that eats an afternoon by hand.
             The second challenge matters more than the first. The tool will find a mismatch. Make them open the citation and confirm it is real before they say so out loud. One or two people will find the model flagged something that is not actually a mismatch. That is the lesson, not a failure of the exercise.
             Keep an eye on the clock: the close needs three minutes.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 7 &middot; Before you trust it</p>
-          <h2>Three ways to check output you did not write</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
-            <article class="slide-card accent">
-              <span class="slide-label">Ground truth</span>
-              <p style="font-size:0.74rem;">Score the extraction against documents where you already know the answers. Ten documents, hand-checked once, tell you the error rate for the next thousand.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Replication</span>
-              <p style="font-size:0.74rem;">Run it three times. Fields that agree every time are cheap confidence. Fields that shift between runs go to a person. Concordance is your routing rule.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Provenance</span>
-              <p style="font-size:0.74rem;">Every value points at a passage. "No source found" is a feature. If a claim cannot be traced to a source, it is not ready to act on.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Reading every output does not scale. Designing the check does. As tools take more steps on their own, your reading carries less of the load, and the ground truth and the trail carry more.</p>
-          <p class="slide-note">Go further: the four REACH evaluation experiments (OCR quality, cross-tool comparison, structured outputs, replicate consensus) with synthetic documents and ground truth are at <a href="https://ui-insight.github.io/REACHWorkshop2026/slides-putting-it-to-work.html#/8" target="_blank" rel="noopener" style="color:var(--gold);">the REACH workshop site</a>.</p>
-          <aside class="notes">
-            Back to the Veridex question from the first hands-on. "I would read it" works for one document. Your office does not process one document.
-            Ground truth is the bench-science move: measure the instrument before you trust it. Replication is the token-builder lesson applied: the variance is real, so use it as a signal. Provenance is the fabrication exercise applied: keep the source next to the claim.
-            All three are things Vandalizer does, and all three are things you can do with any tool, including the chatbot your institution already licenses. The method is the point, not the product.
-            Ground truth is also how to evaluate any tool, this one included: run twenty documents you have already processed by hand, count the misses, decide.
-            Bridge: that is the morning. Automate, augment, or leave alone, a Monday, then back to the king.
-          </aside>
-        </section>
-
-        <!-- ═══════════════════════════════════════════
-             Close (1:26 to 1:30)
-             ═══════════════════════════════════════════ -->
-        <section>
-          <p class="slide-kicker">Close &middot; Decision framework</p>
-          <h2>Automate, augment, or leave alone</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
-            <article class="slide-card accent">
-              <span class="slide-label">Automate</span>
-              <p style="font-size:0.76rem;">Repetitive, low-stakes, output-driven, with a check you can run without a person. Extraction with provenance and a ground-truth sample.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Augment</span>
-              <p style="font-size:0.76rem;">AI prepares, a qualified person decides. The budget-versus-justification review. Most of research administration lives here.</p>
-            </article>
-            <article class="slide-card dark">
-              <span class="slide-label">Leave alone</span>
-              <p style="font-size:0.76rem;">Process-critical work where the reasoning is the product, and anything you cannot yet audit. Until you can, it stays here.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Augment is the default. Automate only what you have measured. Leave alone what you cannot audit. Sequita's question runs under all three: can you check it?</p>
-          <aside class="notes">
-            Three bins again, now as a policy, and the cornerstone sits in the middle one. Augment is where research administration lives. Automate is earned, by measuring a workflow until you trust the check more than you trust your own reading. Leave alone is honest, not timid. Tasks that are waiting on data are "leave alone" until the data exists, then they move. The human tasks stay human. The document tasks are augment today and automate once you have measured them.
-            Keep it to a minute. Two slides left: what Monday looks like, and the king.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Close</p>
-          <h2>What a good Monday looks like</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
-            <article class="slide-card">
-              <span class="slide-label">Find the policy, or start it</span>
-              <p style="font-size:0.76rem;">Find your institution's AI guidance and data classification policy. If there is none, adopt the one-page interim rules for your own desk and ask the three people for a meeting.</p>
-            </article>
-            <article class="slide-card">
-              <span class="slide-label">Run your task for real</span>
-              <p style="font-size:0.76rem;">The task you brought to Promptulus, on Monday, with a colleague checking the result against the source.</p>
-            </article>
-            <article class="slide-card">
-              <span class="slide-label">Sort five tasks from your desk</span>
-              <p style="font-size:0.76rem;">AI now, data first, keep human. Talk about one of them with your supervisor.</p>
-            </article>
-            <article class="slide-card">
-              <span class="slide-label">Read the data model for ten minutes</span>
-              <p style="font-size:0.76rem;">Then send one sentence about where it gets your reality wrong to the AI4RA community list.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Augment, not replace. The tools do the pass. You own the call.</p>
-          <p class="slide-note">Everything from this morning is on the companion site, open source, and free to adopt. <a href="https://ai4ra.uidaho.edu" target="_blank" rel="noopener" style="color:var(--gold);">ai4ra.uidaho.edu</a> has the blog, the prompt library, and the community of practice.</p>
-          <aside class="notes">
-            Four things, one each, said slowly. The fourth one is the one that gets institutions to call us. Point at the site; everything is there and open.
-          </aside>
-        </section>
-        <section data-background-color="#f1b300">
-          <p class="slide-kicker slide-kicker-dark">Close &middot; Back to the king</p>
-          <h2 class="slide-dark">Thamus warned that writing would ruin memory.</h2>
-          <h1 class="slide-dark" style="font-size:2.6rem; margin-top:0.8rem;">He is remembered only because Plato wrote him down.</h1>
-          <p class="slide-dark" style="max-width:44rem; margin:1.4rem auto 0; font-size:1rem; line-height:1.5;">The machine needs to remember less and look things up more. That was the last ninety minutes. People need to keep enough in their own heads to judge what comes back. That is the half of his warning that still stands, and it is the next hour.</p>
-          <aside class="notes">
-            Say the two sentences and stop. Let it sit.
-            If you want the name for it: a warning against the written record, preserved for twenty-four centuries by nothing but the written record. Socrates, who tells the story, wrote nothing either; we have him only because his students did. Philosophers call this kind of thing a pragmatic paradox. The Thamus paradox will do.
-            Then the turn to Bert: the model's half of the correction is done. The human half is his.
-          </aside>
-        </section>
-        <section data-background-color="#f1b300">
-          <p class="slide-kicker slide-kicker-dark">Ten minute break</p>
-          <h2 class="slide-dark">Coming next: Thinking well with AI</h2>
-          <img src="img/generated/break-bridge.png" alt="Warm abstract campus and conversation motifs for a short conference break" class="slide-img-small" style="max-height:9rem; margin-top:0.4rem; box-shadow:0 12px 30px rgba(0,0,0,0.12);" />
-          <p class="slide-dark" style="max-width:40rem; margin:0.6rem auto 0;">
-            Bert Baumgaertner on the half of the warning that still stands: NARC reasoning puzzles, arguments by analogy, and a discussion format you can run at your own institution.
-          </p>
-          <p class="slide-dark" style="margin-top:1rem;">
-            <a href="slides-thinking-well.html" style="color:var(--ink); text-decoration:underline;">Open Part 2</a>
-            &nbsp;&middot;&nbsp;
-            <a href="course-content.html" style="color:var(--ink); text-decoration:underline;">Back to Sessions</a>
-          </p>
-          <aside class="notes">
-            Ten minutes. Back at 1:40 on the session clock. Leave the Vandalizer tab open; Bert's NARC puzzles are the same muscle in a different setting.
-          </aside>
-        </section>
-
-        <!-- ═══════════════════════════════════════════
-             Appendix (not part of the ninety minutes)
-             ═══════════════════════════════════════════ -->
-        <section>
-          <p class="slide-kicker">Appendix &middot; Backup for the live demo</p>
-          <h2>Ask a compliance question twice</h2>
-          <div class="compare-box" id="compare-ecfr">
-            <div class="compare-row compare-input-row">
-              <label for="compare-question" class="compare-label">Question for the model</label>
-              <input id="compare-question" type="text" value="What de minimis indirect cost rate may a recipient without a negotiated rate charge?" />
-              <button type="button" id="compare-run">Ask both sides</button>
-            </div>
-            <div class="compare-grid">
-              <article class="compare-panel compare-left">
-                <p class="compare-tag">Recalled only</p>
-                <h3>Model answer, no source connected</h3>
-                <p id="compare-recalled" class="compare-answer">Click <strong>Ask both sides</strong> to see how the crowd answers from memory.</p>
-              </article>
-              <article class="compare-panel compare-right">
-                <p class="compare-tag">Accessed source</p>
-                <h3>Same model, source injected</h3>
-                <p id="compare-accessed" class="compare-answer">Click <strong>Ask both sides</strong> to see what happens when eCFR text is handed to it.</p>
-                <p id="compare-source" class="compare-source"></p>
-              </article>
-            </div>
-            <p class="compare-note">The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
-          </div>
-          <p class="slide-note">No tool on the left. eCFR connected on the right.</p>
-          <aside class="notes">
-            Backup only. If Remembering Thamus cannot be reached, this panel runs the same question two ways from inside the deck. With a MindRouter key loaded it is live through the proxy; without one, fixed answers carry the contrast. Not part of the ninety minutes.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Appendix &middot; Backup for the Carl demo</p>
-          <h2>AI analyzes what you give it</h2>
-          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.3rem;">A small awards table. Prompt: <em>"What is the total federal funding by department?"</em></p>
-          <div class="slide-split" style="align-items:flex-start; gap:1rem;">
-            <div class="split-text" style="flex:1 1 58%;">
-              <span class="fragment gaps-trigger" data-fragment-index="2" aria-hidden="true"></span>
-              <div class="awards-wrap">
-                <table class="awards-table">
-                  <thead><tr><th>Award</th><th>PI</th><th>Department</th><th>Sponsor</th><th>Type</th><th style="text-align:right;">Amount</th></tr></thead>
-                  <tbody>
-                    <tr><td>A-001</td><td>Martinez</td><td>Biology</td><td>NSF</td><td>Federal</td><td class="num">450,000</td></tr>
-                    <tr class="gap-row"><td>A-002</td><td>Chen</td><td class="blank">(blank)</td><td>NIH</td><td>Federal</td><td class="num">1,200,000</td></tr>
-                    <tr><td>A-003</td><td>Okafor</td><td>Engineering</td><td>DOE</td><td>Federal</td><td class="num">680,000</td></tr>
-                    <tr><td>A-004</td><td>Patel</td><td>Chemistry</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">320,000</td></tr>
-                    <tr class="gap-row"><td>A-005</td><td>Johnson</td><td class="blank">(blank)</td><td>NSF</td><td>Federal</td><td class="num">550,000</td></tr>
-                    <tr><td>A-006</td><td>Williams</td><td>Psychology</td><td>NIMH</td><td>Federal</td><td class="num">890,000</td></tr>
-                    <tr><td>A-007</td><td>Kim</td><td class="blank">(blank)</td><td>Pfizer</td><td>Industry</td><td class="num">275,000</td></tr>
-                    <tr><td>A-008</td><td>Thompson</td><td>Biology</td><td>USDA</td><td>Federal</td><td class="num">410,000</td></tr>
-                    <tr><td>A-009</td><td>Garcia</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">150,000</td></tr>
-                    <tr><td>A-010</td><td>Lee</td><td>Computer Science</td><td>NSF</td><td>Federal</td><td class="num">725,000</td></tr>
-                    <tr class="gap-row"><td>A-011</td><td>Davis</td><td class="blank">(blank)</td><td>NIH</td><td>Federal</td><td class="num">980,000</td></tr>
-                    <tr><td>A-012</td><td>Robinson</td><td>Engineering</td><td>Boeing</td><td>Industry</td><td class="num">185,000</td></tr>
-                    <tr><td>A-013</td><td>Nguyen</td><td>Physics</td><td>DOE</td><td>Federal</td><td class="num">560,000</td></tr>
-                    <tr><td>A-014</td><td>Brown</td><td class="blank">(blank)</td><td>Gates Foundation</td><td>Nonprofit</td><td class="num">1,500,000</td></tr>
-                    <tr><td>A-015</td><td>Miller</td><td>Sociology</td><td class="blank">(blank)</td><td class="blank">(blank)</td><td class="num">95,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="split-text" style="flex:0 0 38%;">
-              <div class="slide-card dark fragment model-answer" data-fragment-index="1" style="margin-top:0;">
-                <span class="slide-label">The model's answer</span>
-                <table>
-                  <tr><td>Psychology</td><td>$890,000</td></tr>
-                  <tr><td>Biology</td><td>$860,000</td></tr>
-                  <tr><td>Computer Science</td><td>$725,000</td></tr>
-                  <tr><td>Engineering</td><td>$680,000</td></tr>
-                  <tr><td>Physics</td><td>$560,000</td></tr>
-                  <tr><td><strong>Total federal</strong></td><td><strong>$3,715,000</strong></td></tr>
-                </table>
-                <p style="font-size:0.6rem; opacity:0.75; margin:0.3rem 0 0;">"Psychology leads federal funding, followed closely by Biology."</p>
-              </div>
-              <div class="slide-card fragment" data-fragment-index="2" style="margin-top:0.5rem; border-left:3px solid #ef4444;">
-                <span class="slide-label">What it could not see</span>
-                <p style="font-size:0.7rem; margin-top:0.2rem;"><strong>$2,730,000</strong> in federal awards have no department. They vanished from the breakdown. The total is unknowable from this table, and the answer did not say so.</p>
-              </div>
-            </div>
-          </div>
-          <p class="slide-callout fragment" data-fragment-index="3" style="margin-top:0.5rem;">It only looks for gaps when asked, and every answer comes with the same confidence. So ask, every time: how many rows did you use, how many did you leave out, and why?</p>
-          <aside class="notes">
-            Backup only. If Carl cannot be reached, step through the fragments: the model's answer, then what it could not see, then the habit. Not part of the ninety minutes.
           </aside>
         </section>
 
