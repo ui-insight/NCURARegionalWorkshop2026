@@ -16,7 +16,7 @@
   var BIN_TOP = H - 150;          // top of the bin dividers
   var FLOOR = H - 30;             // balls stop here
   var BALL_R = 5, NAIL_R = 6;
-  var GRAVITY = 0.11, BOUNCE = 0.3, JITTER = 0.3, MAX_V = 3.2, MAX_UP = 0.8;
+  var GRAVITY = 0.11, BOUNCE = 0.3, JITTER = 1.2, MAX_V = 3.2, MAX_UP = 0.8;
   var DROP_X = 2.5 * BIN_W;          // set by the previous word; dragged by hand too
   var DROP_Y = 40, PREV = 'proposal';
 
@@ -40,7 +40,7 @@
 
   function drop(n) {
     for (var i = 0; i < n; i++) {
-      balls.push({ x: DROP_X + (Math.random() - 0.5) * 2, y: DROP_Y - i * 22, vx: 0, vy: 0, done: false });
+      balls.push({ x: DROP_X + (Math.random() - 0.5) * 8, y: DROP_Y - i * 22, vx: (Math.random() - 0.5) * 0.6, vy: 0, done: false });
     }
   }
 
