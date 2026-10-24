@@ -88,7 +88,7 @@
       <div class="slides">
 
         <!-- ═══════════════════════════════════════════
-             Opening (0:00 to 0:06)
+             Opening (0:00 to 0:03)
              ═══════════════════════════════════════════ -->
         <section class="title-slide" data-background-color="#f1b300">
           <p class="slide-kicker slide-kicker-dark">AI4RA Workshop | NCURA Region VI/VII 2026</p>
@@ -98,7 +98,7 @@
           <p class="slide-lede slide-dark">Led by Nathan Layman</p>
           <aside class="notes">
             Welcome. I'm Nathan Layman, a data scientist at the University of Idaho. I work on the AI4RA project, an NSF GRANTED award, building open-source tools for research administration offices.
-            The next ninety minutes are about what these tools actually do, where they fit in your work, and what has to be true about your data before they are worth trusting. We start with a story, because the oldest argument about this is twenty-four centuries old and still the clearest.
+            The next ninety minutes are about what these tools actually do, where they fit in your work, and what has to be true about your data before they are worth trusting.
             After the break, Bert Baumgaertner takes the part the tools cannot do for you: thinking well with AI.
             Logistics: laptops out. Two hands-on blocks today. The companion site has every link; the address is on the Sessions page.
           </aside>
@@ -129,7 +129,7 @@
                 <p class="preview-part-number">Block 3</p>
                 <h6 class="preview-part-title">Reminding the machine</h6>
               </div>
-              <p class="preview-time">13 min</p>
+              <p class="preview-time">16 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F5C3;&#xFE0F;</p>
@@ -164,10 +164,10 @@
               <p class="preview-time">11 min</p>
             </article>
           </div>
-          <p class="slide-note">Six minutes to open, four to close. Then a ten minute break, and Bert takes over.</p>
+          <p class="slide-note">Three minutes to open, four to close. Then a ten minute break, and Bert takes over.</p>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:06, block 1 at 0:21, block 2 at 0:36, block 3 at 0:49, block 4 at 0:59, block 5 at 1:08, block 6 at 1:15, block 7 at 1:26, close at 1:30. If block 1 runs long, the fabrication exercise becomes a show of hands. If block 3 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:33, block 3 at 0:49, block 4 at 0:59, block 5 at 1:08, block 6 at 1:15, block 7 at 1:26, close at 1:30. If block 1 runs long, the fabrication exercise becomes a show of hands. If block 3 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -193,27 +193,6 @@
             Say this before anything technical, because everything technical is in service of it. The workshop title is "Augmenting Research Administration with AI," and the word was chosen on purpose.
             Three commitments. AI prepares, you decide: the pattern you will see in every tool. Tools show their work: provenance in Vandalizer, the SQL in Carl, the code in the random-sample fix, so that verifying is cheap. Your judgment is the product: the thing an office is for cannot be delegated to a crowd, and we are going to meet the crowd in a minute.
             Say the disclosure plainly: we built these, and that is a reason to check them harder, not softer. The last line is the test to apply to any vendor pitch, including ours. "Better at the job" is augment. "Looks done" is replace, and it is where the confident wrong answers live.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Opening &middot; A story from Plato</p>
-          <h2>A king, a god, and the invention of writing</h2>
-          <div class="slide-grid">
-            <article class="slide-card accent">
-              <span class="slide-label">Theuth, who invented letters</span>
-              <p class="slide-quote" style="margin-top:0.3rem; font-size:1.05rem;">This will make the Egyptians wiser and give them better memories; it is a specific both for the memory and for the wit.</p>
-            </article>
-            <article class="slide-card dark">
-              <span class="slide-label">Thamus, the king</span>
-              <p class="slide-quote" style="margin-top:0.3rem; font-size:1.05rem;">They will trust to the external written characters and not remember of themselves. You have discovered an aid not to memory, but to reminiscence. They will be hearers of many things and will have learned nothing.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Writing, says the king, is a remedy not for memory but for reminding. He meant that as the flaw. Hold one question for the next ninety minutes: who should remember, and who should be reminded?</p>
-          <p class="slide-micro">Plato, <em>Phaedrus</em> 274c to 275b, Jowett's translation.</p>
-          <aside class="notes">
-            Two minutes, told, not read. Socrates tells it to Phaedrus. Theuth brings his inventions to the king and argues for each; writing is the one he is proudest of. Thamus answers that the inventor is the last person to judge what an invention does to the people who use it, and then gives the verdict on the slide.
-            Land on the distinction and stop: memory versus reminding. He meant reminding as the lesser thing. Do not say anything yet about why we know his name; that comes at the very end.
-            Then straight to the paste rule on the next slide, so the first thing the room does with the story is something practical.
           </aside>
         </section>
         <section>
@@ -250,7 +229,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 1: How language models work (0:06 to 0:21)
+             Block 1: How language models work (0:03 to 0:18)
              ═══════════════════════════════════════════ -->
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
@@ -484,7 +463,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 2: Hands-on with Promptulus (0:21 to 0:36)
+             Block 2: Hands-on with Promptulus (0:18 to 0:33)
              ═══════════════════════════════════════════ -->
         <section>
           <p class="slide-kicker">Block 2 &middot; Hands-on with Promptulus</p>
@@ -611,14 +590,71 @@
           <aside class="notes">
             Take three or four answers. Listen for the Mnemos answer especially: "it would need our award data" or "it would need the policy manual" is the setup for the last block of the morning.
             The Veridex answer sets up the next block. Most people will say "I would read it." Ask: read it against what? If the model answered from memory, there is nothing to read it against. That is the difference between recalled and accessed, and it is next.
-                      Hand-off, said in one breath: the coach reminded you what to say. Nothing yet has reminded the model what is true. That is the king's question, turned around, and it is the next block.
+                      Hand-off, said in one breath: the coach reminded you what to say. Nothing yet has reminded the model what is true. That is the next block, and it begins with a very old argument about exactly this.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 3: Reminding the machine (0:36 to 0:49)
+             Block 3: Reminding the machine (0:33 to 0:49)
              ═══════════════════════════════════════════ -->
+                <section>
+          <p class="slide-kicker">Block 3 &middot; A story from Plato</p>
+          <h2>A king, a god, and the invention of writing</h2>
+          <div class="slide-grid">
+            <article class="slide-card accent">
+              <span class="slide-label">Theuth, who invented letters</span>
+              <p class="slide-quote" style="margin-top:0.3rem; font-size:1.05rem;">This will make the Egyptians wiser and give them better memories; it is a specific both for the memory and for the wit.</p>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">Thamus, the king</span>
+              <p class="slide-quote" style="margin-top:0.3rem; font-size:1.05rem;">They will trust to the external written characters and not remember of themselves. You have discovered an aid not to memory, but to reminiscence. They will be hearers of many things and will have learned nothing.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Writing, says the king, is a remedy not for memory but for reminding. He meant that as the flaw. A language model's memory is its training: confident, and frozen on a date. The remedy Thamus refused is the one the machine needs. Watch.</p>
+          <p class="slide-micro">Plato, <em>Phaedrus</em> 274c to 275b, Jowett's translation.</p>
+          <aside class="notes">
+            Two minutes, told, not read. Socrates tells it to Phaedrus. Theuth brings his inventions to the king and argues for each; writing is the one he is proudest of. Thamus answers that the inventor is the last person to judge what an invention does to the people who use it, and then gives the verdict on the slide.
+            Land on the distinction: memory versus reminding. He meant reminding as the lesser thing. Then turn it on the machine in one breath: a model's memory is its training, enormous, confident, frozen on a date, stale after it. The fix for a machine is the reminding the king refused. Do not say anything yet about why we know his name; that comes at the very end.
+            Then open the page named for him.
+          </aside>
+        </section>
         <section>
+          <p class="slide-kicker">Block 3 &middot; Live demo</p>
+          <h2>Remembering Thamus</h2>
+          <p class="slide-lede" style="max-width:46rem; margin:0.2rem auto 0.6rem;">Same model, same question, five ways to answer it. Only what the model is handed changes.</p>
+          <div class="slide-grid">
+            <article class="slide-card accent">
+              <span class="slide-label">The five ways</span>
+              <ol style="font-size:0.78rem; padding-left:1.2rem; margin:0.3rem 0 0;">
+                <li>Memory. The model answers from training.</li>
+                <li>Pasted context. You hand it a passage.</li>
+                <li>Web search. It finds something on the open web.</li>
+                <li>Vector database. The nearest passages of 2 CFR 200, by meaning.</li>
+                <li>The regulation itself, read live from the eCFR over MCP, with the citation.</li>
+              </ol>
+            </article>
+            <article class="slide-card dark">
+              <span class="slide-label">Questions to put to the room</span>
+              <ul style="font-size:0.78rem; margin:0.3rem 0 0;">
+                <li>What de minimis indirect cost rate may a recipient without a negotiated rate charge?</li>
+                <li>What is the per-unit acquisition cost threshold for equipment?</li>
+                <li>How much of each subaward counts toward modified total direct costs?</li>
+                <li>Are alcoholic beverages an allowable cost?</li>
+              </ul>
+            </article>
+          </div>
+          <div class="launch-row">
+            <a class="launch-primary" href="https://nate-layman.github.io/thamus/" target="_blank" rel="noopener">Open Remembering Thamus &rarr;</a>
+          </div>
+          <p class="slide-note">The link carries the workshop key. Ask the room for its own answer before any lifeline runs: the research administrator is the contestant, and the model from memory is the crowd.</p>
+          <aside class="notes">
+            Open the page before the session starts so the embedding model is cached and the key is loaded; the link from this slide carries the key, and the page strips it from the address bar.
+            Pick the de minimis question. Poll the room first and type their answer into the box; it stays beside every lifeline. Then step through the ways with Next: memory says 10 percent in a confident voice; pasted context is only as good as the paste, and the page can fill the 2023 text to show that; web search finds a blog post as happily as the rule; the vector database lands near the right paragraph, and sometimes on the wrong one, and is only as current as the day its index was built; the regulation read over MCP gives 15 percent with 2 CFR 200.414(f) and the date. Confidence is identical all the way down. Confidence is not evidence.
+            The rule to say out loud: an index is fine for finding and summarizing your own documents. Anything you will cite, and anything that changes on a schedule, wants the record read live. Then the page's closing question: whichever lifeline you used, you are the one who says final answer. What did you have to already know to catch the memory answer?
+            If the network fails, the appendix slide after the break slide has the two-column comparison with fixed answers.
+          </aside>
+        </section>
+                <section>
           <p class="slide-kicker">Block 3 &middot; Reminding the machine</p>
           <h2>Two kinds of knowing: recalled and accessed</h2>
           <div class="slide-grid">
@@ -644,67 +680,39 @@
           </div>
           <p class="slide-callout">Hallucination is recalled knowledge standing in where accessed knowledge was needed. If the answer matters, make it accessed.</p>
           <aside class="notes">
-            Thamus's remedy, applied to the thing that needs it. The model's memory is its training: enormous, confident, frozen on a date, and stale after it. The fix for a machine is exactly the reminding the king refused.
-            The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
+            Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
             Accessed is the fix, and the rest of this block is about the plumbing that makes it possible. First, watch it happen.
           </aside>
         </section>
         <section>
-          <p class="slide-kicker">Block 3 &middot; Live demo, the call route</p>
-          <h2>Ask a compliance question twice</h2>
-          <div class="compare-box" id="compare-ecfr">
-            <div class="compare-row compare-input-row">
-              <label for="compare-question" class="compare-label">Question for the model</label>
-              <input id="compare-question" type="text" value="What de minimis indirect cost rate may a recipient without a negotiated rate charge?" />
-              <button type="button" id="compare-run">Ask both sides</button>
-            </div>
-            <div class="compare-grid">
-              <article class="compare-panel compare-left">
-                <p class="compare-tag">Recalled only</p>
-                <h3>Model answer, no source connected</h3>
-                <p id="compare-recalled" class="compare-answer">Click <strong>Ask both sides</strong> to see how the crowd answers from memory.</p>
-              </article>
-              <article class="compare-panel compare-right">
-                <p class="compare-tag">Accessed source</p>
-                <h3>Same model, source injected</h3>
-                <p id="compare-accessed" class="compare-answer">Click <strong>Ask both sides</strong> to see what happens when eCFR text is handed to it.</p>
-                <p id="compare-source" class="compare-source"></p>
-              </article>
-            </div>
-            <p class="compare-note">The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
-          </div>
-          <p class="slide-note">No tool on the left. eCFR connected on the right.</p>
-          <aside class="notes">
-            Use this as the live comparator. Ask the same question twice: once with no source, once with the eCFR source connected. The left side is recalled, the right side is accessed. The right side is genuinely live when a MindRouter key (mr2_) is loaded in this tab from the QR code: the model picks two or three search words, the AI4RA eCFR MCP server searches 2 CFR 200 and reads the one paragraph that bears on the question, and the same model answers from that text, with the pinpoint citation shown under the answer. With no key, or a Gemini key, fixed coach answers keep the contrast obvious. If the live side reports a proxy failure, the lakehouse proxy is not allowing this site's origin.
-            The rule to say out loud: an index over your own documents is fine for finding and summarizing. Anything you will cite, and anything that changes on a schedule, like a rate or a regulation, wants the live lookup.
-            The room should notice the same model sound confident in both cases. Confidence is not evidence. The accessed side should win because it got handed the rule, not because the model became more careful.
-          </aside>
-        </section>
-        <section>
           <p class="slide-kicker">Block 3 &middot; How the model gets a source</p>
           <h2>How the model gets a source</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(2, 1fr);">
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr);">
             <article class="slide-card accent">
-              <span class="slide-label">Paste</span>
-              <p style="font-size:0.76rem;">Put the document in the prompt. Simple and direct.</p>
+              <span class="slide-label">Paste it</span>
+              <p style="font-size:0.74rem;">Put the passage in the prompt. Simple, and only as good as the paste.</p>
             </article>
             <article class="slide-card accent">
-              <span class="slide-label">Search an index</span>
-              <p style="font-size:0.76rem;">The passages most like the question are handed over. What vendors call RAG. Close, and sometimes the wrong passage.</p>
+              <span class="slide-label">Search the web</span>
+              <p style="font-size:0.74rem;">Current, and as happy with a blog post as with the rule.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Search a vector index</span>
+              <p style="font-size:0.74rem;">The nearest passages by meaning. What vendors call RAG. Close, and sometimes the wrong passage.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">Read the regulation</span>
+              <p style="font-size:0.74rem;">A tool fetches the current record and hands it back with a citation. MCP is the plumbing.</p>
             </article>
             <article class="slide-card accent">
               <span class="slide-label">Query a table</span>
-              <p style="font-size:0.76rem;">The model writes the query, the database answers, the model narrates. Exact, if the table is ready. Carl, next.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">Call a tool</span>
-              <p style="font-size:0.76rem;">The model asks a service for the current record and gets it back with a citation. MCP is the plumbing. The eCFR demo you just saw.</p>
+              <p style="font-size:0.74rem;">The model writes the query, the database answers, the model narrates. Exact, if the table is ready. Carl, next.</p>
             </article>
           </div>
-          <p class="slide-callout">Four ways to remind the model. None of them replaces checking. An index is enough for finding and summarizing your own documents; anything you will cite wants the live record.</p>
+          <p class="slide-callout">Five ways to remind the model, and none of them replaces checking. An index is enough for finding and summarizing your own documents; anything you will cite wants the record read live.</p>
           <aside class="notes">
-            This is as technical as the morning gets, and the point is vocabulary, not engineering. When a vendor says RAG, they mean option two: a search engine over your documents that feeds the model the best few passages. When they say agent or tools or MCP, they mean option four: the model can call out to things. When they say integration, they usually mean option three underneath.
+            This is as technical as the morning gets, and the point is vocabulary, not engineering. The room just watched four of these on the Thamus page. When a vendor says RAG, they mean the vector index: a search engine over your documents that feeds the model the best few passages. When they say agent or tools or MCP, they mean the model can call out to things, which is how the regulation got read. When they say integration, they usually mean one of these underneath.
             The practical rule: RAG is great for "where does it say" and bad for "how much in total," because it only ever sees a few chunks. For totals you want an API over organized data, which is the lakehouse.
             All four are accessed knowledge. All four still fail when the source is wrong or the lookup misses, so the verification habit does not go away. It just gets cheaper, because now there is a citation to check.
             Bridge: the model has a source now. Next, the query route, live, and what happens when the source is not ready.
@@ -765,7 +773,7 @@
             <a class="launch-secondary" href="files/awards_demo.csv" download="awards_demo.csv" style="font-size:0.85rem; padding:0.4rem 1.2rem;">Download this table (CSV)</a>
           </div>
           <aside class="notes">
-            Live demo. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. The fragments on this slide are the fallback if the network or the model misbehaves.
+            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. The fragments on this slide are the fallback if the network or the model misbehaves.
             Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
             Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
             Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
@@ -1508,6 +1516,39 @@
           </p>
           <aside class="notes">
             Ten minutes. Back at 1:40 on the session clock. Leave the Vandalizer tab open; Bert's NARC puzzles are the same muscle in a different setting.
+          </aside>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             Appendix (not part of the ninety minutes)
+             ═══════════════════════════════════════════ -->
+        <section>
+          <p class="slide-kicker">Appendix &middot; Backup for the live demo</p>
+          <h2>Ask a compliance question twice</h2>
+          <div class="compare-box" id="compare-ecfr">
+            <div class="compare-row compare-input-row">
+              <label for="compare-question" class="compare-label">Question for the model</label>
+              <input id="compare-question" type="text" value="What de minimis indirect cost rate may a recipient without a negotiated rate charge?" />
+              <button type="button" id="compare-run">Ask both sides</button>
+            </div>
+            <div class="compare-grid">
+              <article class="compare-panel compare-left">
+                <p class="compare-tag">Recalled only</p>
+                <h3>Model answer, no source connected</h3>
+                <p id="compare-recalled" class="compare-answer">Click <strong>Ask both sides</strong> to see how the crowd answers from memory.</p>
+              </article>
+              <article class="compare-panel compare-right">
+                <p class="compare-tag">Accessed source</p>
+                <h3>Same model, source injected</h3>
+                <p id="compare-accessed" class="compare-answer">Click <strong>Ask both sides</strong> to see what happens when eCFR text is handed to it.</p>
+                <p id="compare-source" class="compare-source"></p>
+              </article>
+            </div>
+            <p class="compare-note">The teaching point is that the answer changes when the model gets a source, not a smarter brain.</p>
+          </div>
+          <p class="slide-note">No tool on the left. eCFR connected on the right.</p>
+          <aside class="notes">
+            Backup only. If Remembering Thamus cannot be reached, this panel runs the same question two ways from inside the deck. With a MindRouter key loaded it is live through the proxy; without one, fixed answers carry the contrast. Not part of the ninety minutes.
           </aside>
         </section>
 

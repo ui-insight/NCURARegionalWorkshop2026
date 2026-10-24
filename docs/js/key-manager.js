@@ -7,7 +7,8 @@ const STORAGE_KEY = 'ai4ra_gemini_key';
 const CROSS_ORIGIN_TARGETS = [
   'nate-layman.github.io/promptulus',
   'ai4ra.github.io/promptulus',
-  'ui-insight.github.io/data-crawler-carl'
+  'ui-insight.github.io/data-crawler-carl',
+  'nate-layman.github.io/thamus'
 ];
 
 export function getKey() {

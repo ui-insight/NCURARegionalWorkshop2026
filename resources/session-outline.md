@@ -8,21 +8,21 @@ The first ninety minutes of a three-hour NCURA Region VI/VII workshop (Denver, S
 
 One sentence runs through all ninety minutes: **augment, not replace. AI prepares, a person decides.** Each block adds one reason that sentence is true and one skill for living by it.
 
-- **Opening.** A king who distrusted the written record, and one question to hold: who should remember, and who should be reminded?
+- **Opening.** The one sentence, the paste rule, and the disclosure.
 1. The model guesses the most likely next word, so it is a crowd, not an expert. Skill: know what to ask a crowd.
 2. The crowd answers better when you tell it what you want. Skill: prompt with intent, hands-on.
-3. The crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and ask what was left out.
+3. A king who distrusted the written record, and the crowd's memory is stale, so give it the record. Skill: recognize recalled versus accessed, and ask what was left out.
 4. The record has to be right, shared, and governed, and handing it over has a cost. Skill: know where your data goes.
 5. Only a person can be accountable. Skill: four questions and a sort.
 6. Start with what is on your desk. Skill: three small things this month.
 7. A reusable workflow can be checked once and trusted many times. Skill: three ways to check output you did not write.
 - **Close.** Why we still know the king's name, and which half of his warning still stands.
 
-Ninety minutes in all: an opening of 6, blocks of 15, 15, 13, 10, 9, 7 and 11, and a close of 4.
+Ninety minutes in all: an opening of 3, blocks of 15, 15, 16, 10, 9, 7 and 11, and a close of 4.
 
-## Opening (6 minutes)
+## Opening (3 minutes)
 
-The spine sentence, said once and plainly. Then the story, before any tool is shown. In Plato's *Phaedrus*, the god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw. The room is asked to hold one question for the next ninety minutes: who should remember, and who should be reminded? A disclosure in the same breath: the tools in this talk are open source, free, and built by the presenters' project on an NSF award, so judge them by the checks the talk teaches, not by who is showing them. And one rule for the hands-on block before it starts: paste only what you could post on a bulletin board. PI names, sponsor names, award titles, deadlines, and public solicitation text are fine. Salaries, student or patient information, export-controlled detail, anything a sponsor marks confidential, and the content of unfunded proposals, the abstracts, aims, and narratives that are the PI's confidential work, are not. At the edges, the sponsor's terms and your institution's data classification decide, and proposal content is the PI's call. The full account of where data goes comes in the data block, deliberately, after the room has handed a model something and felt the question.
+The spine sentence, said once and plainly. A disclosure in the same breath: the tools in this talk are open source, free, and built by the presenters' project on an NSF award, so judge them by the checks the talk teaches, not by who is showing them. And one rule for the hands-on block before it starts: paste only what you could post on a bulletin board. PI names, sponsor names, award titles, deadlines, and public solicitation text are fine. Salaries, student or patient information, export-controlled detail, anything a sponsor marks confidential, and the content of unfunded proposals, the abstracts, aims, and narratives that are the PI's confidential work, are not. At the edges, the sponsor's terms and your institution's data classification decide, and proposal content is the PI's call. The full account of where data goes comes in the data block, deliberately, after the room has handed a model something and felt the question.
 
 ## Block 1. How language models work (15 minutes)
 
@@ -36,15 +36,17 @@ Everyone opens Promptulus, a prompt-training page, picks a coach (your choice; T
 
 What an exchange looks like. You type: "Summarize this award notice." Telosa answers with questions, not a summary: Who reads the summary, and what will they do with it? Which terms would be expensive to miss, cost share, reporting dates, prior-approval requirements? How long should it be? You answer, and the prompt that finally goes to the model is three sentences longer and gets a summary a post-award officer can act on. The habit is the point, not the tool: the three questions work typed into any chat window.
 
-**Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. The coach reminded you what to say; nothing yet has reminded the model what is true. That is the king's question, turned around.
+**Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. The coach reminded you what to say; nothing yet has reminded the model what is true. The next block begins with a very old argument about exactly this.
 
-## Block 3. Reminding the machine (13 minutes)
+## Block 3. Reminding the machine (16 minutes)
 
-Thamus's remedy, applied to the thing that needs it. The story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused.
+The story first, told in two minutes. In Plato's *Phaedrus*, the god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw. Then the story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused, and the page named for him is where the room watches it.
 
-**Demo one, three answers to one question.** What de minimis indirect cost rate may a recipient without a negotiated rate charge?
+**Demo one, five answers to one question, on Remembering Thamus.** What de minimis indirect cost rate may a recipient without a negotiated rate charge?
 
 - From memory, the model says 10 percent. That was the rule in most of what it read. It is wrong today.
+- From a pasted passage, the answer is as good as the paste, and the page can fill in the 2023 text to prove it.
+- From a web search, it finds a blog post as happily as the rule.
 - From a search index of the regulation, the approach most products call retrieval-augmented generation, the passages that look most similar to the question are handed to the model. It gets close, but the passage it leaned on may be the wrong one, and the answer blends what it found with what it remembered. The rule the room takes away: an index is fine for finding and summarizing your own documents; anything you will cite, and anything that changes on a schedule, like a rate or a regulation, wants the live lookup.
 - From a live lookup, it searches the eCFR, reads one paragraph, and answers 15 percent of modified total direct costs (MTDC, the base most indirect cost rates are charged against), citing 2 CFR 200.414(f) as in force on the day of the lookup. Anyone can check it at https://www.ecfr.gov/current/title-2/section-200.414, and anyone should, because this page is a frozen record too: it states the rule as of the day it was written, and if the eCFR says something else on the day you read this, the eCFR is right and the page has just demonstrated its own point. The rate changed on October 1, 2024, with the revised Uniform Guidance; the equipment threshold ($5,000 to $10,000) and the subaward portion counted toward MTDC ($25,000 to $50,000) changed the same day and make good second questions.
 
@@ -103,7 +105,7 @@ Two demos of Vandalizer, a document extraction and review platform built for res
 
 ## Close (4 minutes)
 
-Three bins for every task on your desk: automate, augment, or leave alone. Then back to the king, for the first time since the opening. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down. The machine needs to remember less and look things up more; that was the first ninety minutes. People need to keep enough in their own heads to judge what comes back, which is the half of Thamus's warning that still stands, and that is Bert's hour: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format to run at your own institution.
+Three bins for every task on your desk: automate, augment, or leave alone. Then back to the king, for the first time since the story in Block 3. Thamus warned that writing would ruin memory. He is remembered only because Plato wrote him down. The machine needs to remember less and look things up more; that was the first ninety minutes. People need to keep enough in their own heads to judge what comes back, which is the half of Thamus's warning that still stands, and that is Bert's hour: reasoning puzzles where a story carries the rule a grid leaves open, arguments by analogy, and a structured ethical discussion format to run at your own institution.
 
 ## What a good Monday looks like
 
@@ -118,7 +120,7 @@ Three bins for every task on your desk: automate, augment, or leave alone. Then 
 |---|---|---|---|
 | [Promptulus](https://ai4ra.github.io/promptulus/) | Prompt-training page with coaches | Hands-on, on the shared workshop key | Free and open source. Paste your own key into the key box on the page |
 | [Data Crawler Carl](https://ui-insight.github.io/data-crawler-carl/) | Spreadsheet questions in plain English, query shown | Demo | Free. Same key box as Promptulus. Rows stay in your browser; column names and your question go to the model your key points at |
-| Remembering Thamus | One question, three answers | Demo | In development at [github.com/nate-layman/thamus](https://github.com/nate-layman/thamus); the README carries the story |
+| [Remembering Thamus](https://nate-layman.github.io/thamus/) | One question, five answers, with the research administrator as the contestant | Demo | Live. Free; the key travels on the workshop link; the README carries the story |
 | [Vandalizer](https://vandalizer.uidaho.edu) | Document extraction and review workflows | Demo | Free trial at the site; open source at [github.com/ui-insight/vandalizer](https://github.com/ui-insight/vandalizer), a university research project rather than a vendor product. Documents you upload to the trial are processed on the project's host under the terms posted on its site; the talk's position is that until you have read those terms, the trial is for public documents only. Run your own copy from the repository and the documents never leave your building, which is the local option from the data block |
 | [AI4RA Unified Data Model](https://ui-insight.github.io/AI4RA-UDM/) | Draft shared data vocabulary | Shown, with a request for help | Read it and reply on the [AI4RA community list](https://groups.ai4ra.uidaho.edu/g/main/join) |
 
