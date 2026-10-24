@@ -15,7 +15,7 @@
   var BIN_W = W / BINS;
   var BIN_TOP = H - 150;          // top of the bin dividers
   var FLOOR = H - 30;             // balls stop here
-  var BALL_R = 5, NAIL_R = 6;
+  var BALL_R = 3.5, NAIL_R = 3;
   var GRAVITY = 0.11, BOUNCE = 0.3, JITTER = 1.2, MAX_V = 3.2, MAX_UP = 0.8;
   var DROP_X = 2.5 * BIN_W;          // set by the previous word; dragged by hand too
   var DROP_Y = 40, PREV = 'proposal';
@@ -24,7 +24,7 @@
 
   // Staggered nail grid
   var ROWS = 9, TOP = 84, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
-  var SPACING = 34;
+  var SPACING = 17;
   var home = [];
   for (var r = 0; r < ROWS; r++) {
     var offset = (r % 2) ? SPACING / 2 : 0;
@@ -167,7 +167,7 @@
     return { x: (e.clientX - r.left) * W / r.width, y: (e.clientY - r.top) * H / r.height };
   }
   function nailAt(p) {
-    var best = null, bestD = 14 * 14;
+    var best = null, bestD = 9 * 9;
     nails.forEach(function (n) {
       var d = (n.x - p.x) * (n.x - p.x) + (n.y - p.y) * (n.y - p.y);
       if (d < bestD) { best = n; bestD = d; }
