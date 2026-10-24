@@ -15,7 +15,9 @@ By the end of the ninety minutes, someone in the room should:
 5. Keep accountability with a person: verify everyone's work, human or not, and know that a machine cannot be held accountable.
 6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, and three small things to try on Monday.
 
-How the room shows it got there: a one-line exit question on the closing slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check.
+**If time runs out, protect the goals in this order:** 2 (recalled versus accessed), 5 (a person stays accountable), 1 (how the model works), 3 (context, hands-on), 6 (guidance and Monday starts), 4 (the data underneath). The first two are the ideas an attendee most needs on Monday; the hands-on block is the most expensive in minutes.
+
+How the room shows it got there: a one-line exit question on the closing slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check. That tests goals 2, 3 and 5; goals 1 and 4 are checked in the room as it happens, by whether the tally surprises anyone and whether people spot the dropped departments in the Carl demo.
 
 The thread through all of it is "augment, not replace": AI prepares, a person decides.
 
@@ -41,16 +43,20 @@ The slide-by-slide below describes the talk as proposed. It differs from the cur
 
 ## Where attendee text goes in our own tools
 
-The talk asks the room to judge AI4RA's tools by the checks it teaches, so it owes them the facts. With the workshop key, Promptulus, Thamus and Carl send what you type to the University of Idaho's own model gateway, which runs open models on university servers and logs each request; nothing goes to a commercial AI company. Carl keeps the spreadsheet's rows in the browser and sends only the column names and the question. Even so, the rule for the hands-on block is the bulletin-board rule: paste only what you could post publicly. Award titles, sponsors, deadlines and solicitation text are fine; salaries, student or patient data, export-controlled detail and unfunded proposal text are not. Say this before anyone opens a laptop.
+The talk asks the room to judge AI4RA's tools by the checks it teaches, so it owes them the facts. With the workshop key, Promptulus, Thamus and Carl send what you type to the University of Idaho's own model gateway, which runs open models on university servers and logs each request; nothing goes to a commercial AI company. Carl keeps the spreadsheet's rows in the browser and sends only the column names and the question. Even so, the rule for the hands-on block is the bulletin-board rule: paste only what you could post publicly. Award titles, sponsors, deadlines and solicitation text are fine; salaries, student or patient data, export-controlled detail and unfunded proposal text are not. The gateway's logs record who sent a request, which model answered and how much it used; whether the text of a prompt is kept depends on the university's configured policy, and model answers are not kept. The logs exist so the institution can account for its AI use, which is the audit trail the talk recommends. Say this before anyone opens a laptop.
 
 ## Before the session, and if something fails
+
+- **Tell people in advance.** Ask the NCURA program contacts to send registrants one line before the meeting: bring a laptop and one real task from your work that you could post publicly, such as a solicitation or a routine email. Repeat it on the title slide.
+- **A one-page handout,** printed and on the companion site: the four questions, the two test questions, the bulletin-board and two-tier rules, and the three Monday prompts. It carries the talk if a demo fails or someone cannot see the screen.
+- **Re-run the demos the morning of the talk.** The numbers quoted here come from rehearsal; if the room's results differ, use the room's.
 
 - **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. Vandalizer is shown from the podium and needs no attendee key. Test the QR from a phone on the venue network.
 - **Pages to open in advance.** Remembering Thamus (it loads a model of about 23 MB once), Carl with the awards file ready on the desktop, Promptulus, and Vandalizer with the synthetic documents loaded.
 - **If the network fails.** Each live demo has a spoken fallback in the speaker notes: the Thamus answers (memory says 10 percent, the live read says 15 percent with the citation), Carl's dropped departments (about 2.7 million dollars of federal funding), and the Vandalizer extraction. The token builder, pachinko board, tally and context slider run without a network.
 - **Time for the hands-on block.** Of its seventeen minutes: about three for the page limit slide, four to get everyone into Promptulus, eight to work, two to debrief. If fewer than half the room is in by the four-minute mark, switch to pairs.
 - **If half the room cannot get into Promptulus.** Pair people up on the laptops that work. If that fails too, the presenter takes one volunteer's task and works it on screen with the room calling out answers to the coach's questions; the debrief runs as a discussion either way.
-- **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos reliably show, not recordings; the fallbacks use them only if the network fails.
+- **Live, not staged.** Every demo runs live. The numbers in this document (a spike on 7, 10 percent from memory against 15 percent from the regulation, the dropped departments) are what the demos showed in rehearsal, not recordings; the fallbacks use them only if the network fails.
 - **If time runs short.** Cut in this order: the token builder (the pachinko board covers the same idea), the model-bias aside, the time-savers slide in Block 6, then the second Vandalizer demo.
 
 ## The interactive demos
