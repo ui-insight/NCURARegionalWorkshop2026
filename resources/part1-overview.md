@@ -41,12 +41,23 @@ The slide-by-slide below describes the talk as proposed. It differs from the cur
 4. Before the hands-on block, a short slide or spoken rule on what to paste, and where it goes (see below).
 5. One line on slide 19 about which record to hand a model.
 6. Block 7 shrinks from three slides to one: how to join the Vandalizer demo and how to start its certification course. The two podium demos (slides 45 and 46) come out; Vandalizer has been demonstrated at earlier AI4RA sessions, so a pointer is enough.
-7. Slide 40 adds a link to the AI4RA groups.io list, where the guidance hashtag collects sponsor rules and guidance documents across several list topics. Attendees post what they find there, so the room keeps a shared, current collection after the talk, and no institution has to be named on a slide.
+7. The deck already points to the AI4RA community forum (groups.ai4ra.uidaho.edu, a groups.io list) on slides 31 and 36. Make each pointer land on a hashtag: slides 36 and 40 link to the guidance hashtag, where attendees post sponsor rules and guidance documents and the collection stays current after the talk; slide 31 links to the UDM hashtag for feedback on the data model. No institution has to be named on a slide.
 8. The companion site offers one sample task, a public solicitation to paste into Promptulus, for anyone who arrives without a task they can paste.
 
 ## Where attendee text goes in our own tools
 
 The talk asks the room to judge AI4RA's tools by the checks it teaches, so it owes them the facts. With the workshop key, Promptulus, Thamus and Carl send what you type to the University of Idaho's own model gateway, which runs open models on university servers and logs each request; nothing goes to a commercial AI company. Carl keeps the spreadsheet's rows in the browser and sends only the column names and the question. Even so, the rule for the hands-on block is the bulletin-board rule: paste only what you could post publicly. Award titles, sponsors, deadlines and solicitation text are fine; salaries, student or patient data, export-controlled detail and unfunded proposal text are not. The gateway's logs record who sent a request, which model answered and how much it used; whether the text of a prompt is kept depends on the university's configured policy, and model answers are not kept. Open question to settle before November: what that setting is for the workshop key, and how long the key stays valid. A careful room will ask both, and the answer should be one sentence on the slide. The logs exist so the institution can account for its AI use, which is the audit trail the talk recommends. Say this before anyone opens a laptop.
+
+## Where things live
+
+- **Deck and companion site:** ui-insight.github.io/NCURARegionalWorkshop2026, with the QR code for the workshop key on its home page.
+- **Promptulus:** ai4ra.github.io/promptulus
+- **Remembering Thamus:** nate-layman.github.io/thamus
+- **Data Crawler Carl:** ui-insight.github.io/data-crawler-carl, with the sample awards file the presenter uploads.
+- **Unified Data Model:** ui-insight.github.io/AI4RA-UDM
+- **Vandalizer:** vandalizer.uidaho.edu
+- **Community forum:** groups.ai4ra.uidaho.edu, with hashtags for the topics the talk sends people to.
+- **Sponsor AI pages:** NSF at nsf.gov/policies/ai and NIH at osp.od.nih.gov/policies/artificial-intelligence.
 
 ## Before the session, and if something fails
 
@@ -77,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so where this plan proposes moving a slide, its number stays the same.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the proposed order the talk runs 1 to 27, 30 to 33, 28 and 29, 34 to 44, then 47; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -120,7 +131,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 26. **Structured and unstructured data.** Tables versus documents; most of an office's knowledge is in documents, most of its reporting needs tables.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
 30. **What is a data model?** A small diagram of award, sponsor, person and department, and the four parts: things, details, connections, rules.
-31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code.
+31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code. The slide already shows the forum address; proposed change 7 points it at the UDM hashtag.
 32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted.
 
@@ -133,11 +144,11 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 
 34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
 35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can lead; if either is yes, a person stays in the loop.
-36. **Check the sponsor before you check the tool.** NSF, NIH (including its notice that reviewers may not use generative AI on applications, NOT-OD-23-149), and going up to a parent agency when a sponsor has no policy, with links.
+36. **Check the sponsor before you check the tool.** NSF, NIH (including its notice that reviewers may not use generative AI on applications, NOT-OD-23-149), and going up to a parent agency when a sponsor has no policy, with links. The slide already asks people to share updates on the forum; proposed change 7 points that at the guidance hashtag.
 37. **Your AI guidance is probably out of date.** A review of twenty institutions' policies against a 61-item checklist: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
 38. **How strict should it be?** Five levels from principles to strict, with examples.
 39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
-40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. A link to the groups.io guidance topics, where attendees can post and find sponsor rules and guidance (proposed change 7).
+40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. New in this plan: a link to the forum's guidance hashtag, where attendees post and find sponsor rules and guidance (proposed change 7).
 
 ### Block 6. Start small
 
