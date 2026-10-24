@@ -77,6 +77,8 @@
       .preview-flow.compact { grid-template-columns:1fr 1fr; gap:0.45rem; max-width:52rem; }
       .preview-flow.compact .preview-step { min-height:3.1rem; padding:0.4rem 0.7rem; }
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
+      .pk-chip { border:1.5px solid rgba(25,25,25,0.25); background:#fff; color:#191919; border-radius:999px; padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:700; cursor:pointer; }
+      .pk-chip.is-active { background:#f1b300; border-color:#f1b300; }
     </style>
   </head>
   <body class="slides-page">
@@ -273,18 +275,21 @@
           <div id="pachinko" style="display:flex; gap:1.4rem; align-items:center; justify-content:center; margin:0.2rem auto 0;">
             <canvas width="360" height="680" style="height:29rem; width:auto; display:block; background:#fffdf5; border:1px solid rgba(25,25,25,0.12); border-radius:0.9rem; touch-action:none;"></canvas>
             <div style="display:flex; flex-direction:column; gap:0.5rem; align-items:stretch; max-width:16rem; text-align:left;">
-              <p style="font-size:0.95rem; font-weight:700; margin:0 0 0.3rem;">"The proposal was ___."</p>
+              <p class="pk-prompt" style="font-size:0.95rem; font-weight:700; margin:0;">"The proposal was ___."</p>
+              <p style="font-size:0.68rem; color:var(--muted); margin:0;">Change the word before the blank:</p>
+              <div style="display:flex; flex-wrap:wrap; gap:0.3rem; margin-bottom:0.3rem;"><button type="button" class="pk-chip" data-pk-prev="appeal" data-pk-x="0.12">appeal</button><button type="button" class="pk-chip" data-pk-prev="budget" data-pk-x="0.3">budget</button><button type="button" class="pk-chip is-active" data-pk-prev="proposal" data-pk-x="0.5">proposal</button><button type="button" class="pk-chip" data-pk-prev="award" data-pk-x="0.8">award</button></div>
               <button type="button" class="launch-primary" data-pk="drop1" style="font-size:0.8rem; padding:0.4rem 1rem;">Drop 1</button>
               <button type="button" class="launch-primary" data-pk="drop25" style="font-size:0.8rem; padding:0.4rem 1rem;">Drop 25</button>
               <button type="button" class="launch-secondary" data-pk="reset" style="font-size:0.8rem; padding:0.4rem 1rem;">Clear the bins</button>
               <button type="button" class="launch-secondary" data-pk="nails" style="font-size:0.8rem; padding:0.4rem 1rem;">Reset the nails</button>
               <span class="pk-total" style="font-size:0.75rem; color:var(--muted); text-align:center;">0 balls</span>
-              <p style="font-size:0.74rem; color:var(--muted); margin:0.4rem 0 0;">Every ball starts in the same place. Drag a nail sideways and watch the pile move.</p>
+              <p style="font-size:0.74rem; color:var(--muted); margin:0.4rem 0 0;">Every ball starts where the previous word puts it. Drag the funnel or a nail sideways and watch the pile move.</p>
             </div>
           </div>
           <aside class="notes">
             The token builder showed the odds as numbers. This is the same thing you can watch. Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
             Drop 25. Now there is a pile, and the pile is the model: most balls land in a couple of bins and a few bounce somewhere odd. That odd ball is the confident wrong answer, said in the same voice as the others.
+            Then change the word before the blank. Click "award": the funnel moves and the pile moves with it, toward approved and funded. "Appeal" sends nearly everything to rejected. The board did not change; the starting point did. That is what context does: the words already on the page decide where the next one starts falling. You can drag the funnel by hand too.
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does: the gradient descent sidebar on the last slide, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
           </aside>

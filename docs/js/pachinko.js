@@ -16,14 +16,15 @@
   var BIN_TOP = H - 150;          // top of the bin dividers
   var FLOOR = H - 30;             // balls stop here
   var BALL_R = 5, NAIL_R = 6;
-  var GRAVITY = 0.11, BOUNCE = 0.5, JITTER = 0.3, MAX_V = 3.2;
-  var DROP_X = 2.5 * BIN_W;          // over the middle of a bin, not a divider
+  var GRAVITY = 0.11, BOUNCE = 0.3, JITTER = 0.3, MAX_V = 3.2, MAX_UP = 0.8;
+  var DROP_X = 2.5 * BIN_W;          // set by the previous word; dragged by hand too
+  var DROP_Y = 40, PREV = 'proposal';
 
   var GOLD = '#f1b300', INK = '#191919', MUTED = '#8a8a8a';
 
   // Staggered nail grid
-  var ROWS = 9, TOP = 70, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
-  var SPACING = 50;
+  var ROWS = 9, TOP = 84, ROW_GAP = (BIN_TOP - TOP - 30) / (ROWS - 1);
+  var SPACING = 34;
   var home = [];
   for (var r = 0; r < ROWS; r++) {
     var offset = (r % 2) ? SPACING / 2 : 0;
@@ -35,11 +36,11 @@
 
   var balls = [];
   var counts = new Array(BINS).fill(0);
-  var dragging = null, hover = null;
+  var dragging = null, hover = null, funnelHover = false;
 
   function drop(n) {
     for (var i = 0; i < n; i++) {
-      balls.push({ x: DROP_X + (Math.random() - 0.5) * 2, y: 18 - i * 22, vx: 0, vy: 0, done: false });
+      balls.push({ x: DROP_X + (Math.random() - 0.5) * 2, y: DROP_Y - i * 22, vx: 0, vy: 0, done: false });
     }
   }
 
@@ -66,6 +67,7 @@
             b.vx -= (1 + BOUNCE) * vn * nx;
             b.vy -= (1 + BOUNCE) * vn * ny;
             b.vx += (Math.random() - 0.5) * JITTER;
+            if (b.vy < -MAX_UP) b.vy = -MAX_UP;   // a nail can nudge a ball up, not launch it
           }
         }
       }
@@ -98,9 +100,14 @@
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // funnel marker
-    ctx.fillStyle = MUTED;
-    ctx.beginPath(); ctx.moveTo(DROP_X - 14, 6); ctx.lineTo(DROP_X + 14, 6); ctx.lineTo(DROP_X, 22); ctx.closePath(); ctx.fill();
+    // the previous word, and the funnel it drops from
+    ctx.textAlign = 'center';
+    ctx.fillStyle = INK;
+    ctx.font = '700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    var tx = Math.max(40, Math.min(W - 40, DROP_X));
+    ctx.fillText(PREV, tx, 16);
+    ctx.fillStyle = (dragging === 'funnel' || funnelHover) ? GOLD : MUTED;
+    ctx.beginPath(); ctx.moveTo(DROP_X - 14, 22); ctx.lineTo(DROP_X + 14, 22); ctx.lineTo(DROP_X, 38); ctx.closePath(); ctx.fill();
 
     // bins and their piles
     var max = Math.max.apply(null, counts.concat([1]));
@@ -160,7 +167,7 @@
     return { x: (e.clientX - r.left) * W / r.width, y: (e.clientY - r.top) * H / r.height };
   }
   function nailAt(p) {
-    var best = null, bestD = 22 * 22;
+    var best = null, bestD = 14 * 14;
     nails.forEach(function (n) {
       var d = (n.x - p.x) * (n.x - p.x) + (n.y - p.y) * (n.y - p.y);
       if (d < bestD) { best = n; bestD = d; }
@@ -168,23 +175,29 @@
     return best;
   }
   canvas.addEventListener('pointerdown', function (e) {
-    var n = nailAt(toCanvas(e));
+    var p0 = toCanvas(e);
+    if (p0.y < 44 && Math.abs(p0.x - DROP_X) < 26) { dragging = 'funnel'; canvas.setPointerCapture(e.pointerId); e.preventDefault(); e.stopPropagation(); return; }
+    var n = nailAt(p0);
     if (n) { dragging = n; canvas.setPointerCapture(e.pointerId); e.preventDefault(); e.stopPropagation(); }
   });
   canvas.addEventListener('pointermove', function (e) {
     var p = toCanvas(e);
-    if (dragging) {
+    if (dragging === 'funnel') {
+      DROP_X = Math.max(14, Math.min(W - 14, p.x));
+      e.preventDefault();
+    } else if (dragging) {
       dragging.x = Math.max(NAIL_R, Math.min(W - NAIL_R, p.x)); // side to side only
       e.preventDefault();
     } else {
-      hover = nailAt(p);
-      canvas.style.cursor = hover ? 'ew-resize' : 'default';
+      funnelHover = p.y < 44 && Math.abs(p.x - DROP_X) < 26;
+      hover = funnelHover ? null : nailAt(p);
+      canvas.style.cursor = (hover || funnelHover) ? 'ew-resize' : 'default';
     }
   });
   function release() { dragging = null; }
   canvas.addEventListener('pointerup', release);
   canvas.addEventListener('pointercancel', release);
-  canvas.addEventListener('pointerleave', function () { hover = null; });
+  canvas.addEventListener('pointerleave', function () { hover = null; funnelHover = false; });
 
   root.querySelectorAll('[data-pk]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -193,6 +206,19 @@
       else if (a === 'drop25') drop(25);
       else if (a === 'reset') { counts = new Array(BINS).fill(0); balls = []; }
       else if (a === 'nails') { nails.forEach(function (n, i) { n.x = home[i].x; }); }
+    });
+  });
+
+  // The previous word moves the drop point. Same board, different starting place.
+  var chips = root.querySelectorAll('[data-pk-prev]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      PREV = chip.getAttribute('data-pk-prev');
+      DROP_X = parseFloat(chip.getAttribute('data-pk-x')) * W;
+      counts = new Array(BINS).fill(0); balls = [];
+      chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+      var q = root.querySelector('.pk-prompt');
+      if (q) q.textContent = '"The ' + PREV + ' was ___."';
     });
   });
 
