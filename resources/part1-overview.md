@@ -11,9 +11,9 @@ By the end of the ninety minutes, someone in the room should:
 1. Understand how a language model produces an answer, well enough to predict when it will be wrong: it picks the most likely next word, learned from a large library of human writing it was trained on.
 2. Hold the distinction between recalled knowledge, what the model remembers from training, and accessed knowledge, what it reads from a source you hand it, and prefer accessed answers for anything that matters.
 3. Know that how much and what context you give a model is the real skill of prompting, and have practiced it on a task from their own desk.
-4. See that the data underneath matters more than which model you pick: structured versus unstructured data, what AI does well with text, the ways it goes wrong, and why a shared data model helps.
-5. Keep accountability with a person: verify everyone's work, human or not, and know that a machine cannot be held accountable.
-6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, and three small things to try on Monday.
+4. See that the data underneath matters more than which model you pick: structured versus unstructured data, what AI does well with text, and why a shared data model helps.
+5. Keep accountability with a person: know the four ways AI output goes wrong, verify everyone's work, human or not, and know that a machine cannot be held accountable.
+6. Leave with a way to judge their institution's AI guidance, sponsor AI rules to check, a place to keep sharing what they find, and three small things to try on Monday.
 
 **Which goals matter most:** 2 (recalled versus accessed) and 5 (a person stays accountable) are the ideas an attendee most needs on Monday; 1 (how the model works) is what makes them believable; 3, 6 and 4 build on those.
 
@@ -41,6 +41,8 @@ The slide-by-slide below describes the talk as proposed. It differs from the cur
 4. Before the hands-on block, a short slide or spoken rule on what to paste, and where it goes (see below).
 5. One line on slide 19 about which record to hand a model.
 6. Block 7 shrinks from three slides to one: how to join the Vandalizer demo and how to start its certification course. The two podium demos (slides 45 and 46) come out; Vandalizer has been demonstrated at earlier AI4RA sessions, so a pointer is enough.
+7. Slide 40 adds a link to the AI4RA groups.io list, where the guidance hashtag collects sponsor rules and guidance documents across several list topics. Attendees post what they find there, so the room keeps a shared, current collection after the talk, and no institution has to be named on a slide.
+8. The companion site offers one sample task, a public solicitation to paste into Promptulus, for anyone who arrives without a task they can paste.
 
 ## Where attendee text goes in our own tools
 
@@ -102,7 +104,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 15. **An ancient tale, written down by Plato 2,400 years ago.** King Thamus's verdict on the god Theuth's gift of writing, in full: writing will create forgetfulness and the appearance of wisdom without the reality. Callout: Thamus thought writing would weaken memory and reasoning; but writing helps you remember, and a fact you look up is one you can trust.
 16. **Would you trust someone else's memory alone to answer a compliance question?** Then: do you ever have to look up the answer? If you would not trust a person's memory, why trust an AI's? The solution is to let AI look things up too, which is called context. An aside: agents are helpers that go look things up for the main model.
 17. **Remembering Thamus.** The irony: we only know Thamus's story because Plato wrote it down. A link out to the Remembering Thamus page, which answers one compliance question five ways: memory, pasted text, web search, a vector index, and the regulation read live. Speaker notes carry the presenter's own hope and fear about AI and a handoff to Bert's hour.
-18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department.
+18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department. It sits in Block 2 on purpose: right after Thamus shows that reading the source beats remembering, Carl shows that reading the source is not enough when the source has holes. Block 4 opens by calling back to it (slide 25).
 19. **Two kinds of knowing: recalled and accessed.** Plus one line on which record to hand over: the current version, from the system of record, not a copy from someone's downloads (proposed change 5). Recalled is frozen, blurred, and fills gaps confidently; this is where hallucination and hidden bias live. Accessed is current, citable, and checkable, with less room for training-data bias, though how much less is an open question.
 
 ### Block 3. Context: hands-on with Promptulus
@@ -135,7 +137,7 @@ Slide numbers follow the current deck, so where this plan proposes moving a slid
 37. **Your AI guidance is probably out of date.** A review of twenty institutions' policies against a 61-item checklist: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
 38. **How strict should it be?** Five levels from principles to strict, with examples.
 39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
-40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership.
+40. **Start the policy. One page.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. A link to the groups.io guidance topics, where attendees can post and find sponsor rules and guidance (proposed change 7).
 
 ### Block 6. Start small
 
