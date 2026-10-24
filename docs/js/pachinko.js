@@ -219,34 +219,29 @@
     });
   });
 
-  // "Shift the nails": a wedge of tightly packed nails under the drop point,
-  // a point at the top widening toward the bottom, blocks the bin straight
-  // below. Balls slide off its sides. The nails left over go mostly to the
-  // left side, so the right side is clearer: most of the pile goes right and
-  // a tail trails left. Nails only move sideways.
-  var shifted = false, WEDGE_TOP = 3, PACK = 2 * NAIL_R + 0.5, LEFT_SHARE = 0.75, APEX_SHIFT = -2, CURVE = 60;
+  // "Shift the nails": a banana. In each row, six nails pack into a short
+  // solid shelf; the top shelf ends just past the drop point, and each shelf
+  // below ends further right by a bigger step, so the shelves bend down and to
+  // the right like a banana. A ball lands near a shelf's right end, usually
+  // rolls off that end, and drops onto the next shelf. The rest of each row's
+  // nails spread out to the left of its shelf; nothing sits under or right of
+  // the band. Balls that roll off a shelf's left end make the tail.
+  var shifted = false, SHELF = 6, PACK = 2 * NAIL_R + 0.5, CLEAR = 14;
+  var RIGHT_END = [6, 9, 15, 24, 36, 52, 72, 96, 124];      // shelf right end, measured from the drop point
   function shiftNails() {
     shifted = true;
-    var blocked = WORDS.indexOf('submitted');
-    var bottomHalf = BIN_W / 2;                              // the wedge's base covers the bin under the drop point
     var rows = {};
     nails.forEach(function (n, i) { (rows[n.y] = rows[n.y] || []).push(i); });
     var ys = Object.keys(rows).map(Number).sort(function (p, q) { return p - q; });
     ys.forEach(function (y, r) {
-      var t = ys.length > 1 ? r / (ys.length - 1) : 1;
-      var centre = DROP_X + APEX_SHIFT * (1 - t) + CURVE * t * t;   // CURVE > 0 bends the wedge right, a banana
-      var half = WEDGE_TOP + (bottomHalf - WEDGE_TOP) * t;
-      var inWedge = Math.max(1, Math.floor((2 * half) / PACK) + 1);
-      var idx = rows[y].slice().sort(function (p, q) { return Math.abs(home[p].x - centre) - Math.abs(home[q].x - centre); });
-      var wedge = idx.slice(0, Math.min(inWedge, idx.length)), rest = idx.slice(wedge.length);
-      wedge.sort(function (p, q) { return home[p].x - home[q].x; }).forEach(function (i, k) {
-        nails[i].tx = wedge.length > 1 ? centre - half + (2 * half) * k / (wedge.length - 1) : centre;
-      });
-      var nLeft = Math.round(rest.length * LEFT_SHARE), nRight = rest.length - nLeft;
-      var leftEnd = centre - half - PACK, rightStart = centre + half + PACK;
-      rest.sort(function (p, q) { return home[p].x - home[q].x; }).forEach(function (i, k) {
-        if (k < nLeft) nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (nLeft > 1 ? k / (nLeft - 1) : 0.5));
-        else { var j = k - nLeft; nails[i].tx = Math.min(W - NAIL_R, rightStart + (W - NAIL_R - rightStart) * (nRight > 1 ? j / (nRight - 1) : 0.5)); }
+      var idx = rows[y].slice().sort(function (p, q) { return home[p].x - home[q].x; });
+      var end = Math.min(W - NAIL_R, DROP_X + RIGHT_END[Math.min(r, RIGHT_END.length - 1)]);
+      var start = end - PACK * (SHELF - 1);
+      var shelf = idx.slice(-SHELF), rest = idx.slice(0, idx.length - SHELF);
+      shelf.forEach(function (i, k) { nails[i].tx = start + PACK * k; });
+      var leftEnd = start - CLEAR;
+      rest.forEach(function (i, k) {
+        nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (rest.length > 1 ? k / (rest.length - 1) : 0.5));
       });
     });
   }
