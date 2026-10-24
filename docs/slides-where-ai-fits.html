@@ -157,7 +157,7 @@
                 <p class="preview-part-number">Block 4</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">10 min</p>
+              <p class="preview-time">13 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
@@ -181,12 +181,12 @@
                 <p class="preview-part-number">Block 7</p>
                 <h6 class="preview-part-title">Vandalizer</h6>
               </div>
-              <p class="preview-time">13 min</p>
+              <p class="preview-time">10 min</p>
             </article>
           </div>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:51, block 4 at 1:01, block 5 at 1:10, block 6 at 1:17, block 7 at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:51, block 4 at 1:04, block 5 at 1:13, block 6 at 1:20, block 7 at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -858,6 +858,74 @@
           </div>
           <aside class="notes">
             Every model on the previous slide will be replaced within two years. Your award table will not be. The question that decides whether AI helps your office is not which model you license. It is whether the data it needs exists in a form it can be given.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>Structured and unstructured data</h2>
+          <div class="slide-grid" style="margin-top:0.6rem;">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Structured</span>
+              <h3>Rows and columns</h3>
+              <p style="font-size:0.8rem;">Every record has the same fields, and every field means the same thing. Your award system, the ERP, a well-kept spreadsheet.</p>
+              <p style="font-size:0.8rem; margin-top:0.4rem;">Easy to count, total and check exactly. A database does the math; a model can write the query, as Carl did.</p>
+            </article>
+            <article class="slide-card accent" style="text-align:left;">
+              <span class="slide-label">Unstructured</span>
+              <h3>Documents and messages</h3>
+              <p style="font-size:0.8rem;">Award notices, solicitations, budget justifications, emails, policies. The facts are in there, in sentences, in a different place every time.</p>
+              <p style="font-size:0.8rem; margin-top:0.4rem;">This is where language models are strongest: they read it the way a person would.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Most of what a research office knows lives in documents. Most of what it reports needs tables. A lot of AI&rsquo;s practical value is moving information from one to the other.</p>
+          <aside class="notes">
+            A quick check-in now that the room has heard the data model is the most important model. Ask: which of your work lives in tables, and which in documents? Most hands go up for documents.
+            Structured data is rows and columns with a fixed meaning. It is what databases and reports run on, and arithmetic belongs there, done by the database, not the model. Carl showed the right split: the model wrote the query, the database did the math.
+            Unstructured data is the documents. That is where language models earn their keep, because they read sentences. The bridge to the next slide: most useful AI work in this office is getting facts out of documents and into a shape you can count and check.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>What AI does well with text</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:0.5rem;">
+            <article class="slide-card accent" style="text-align:left;">
+              <span class="slide-label">Extraction</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Pull specific facts out of a document into fields.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>An award notice into PI, dates, amount and terms.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Summarization</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Shorten without changing what it says.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A forty-page solicitation into one page of requirements.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Transformation</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Same content, new form.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>Sponsor terms rewritten in plain language for a new PI; a CV into a biosketch format.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Generation</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Draft new text from a few facts.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A routine email to a PI, a first draft of a budget justification.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Classification</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Sort or tag items into categories you define.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The shared inbox by request type; sponsors as federal, industry or nonprofit.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Comparison</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Check two things against each other and flag differences.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A budget against its justification; a proposal against the solicitation.</em></p>
+            </article>
+          </div>
+          <p class="slide-callout">Extraction is the one to watch: it turns unstructured documents into structured data, which is how documents become something you can count, check and share.</p>
+          <aside class="notes">
+            Six general tasks, each with an example from this room's work. Most of what any AI tool does in a research office is one of these, or a few chained together.
+            Point out what is missing: none of them is "do the arithmetic" and none is "make the decision." Totals belong to the database, and determinations belong to a person.
+            Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions, and that shape is a data model. Vandalizer, at the end, is extraction and comparison at scale.
           </aside>
         </section>
         <section>
