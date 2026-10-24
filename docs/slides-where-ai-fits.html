@@ -665,12 +665,12 @@
              ═══════════════════════════════════════════ -->
                 <section>
           <p class="slide-kicker">Block 3 &middot; Memory and the record</p>
-          <h2>A story from Plato, 2,400 years ago</h2>
+          <h2>An ancient tale, written down by Plato 2,400 years ago</h2>
           <div style="max-width:54rem; margin:0.6rem auto 0;">
             <article class="slide-card dark" style="display:flex; gap:0.9rem; align-items:center; text-align:left; height:100%; box-sizing:border-box; margin:0;">
               <img src="img/story/thamus.png" alt="King Thamus, seated, chin in hand, unconvinced" style="height:15rem; flex:none; margin:0;" />
               <div>
-                <span class="slide-label">In response to Theuth&rsquo;s gift of writing, Thamus replied:</span>
+                <span class="slide-label">Set in the distant past of Egypt. When the god Theuth offered writing to King Thamus, the king replied:</span>
                 <p style="margin:0.4rem 0 0; font-size:1rem; line-height:1.45; font-weight:500; font-style:italic;">This discovery of yours will create forgetfulness in the learners&rsquo; souls, because they will not use their memories; they will trust to the external written characters and not remember of themselves. The specific which you have discovered is an aid not to memory, but to reminiscence, and you give your disciples not truth, but only the semblance of truth; they will be hearers of many things and will have learned nothing; they will appear to be omniscient and will generally know nothing; they will be tiresome company, having the show of wisdom without the reality.</p>
               </div>
             </article>
@@ -678,7 +678,7 @@
           <p class="slide-callout">Thamus thought writing would weaken people's memory, and that leaning on reminders would weaken their reasoning. For a language model it works the other way: its memory is a mishmash of everything it was trained on, and it reasons better when it is handed an authoritative source of data to work from.</p>
           <p class="slide-micro">Plato, <em>Phaedrus</em> 274c to 275b, written around 370 BCE. Benjamin Jowett&rsquo;s translation.</p>
           <aside class="notes">
-            Two minutes, told, not read. Socrates tells it to Phaedrus. Theuth brings his inventions to the king and argues for each; writing is the one he is proudest of. Thamus answers that the inventor is the last person to judge what an invention does to the people who use it, and then gives the verdict on the slide.
+            Two minutes, told, not read. Socrates tells it to Phaedrus as an old Egyptian tale he once heard, set at Naucratis in a mythic past when gods offered their inventions to kings. It has no date, and most scholars think Plato invented it; what is datable is the writing, around 370 BCE. Theuth brings his inventions to the king and argues for each; writing is the one he is proudest of. Thamus answers that the inventor is the last person to judge what an invention does to the people who use it, and then gives the verdict on the slide.
             Land on the distinction: memory versus reminding. He meant reminding as the lesser thing. Then turn it on the machine in one breath: a model's memory is its training, enormous, confident, frozen on a date, stale after it. The fix for a machine is the reminding the king refused. Do not say anything yet about why we know his name; that comes at the very end.
             Then open the page named for him.
           </aside>
@@ -841,6 +841,39 @@
         </section>
         <section>
           <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>What is a data model?</h2>
+          <div class="slide-grid" style="grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); align-items:center; gap:1.4rem; margin-top:0.6rem;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+              <div style="display:flex; align-items:center;">
+                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Sponsor</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />type</div></div>
+                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">funds<br /><span style="font-size:1rem; color:#191919;">&rarr;</span></div>
+                <div style="border:2px solid #f1b300; background:rgba(241,179,0,0.15); border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Award</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">number<br />start date<br />amount</div></div>
+                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">leads<br /><span style="font-size:1rem; color:#191919;">&larr;</span></div>
+                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Person</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />role</div></div>
+              </div>
+              <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">administered by<br /><span style="font-size:1rem; color:#191919;">&darr;</span></div>
+              <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Department</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />college</div></div>
+            </div>
+            <div style="text-align:left;">
+              <p style="font-size:0.85rem; margin:0 0 0.5rem;">A data model is the agreement about how information is stored, before any database is built. It has four parts:</p>
+              <ul style="font-size:0.8rem; margin:0; padding-left:1.1rem; line-height:1.4;">
+                <li style="margin-bottom:0.35rem;"><strong>Things.</strong> The kinds of records you keep. Award, person, sponsor, department.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Details.</strong> What you record about each one. An award has a number, a start date, an amount.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Connections.</strong> How they relate. Every award has one sponsor and one lead PI.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Rules.</strong> What must be true. An award cannot be saved without a department.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="slide-callout">Your award system, your ERP and your HR system each have a data model already. They just do not agree with each other.</p>
+          <aside class="notes">
+            Keep it concrete. Point at the diagram: an award, the sponsor that funds it, the person who leads it, the department that administers it. That is a data model, and every system in the room's offices has one.
+            The fourth part is the one that matters most for AI. The Carl table was missing departments because nothing required one. A rule that says an award cannot be saved without a department turns a silent gap into an error someone has to fix.
+            Then the turn to the next slide: the trouble is not that offices lack data models. It is that they each have their own.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
           <h2>Why research administration needs a common language</h2>
           <div class="slide-grid">
             <article class="slide-card">
@@ -851,7 +884,7 @@
             <article class="slide-card accent">
               <span class="slide-label">With a shared language</span>
               <h3>Map once, reuse everywhere</h3>
-              <p style="font-size:0.8rem;">A data model is an agreement about what things exist and what they are called. Map each of your systems to it once, and a report or AI workflow built anywhere can run at your institution too.</p>
+              <p style="font-size:0.8rem;">Agree on one data model across institutions, map each of your systems to it once, and a report or AI workflow built anywhere can run at your institution too.</p>
             </article>
           </div>
           <div class="compare-row" style="margin-top:0.7rem; gap:1rem; align-items:center; max-width:68rem; margin-left:auto; margin-right:auto; text-align:left;">
@@ -891,7 +924,7 @@
           <aside class="notes">
             Back to the awards table. Keep it as it arrived, blanks and all, so you can always show what the source said. Map Department to the shared model's organization link, once, and let the mapping be proposed by a model and approved by a person. Then the rule runs: an award without an organization does not pass. The Vice President's question gets answered from the reconciled copy, or gets a flag that says the answer is incomplete and by how much.
             Do not name layers or products. The room needs the three verbs: keep, translate, answer. This runs at Idaho today against our award system, ticketing and Banner, on one server; say that only if asked.
-            Then the turn: all of this is about making the record right. Handing it to a model has a price: everything you give the model, it reads, and all of it travels to wherever the model runs. So the next question is where the model runs, and under whose agreement. The room has been using the University of Idaho's own gateway all morning, which logs every request; that log is what an audit trail is.
+            Then the turn: all of this is about making the record right. Handing it to a model has a price: everything you give the model, it reads, and all of it travels to wherever the model runs. So the next question is where the model runs, and under whose agreement. The workshop key goes through the University of Idaho's own gateway, which logs every request; that log is what an audit trail is.
           </aside>
         </section>
         <section>
