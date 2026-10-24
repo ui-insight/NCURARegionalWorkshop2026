@@ -560,7 +560,7 @@
                 <li>Blurred. An average over everything ever published on the subject.</li>
                 <li>Fills gaps with the most plausible thing, in the same confident voice.</li>
               </ul>
-              <p style="font-size:0.76rem; margin-top:0.4rem;"><strong>This is where hallucination lives.</strong></p>
+              <p style="font-size:0.76rem; margin-top:0.4rem;"><strong>This is where hallucination and hidden bias live.</strong></p>
             </article>
             <article class="slide-card accent" style="height:100%; box-sizing:border-box; margin:0;">
               <span class="slide-label">Accessed</span>
@@ -569,12 +569,14 @@
                 <li>A document in the window. A regulation fetched by section number. A query against your awards. An API response.</li>
                 <li>Current as of the source, and citable: it can point to where it looked.</li>
                 <li>Wrong only if the source is wrong, or the lookup missed. Both are checkable.</li>
+                <li>Less room for the biases baked into training data, which are very hard to evaluate. How much less is still an open question.</li>
               </ul>
             </article>
           </div>
           <p class="slide-callout">Hallucination is recalled knowledge standing in where accessed knowledge was needed. If the answer matters, make it accessed.</p>
           <aside class="notes">
             Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
+            On bias: it is very hard to evaluate the biases that come with a model's training data, and the Grok aside later in the talk is one example of how they get in. That is another reason to prefer answers from accessed data over recalled memory: it reduces both hallucination and bias. How much it reduces bias is an open problem, so say that plainly.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
             Accessed is the fix, and the room just watched it twice, on the Thamus page and in Carl. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
           </aside>
