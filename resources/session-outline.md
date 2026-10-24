@@ -38,7 +38,7 @@ What an exchange looks like. You type: "Summarize this award notice." Telosa ans
 
 **Hand-off:** a well-told prompt still gets a wrong answer when the crowd's memory is wrong. The coach reminded you what to say; nothing yet has reminded the model what is true. The next block begins with a very old argument about exactly this.
 
-## Block 3. Reminding the machine (16 minutes)
+## Block 3. What the model remembers, and what it reads (16 minutes)
 
 The story first, told in two minutes. In Plato's *Phaedrus*, the god Theuth invents writing and presents it to King Thamus as a remedy for memory. Thamus disagrees: people will trust the marks on the page and stop remembering for themselves. Writing, he says, is a remedy not for memory but for reminding. He meant that as the flaw. Then the story turns onto the machine. A model's memory is its training: enormous, confident, frozen on a date, stale after it. So the fix for a machine is exactly the reminding Thamus refused, and the page named for him is where the room watches it.
 
