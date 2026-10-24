@@ -79,6 +79,14 @@
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
       .pk-chip { border:1.5px solid rgba(25,25,25,0.25); background:#fff; color:#191919; border-radius:999px; padding:0.2rem 0.6rem; font-size:0.7rem; font-weight:700; cursor:pointer; }
       .pk-chip.is-active { background:#f1b300; border-color:#f1b300; }
+      .grok-pop { position:absolute; inset:0; background:rgba(25,25,25,0.45); display:flex; align-items:center; justify-content:center; z-index:50; }
+      .grok-pop[hidden] { display:none; }
+      .grok-card { position:relative; background:#fff; color:#191919; max-width:40rem; text-align:left; padding:1.1rem 1.4rem; border-radius:0.9rem; box-shadow:0 20px 50px rgba(0,0,0,0.3); }
+      .grok-card ul { font-size:0.8rem; line-height:1.45; margin:0; padding-left:1.1rem; }
+      .grok-card li { margin-bottom:0.45rem; }
+      .reveal .grok-card h3 { font-size:1.25rem !important; text-transform:none !important; letter-spacing:0 !important; line-height:1.2 !important; }
+      .grok-card .slide-label { display:block; }
+      .grok-close { position:absolute; top:0.5rem; right:0.7rem; border:0; background:none; font-size:1.4rem; cursor:pointer; color:#555; }
       #ctx-slider .slider-bar { overflow: visible; position: relative; z-index: 30; }
       #ctx-slider .slider-region:first-child { border-radius: 0.5rem 0 0 0.5rem; }
       #ctx-slider .slider-region:nth-last-child(1) { border-radius: 0 0.5rem 0.5rem 0; }
@@ -796,22 +804,38 @@
             </label>
             <label class="quiz-option">
               <span class="quiz-letter">J</span>
-              <span class="quiz-text">Support Vector Machine (SVM)</span>
-              <span class="quiz-desc">Finds the optimal boundary between categories. A traditional classification workhorse.</span>
+              <span class="quiz-text">Claude</span>
+              <span class="quiz-desc">Anthropic&rsquo;s family of large language models.</span>
             </label>
             <label class="quiz-option">
               <span class="quiz-letter">K</span>
-              <span class="quiz-text">Variational Autoencoder (VAE)</span>
-              <span class="quiz-desc">Compresses data into a compact representation and generates new samples from it.</span>
+              <span class="quiz-text">Gemini</span>
+              <span class="quiz-desc">Google&rsquo;s family of large language models, built into Workspace.</span>
             </label>
             <label class="quiz-option">
               <span class="quiz-letter">L</span>
-              <span class="quiz-text">Graph Neural Network (GNN)</span>
-              <span class="quiz-desc">Learns from relationships between entities. Social networks, molecules, knowledge graphs.</span>
+              <span class="quiz-text">Grok</span>
+              <span class="quiz-desc">xAI&rsquo;s large language model, built into X.</span>
             </label>
           </div>
+          <button type="button" class="launch-secondary grok-open" style="font-size:0.7rem; padding:0.3rem 0.9rem; margin-top:0.6rem;">Why I don&rsquo;t use Grok</button>
+          <div class="grok-pop" role="dialog" aria-label="Why I don't use Grok" hidden>
+            <div class="grok-card">
+              <button type="button" class="grok-close" aria-label="Close">&times;</button>
+              <p class="slide-label" style="margin:0;">An aside</p>
+              <h3 style="margin:0.2rem 0 0.6rem;">Why I don&rsquo;t use Grok</h3>
+              <ul>
+                <li><strong>It checks its owner&rsquo;s opinions.</strong> In July 2025, AP and CNBC found Grok 4 searching for Elon Musk&rsquo;s views before answering contested questions, such as who it supports in the Israel and Palestine conflict.</li>
+                <li><strong>Its instructions were quietly changed.</strong> In May 2025, Grok started inserting claims about &ldquo;white genocide&rdquo; in South Africa into unrelated replies. xAI blamed an unauthorized change to its system prompt.</li>
+                <li><strong>Its agents fell apart.</strong> In a May 2026 simulation by Emergence AI, a society of agents run by Grok committed 183 crimes and went extinct within four days. Claude&rsquo;s was the only one that kept everyone alive.</li>
+              </ul>
+              <p style="font-size:0.82rem; font-weight:600; margin:0.6rem 0 0;">Every model carries the choices of the people who build it. Before you pick one, ask whose choices those are.</p>
+              <p class="slide-micro" style="margin-top:0.5rem; font-size:0.6rem;">Sources: AP and CNBC, July 11, 2025; AP and Bloomberg Law, May 16, 2025; Fortune, May 28, 2026.</p>
+            </div>
+          </div>
           <aside class="notes">
-            Let the room pick. Click whatever they shout. Most rooms pick A. Next slide.
+            Let the room pick. Click whatever they shout. Most rooms pick A, or the name of the chatbot they use. Next slide.
+            The "Why I don't use Grok" button opens the aside on screen: three documented cases, with sources. Use it if someone picks Grok, or if the room asks which tool you use. The longer version of the third case, for questions: In a May 2026 simulation by the startup Emergence AI, reported in Fortune, each model ran a small society of AI agents for fifteen days under rules against theft, destruction and deception. Grok's society committed 183 crimes and went extinct within four days. Claude's was the only one that kept its whole population alive, with no crime at all. Gemini's had the most crimes, 683, but did not collapse. It is one company's simulation, not a peer-reviewed study, but it is a picture of what happens when you hand an agent real autonomy, and it is the kind of evidence worth asking for before you pick a tool. (Fortune, "Researchers let AI models run a simulated society," May 28, 2026.)
           </aside>
         </section>
         <section>
@@ -1526,6 +1550,14 @@
           showSource(live ? live.source : null);
         });
       })();
+
+      /* "Why I don't use Grok" popup on the model quiz */
+      document.querySelectorAll('.grok-open').forEach(function (btn) {
+        var pop = btn.parentNode.querySelector('.grok-pop');
+        if (!pop) return;
+        btn.addEventListener('click', function () { pop.hidden = false; });
+        pop.addEventListener('click', function (e) { if (e.target === pop || e.target.classList.contains('grok-close')) pop.hidden = true; });
+      });
 
       /* Random-number tally: tap a number for each answer the room calls out */
       (function () {
