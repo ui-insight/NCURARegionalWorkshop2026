@@ -141,7 +141,7 @@
                 <p class="preview-part-number">Block 2</p>
                 <h6 class="preview-part-title">What the model remembers, and what it reads</h6>
               </div>
-              <p class="preview-time">16 min</p>
+              <p class="preview-time">11 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F989;</p>
@@ -157,7 +157,7 @@
                 <p class="preview-part-number">Block 4</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">9 min</p>
+              <p class="preview-time">14 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
@@ -186,7 +186,7 @@
           </div>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and the live demos run from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:55, block 4 at 1:04, block 5 at 1:17, block 6 at 1:24, Vandalizer and the close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:29, block 3 at 0:50, block 4 at 1:04, block 5 at 1:17, block 6 at 1:24, Vandalizer and the close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 4 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -240,7 +240,7 @@
           </div>
           <aside class="notes">
             AI4RA has three objectives: open-source data models and workflows, trustworthy AI-powered tools, and assessing their impact at partner institutions.
-            Four interactive demos today. Remembering Thamus and Data Crawler Carl are live from the podium in block 2, and both are open to anyone afterward. Promptulus is yours to use, hands-on, in block 3. The Unified Data Model comes up in block 4 with a request for help.
+            Four interactive demos today. Remembering Thamus is live from the podium in block 2 and Data Crawler Carl in block 4, and both are open to anyone afterward. Promptulus is yours to use, hands-on, in block 3. The Unified Data Model comes up in block 4 with a request for help.
             Say the paste rule out loud now, before anyone has a browser open: paste only what you could post on a bulletin board. The full account of where data goes comes in block 3, on the slide where they open Promptulus.
           </aside>
         </section>
@@ -533,24 +533,6 @@
         </section>
 
         <section>
-          <p class="slide-kicker">Block 2 &middot; Live demo</p>
-          <h2>AI analyzes what you give it</h2>
-          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
-          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
-          <div class="launch-row" style="margin-top:1.6rem;">
-            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
-          </div>
-          <aside class="notes">
-            Live demo, and the sixth way after the five on the Thamus page: the record is a table, so the model writes the query and the database computes the answer. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
-            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
-            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
-            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
-            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
-            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
-                      Hand-off: two demos, one lesson. Hand the model the record and it can answer from it; hand it a record that is not ready and it answers confidently anyway. Next, the name for what we just watched.
-          </aside>
-        </section>
-        <section>
           <p class="slide-kicker">Block 2 &middot; Memory and the record</p>
           <h2>Two kinds of knowing: recalled and accessed</h2>
           <div class="slide-grid" style="align-items:stretch;">
@@ -582,7 +564,7 @@
             On bias: it is very hard to evaluate the biases that come with a model's training data, and the Grok aside later in the talk is one example of how they get in. That is another reason to prefer answers from accessed data over recalled memory: it reduces both hallucination and bias. How much it reduces bias is an open problem, so say that plainly.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
             On the new bullet: accessed is only as good as what you hand it. The version in someone's downloads folder may be two amendments old. Pull from the system of record.
-            Accessed is the fix, and the room just watched it twice, on the Thamus page and in Carl. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
+            Accessed is the fix, and the room just watched it on the Thamus page; Carl, in block 4, shows the same idea with a table. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
           </aside>
         </section>
 
@@ -873,7 +855,7 @@
               <span class="slide-label">Structured</span>
               <h3>Rows and columns</h3>
               <p style="font-size:0.8rem;">Every record has the same fields, and every field means the same thing. Your award system, the ERP, a well-kept spreadsheet.</p>
-              <p style="font-size:0.8rem; margin-top:0.4rem;">Easy to count, total and check exactly. A database does the math; a model can write the query, as Carl did.</p>
+              <p style="font-size:0.8rem; margin-top:0.4rem;">Easy to count, total and check exactly. A database does the math; a model can write the query, as Carl will show next.</p>
             </article>
             <article class="slide-card accent" style="text-align:left;">
               <span class="slide-label">Unstructured</span>
@@ -885,8 +867,27 @@
           <p class="slide-callout">Most of what a research office knows lives in documents. Most of what it reports needs tables. A lot of AI&rsquo;s practical value is moving information from one to the other.</p>
           <aside class="notes">
             A quick check-in now that the room has heard the data model is the most important model. Ask: which of your work lives in tables, and which in documents? Most hands go up for documents.
-            Structured data is rows and columns with a fixed meaning. It is what databases and reports run on, and arithmetic belongs there, done by the database, not the model. Carl showed the right split: the model wrote the query, the database did the math.
-            Unstructured data is the documents. That is where language models earn their keep, because they read sentences. The bridge to the next slide: most useful AI work in this office is getting facts out of documents and into a shape you can count and check.
+            Structured data is rows and columns with a fixed meaning. It is what databases and reports run on, and arithmetic belongs there, done by the database, not the model. Carl, next, shows the right split: the model writes the query, the database does the math.
+            Unstructured data is the documents. That is where language models earn their keep, because they read sentences. The bridge: first a table, with Carl, then documents. Most useful AI work in this office is getting facts out of documents and into a shape you can count and check.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Live demo</p>
+          <h2>AI analyzes what you give it</h2>
+          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
+          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
+          <div class="launch-row" style="margin-top:1.6rem;">
+            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
+          </div>
+          <aside class="notes">
+            Live demo of the structured side, straight off the last slide: the record is a table, so the model writes the query and the database computes the answer. It is also a sixth way to hand a model the record, after the five on the Thamus page. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
+            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
+            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
+            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
+            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
+            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
+            Hand-off: that was a table, and a table can be counted exactly once it is ready. Most of what an office knows is not in tables, it is in documents, and documents are where language models are strongest. Next, what AI does well with text.
           </aside>
         </section>
 
