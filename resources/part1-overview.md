@@ -88,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30, 26, 18, 27, 31 to 33, 28 and 29, 34 to 44, then 47; slides 45 and 46 are gone.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 33, 28 and 29, 34 to 44, then 47; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -128,11 +128,11 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 24. **Which is the most important one?** A quiz listing AI model types, plus Claude, Gemini and Grok, answered by raising a hand and calling out a pick. A small "An aside" button opens a popup, "All models are biased," with three documented cases about Grok.
 25. **Wrong!** The most important model is your data model. Carl, two slides later, makes the argument concrete: the same capable model gives a confidently wrong total because the table was not ready. A better model would not fix it; a required department field would.
 30. **What is a data model?** A small diagram of award, sponsor, person and department, and the four parts: things, details, connections, rules.
+31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code. The slide already shows the forum address; proposed change 7 points it at the UDM hashtag.
+32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
 26. **Structured and unstructured data.** Tables versus documents; most of an office's knowledge is in documents, most of its reporting needs tables.
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department. It sits right after the structured data slide because it is the structured case: the model writes the query, the database does the math, and the gap is in the table, not the arithmetic. It moved here from Block 2 on October 24, 2026.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
-31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code. The slide already shows the forum address; proposed change 7 points it at the UDM hashtag.
-32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted.
 
 ### Block 5. Accountability and guidance
