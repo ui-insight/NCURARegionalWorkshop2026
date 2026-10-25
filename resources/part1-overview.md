@@ -88,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 33, 26, 18, 27, 28, 29, 35, 34, 41 to 43, 36 to 40, 44, 47, then 48; slides 45 and 46 are gone.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 28, 29, 35, 33, 34, 41 to 43, 36 to 40, 44, 47, then 48; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -133,7 +133,6 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 30. **What is a data model?** A small diagram of award, sponsor, person and department, and the four parts: things, details, connections, rules.
 31. **Why research administration needs a common language.** Same data, different names in every system; a shared model means map once, reuse everywhere. The AI4RA Unified Data Model is a draft; help evaluate it, with a QR code. The slide already shows the forum address; proposed change 7 points it at the UDM hashtag.
 32. **Why the record needs one governed home.** Keep the raw sources, translate each source once, answer from the reconciled copy.
-33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted.
 26. **Structured and unstructured data.** Tables versus documents; most of an office's knowledge is in documents, most of its reporting needs tables.
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department. It sits right after the structured data slide because it is the structured case: the model writes the query, the database does the math, and the gap is in the table, not the arithmetic. It moved here from Block 2 on October 24, 2026.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
@@ -145,6 +144,7 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
 29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
 35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can lead; if either is yes, a person stays in the loop.
+33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted. It sits in Block 5 right after the continuum: that slide asks whether it matters how the work got done, and this one asks whether it matters where.
 34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
 41. **Three small starts you can try Monday.** Three prompts, each ending in a check:
     - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.

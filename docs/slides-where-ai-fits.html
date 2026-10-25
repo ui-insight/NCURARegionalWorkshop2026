@@ -158,7 +158,7 @@
                 <p class="preview-part-number">Block 4</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">14 min</p>
+              <p class="preview-time">12 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
@@ -166,7 +166,7 @@
                 <p class="preview-part-number">Block 5</p>
                 <h6 class="preview-part-title">Accountability and starting small</h6>
               </div>
-              <p class="preview-time">14 min</p>
+              <p class="preview-time">16 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F4CB;</p>
@@ -187,7 +187,7 @@
           </div>
           <aside class="notes">
             Seven blocks. One of them is you at a keyboard, and the live demos run from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:29, block 3 at 0:50, block 4 at 1:04, block 5 at 1:18, block 6 at 1:24, Vandalizer and the close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 4 runs long, Carl gets two prompts instead of three.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:29, block 3 at 0:50, block 4 at 1:02, block 5 at 1:18, block 6 at 1:24, Vandalizer and the close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 4 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
 
@@ -951,62 +951,7 @@
           <aside class="notes">
             Picture an awards table, like the one Carl will use later in this block. Keep it as it arrived, blanks and all, so you can always show what the source said. Map Department to the shared model's organization link, once, and let the mapping be proposed by a model and approved by a person. Then the rule runs: an award without an organization does not pass. The Vice President's question gets answered from the reconciled copy, or gets a flag that says the answer is incomplete and by how much.
             Do not name layers or products. The room needs the three verbs: keep, translate, answer. This runs at Idaho today against our award system, ticketing and Banner, on one server; say that only if asked.
-            Then the turn: all of this is about making the record right, and handing it to a model has a price. Everything you give it, it reads, and all of it travels to wherever the model runs. So the next question is where the model runs, and under whose agreement. The workshop key goes through the University of Idaho's own gateway, which logs every request; that log is what an audit trail is.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
-          <h2>Data sovereignty: where does the model run?</h2>
-          <div class="toggle-compare">
-            <div class="toggle-header">
-              <button class="toggle-btn active" data-panel="cloud">Cloud</button>
-              <button class="toggle-btn" data-panel="local">Local</button>
-              <button class="toggle-btn" data-panel="hybrid">Hybrid</button>
-            </div>
-            <div class="toggle-panel active" data-panel="cloud">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Vendor-hosted (Google, OpenAI, Anthropic, Microsoft Copilot)</p>
-              <ul>
-                <li>The largest, most capable models, with no hardware to buy or maintain</li>
-                <li>Pay per use, scales with the funding cycle</li>
-                <li>Your document leaves the building, and so does the computing. You do not see where it ran or what it cost in energy.</li>
-              </ul>
-              <div class="slide-callout">
-                <strong>Two tiers.</strong> Public text you could post on a bulletin board: a personal key on a free tier is fine, and that is all it is for. Anything from your institution's systems: the account your institution has vetted, never a personal login. Vendor business tiers carry no-training terms; the institution's agreement adds a named contact and an audit trail. FERPA, HIPAA, export-controlled and PII data may not leave under any agreement.
-              </div>
-            </div>
-            <div class="toggle-panel" data-panel="local">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Self-hosted (Llama, GPT-oss, Qwen, and others, through Ollama or vLLM)</p>
-              <ul>
-                <li>Data never leaves your house. FERPA, HIPAA, PII, and export-controlled material stay where policy says they stay.</li>
-                <li>You know exactly where the computing is done, by whom, and on what hardware.</li>
-                <li>You know how much energy you are using. A desktop-class server runs a day of extraction for a few kilowatt-hours; cloud inference is bundled and invisible.</li>
-                <li>Fixed cost, up front. Vandalizer and MindRouter run this way at Idaho.</li>
-              </ul>
-              <div class="slide-callout">
-                <strong>The trade:</strong> you own the security, the hardware, and the updates. Smaller models than the cloud frontier, though the gap closes every year.
-              </div>
-            </div>
-            <div class="toggle-panel" data-panel="hybrid">
-              <p style="font-weight:600; margin:0 0 0.4rem;">Cloud for general work, local for anything restricted</p>
-              <ul>
-                <li>Enterprise cloud for drafting, summarizing public documents, and high throughput</li>
-                <li>A local server for award files, personnel data, and anything with a regulation attached</li>
-                <li>Where most institutions land, whether they planned to or not</li>
-              </ul>
-              <div class="slide-callout" style="border-left-color:#f1b300;">
-                <strong>The hard part is governance:</strong> which models are approved for which data, written down, and someone whose job it is to enforce it.
-              </div>
-            </div>
-          </div>
-          <p class="slide-note">Three questions for any AI tool: where is the computing done, what leaves the building, and what agreement covers it when it does.</p>
-          <aside class="notes">
-            Brief, but do not skip it. Sovereignty means you decide where your data goes and who can compute on it. Every AI tool answers that question somewhere in its terms of service, and most people never read the answer.
-            Cloud: the best models, and the least visibility. Say the two tiers plainly. A free personal key is for public text, the kind the bulletin-board rule allows, and the Monday Promptulus practice uses exactly that; a free tier's terms can include training on your inputs, which is why nothing from your systems goes through it. For anything exported from your systems, the account your institution has vetted. Most universities already hold a Microsoft or Google agreement that covers Copilot or Gemini even if nobody in the research office knows; the CIO's office can say in one email. And some data cannot go out under any agreement; know which of your documents those are.
-            Local: the benefits are concrete. You know where the computing happened. The data never left. And you can read the energy use off the wall: a desktop-class server does a day of extraction on a few kilowatt-hours, where cloud inference is bundled into a bill you cannot itemize. The cost is that you run it.
-            Hybrid is where everyone ends up. The work is not the hardware, it is the policy that says which model touches which data. If your institution does not have that policy yet, this is a good week to ask who is writing it.
-            The tools we built are provider-agnostic on purpose. Vandalizer will talk to an enterprise cloud model or a local one on the same workflow, so the sovereignty decision and the tool decision stay separate.
-                      Hand-off: so what is the record you are handing over? Mostly it is one of two things, tables or documents.
+            Then the turn: so what is the record you are handing over? Mostly it is one of two things, tables or documents.
           </aside>
         </section>
 
@@ -1168,7 +1113,63 @@
           <aside class="notes">
             Sequita's question, drawn as a continuum. On the left, process-critical work: the method is the product. A compliance determination is not a compliance determination if nobody can explain how it was reached. On the right, output-driven work: nobody cares how the first draft of a boilerplate paragraph got written as long as the final one is right.
             Most of research administration is in the middle. That is where the design question lives: what does the human see, and when?
-            Then: the continuum sorts kinds of work. The next slide is four questions for one task at a time.
+            Then: the same question about place. Does it matter where the work got done?
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 5 &middot; Where the work gets done</p>
+          <h2>Data sovereignty: where does the model run?</h2>
+          <div class="toggle-compare">
+            <div class="toggle-header">
+              <button class="toggle-btn active" data-panel="cloud">Cloud</button>
+              <button class="toggle-btn" data-panel="local">Local</button>
+              <button class="toggle-btn" data-panel="hybrid">Hybrid</button>
+            </div>
+            <div class="toggle-panel active" data-panel="cloud">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Vendor-hosted (Google, OpenAI, Anthropic, Microsoft Copilot)</p>
+              <ul>
+                <li>The largest, most capable models, with no hardware to buy or maintain</li>
+                <li>Pay per use, scales with the funding cycle</li>
+                <li>Your document leaves the building, and so does the computing. You do not see where it ran or what it cost in energy.</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>Two tiers.</strong> Public text you could post on a bulletin board: a personal key on a free tier is fine, and that is all it is for. Anything from your institution's systems: the account your institution has vetted, never a personal login. Vendor business tiers carry no-training terms; the institution's agreement adds a named contact and an audit trail. FERPA, HIPAA, export-controlled and PII data may not leave under any agreement.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="local">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Self-hosted (Llama, GPT-oss, Qwen, and others, through Ollama or vLLM)</p>
+              <ul>
+                <li>Data never leaves your house. FERPA, HIPAA, PII, and export-controlled material stay where policy says they stay.</li>
+                <li>You know exactly where the computing is done, by whom, and on what hardware.</li>
+                <li>You know how much energy you are using. A desktop-class server runs a day of extraction for a few kilowatt-hours; cloud inference is bundled and invisible.</li>
+                <li>Fixed cost, up front. Vandalizer and MindRouter run this way at Idaho.</li>
+              </ul>
+              <div class="slide-callout">
+                <strong>The trade:</strong> you own the security, the hardware, and the updates. Smaller models than the cloud frontier, though the gap closes every year.
+              </div>
+            </div>
+            <div class="toggle-panel" data-panel="hybrid">
+              <p style="font-weight:600; margin:0 0 0.4rem;">Cloud for general work, local for anything restricted</p>
+              <ul>
+                <li>Enterprise cloud for drafting, summarizing public documents, and high throughput</li>
+                <li>A local server for award files, personnel data, and anything with a regulation attached</li>
+                <li>Where most institutions land, whether they planned to or not</li>
+              </ul>
+              <div class="slide-callout" style="border-left-color:#f1b300;">
+                <strong>The hard part is governance:</strong> which models are approved for which data, written down, and someone whose job it is to enforce it.
+              </div>
+            </div>
+          </div>
+          <p class="slide-note">Three questions for any AI tool: where is the computing done, what leaves the building, and what agreement covers it when it does.</p>
+          <aside class="notes">
+            Lead in from the continuum: that slide asked whether it matters how the work got done; this one asks whether it matters where. Local or cloud is the same kind of question. The workshop key goes through the University of Idaho's own gateway, which logs every request; that log is what an audit trail is.
+            Brief, but do not skip it. Sovereignty means you decide where your data goes and who can compute on it. Every AI tool answers that question somewhere in its terms of service, and most people never read the answer.
+            Cloud: the best models, and the least visibility. Say the two tiers plainly. A free personal key is for public text, the kind the bulletin-board rule allows, and the Monday Promptulus practice uses exactly that; a free tier's terms can include training on your inputs, which is why nothing from your systems goes through it. For anything exported from your systems, the account your institution has vetted. Most universities already hold a Microsoft or Google agreement that covers Copilot or Gemini even if nobody in the research office knows; the CIO's office can say in one email. And some data cannot go out under any agreement; know which of your documents those are.
+            Local: the benefits are concrete. You know where the computing happened. The data never left. And you can read the energy use off the wall: a desktop-class server does a day of extraction on a few kilowatt-hours, where cloud inference is bundled into a bill you cannot itemize. The cost is that you run it.
+            Hybrid is where everyone ends up. The work is not the hardware, it is the policy that says which model touches which data. If your institution does not have that policy yet, this is a good week to ask who is writing it.
+            The tools we built are provider-agnostic on purpose. Vandalizer will talk to an enterprise cloud model or a local one on the same workflow, so the sovereignty decision and the tool decision stay separate.
+            Hand-off: where it runs is one of the questions to ask before handing over a task. Here are all four.
           </aside>
         </section>
 
