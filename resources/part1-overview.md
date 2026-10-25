@@ -29,7 +29,7 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 ## Format
 
-Seven blocks after three short opening slides: how language models work; memory and the record; context, with hands-on Promptulus; the data underneath; accountability and starting small; guidance; and Vandalizer; then a close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl).
+Seven blocks after three short opening slides: how language models work; memory and the record; context, with hands-on Promptulus; the data underneath; should AI do this task; what do the rules say; and where do I start, ending on Vandalizer; then a close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl).
 
 ## Changes this plan proposes to the current deck
 
@@ -62,7 +62,7 @@ The talk asks the room to judge AI4RA's tools by the checks it teaches, so it ow
 ## Before the session, and if something fails
 
 - **Tell people in advance.** Ask the NCURA program contacts to send registrants one line before the meeting: bring a laptop and one real task from your work that you could post publicly, such as a solicitation or a routine email. Repeat it on the title slide.
-- **A one-page handout,** printed and on the companion site: the four questions, the two test questions, the bulletin-board and two-tier rules, and the three Monday prompts. It carries the talk if a demo fails or someone cannot see the screen.
+- **A one-page handout,** printed and on the companion site: the five questions, the two test questions, the bulletin-board and two-tier rules, and the three Monday prompts. It carries the talk if a demo fails or someone cannot see the screen.
 - **Re-run the demos the morning of the talk.** The numbers quoted here come from rehearsal; if the room's results differ, use the room's.
 
 - **Keys.** The workshop key reaches attendees through a QR code on the companion site's home page. It arrives on the link's address, is kept only in that browser tab, and is removed from the address bar; every Promptulus, Thamus and Carl link in the deck carries it onward. An attendee who closes the tab rescans the code. The Vandalizer slide needs no workshop key; it points to Vandalizer's own sign-up. Test the QR from a phone on the venue network.
@@ -88,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 28, 29, 35, 33, 34, 41 to 43, 36 to 40, 44, 47, then 48; slides 45 and 46 are gone.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 28, 29, 35, 33, 34, 36 to 40, 41 to 44, 47, then 48; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -137,26 +137,17 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department. It sits right after the structured data slide because it is the structured case: the model writes the query, the database does the math, and the gap is in the table, not the arithmetic. It moved here from Block 2 on October 24, 2026.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
 
-### Block 5. Accountability and starting small
+### Block 5. Should AI do this task?
 
-*The error modes and the IBM slide open this block, then the continuum sorts the work, the four questions decide one task, and the start-small slides apply them. Reordered October 24, 2026.*
+*Blocks 5 to 7 are split by the question each one answers, so each block answers what the last one raised. Reorganized October 24, 2026.*
 
 28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
 29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
 35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can lead; if either is yes, a person stays in the loop.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted. It sits in Block 5 right after the continuum: that slide asks whether it matters how the work got done, and this one asks whether it matters where.
-34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
-41. **Three small starts you can try Monday.** Three prompts, each ending in a check:
-    - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.
-    - "List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one." Confirm each quote before it goes in the file.
-    - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
-    None asks the model to do math. Each passes the four questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
-42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
-43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the rung you can reach this month.
+34. **Five questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow? Is it allowed by your sponsor's rules and your institution's guidance? The fifth is last so it hands off to Block 6, and a no on it overrides the other four.
 
-### Block 6. Guidance
-
-*Sponsor rules first, because they bind before an institution's own policy, then the institution's guidance from the gap to a one-page start.*
+### Block 6. What do the rules say?
 
 36. **Check the sponsor before you check the tool.** NSF, NIH (including its notice that reviewers may not use generative AI on applications, NOT-OD-23-149), and going up to a parent agency when a sponsor has no policy, with links. The slide already asks people to share updates on the forum; proposed change 7 points that at the guidance hashtag.
 37. **Your AI guidance is probably out of date.** Dashiell's review of twenty institutions' policies against a 61-item checklist, to be published soon as a blog post on ai4ra.uidaho.edu; the slide credits Dashiell and points there, without naming the institutions reviewed: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
@@ -164,8 +155,15 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
 40. **Start with a one-page policy.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. New in this plan: a link to the forum's guidance hashtag, where attendees post and find sponsor rules and guidance (proposed change 7).
 
-### Block 7. Vandalizer
+### Block 7. Where do I start?
 
+41. **Three small starts you can try Monday.** Three prompts, each ending in a check:
+    - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.
+    - "List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one." Confirm each quote before it goes in the file.
+    - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
+    None asks the model to do math. Each passes the five questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
+42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
+43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the rung you can reach this month.
 44. **Vandalizer: try it yourself.** What it is in one line, a link and QR code to join the demo instance, and the three steps to start the Vandal Workflow Architect certification: request a free two-week trial, sign in, and click Get Certified at the bottom of the left sidebar.
 
 ### Close
