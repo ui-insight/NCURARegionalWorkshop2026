@@ -120,7 +120,7 @@
             Welcome. I'm Nathan Layman, a data scientist at the University of Idaho. I work on the AI4RA project, an NSF GRANTED award, building open-source tools for research administration offices.
             The next ninety minutes are about what these tools actually do, where they fit in your work, and what has to be true about your data before they are worth trusting.
             After the break, Bert Baumgaertner takes the part the tools cannot do for you: thinking well with AI.
-            Logistics: laptops out. Two hands-on blocks today. The companion site has every link; the address is on the Sessions page.
+            Logistics: laptops out. One hands-on block today, Promptulus, in block 3. The companion site has every link; the address is on the Sessions page.
           </aside>
         </section>
         <section>
@@ -149,7 +149,7 @@
                 <p class="preview-part-number">Block 3</p>
                 <h6 class="preview-part-title">Context: hands-on with Promptulus</h6>
               </div>
-              <p class="preview-time">17 min</p>
+              <p class="preview-time">21 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F5C3;&#xFE0F;</p>
@@ -157,15 +157,15 @@
                 <p class="preview-part-number">Block 4</p>
                 <h6 class="preview-part-title">The data underneath</h6>
               </div>
-              <p class="preview-time">13 min</p>
+              <p class="preview-time">9 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 5</p>
-                <h6 class="preview-part-title">Accountability</h6>
+                <h6 class="preview-part-title">Accountability and guidance</h6>
               </div>
-              <p class="preview-time">9 min</p>
+              <p class="preview-time">13 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F331;</p>
@@ -179,14 +179,14 @@
               <p class="preview-icon" aria-hidden="true">&#x1F4C4;</p>
               <div class="preview-content">
                 <p class="preview-part-number">Block 7</p>
-                <h6 class="preview-part-title">Vandalizer</h6>
+                <h6 class="preview-part-title">Vandalizer, then the close</h6>
               </div>
-              <p class="preview-time">10 min</p>
+              <p class="preview-time">6 min</p>
             </article>
           </div>
           <aside class="notes">
-            Seven blocks. One of them is you at a keyboard, and three are live demos from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
-            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:51, block 4 at 1:04, block 5 at 1:13, block 6 at 1:20, block 7 at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
+            Seven blocks. One of them is you at a keyboard, and the live demos run from the podium. The thread through all seven: augment, not replace. The value of any AI tool is bounded by the data underneath it and by the nature of the work, and the work is yours.
+            Clock targets: opening ends at 0:03, block 1 at 0:18, block 2 at 0:34, block 3 at 0:55, block 4 at 1:04, block 5 at 1:17, block 6 at 1:24, Vandalizer and the close at 1:30. If block 1 runs long, the random-number tally becomes a show of hands. If block 2 runs long, Carl gets two prompts instead of three.
           </aside>
         </section>
         <section>
@@ -233,15 +233,15 @@
               <img class="community-card-icon-image" src="img/logos/carl-mongo.png" alt="Data Crawler Carl" style="width:9rem;" />
             </a>
             <a class="slide-card community-card" href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener">
-              <h3>Universal Data Model</h3>
+              <h3>Unified Data Model</h3>
               <p>One shared schema for research administration data. Map your systems to it once and any tool built on it runs at your institution.</p>
               <img class="community-card-icon-image" src="img/logos/ai4ra-logo-dark.png" alt="AI4RA" style="width:10.5rem; margin:-1.5rem 0;" />
             </a>
           </div>
           <aside class="notes">
             AI4RA has three objectives: open-source data models and workflows, trustworthy AI-powered tools, and assessing their impact at partner institutions.
-            Four interactive demos today. Promptulus is yours to use, hands-on, in block 2. Remembering Thamus and Data Crawler Carl are live from the podium in block 3, and both are open to anyone afterward. The Universal Data Model comes up in block 4 with a request for help.
-            Say the paste rule out loud now, before anyone has a browser open: paste only what you could post on a bulletin board. The full account of where data goes comes in block 4, after they have handed a model something and felt the question.
+            Four interactive demos today. Remembering Thamus and Data Crawler Carl are live from the podium in block 2, and both are open to anyone afterward. Promptulus is yours to use, hands-on, in block 3. The Unified Data Model comes up in block 4 with a request for help.
+            Say the paste rule out loud now, before anyone has a browser open: paste only what you could post on a bulletin board. The full account of where data goes comes in block 3, on the slide where they open Promptulus.
           </aside>
         </section>
 
@@ -343,17 +343,17 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Pick a random number between 1 and 10</h2>
-          <p style="font-size:0.85rem; margin-bottom:0.4rem;">Open a <strong>brand-new chat every time</strong>, in any AI tool, and ask exactly that. Call out what you got.</p>
+          <p style="font-size:0.85rem; margin-bottom:0.4rem;">Open a <strong>brand-new chat every time</strong>, in any AI tool, and ask exactly that. Raise your hand, and call out your number when I point to you.</p>
           <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.4rem;">Ask twice in the same chat and the second answer is just the most random-sounding number, given the first.</p>
           <div class="tally" id="tally">
             <div class="tally-bars" id="tally-bars"></div>
             <div class="tally-buttons" id="tally-buttons"></div>
             <p class="tally-foot"><span id="tally-total">0 answers</span> &middot; <button type="button" class="tally-reset" id="tally-reset">Reset</button></p>
           </div>
-          <p class="slide-note">Tap a number for each answer the room calls out. Watch where they pile up.</p>
+          <p class="slide-note">Tap a number for each answer called out. Watch where they pile up.</p>
           <p class="fragment" style="font-size:1.15rem; font-weight:700; max-width:42rem; margin:0.8rem auto 0;">Did it truly pick a random number, or did it just give you a number that sounds random?</p>
           <aside class="notes">
-            Two minutes. Everyone opens a fresh chat, any tool, and asks for a random number between 1 and 10. As they shout answers, tap the buttons. You will almost certainly get a tall bar on 7, and a few on 3. If someone has a tool that returns a spread, ask whether it ran code; some do now.
+            Two minutes. Everyone opens a fresh chat, any tool, and asks for a random number between 1 and 10. Ask for hands, point to people one at a time, and tap each number they call out. You will almost certainly get a tall bar on 7, and a few on 3. If someone has a tool that returns a spread, ask whether it ran code; some do now.
             If the room is small or shy, run it yourself on the screen in three different tools. Same result.
             Variation if there is time: ask for a number between 1 and 100. Expect 37, 42, and 73.
             Do not explain yet. Let the bar chart sit there for a beat, then click for the question: did it truly pick a random number, or did it just give you a number that sounds random? Take an answer or two, then advance to the chart that answers it.
@@ -528,7 +528,7 @@
             Pick the de minimis question. Poll the room first and type their answer into the box; it stays beside every lifeline. Then step through the ways with Next: memory says 10 percent in a confident voice; pasted context is only as good as the paste, and the page can fill the 2023 text to show that; web search finds a blog post as happily as the rule; the vector database lands near the right paragraph, and sometimes on the wrong one, and is only as current as the day its index was built; the regulation read over MCP gives 15 percent with 2 CFR 200.414(f) and the date. Confidence is identical all the way down. Confidence is not evidence.
             Vocabulary while it is on screen: when a vendor says RAG, they mean the vector database way. When they say agent, tools or MCP, they mean the model can call out to a source, which is how the regulation got read.
             The rule to say out loud: an index is fine for finding and summarizing your own documents. Anything you will cite, and anything that changes on a schedule, wants the record read live. Then the page's closing question: whichever lifeline you used, you are the one who says final answer. What did you have to already know to catch the memory answer?
-            If the network fails, describe the five answers from the speaker notes above; the page itself is the demo.
+            If the network fails, describe the five answers instead: memory says 10 percent, confidently; the regulation read live says 15 percent of modified total direct costs, citing 2 CFR 200.414(f), in force since October 1, 2024.
           </aside>
         </section>
 
@@ -570,6 +570,7 @@
               <ul style="font-size:0.76rem;">
                 <li>A document in the window. A regulation fetched by section number. A query against your awards. An API response.</li>
                 <li>Current as of the source, and citable: it can point to where it looked.</li>
+                <li>Hand it the current record, from the system of record, not a copy from someone&rsquo;s downloads.</li>
                 <li>Wrong only if the source is wrong, or the lookup missed. Both are checkable.</li>
                 <li>Less room for the biases baked into training data, which are very hard to evaluate. How much less is still an open question.</li>
               </ul>
@@ -580,6 +581,7 @@
             Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
             On bias: it is very hard to evaluate the biases that come with a model's training data, and the Grok aside later in the talk is one example of how they get in. That is another reason to prefer answers from accessed data over recalled memory: it reduces both hallucination and bias. How much it reduces bias is an open problem, so say that plainly.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
+            On the new bullet: accessed is only as good as what you hand it. The version in someone's downloads folder may be two amendments old. Pull from the system of record.
             Accessed is the fix, and the room just watched it twice, on the Thamus page and in Carl. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
           </aside>
         </section>
@@ -689,7 +691,7 @@
         <section>
           <p class="slide-kicker">Block 3 &middot; Hands-on with Promptulus</p>
           <h2>Bring a task from your desk</h2>
-          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Eight minutes. Work alone, then compare with a neighbor.</p>
+          <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.3rem;">Pick something real you would hand to an AI this week. Twelve minutes. Work alone, then compare with a neighbor. No task you can share? Use the <a href="https://ui-insight.github.io/REACHWorkshop2026/files/NCOD_Grant_NOFO_2026.pdf" target="_blank" rel="noopener" style="color:#9a7300;">sample funding notice</a>.</p>
           <div class="sample-challenge-block" style="max-width:50rem; margin:0 auto;">
             <h6>Challenges</h6>
             <div class="challenge-checklist" role="list" aria-label="Promptulus exercise challenges">
@@ -718,13 +720,15 @@
           <div class="launch-row">
             <a class="launch-primary" href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener">Open Promptulus &rarr;</a>
           </div>
-          <p class="slide-note">If you opened this site from the workshop QR code, the key is already loaded and this link carries it. It lives only in your browser tab and is sent only to the University of Idaho's MindRouter.</p>
+          <p class="slide-note"><strong>Paste only what you could post on a public bulletin board.</strong> Your text goes to the University of Idaho&rsquo;s own models, not a commercial AI company, and prompts and answers are not kept. The workshop key works for two weeks after today. If you opened this site from the workshop QR code, the key is already loaded and this link carries it.</p>
           <aside class="notes">
-            Setup: participants scan the QR code (home page: Enable interactive activities, then Expand for audience). The short link behind it redirects to this site with the MindRouter key on the address; the site stores it in the tab and strips it from the URL. Every Promptulus link in this deck (slides 3, 10, and 11) appends it at click time. Promptulus fills its key box on load, and a key starting with mr2_ routes to the University's models with nothing else to set.
-            Stragglers who typed the address by hand have no key: put the QR back up, or let them paste the key in the home page modal. Rotate the key on MindRouter after the conference.
-            Walk the room. The common failure is a vague prompt ("summarize this") with no success criteria. Promptulus will name it.
+            Setup: participants scan the QR code (home page: Enable interactive activities, then Expand for audience). The short link behind it redirects to this site with the MindRouter key on the address; the site stores it in the tab and strips it from the URL. Every Promptulus, Thamus and Carl link in this deck appends it at click time. Promptulus fills its key box on load, and a key starting with mr2_ routes to the University's models with nothing else to set.
+            Stragglers who typed the address by hand have no key: put the QR back up, or let them paste the key in the home page modal. The key stays live for two weeks after the session, then rotate it on MindRouter; pull it sooner if anyone starts burning through millions of tokens.
+            Say the bulletin-board rule out loud before anyone types, and the facts on the slide: University of Idaho models, nothing kept, key good for two weeks. The rule holds anyway, because the habit has to work in tools that do keep prompts.
+            You are presenting alone, so set up the room to fix itself. Once laptops are open, ask everyone who is in Promptulus to raise a hand; anyone who is not in joins the nearest raised hand. Troubleshoot the key once, from the podium, not table by table. Anyone without a safe task uses the sample funding notice linked on the slide; it is fictional.
+            The common failure is a vague prompt ("summarize this") with no success criteria. Promptulus will name it.
             Good tasks: draft a budget justification paragraph, summarize terms of an award, explain an F&amp;A rate to a PI, turn a solicitation into a checklist. Bad task for today: anything with real restricted data. Synthetic is fine.
-            At six minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
+            At nine minutes, ask pairs to swap: read your neighbor's revised prompt and say whether you could run it.
           </aside>
         </section>
         <section>
@@ -838,7 +842,7 @@
             </div>
           </div>
           <aside class="notes">
-            Let the room pick. Click whatever they shout. Most rooms pick A, or the name of the chatbot they use. Next slide.
+            Let the room pick: hands up, then call on a few people to say their pick, and click it. Most rooms pick A, or the name of the chatbot they use. Next slide.
             The small "An aside" button under the grid opens the aside on screen: three documented cases, with sources. Use it if someone picks Grok, or if the room asks which tool you use. The longer version of the third case, for questions: In a May 2026 simulation by the startup Emergence AI, reported in Fortune, each model ran a small society of AI agents for fifteen days under rules against theft, destruction and deception. Grok's society committed 183 crimes and went extinct within four days. Claude's was the only one that kept its whole population alive, with no crime at all. Gemini's had the most crimes, 683, but did not collapse. It is one company's simulation, not a peer-reviewed study, but it is a picture of what happens when you hand an agent real autonomy, and it is the kind of evidence worth asking for before you pick a tool. (Fortune, "Researchers let AI models run a simulated society," May 28, 2026.)
           </aside>
         </section>
@@ -930,63 +934,6 @@
         </section>
 
         <section>
-          <p class="slide-kicker">Block 4 &middot; How AI gets it wrong</p>
-          <h2>Four ways an answer goes wrong</h2>
-          <p style="font-size:0.85rem; max-width:48rem; margin:0.2rem auto 0.6rem; line-height:1.45;">&ldquo;Hallucination&rdquo; is a misleading name. Psychology has a better one: <strong>confabulation</strong>, a reconstructive memory error, where the mind fills a gap with something plausible and believes it. People do it too.</p>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(4, 1fr);">
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Missed it</span>
-              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false negative</p>
-              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something in the source never made it into the answer.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A prior-approval requirement left off the award setup.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Made it up</span>
-              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false positive</p>
-              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something appears that the source never said.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A subaward, or a citation, that does not exist.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Changed a detail</span>
-              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A distortion</p>
-              <p style="font-size:0.76rem; margin:0 0 0.3rem;">The right item, with one piece quietly altered.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>15 percent becomes 10; an end date slips a year; &ldquo;may&rdquo; becomes &ldquo;must.&rdquo;</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Put it in the wrong place</span>
-              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A misattribution</p>
-              <p style="font-size:0.76rem; margin:0 0 0.3rem;">A real fact, attached to the wrong field, person or source.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The co-PI listed as the PI; a clause quoted from the wrong section.</em></p>
-            </article>
-          </div>
-          <p class="slide-callout">The risk is that people tend to trust a model more than a person. Don&rsquo;t. Verify work done by others, human or not, and ask everyone to show their sources, particularly in research administration.</p>
-          <aside class="notes">
-            Start with the word. "Hallucination" suggests the model is seeing things. What it actually does is closer to what psychologists call confabulation: a reconstructive memory error. People do it too. Ask someone to recall a meeting and they will fill the gaps with what probably happened, and believe it. A model is built to do exactly that, all the time, which is why it does it so smoothly.
-            Then the four modes, in the language this room already uses for checking work. Missed it is a false negative: the requirement was in the notice and never made the checklist. Made it up is a false positive: the subaward that does not exist. Changed a detail is the most dangerous for compliance, because the item looks right and only one number or word moved; the de minimis rate from block 2 is this one. Put it in the wrong place is real information in the wrong slot.
-            The callout is the habit: the same rule you would apply to a new colleague's work applies to a model's, and the model is not owed more trust than the colleague. Then each mode has a matching check. A checklist of what must be present catches misses. Asking for the quote catches inventions. A side-by-side with the source catches changed details. Reading field by field catches misplacement. Vandalizer, at the end, builds those checks in.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 4 &middot; How AI gets it wrong</p>
-          <div class="slide-split img-wide" style="align-items:center; margin-top:0.5rem;">
-            <div class="split-img">
-              <img src="img/ibm-1979-accountability.jpeg" alt="A page from a 1979 IBM training manual: A computer can never be held accountable, therefore a computer must never make a management decision" style="max-height:420px; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,0.18);" />
-            </div>
-            <div class="split-text">
-              <p class="slide-quote" style="margin-top:0; font-size:1.25rem;">A computer can never be held accountable. Therefore a computer must never make a management decision.</p>
-              <p style="font-size:0.8rem; color:var(--muted); margin-top:0.6rem;">IBM training manual, 1979.</p>
-              <p style="font-size:0.85rem; margin-top:0.8rem;">The difference between a human collaborator and a machine is that a machine cannot be held accountable.</p>
-              <p style="font-size:1rem; font-weight:800; margin-top:0.5rem;">You are the authority.</p>
-            </div>
-          </div>
-          <aside class="notes">
-            Lead in from the last slide: verify everyone's work, and the reason it matters most with a machine is on this page. Let the room read it. Then ask: what is a management decision in research administration? Allowability. A compliance determination. Effort certification. A conflict-of-interest finding. The call on whether a late proposal goes out the door. Each one has a name attached to it, and that name is not the vendor's.
-            The crowd can draft the memo. It can find the clause. It can list the precedents. It cannot be the one who signs, because when the auditor comes, "the model decided" is not an answer anyone will accept, and it should not be.
-            This is the hard edge of augment, not replace. The deciding stays with a person not because the model is bad at it, but because accountability cannot be delegated to something that cannot be held to account.
-          </aside>
-        </section>
-        <section>
           <p class="slide-kicker">Block 4 &middot; The data underneath</p>
           <h2>What is a data model?</h2>
           <div class="slide-grid" style="grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); align-items:center; gap:1.4rem; margin-top:0.6rem;">
@@ -1037,15 +984,15 @@
             <img src="img/udm_QR_code.png" alt="QR code for the AI4RA Unified Data Model site" style="width:5.2rem; height:5.2rem; flex:none; border-radius:0.5rem;" />
             <div>
               <p style="margin:0; font-size:0.86rem; font-weight:700;">The AI4RA Unified Data Model is a draft of that language. Help us evaluate it.</p>
-              <p style="margin:0.2rem 0 0; font-size:0.76rem; color:#555;">Forty tables, written by a small team at one institution. Read it against your own world and tell us where it gets your reality wrong, what your office tracks that is missing, and what you call differently. Feedback goes to the AI4RA community list.</p>
-              <p class="slide-micro" style="margin-top:0.25rem;"><a href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener" style="color:var(--gold);">ui-insight.github.io/AI4RA-UDM</a> &middot; <a href="https://groups.ai4ra.uidaho.edu/g/main/join" target="_blank" rel="noopener" style="color:var(--gold);">groups.ai4ra.uidaho.edu</a></p>
+              <p style="margin:0.2rem 0 0; font-size:0.76rem; color:#555;">Forty tables, written by a small team at one institution. Read it against your own world and tell us where it gets your reality wrong, what your office tracks that is missing, and what you call differently. Post feedback on the AI4RA forum under <strong>#UDM</strong>.</p>
+              <p class="slide-micro" style="margin-top:0.25rem;"><a href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener" style="color:var(--gold);">ui-insight.github.io/AI4RA-UDM</a> &middot; <a href="https://groups.ai4ra.uidaho.edu/g/main/search?q=%23UDM&amp;ct=1" target="_blank" rel="noopener" style="color:var(--gold);">groups.ai4ra.uidaho.edu #UDM</a></p>
             </div>
           </div>
           <aside class="notes">
             The point is on the left: every office holds the same things, and every system names them differently, so nothing built at one institution runs at the next. An example the room will recognize: an effort certification report rebuilt three times for three ERPs. Do not name any institution; let the room supply their own.
             A data model is a shared agreement about what things exist and what they are called, before any database is chosen. The UDM is a specification, not a database: you implement it in whatever you already run and map your local data to it once. The test for what belongs in it is simple. Is this something a research administrator would describe as "our data"? If yes, it belongs. Workflow engines and application internals do not.
             Then the ask, and be honest about it. The UDM is version three, released last week, written by a small team at one institution. It is only universal if other institutions can map to it, and nobody in this room has to adopt anything to help. We need readers. Does it describe an award, a sponsor, a person the way you would? What does your office track that is not there? What do you call something that it names differently? And the real ask: would you give us thirty minutes to walk through it against one of your systems?
-            Scan the code for the site. The feedback conversation lives on the AI4RA groups.io list; the link is on the slide and on the site. Do not read the forty tables. If someone asks what is in it: proposals, awards, finance, effort, compliance, people, organizations, and the submission trail.
+            Scan the code for the site. The feedback conversation lives on the AI4RA groups.io list under the #UDM hashtag; the link is on the slide and on the site. Do not read the forty tables. If someone asks what is in it: proposals, awards, finance, effort, compliance, people, organizations, and the submission trail.
           </aside>
         </section>
         <section>
@@ -1129,8 +1076,65 @@
         </section>
 
         <!-- ═══════════════════════════════════════════
-             Block 5: Accountability
+             Block 5: Accountability and guidance
              ═══════════════════════════════════════════ -->
+        <section>
+          <p class="slide-kicker">Block 5 &middot; How AI gets it wrong</p>
+          <h2>Four ways an answer goes wrong</h2>
+          <p style="font-size:0.85rem; max-width:48rem; margin:0.2rem auto 0.6rem; line-height:1.45;">&ldquo;Hallucination&rdquo; is a misleading name. Psychology has a better one: <strong>confabulation</strong>, a reconstructive memory error, where the mind fills a gap with something plausible and believes it. People do it too.</p>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(4, 1fr);">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Missed it</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false negative</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something in the source never made it into the answer.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A prior-approval requirement left off the award setup.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Made it up</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A false positive</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">Something appears that the source never said.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A subaward, or a citation, that does not exist.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Changed a detail</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A distortion</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">The right item, with one piece quietly altered.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>15 percent becomes 10; an end date slips a year; &ldquo;may&rdquo; becomes &ldquo;must.&rdquo;</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Put it in the wrong place</span>
+              <p style="font-size:0.68rem; margin:0.15rem 0 0.3rem; color:#9a7300; font-weight:700;">A misattribution</p>
+              <p style="font-size:0.76rem; margin:0 0 0.3rem;">A real fact, attached to the wrong field, person or source.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The co-PI listed as the PI; a clause quoted from the wrong section.</em></p>
+            </article>
+          </div>
+          <p class="slide-callout">The risk is that people tend to trust a model more than a person. Don&rsquo;t. Verify work done by others, human or not, and ask everyone to show their sources, particularly in research administration.</p>
+          <aside class="notes">
+            Start with the word. "Hallucination" suggests the model is seeing things. What it actually does is closer to what psychologists call confabulation: a reconstructive memory error. People do it too. Ask someone to recall a meeting and they will fill the gaps with what probably happened, and believe it. A model is built to do exactly that, all the time, which is why it does it so smoothly.
+            Then the four modes, in the language this room already uses for checking work. Missed it is a false negative: the requirement was in the notice and never made the checklist. Made it up is a false positive: the subaward that does not exist. Changed a detail is the most dangerous for compliance, because the item looks right and only one number or word moved; the de minimis rate from block 2 is this one. Put it in the wrong place is real information in the wrong slot.
+            The callout is the habit: the same rule you would apply to a new colleague's work applies to a model's, and the model is not owed more trust than the colleague. Then each mode has a matching check. A checklist of what must be present catches misses. Asking for the quote catches inventions. A side-by-side with the source catches changed details. Reading field by field catches misplacement. Vandalizer, on the last slide before the close, builds those checks in.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 5 &middot; How AI gets it wrong</p>
+          <div class="slide-split img-wide" style="align-items:center; margin-top:0.5rem;">
+            <div class="split-img">
+              <img src="img/ibm-1979-accountability.jpeg" alt="A page from a 1979 IBM training manual: A computer can never be held accountable, therefore a computer must never make a management decision" style="max-height:420px; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,0.18);" />
+            </div>
+            <div class="split-text">
+              <p class="slide-quote" style="margin-top:0; font-size:1.25rem;">A computer can never be held accountable. Therefore a computer must never make a management decision.</p>
+              <p style="font-size:0.8rem; color:var(--muted); margin-top:0.6rem;">IBM training manual, 1979.</p>
+              <p style="font-size:0.85rem; margin-top:0.8rem;">The difference between a human collaborator and a machine is that a machine cannot be held accountable.</p>
+              <p style="font-size:1rem; font-weight:800; margin-top:0.5rem;">You are the authority.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            Lead in from the last slide: verify everyone's work, and the reason it matters most with a machine is on this page. Let the room read it. Then ask: what is a management decision in research administration? Allowability. A compliance determination. Effort certification. A conflict-of-interest finding. The call on whether a late proposal goes out the door. Each one has a name attached to it, and that name is not the vendor's.
+            The crowd can draft the memo. It can find the clause. It can list the precedents. It cannot be the one who signs, because when the auditor comes, "the model decided" is not an answer anyone will accept, and it should not be.
+            This is the hard edge of augment, not replace. The deciding stays with a person not because the model is bad at it, but because accountability cannot be delegated to something that cannot be held to account.
+          </aside>
+        </section>
         <section>
           <p class="slide-kicker">Block 5 &middot; Accountability</p>
           <h2>Four questions before you give a task to AI</h2>
@@ -1155,7 +1159,7 @@
           <p class="slide-callout">If the answers are yes, yes, a named person, and a written method, let AI help. If not, a person does the work, or the data gets fixed first.</p>
           <aside class="notes">
             This is the decision rule. Four questions, thirty seconds, before any task goes to a model.
-            One is the context window. Two is the verification habit from the random-number slide and the whole Vandalizer block. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model.
+            One is the context window. Two is the verification habit from the random-number slide and the four ways an answer goes wrong. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model.
             Run one example out loud. "Summarize the terms of this award notice." Hand it the notice: yes. Check it against the notice: yes. Accountable: the administrator who reads the summary before acting on it. Reproducible: it does not need to be, the notice is the record. Use it. Now "decide whether this cost transfer is allowable." Hand it the policy and the transaction: maybe. Check it: only by doing the analysis yourself. Accountable: a person, by regulation. Reproducible: it had better be. A person leads; the model can prepare the file.
             Then the continuum gives the room two questions to place any task.
           </aside>
@@ -1194,13 +1198,13 @@
             </article>
           </div>
           <p class="slide-callout">Sponsor AI policies change fast. These were last verified September 23, 2026. Check before every proposal, and tell the community when they change.</p>
-          <p class="slide-micro">From AI4RA Tip of the Week #22. Share updates on the <a href="https://groups.ai4ra.uidaho.edu/g/main/topics" target="_blank" rel="noopener" style="color:#9a7300;">AI4RA community forum</a>.</p>
+          <p class="slide-micro">From AI4RA Tip of the Week #22. Share updates on the <a href="https://groups.ai4ra.uidaho.edu/g/main/search?q=%23Guidance&amp;ct=1" target="_blank" rel="noopener" style="color:#9a7300;">AI4RA community forum under #Guidance</a>.</p>
           <aside class="notes">
             Research administrators already double-check sponsor rules for PIs; AI rules are now part of that job, and they move faster than most.
             NSF: the most organized of the three. Its AI page has a strategy required under OMB memo M-25-21, a compliance plan, and an inventory of its own AI use cases. The takeaway is that NSF uses AI in its own grant management and review, and the inventory is a window into where NSF processes are heading. The compliance plan is also a good template when your institution writes its own.
             NIH: no single AI policy, so the existing rules carry the weight. Two things to say out loud. First, reviewers on NIH panels, including faculty at your institution, may not use generative AI to analyze or write critiques; NIH treats it as a breach of confidentiality under NOT-OD-23-149. Second, research data pasted into an outside AI tool can be an unintended disclosure, which matters for human subjects, genomic and other protected data. That ties back to the sovereignty slide: this is why it matters where the model runs.
             Everyone else: many agencies have no researcher-facing AI policy. Go up a level. Interior, which oversees BLM, has a generative AI policy on sensitive data, public networks, and human oversight that is a reasonable stand-in.
-            Close on the date. These were verified in late September; say that, and ask the room to post changes to the AI4RA forum.
+            Close on the date. These were verified in late September; say that, and ask the room to post changes to the AI4RA forum under #Guidance.
           </aside>
         </section>
 
@@ -1226,8 +1230,9 @@
             </article>
           </div>
           <p class="slide-callout">AI guidance is just data guidance.</p>
+          <p class="slide-micro">Review by Dashiell Tyler, AI4RA. Full write-up coming soon at <a href="https://ai4ra.uidaho.edu/" target="_blank" rel="noopener" style="color:#9a7300;">ai4ra.uidaho.edu</a>.</p>
           <aside class="notes">
-            Mention once, briefly: the AI4RA team reviewed these policies, and a blog post with the details is coming out soon. Then stay high level.
+            Mention once, briefly: Dashiell Tyler, AI4RA's program manager, reviewed these policies, and a blog post with the details is coming soon on ai4ra.uidaho.edu. Then stay high level.
             Say it here too: the survey at the end asks whether we may share your institution's AI guidance document with the group. Nothing about another institution gets named without that permission.
             A recent review of twenty institutions' AI guidance policies, from statements of principle to binding IT standards, built a 61-item checklist of what a strong policy covers. The most complete policy had 39 of the 61. Research and sponsored programs was one of the weakest areas: on average, policies addressed 16 percent of its items. If your office feels it has no guidance on proposals and awards, that is not your imagination.
             The three kinds of guidance are the useful idea. Physical: where data and machines live. Technical: what the systems enforce. Behavioral: what people are trained to do. Use the example on the slide: a tool can be approved for moderate-risk data, but if nobody trained the staff to recognize what moderate-risk data is, people fall out of compliance without knowing it.
@@ -1359,9 +1364,11 @@
             </article>
           </div>
           <p class="slide-callout">Check your institution&rsquo;s policy against those ten sections, and bring the gaps to research leadership, information security and research integrity. Until the gaps close, the four questions and the two tests are a defensible interim practice for your own desk.</p>
+          <p class="slide-micro">Share what you find, and borrow what others have posted, on the <a href="https://groups.ai4ra.uidaho.edu/g/main/search?q=%23Guidance&amp;ct=1" target="_blank" rel="noopener" style="color:#9a7300;">AI4RA forum under #Guidance</a>.</p>
           <aside class="notes">
             This is the slide for anyone who came in thinking "we have nothing," or "we have something from two years ago." Three people, the documents you already have, and one page: which tools, which data, what review, who signs, and a date to review it again, because the tools will have changed.
             Until the gaps close, the four questions and the two tests from this block are a defensible interim practice for your own desk.
+            Point at the forum link: sponsor rules and guidance documents people find go under #Guidance, so the room keeps a shared, current collection after today. Public documents only.
           </aside>
         </section>
 
@@ -1492,136 +1499,60 @@
              Block 7: Vandalizer
              ═══════════════════════════════════════════ -->
         <section>
-          <p class="slide-kicker">Block 7 &middot; Vandalizer</p>
+          <p class="slide-kicker">Block 7 &middot; Go further</p>
           <div class="section-heading-with-logo">
-            <h2>Vandalizer</h2>
+            <h2>Vandalizer: try it yourself</h2>
             <img src="https://ui-insight.github.io/REACHWorkshop2026/img/logos/vandalizer.png" alt="Vandalizer logo" class="section-logo section-logo-vandalizer" />
           </div>
-          <div class="slide-split">
-            <div class="split-text">
-              <ul class="vz-feature">
-                <li><strong>Structured extraction.</strong> Pull dates, amounts, requirements, and terms out of PDFs into named fields.</li>
-                <li><strong>Every value has a source.</strong> Click a result and jump to the passage and page it came from, or see an explicit "no source found."</li>
-                <li><strong>Workflows.</strong> Chain extractions into a repeatable pipeline and run it on every new upload.</li>
-                <li><strong>Ask the documents.</strong> Chat against a document set with citation-backed answers.</li>
-                <li><strong>Validate and improve.</strong> Score an extraction against a test set and tune it.</li>
-                <li><strong>Self-hosted and model-agnostic.</strong> One server, any OpenAI-compatible model, including local ones.</li>
-              </ul>
-            </div>
-            <div class="split-text" style="flex:0 0 36%;">
-              <div class="slide-card dark" style="margin-top:0; text-align:center;">
-                <span class="slide-label">Open it</span>
-                <a class="launch-primary" href="https://vandalizer.uidaho.edu" target="_blank" rel="noopener" style="display:block; margin:0.6rem auto 0.4rem;">vandalizer.uidaho.edu &rarr;</a>
-                <p style="font-size:0.62rem; opacity:0.75; margin:0.4rem 0 0;">Demo from the podium. The sample documents on the next two slides are on the site if you want to follow along, now or later. Built by our project: judge it by the checks, not by who is showing it.</p>
-              </div>
-            </div>
+          <p style="font-size:0.95rem; max-width:46rem; margin:0.4rem auto 0.9rem; line-height:1.45;">Document extraction and review for research administration, where every value points back to the passage it came from. Open source, built by AI4RA.</p>
+          <div class="compare-row" style="gap:1.6rem; align-items:center; max-width:52rem; margin:0 auto; text-align:left;">
+            <img src="img/qr-vandalizer.png" alt="QR code for the Vandalizer trial at vandalizer.uidaho.edu" style="width:9rem; height:9rem; flex:none;" />
+            <ol style="font-size:0.88rem; line-height:1.5; margin:0; padding-left:1.2rem;">
+              <li>Scan the code, or go to <a href="https://vandalizer.uidaho.edu/" target="_blank" rel="noopener" style="color:#9a7300;">vandalizer.uidaho.edu</a>, and request a free two-week trial.</li>
+              <li>Sign in when your access arrives.</li>
+              <li>Click <strong>Get Certified</strong> at the bottom of the left sidebar to start the <strong>Vandal Workflow Architect</strong> certification: self-paced modules, inside the tool, on sample documents.</li>
+            </ol>
           </div>
+          <p class="slide-note">Questions and workflows: the AI4RA forum under #Vandalizer and #Workflows.</p>
           <aside class="notes">
-            Built at Idaho under the GRANTED award, GPL licensed, designed to be adopted. The feature that matters for this morning is the second one: per-field source tracking. A model can invent a value in the same confident tone as a real one, and the only way to catch it is to have the source next to it. Vandalizer puts the source one click away from every value, and says so explicitly when it cannot find one.
-            This is the last block, run as a demo from the podium so it does not depend on thirty laptops and the room's wifi. Anyone who wants to follow along has the documents on the site and can run them later. Have the three sample PDFs on a USB stick as a fallback for your own machine.
-            Hand-off from start small: small starts are checked by hand each time; a task that repeats a hundred times wants a workflow you check once.
-            This is also the capstone of the ladder: a connected tool (rung four) that shows its work, built on a data model (rung five) so every extraction lands in the same shape.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 7 &middot; Demo 1</p>
-          <h2>Extract an award notice</h2>
-          <div class="sample-doc-grid" role="list" aria-label="Exercise 1 sample documents">
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_DEB-2412345.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 1</h3>
-              <p>PI Radagast Brownleaf</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_EAR-2418901.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 2</h3>
-              <p>PI Juniper Quillstone</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/nsf_award_notice_OPP-2345678.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>NSF award 3</h3>
-              <p>PI RJ MacReady</p>
-            </a>
-          </div>
-          <div class="sample-challenge-block">
-            <h6>Challenges</h6>
-            <div class="challenge-checklist" role="list" aria-label="Exercise 1 challenges">
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Upload one award notice and run the pre-built NSF award extraction</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Click three extracted values and confirm each one against the passage it points to</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Add an extraction term you know is <strong>not</strong> in the document. What comes back?</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Run it again on a second notice. Same fields, same shape?</p></span>
-              </label>
-            </div>
-          </div>
-          <aside class="notes">
-            Four minutes. The synthetic notices are deliberately a little different from each other, so the fourth challenge shows whether the extraction generalizes.
-            The third challenge is the point of the exercise. A plain chatbot asked for a field that is not there will usually produce one. Vandalizer should return "no source found." Ask the room what their everyday tool would have done.
-            If the room is fast: run the same extraction twice on the same document and diff the two results. That previews the replication slide.
-          </aside>
-        </section>
-        <section>
-          <p class="slide-kicker">Block 7 &middot; Demo 2</p>
-          <h2>Catch the mismatch</h2>
-          <div class="sample-doc-grid" role="list" aria-label="Exercise 2 sample documents">
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget.xlsx" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4CA;</span>
-              <h3>Budget</h3>
-              <p>Proposal budget for Frodo B. Underhill</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_budget_justification.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>Budget justification</h3>
-              <p>Narrative for the same proposal</p>
-            </a>
-            <a class="slide-card sample-doc-card" href="https://ui-insight.github.io/REACHWorkshop2026/files/fbu_research_strategy.pdf" target="_blank" rel="noopener" role="listitem">
-              <span class="sample-doc-icon" aria-hidden="true">&#x1F4C4;</span>
-              <h3>Research strategy</h3>
-              <p>What the money is supposedly for</p>
-            </a>
-          </div>
-          <div class="sample-challenge-block">
-            <h6>Challenges</h6>
-            <div class="challenge-checklist" role="list" aria-label="Exercise 2 challenges">
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Upload the budget and the justification. Ask for every place they disagree.</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Find the inaccuracy. Verify it yourself from the citations before you believe it.</p></span>
-              </label>
-              <label class="challenge-item" role="listitem">
-                <input type="checkbox" />
-                <span class="challenge-box" aria-hidden="true"></span>
-                <span class="challenge-text"><p>Add the research strategy. Does the budget support what the science says it needs?</p></span>
-              </label>
-            </div>
-          </div>
-          <aside class="notes">
-            Four minutes. This is "summarization and synthesis" from the ask-the-crowd slide, applied to two documents you hand over, and it is the kind of pre-award review that eats an afternoon by hand.
-            The second challenge matters more than the first. The tool will find a mismatch. Make them open the citation and confirm it is real before they say so out loud. One or two people will find the model flagged something that is not actually a mismatch. That is the lesson, not a failure of the exercise.
-            Keep an eye on the clock: the close needs three minutes.
+            One slide, no live demo. Vandalizer has been shown at earlier AI4RA sessions, and everything it would teach here has already been said: extraction from the what-AI-does-well slide, a source next to every value from the error modes, checking work against the record from the four questions.
+            Say it in one breath: this is what the habits from today look like built into a tool. Every value points to the passage it came from, and when it cannot find one it says so instead of making one up. Built by our project: judge it by the checks, not by who is showing it.
+            The certification is self-paced and lives inside the product, on sample documents, so nobody needs their own data to start. Leave the code up while you move to the close.
           </aside>
         </section>
 
-      
+        <!-- ═══════════════════════════════════════════
+             Close
+             ═══════════════════════════════════════════ -->
+        <section>
+          <p class="slide-kicker">Close</p>
+          <h2>What to take with you</h2>
+          <ul style="font-size:0.9rem; max-width:44rem; margin:0.4rem auto 0.8rem; line-height:1.5; text-align:left;">
+            <li>The model predicts likely words. Likely is not the same as right.</li>
+            <li>Hand it the record. If the answer matters, make it accessed, not recalled.</li>
+            <li>The data underneath matters more than which model you pick.</li>
+            <li>A person stays accountable. Verify everyone&rsquo;s work, human or not.</li>
+          </ul>
+          <p class="slide-callout">Name one task you would hand to AI on Monday, and how you would check its answer.</p>
+          <div class="compare-row" style="gap:2.4rem; justify-content:center; align-items:flex-start; margin-top:0.6rem;">
+            <div style="text-align:center;">
+              <img src="img/qr-groups.png" alt="QR code for the AI4RA community forum" style="width:7.5rem; height:7.5rem;" />
+              <p style="font-size:0.72rem; margin:0.3rem 0 0; font-weight:700;">Post your answer</p>
+              <p style="font-size:0.66rem; margin:0; color:#555;">AI4RA forum, #Challenges</p>
+            </div>
+            <div style="text-align:center;">
+              <img src="img/qr-evaluation-survey.png" alt="QR code for the external evaluation survey" style="width:7.5rem; height:7.5rem;" />
+              <p style="font-size:0.72rem; margin:0.3rem 0 0; font-weight:700;">Tell us how it went</p>
+              <p style="font-size:0.66rem; margin:0; color:#555;">External evaluation survey</p>
+            </div>
+          </div>
+          <aside class="notes">
+            Pull the thread together in four lines, one per bullet. Then the exit question: one task for Monday, and how you would check it. A good answer names a task, a source to hand over, and a check. Ask people to post it on the forum under #Challenges, so the answers can be read later; take one or two out loud if there is time.
+            The second code is the external evaluation survey, run by an outside evaluator, not by us. Ask everyone to fill it in before the break.
+            Then the handoff: The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break.
+          </aside>
+        </section>
+
       </div>
     </div>
 
@@ -2072,7 +2003,7 @@
         { id: "shipyard", label: "Admin Portal", sub: "Config & Sync",
           fill: "#f0f9ff", stroke: "#0ea5e9", color: "#0c4a6e",
           x: 370, y: 30, w: 120, h: 44 },
-        { id: "udm", label: "Shared Schema", sub: "Universal Model",
+        { id: "udm", label: "Shared Schema", sub: "Unified Model",
           fill: "#fffbeb", stroke: "#d97706", color: "#78350f",
           x: 140, y: 310, w: 115, h: 38 },
         { id: "bridge", label: "Live Translator", sub: "In-Memory",

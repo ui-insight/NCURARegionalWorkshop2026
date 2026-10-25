@@ -33,7 +33,7 @@ Seven blocks after three short opening slides: how language models work; memory 
 
 ## Changes this plan proposes to the current deck
 
-The slide-by-slide below describes the talk as proposed. It differs from the current deck in these ways:
+The slide-by-slide below describes the talk as proposed. It differed from the deck in these ways, and all eight were made in the deck on October 24, 2026; the slide numbers below are the old ones:
 
 1. One name, "Unified Data Model," on slide 4.
 2. The error modes and IBM slides (28 and 29) move from the middle of Block 4 to open Block 5.
@@ -162,7 +162,7 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 
 ### Block 7. Vandalizer
 
-44. **Vandalizer: try it yourself.** What it is in one line, a link and QR code to join the demo instance, and the three steps to start the Vandal Workflow Architect certification: sign in, open the certification from your profile menu, and begin the first module.
+44. **Vandalizer: try it yourself.** What it is in one line, a link and QR code to join the demo instance, and the three steps to start the Vandal Workflow Architect certification: request a free two-week trial, sign in, and click Get Certified at the bottom of the left sidebar.
 
 ### Close
 
