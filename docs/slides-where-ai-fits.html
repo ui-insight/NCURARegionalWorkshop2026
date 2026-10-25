@@ -849,6 +849,39 @@
 
         <section>
           <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>What is a data model?</h2>
+          <div class="slide-grid" style="grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); align-items:center; gap:1.4rem; margin-top:0.6rem;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+              <div style="display:flex; align-items:center;">
+                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Sponsor</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />type</div></div>
+                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">funds<br /><span style="font-size:1rem; color:#191919;">&rarr;</span></div>
+                <div style="border:2px solid #f1b300; background:rgba(241,179,0,0.15); border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Award</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">number<br />start date<br />amount</div></div>
+                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">leads<br /><span style="font-size:1rem; color:#191919;">&larr;</span></div>
+                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Person</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />role</div></div>
+              </div>
+              <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">administered by<br /><span style="font-size:1rem; color:#191919;">&darr;</span></div>
+              <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Department</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />college</div></div>
+            </div>
+            <div style="text-align:left;">
+              <p style="font-size:0.85rem; margin:0 0 0.5rem;">A data model is the agreement about how information is stored, before any database is built. It has four parts:</p>
+              <ul style="font-size:0.8rem; margin:0; padding-left:1.1rem; line-height:1.4;">
+                <li style="margin-bottom:0.35rem;"><strong>Things.</strong> The kinds of records you keep. Award, person, sponsor, department.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Details.</strong> What you record about each one. An award has a number, a start date, an amount.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Connections.</strong> How they relate. Every award has one sponsor and one lead PI.</li>
+                <li style="margin-bottom:0.35rem;"><strong>Rules.</strong> What must be true. An award cannot be saved without a department.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="slide-callout">Your award system, your ERP and your HR system each have a data model already. They just do not agree with each other.</p>
+          <aside class="notes">
+            Keep it concrete. Point at the diagram: an award, the sponsor that funds it, the person who leads it, the department that administers it. That is a data model, and every system in the room's offices has one.
+            The fourth part is the one that matters most for AI. The Carl demo, coming up in a few minutes, uses a table that is missing departments because nothing required one. A rule that says an award cannot be saved without a department turns a silent gap into an error someone has to fix.
+            Then the turn to the next slide: a data model describes tables, and most of what an office knows is not in tables yet.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
           <h2>Structured and unstructured data</h2>
           <div class="slide-grid" style="margin-top:0.6rem;">
             <article class="slide-card" style="text-align:left;">
@@ -930,42 +963,10 @@
           <aside class="notes">
             Six general tasks, each with an example from this room's work. Most of what any AI tool does in a research office is one of these, or a few chained together.
             Point out what is missing: none of them is "do the arithmetic" and none is "make the decision." Totals belong to the database, and determinations belong to a person.
-            Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions, and that shape is a data model. Vandalizer, at the end, is extraction and comparison at scale.
+            Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions: the data model from a few slides ago, shared. The trouble is not that offices lack data models. It is that they each have their own, which is the next slide. Vandalizer, at the end, is extraction and comparison at scale.
           </aside>
         </section>
 
-        <section>
-          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
-          <h2>What is a data model?</h2>
-          <div class="slide-grid" style="grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); align-items:center; gap:1.4rem; margin-top:0.6rem;">
-            <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
-              <div style="display:flex; align-items:center;">
-                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Sponsor</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />type</div></div>
-                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">funds<br /><span style="font-size:1rem; color:#191919;">&rarr;</span></div>
-                <div style="border:2px solid #f1b300; background:rgba(241,179,0,0.15); border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Award</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">number<br />start date<br />amount</div></div>
-                <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">leads<br /><span style="font-size:1rem; color:#191919;">&larr;</span></div>
-                <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Person</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />role</div></div>
-              </div>
-              <div style="font-size:0.74rem; color:#555; text-align:center; padding:0 0.35rem; line-height:1.2;">administered by<br /><span style="font-size:1rem; color:#191919;">&darr;</span></div>
-              <div style="border:2px solid rgba(25,25,25,0.25); background:#fff; border-radius:0.6rem; padding:0.35rem 0.7rem; text-align:left; min-width:7.5rem;"><div style="font-weight:800; font-size:1.05rem;">Department</div><div style="font-size:0.78rem; color:#555; line-height:1.35;">name<br />college</div></div>
-            </div>
-            <div style="text-align:left;">
-              <p style="font-size:0.85rem; margin:0 0 0.5rem;">A data model is the agreement about how information is stored, before any database is built. It has four parts:</p>
-              <ul style="font-size:0.8rem; margin:0; padding-left:1.1rem; line-height:1.4;">
-                <li style="margin-bottom:0.35rem;"><strong>Things.</strong> The kinds of records you keep. Award, person, sponsor, department.</li>
-                <li style="margin-bottom:0.35rem;"><strong>Details.</strong> What you record about each one. An award has a number, a start date, an amount.</li>
-                <li style="margin-bottom:0.35rem;"><strong>Connections.</strong> How they relate. Every award has one sponsor and one lead PI.</li>
-                <li style="margin-bottom:0.35rem;"><strong>Rules.</strong> What must be true. An award cannot be saved without a department.</li>
-              </ul>
-            </div>
-          </div>
-          <p class="slide-callout">Your award system, your ERP and your HR system each have a data model already. They just do not agree with each other.</p>
-          <aside class="notes">
-            Keep it concrete. Point at the diagram: an award, the sponsor that funds it, the person who leads it, the department that administers it. That is a data model, and every system in the room's offices has one.
-            The fourth part is the one that matters most for AI. The Carl table was missing departments because nothing required one. A rule that says an award cannot be saved without a department turns a silent gap into an error someone has to fix.
-            Then the turn to the next slide: the trouble is not that offices lack data models. It is that they each have their own.
-          </aside>
-        </section>
         <section>
           <p class="slide-kicker">Block 4 &middot; The data underneath</p>
           <h2>Why research administration needs a common language</h2>
