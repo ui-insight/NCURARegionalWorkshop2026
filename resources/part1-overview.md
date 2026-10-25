@@ -88,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 23, 26, 18, 27, 24, 25, 30 to 33, 28, 29, 35, 34, 41 to 43, 36 to 40, 44, then 47; slides 45 and 46 are gone.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 23, 26, 18, 27, 24, 25, 30 to 33, 28, 29, 35, 34, 41 to 43, 36 to 40, 44, 47, then 48; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -170,4 +170,5 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 
 ### Close
 
-47. **What to take with you** (proposed change 3). It pulls the thread together: the model predicts likely words; hand it the record; the data underneath matters most; a person stays accountable. Then the exit question, with the forum or survey QR code for answers, the external evaluator's QR code, and the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
+47. **What to take with you.** The four lines that pull the thread together, then the exit question, with answers posted on the forum under #Challenges.
+48. **Thank you.** The external evaluation survey QR code, to fill in before the break, and the Groups.io QR code with links to the #Challenges, #AILiteracy, #UDM, #Guidance, #Vandalizer and #Support hashtags. The speaker notes end on the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
