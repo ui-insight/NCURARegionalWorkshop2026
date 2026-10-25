@@ -29,7 +29,7 @@ Research administrators from universities in NCURA Regions VI and VII: pre-award
 
 ## Format
 
-Seven blocks after three short opening slides: how language models work; memory and the record; context, with hands-on Promptulus; the data underneath; accountability and guidance; start small; and Vandalizer; then a close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl).
+Seven blocks after three short opening slides: how language models work; memory and the record; context, with hands-on Promptulus; the data underneath; accountability and starting small; guidance; and Vandalizer; then a close. There is one hands-on block (Promptulus, on attendees' laptops) and several live demos from the podium (the token builder, a pachinko board, Remembering Thamus, Data Crawler Carl).
 
 ## Changes this plan proposes to the current deck
 
@@ -88,7 +88,7 @@ A short review of each, as it stands.
 
 ## Slide by slide
 
-Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 33, 28 and 29, 34 to 44, then 47; slides 45 and 46 are gone.
+Slide numbers follow the current deck, so a moved slide keeps its number. In the deck's order now the talk runs 1 to 17, 19 to 25, 30 to 32, 26, 18, 27, 33, 28, 29, 35, 34, 41 to 43, 36 to 40, 44, then 47; slides 45 and 46 are gone.
 
 ### Opening
 
@@ -135,23 +135,14 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted.
 
-### Block 5. Accountability and guidance
+### Block 5. Accountability and starting small
 
-*The error modes and the IBM slide open this block (proposed change 2), leading straight into the four questions.*
+*The error modes and the IBM slide open this block, then the continuum sorts the work, the four questions decide one task, and the start-small slides apply them. Reordered October 24, 2026.*
 
 28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
 29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
-
-34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
 35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can lead; if either is yes, a person stays in the loop.
-36. **Check the sponsor before you check the tool.** NSF, NIH (including its notice that reviewers may not use generative AI on applications, NOT-OD-23-149), and going up to a parent agency when a sponsor has no policy, with links. The slide already asks people to share updates on the forum; proposed change 7 points that at the guidance hashtag.
-37. **Your AI guidance is probably out of date.** Dashiell's review of twenty institutions' policies against a 61-item checklist, to be published soon as a blog post on ai4ra.uidaho.edu; the slide credits Dashiell and points there, without naming the institutions reviewed: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
-38. **How strict should it be?** Five levels from principles to strict, with examples.
-39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
-40. **Start with a one-page policy.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. New in this plan: a link to the forum's guidance hashtag, where attendees post and find sponsor rules and guidance (proposed change 7).
-
-### Block 6. Start small
-
+34. **Four questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow?
 41. **Three small starts you can try Monday.** Three prompts, each ending in a check:
     - "List every deadline, page limit, eligibility rule and required document in this solicitation. For each one, quote the sentence it comes from." Check two quotes against the document.
     - "List the reporting due dates, cost share, prior-approval requirements and any special terms in this award notice. Quote the clause for each one." Confirm each quote before it goes in the file.
@@ -159,6 +150,16 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
     None asks the model to do math. Each passes the four questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
 42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
 43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the rung you can reach this month.
+
+### Block 6. Guidance
+
+*Sponsor rules first, because they bind before an institution's own policy, then the institution's guidance from the gap to a one-page start.*
+
+36. **Check the sponsor before you check the tool.** NSF, NIH (including its notice that reviewers may not use generative AI on applications, NOT-OD-23-149), and going up to a parent agency when a sponsor has no policy, with links. The slide already asks people to share updates on the forum; proposed change 7 points that at the guidance hashtag.
+37. **Your AI guidance is probably out of date.** Dashiell's review of twenty institutions' policies against a 61-item checklist, to be published soon as a blog post on ai4ra.uidaho.edu; the slide credits Dashiell and points there, without naming the institutions reviewed: the best covered 39; research and sponsored programs averaged 16 percent. Three kinds of guidance: physical, technical, behavioral. AI guidance is just data guidance.
+38. **How strict should it be?** Five levels from principles to strict, with examples.
+39. **Ten sections of a strong policy:** governance and scope; tools and procurement; data protection; disclosure and attribution; human oversight; research integrity; research and sponsored programs; special uses such as meeting recorders and agents, meaning AI that takes actions on its own; training and communication; maintenance. Below them, the items that land on a research administrator's desk: the PI certifies AI-assisted proposal content, no AI in confidential peer review, check sponsor rules, controlled data, whether AI tool costs can be charged to awards.
+40. **Start with a one-page policy.** Three people in a room, start from what you already have, and one page; check your policy against the ten sections and bring the gaps to leadership. New in this plan: a link to the forum's guidance hashtag, where attendees post and find sponsor rules and guidance (proposed change 7).
 
 ### Block 7. Vandalizer
 
