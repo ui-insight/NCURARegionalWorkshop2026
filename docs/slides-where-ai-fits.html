@@ -752,13 +752,101 @@
           <aside class="notes">
             Take three or four answers. Listen for the Mnemos answer especially: "it would need our award data" or "it would need the policy manual" is the setup for the data block, next.
             Listen to the Veridex answer too. Most people will say "I would read it." Ask: read it against what? If the model answered from memory, there is nothing to read it against; that is recalled versus accessed, from a few minutes ago.
-            Hand-off: okay, so assuming you decide to use AI for a task, which model is best? Click to the next slide and let the room answer.
+            Hand-off: whatever you hand a model is data. So before asking which model is best, look at what your data is: tables or documents.
           </aside>
         </section>
 
         <!-- ═══════════════════════════════════════════
              Block 4: The data underneath
              ═══════════════════════════════════════════ -->
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>Structured and unstructured data</h2>
+          <div class="slide-grid" style="margin-top:0.6rem;">
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Structured</span>
+              <h3>Rows and columns</h3>
+              <p style="font-size:0.8rem;">Every record has the same fields, and every field means the same thing. Your award system, the ERP, a well-kept spreadsheet.</p>
+              <p style="font-size:0.8rem; margin-top:0.4rem;">Easy to count, total and check exactly. A database does the math; a model can write the query, as Carl will show next.</p>
+            </article>
+            <article class="slide-card accent" style="text-align:left;">
+              <span class="slide-label">Unstructured</span>
+              <h3>Documents and messages</h3>
+              <p style="font-size:0.8rem;">Award notices, solicitations, budget justifications, emails, policies. The facts are in there, in sentences, in a different place every time.</p>
+              <p style="font-size:0.8rem; margin-top:0.4rem;">This is where language models are strongest: they read it the way a person would.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Most of what a research office knows lives in documents. Most of what it reports needs tables. A lot of AI&rsquo;s practical value is moving information from one to the other.</p>
+          <aside class="notes">
+            Open the block with a check-in. Ask: which of your work lives in tables, and which in documents? Most hands go up for documents.
+            Structured data is rows and columns with a fixed meaning. It is what databases and reports run on, and arithmetic belongs there, done by the database, not the model. Carl, next, shows the right split: the model writes the query, the database does the math.
+            Unstructured data is the documents. That is where language models earn their keep, because they read sentences. The bridge: first a table, with Carl, then documents. Most useful AI work in this office is getting facts out of documents and into a shape you can count and check.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; Live demo</p>
+          <h2>AI analyzes what you give it</h2>
+          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
+          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
+          <div class="launch-row" style="margin-top:1.6rem;">
+            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
+          </div>
+          <aside class="notes">
+            Live demo of the structured side, straight off the last slide: the record is a table, so the model writes the query and the database computes the answer. It is also a sixth way to hand a model the record, after the five on the Thamus page. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
+            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
+            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
+            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
+            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
+            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
+            Hand-off: that was a table, and a table can be counted exactly once it is ready. Most of what an office knows is not in tables, it is in documents, and documents are where language models are strongest. Next, what AI does well with text.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
+          <h2>What AI does well with text</h2>
+          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:0.5rem;">
+            <article class="slide-card accent" style="text-align:left;">
+              <span class="slide-label">Extraction</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Pull specific facts out of a document into fields.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>An award notice into PI, dates, amount and terms.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Summarization</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Shorten without changing what it says.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A forty-page solicitation into one page of requirements.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Transformation</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Same content, new form.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>Sponsor terms rewritten in plain language for a new PI; a CV into a biosketch format.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Generation</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Draft new text from a few facts.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A routine email to a PI, a first draft of a budget justification.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Classification</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Sort or tag items into categories you define.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The shared inbox by request type; sponsors as federal, industry or nonprofit.</em></p>
+            </article>
+            <article class="slide-card" style="text-align:left;">
+              <span class="slide-label">Comparison</span>
+              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Check two things against each other and flag differences.</p>
+              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A budget against its justification; a proposal against the solicitation.</em></p>
+            </article>
+          </div>
+          <p class="slide-callout">Extraction is the one to watch: it turns unstructured documents into structured data, which is how documents become something you can count, check and share.</p>
+          <aside class="notes">
+            Six general tasks, each with an example from this room's work. Most of what any AI tool does in a research office is one of these, or a few chained together.
+            Point out what is missing: none of them is "do the arithmetic" and none is "make the decision." Totals belong to the database, and determinations belong to a person.
+            Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions, and that shape has a name we will get to in two slides. Vandalizer, at the end, is extraction and comparison at scale.
+            Hand-off: so, with all of that in mind, which model is the most important one? Click to the next slide and let the room answer.
+          </aside>
+        </section>
+
         <section>
           <p class="slide-kicker">Block 4 &middot; There are a lot of AI models, but</p>
           <h1>Which is the most important one?</h1>
@@ -892,7 +980,7 @@
           <p class="slide-callout">Your award system, your ERP and your HR system each have a data model already. They just do not agree with each other.</p>
           <aside class="notes">
             Keep it concrete. Point at the diagram: an award, the sponsor that funds it, the person who leads it, the department that administers it. That is a data model, and every system in the room's offices has one.
-            The fourth part is the one that matters most for AI. The Carl demo, coming up in a few minutes, uses a table that is missing departments because nothing required one. A rule that says an award cannot be saved without a department turns a silent gap into an error someone has to fix.
+            The fourth part is the one that matters most for AI. The Carl table was missing departments because nothing required one. A rule that says an award cannot be saved without a department turns a silent gap into an error someone has to fix.
             Then the turn to the next slide: the trouble is not that offices lack data models. It is that they each have their own.
           </aside>
         </section>
@@ -949,97 +1037,9 @@
           <p class="slide-callout">The difference is a tool that is confidently wrong and a pipeline that is honestly incomplete. The second one tells the Vice President the total is missing a third of the rows, and by how much.</p>
           <p class="slide-micro">Any warehouse, lakehouse or well-kept database can do this. Ours is open source at <a href="https://github.com/ui-insight/lakehouse" target="_blank" rel="noopener" style="color:var(--gold);">github.com/ui-insight/lakehouse</a>; the shape matters more than the product.</p>
           <aside class="notes">
-            Picture an awards table, like the one Carl will use in a few minutes. Keep it as it arrived, blanks and all, so you can always show what the source said. Map Department to the shared model's organization link, once, and let the mapping be proposed by a model and approved by a person. Then the rule runs: an award without an organization does not pass. The Vice President's question gets answered from the reconciled copy, or gets a flag that says the answer is incomplete and by how much.
+            Back to Carl's awards table. Keep it as it arrived, blanks and all, so you can always show what the source said. Map Department to the shared model's organization link, once, and let the mapping be proposed by a model and approved by a person. Then the rule runs: an award without an organization does not pass. The Vice President's question gets answered from the reconciled copy, or gets a flag that says the answer is incomplete and by how much.
             Do not name layers or products. The room needs the three verbs: keep, translate, answer. This runs at Idaho today against our award system, ticketing and Banner, on one server; say that only if asked.
-            Then the turn: all of this assumes the record is already in tables. Most of what an office knows is not.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
-          <h2>Structured and unstructured data</h2>
-          <div class="slide-grid" style="margin-top:0.6rem;">
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Structured</span>
-              <h3>Rows and columns</h3>
-              <p style="font-size:0.8rem;">Every record has the same fields, and every field means the same thing. Your award system, the ERP, a well-kept spreadsheet.</p>
-              <p style="font-size:0.8rem; margin-top:0.4rem;">Easy to count, total and check exactly. A database does the math; a model can write the query, as Carl will show next.</p>
-            </article>
-            <article class="slide-card accent" style="text-align:left;">
-              <span class="slide-label">Unstructured</span>
-              <h3>Documents and messages</h3>
-              <p style="font-size:0.8rem;">Award notices, solicitations, budget justifications, emails, policies. The facts are in there, in sentences, in a different place every time.</p>
-              <p style="font-size:0.8rem; margin-top:0.4rem;">This is where language models are strongest: they read it the way a person would.</p>
-            </article>
-          </div>
-          <p class="slide-callout">Most of what a research office knows lives in documents. Most of what it reports needs tables. A lot of AI&rsquo;s practical value is moving information from one to the other.</p>
-          <aside class="notes">
-            A quick check-in now that the room has heard the data model is the most important model. Ask: which of your work lives in tables, and which in documents? Most hands go up for documents.
-            Structured data is rows and columns with a fixed meaning. It is what databases and reports run on, and arithmetic belongs there, done by the database, not the model. Carl, next, shows the right split: the model writes the query, the database does the math.
-            Unstructured data is the documents. That is where language models earn their keep, because they read sentences. The bridge: first a table, with Carl, then documents. Most useful AI work in this office is getting facts out of documents and into a shape you can count and check.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 4 &middot; Live demo</p>
-          <h2>AI analyzes what you give it</h2>
-          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Data Crawler Carl answers questions about a spreadsheet by writing a database query. We will hand it a small awards table and ask:</p>
-          <p style="font-size:1.5rem; font-weight:800; margin:1rem auto 0;">&ldquo;What is the total federal funding by department?&rdquo;</p>
-          <div class="launch-row" style="margin-top:1.6rem;">
-            <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
-          </div>
-          <aside class="notes">
-            Live demo of the structured side, straight off the last slide: the record is a table, so the model writes the query and the database computes the answer. It is also a sixth way to hand a model the record, after the five on the Thamus page. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
-            Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
-            Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
-            Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. Fragment three.
-            Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
-            This is not the model being sly. Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data, not the arithmetic.
-            Hand-off: that was a table, and a table can be counted exactly once it is ready. Most of what an office knows is not in tables, it is in documents, and documents are where language models are strongest. Next, what AI does well with text.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 4 &middot; The data underneath</p>
-          <h2>What AI does well with text</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:0.5rem;">
-            <article class="slide-card accent" style="text-align:left;">
-              <span class="slide-label">Extraction</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Pull specific facts out of a document into fields.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>An award notice into PI, dates, amount and terms.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Summarization</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Shorten without changing what it says.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A forty-page solicitation into one page of requirements.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Transformation</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Same content, new form.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>Sponsor terms rewritten in plain language for a new PI; a CV into a biosketch format.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Generation</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Draft new text from a few facts.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A routine email to a PI, a first draft of a budget justification.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Classification</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Sort or tag items into categories you define.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>The shared inbox by request type; sponsors as federal, industry or nonprofit.</em></p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">Comparison</span>
-              <p style="font-size:0.76rem; margin:0.3rem 0 0.3rem;">Check two things against each other and flag differences.</p>
-              <p style="font-size:0.72rem; margin:0; color:#555;"><em>A budget against its justification; a proposal against the solicitation.</em></p>
-            </article>
-          </div>
-          <p class="slide-callout">Extraction is the one to watch: it turns unstructured documents into structured data, which is how documents become something you can count, check and share.</p>
-          <aside class="notes">
-            Six general tasks, each with an example from this room's work. Most of what any AI tool does in a research office is one of these, or a few chained together.
-            Point out what is missing: none of them is "do the arithmetic" and none is "make the decision." Totals belong to the database, and determinations belong to a person.
-            Extraction leads the list because it connects to everything after it. Pull the PI, dates and amount out of an award notice, and a document becomes a row. Rows need a shared shape to be useful across systems and institutions, and that is the common data model from earlier in the block. Vandalizer, at the end, is extraction and comparison at scale.
-            Then the turn: handing a model your documents has a price. Everything you give it, it reads, and all of it travels to wherever the model runs. So the next question is where the model runs, and under whose agreement. The workshop key goes through the University of Idaho's own gateway, which logs every request; that log is what an audit trail is.
+            Then the turn: all of this is about making the record right, and handing it to a model has a price. Everything you give it, it reads, and all of it travels to wherever the model runs. So the next question is where the model runs, and under whose agreement. The workshop key goes through the University of Idaho's own gateway, which logs every request; that log is what an audit trail is.
           </aside>
         </section>
 
