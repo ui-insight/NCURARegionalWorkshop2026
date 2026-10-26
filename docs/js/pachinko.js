@@ -215,44 +215,76 @@
       if (a === 'drop1') drop(1);
       else if (a === 'drop25') drop(25);
       else if (a === 'reset') { counts = new Array(BINS).fill(0); balls = []; }
-      else if (a === 'nails') { shifted = false; nails.forEach(function (n, i) { n.tx = home[i].x; }); }
+      else if (a === 'nails') {
+        board = -1; nails.forEach(function (n, i) { n.tx = home[i].x; });
+        var sb = root.querySelector('[data-pk="shift"]'); if (sb) sb.textContent = 'Shift the nails';
+      }
       else if (a === 'shift') { shiftNails(); }
     });
   });
 
-  // "Shift the nails": a banana. In each row, six nails pack into a short
-  // solid shelf; the top shelf ends just past the drop point, and each shelf
-  // below ends further right by a bigger step, so the shelves bend down and to
-  // the right like a banana. A ball lands near a shelf's right end, usually
-  // rolls off that end, and drops onto the next shelf. The rest of each row's
-  // nails spread out to the left of its shelf; nothing sits under or right of
-  // the band. Balls that roll off a shelf's left end make the tail.
-  var shifted = false, SHELF = 6, PACK = 2 * NAIL_R + 0.5, CLEAR = 14, RIGHT_CLEAR = 70;
-  var RIGHT_END = [-10, 9, 15, 24, 36, 52, 72, 96, 124];      // shelf right end, measured from the drop point
-  function shiftNails() {
-    shifted = true;
+  // "Shift the nails" cycles through a few fixed boards. Most are a list
+  // of shelves per row: six nails packed too tight for a ball to slip through.
+  // A shelf has a lip, the end balls roll off, and a side (+1 right, -1 left)
+  // the lip faces. The rest of each row's nails spread out across what is left,
+  // kept a little clear of each shelf and well clear of its lip, so balls that
+  // roll off fall freely onto the next shelf down. The boards stay put when the
+  // previous word changes, so the room can see one board shape every input.
+  var SHELF = 6, PACK = 2 * NAIL_R + 0.5, CLEAR = 14, LIP_CLEAR = 70;
+  var BEND = [-10, 9, 15, 24, 36, 52, 72, 96, 124];      // how far each row's lip sits from where the bend starts
+  function banana(from, dir) {
+    return BEND.map(function (d) { return [{ lip: from + dir * d, dir: dir }]; });
+  }
+  function merge(a, b) { return a.map(function (row, r) { return row.concat(b[r]); }); }
+  var BOARDS = [
+    banana(0.5 * W, 1),                                      // "proposal" slides to funded; the others barely move
+    merge(banana(0.12 * W, 1), banana(0.86 * W, -1)),        // every word funnels into submitted
+    merge(banana(0.2 * W, -1), banana(0.4 * W, 1)),          // a fork: "budget" splits between rejected and funded
+    { seed: 11 }                                             // nails scattered at random: the piles spread out
+  ];
+  var board = -1;
+
+  function layout(shelves) {
+    // A scattered board: every nail lands at a random spot in its row. The
+    // seed is fixed, so it is the same scatter every time.
+    if (shelves.seed !== undefined) {
+      var seed = shelves.seed;
+      nails.forEach(function (n) { seed = (seed * 16807) % 2147483647; n.tx = NAIL_R + (seed / 2147483647) * (W - 2 * NAIL_R); });
+      return;
+    }
     var rows = {};
     nails.forEach(function (n, i) { (rows[n.y] = rows[n.y] || []).push(i); });
     var ys = Object.keys(rows).map(Number).sort(function (p, q) { return p - q; });
     ys.forEach(function (y, r) {
       var idx = rows[y].slice().sort(function (p, q) { return home[p].x - home[q].x; });
-      var end = Math.min(W - NAIL_R, DROP_X + RIGHT_END[Math.min(r, RIGHT_END.length - 1)]);
-      var start = end - PACK * (SHELF - 1);
-      var shelf = idx.slice(-SHELF), rest = idx.slice(0, idx.length - SHELF);
-      shelf.forEach(function (i, k) { nails[i].tx = start + PACK * k; });
-      // The rest go left of the shelf, never closer together than a ball can pass
-      // between. Any that do not fit spread thinly across the right side, well
-      // clear of the shelf's end.
-      var leftEnd = start - CLEAR, MIN_GAP = 2 * NAIL_R + 2 * BALL_R + 1;
-      var fit = Math.max(1, Math.min(rest.length, Math.floor((leftEnd - NAIL_R) / MIN_GAP) + 1));
-      var extra = rest.length - fit;
-      var rStart = end + RIGHT_CLEAR, rEnd = W - NAIL_R;
-      rest.forEach(function (i, k) {
-        if (k < fit) { nails[i].tx = Math.max(NAIL_R, NAIL_R + (leftEnd - NAIL_R) * (fit > 1 ? k / (fit - 1) : 0.5)); return; }
-        var j = k - fit;
-        nails[i].tx = rStart < rEnd ? rStart + (rEnd - rStart) * (extra > 1 ? j / (extra - 1) : 0.5) : NAIL_R;
+      var span = PACK * (SHELF - 1), blocked = [];
+      (shelves[r] || []).forEach(function (sh) {
+        var lip = Math.max(NAIL_R + span, Math.min(W - NAIL_R - span, sh.lip));
+        var left = sh.dir > 0 ? lip - span : lip;
+        idx.splice(0, SHELF).forEach(function (i, k) { nails[i].tx = left + PACK * k; });
+        blocked.push([left - (sh.dir < 0 ? LIP_CLEAR : CLEAR), left + span + (sh.dir > 0 ? LIP_CLEAR : CLEAR)]);
       });
+      // Free stretches of the row, then the loose nails spread across them,
+      // never closer together than a ball can pass between
+      blocked.sort(function (p, q) { return p[0] - q[0]; });
+      var free = [], x = NAIL_R;
+      blocked.forEach(function (b) { if (b[0] > x) free.push([x, b[0]]); x = Math.max(x, b[1]); });
+      if (x < W - NAIL_R) free.push([x, W - NAIL_R]);
+      var MIN_GAP = 2 * NAIL_R + 2 * BALL_R + 1, spots = [];
+      free.forEach(function (f) {
+        var n = Math.floor((f[1] - f[0]) / MIN_GAP) + 1;
+        for (var k = 0; k < n; k++) spots.push(n > 1 ? f[0] + (f[1] - f[0]) * k / (n - 1) : (f[0] + f[1]) / 2);
+      });
+      if (!spots.length) spots.push(NAIL_R);
+      // more nails than spots: spread the spots evenly and let extras share one
+      idx.forEach(function (i, k) { nails[i].tx = spots[Math.floor(k * spots.length / idx.length)]; });
     });
+  }
+  function shiftNails() {
+    board = (board + 1) % BOARDS.length;
+    layout(BOARDS[board]);
+    var btn = root.querySelector('[data-pk="shift"]');
+    if (btn) btn.textContent = 'Shift the nails (' + (board + 1) + ' of ' + BOARDS.length + ')';
   }
 
   // The previous word moves the drop point. Same board, different starting place.
@@ -262,7 +294,6 @@
       PREV = chip.getAttribute('data-pk-prev');
       DROP_X = parseFloat(chip.getAttribute('data-pk-x')) * W;
       counts = new Array(BINS).fill(0); balls = [];
-      if (shifted) shiftNails();           // the funnel follows the drop point
       chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
       var q = root.querySelector('.pk-prompt');
       if (q) q.textContent = '"The ' + PREV + ' was ___."';
