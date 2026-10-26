@@ -308,6 +308,33 @@
               <button type="button" class="launch-secondary" data-pk="nails" style="font-size:0.8rem; padding:0.4rem 1rem;">Reset the nails</button>
               <span class="pk-total" style="font-size:0.75rem; color:var(--muted); text-align:center;">0 balls</span>
               <p style="font-size:0.74rem; color:var(--muted); margin:0.4rem 0 0;">Every ball starts where the previous word puts it. Drag the funnel or a nail sideways and watch the pile move.</p>
+              <div style="text-align:right;"><button type="button" class="grok-open" title="More details">How training works &rsaquo;</button></div>
+            </div>
+          </div>
+          <div class="grok-pop" role="dialog" aria-label="How training works" hidden>
+            <div class="grok-card" style="max-width:62rem;">
+              <button type="button" class="grok-close" aria-label="Close">&times;</button>
+              <p class="slide-label" style="margin:0;">Learn more</p>
+              <h3 style="margin:0.2rem 0 0.7rem;">From nails to a trained model</h3>
+              <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1.1rem;">
+                <div>
+                  <img src="img/diagrams/neural_network_layers.svg" alt="A neural network: the words The proposal was go in, pass through two hidden layers, and come out as odds for the next word; every node is connected to every node in the next layer" style="width:100%; height:9.5rem; object-fit:contain; display:block; margin:0 0 0.5rem;" />
+                  <p style="font-size:0.8rem; font-weight:700; margin:0 0 0.2rem;">1. The nails are weights, in layers</p>
+                  <p style="font-size:0.72rem; line-height:1.45; margin:0;">A real model is a neural network. Your words go in on the left, pass through layer after layer, and come out on the right as odds for the next word. Every line is a number, a weight, that decides how much one node passes to the next. The board has a few dozen nails; a large language model has billions of weights.</p>
+                </div>
+                <div>
+                  <img src="img/diagrams/gradient_descent.png" alt="An error landscape: a ball rolling down a colored surface toward its lowest valley" style="width:100%; height:9.5rem; object-fit:contain; display:block; margin:0 0 0.5rem;" />
+                  <p style="font-size:0.8rem; font-weight:700; margin:0 0 0.2rem;">2. Wrong answers make a landscape</p>
+                  <p style="font-size:0.72rem; line-height:1.45; margin:0;">Training feeds in a sentence people wrote, hides the next word, and measures how wrong the guess was. Every possible setting of the weights has an error score. Picture those scores as hills and valleys: high ground is a bad guess, the valley floor is a good one. Training is the walk downhill.</p>
+                </div>
+                <div>
+                  <img src="img/diagrams/gradient_descent_steps.svg" alt="Contour lines around a low point, with arrows stepping from x0 to x4 toward the center" style="width:100%; height:9.5rem; object-fit:contain; display:block; margin:0 0 0.5rem;" />
+                  <p style="font-size:0.8rem; font-weight:700; margin:0 0 0.2rem;">3. How do we know which way to move the nails?</p>
+                  <p style="font-size:0.72rem; line-height:1.45; margin:0;">Feel for the slope. For each weight, ask: if it moved a tiny bit, would the error go up or down? That slope is the gradient. Move every weight a small step downhill, then measure again. Each arrow on the map is one step, crossing the contour lines toward the low point. That is gradient descent, repeated billions of times.</p>
+                </div>
+              </div>
+              <p style="font-size:0.82rem; font-weight:600; margin:0.8rem 0 0;">The result lands where people&rsquo;s words usually land. It learned what is likely to be written, not what is true.</p>
+              <p style="margin:0.4rem 0 0; font-size:0.58rem; color:var(--muted);">Contour map: &ldquo;Gradient descent&rdquo; by Zerodamage, Wikimedia Commons, public domain.</p>
             </div>
           </div>
           <aside class="notes">
@@ -317,6 +344,7 @@
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does: the gradient descent sidebar on the last slide, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             "Shift the nails" packs a few nails in each row into a short shelf and stacks the shelves into a band that bends down and to the right, like a banana; the rest of each row moves to the left of it. Clear the bins and drop 25: balls roll off the end of each shelf onto the next, and most of the pile ends up in funded, with a tail trailing back to the left. That is what training does to a model: it reshapes where answers land. Nobody steered a ball; the board changed. "Reset the nails" puts them back.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
+            If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. For each weight it checks the slope, whether a tiny move makes the error go up or down, and steps every weight a little downhill. That is gradient descent; the arrows on the contour map are the steps. The next slide walks the same loop in three steps, so keep this short or skip it if time is tight.
           </aside>
         </section>
 
