@@ -340,18 +340,18 @@
           </aside>
         </section>
 
-        <section>
-          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <h2>What happens when you ask it a question?</h2>
-          <div style="max-width:40rem; margin:1.4rem auto 0; text-align:left;">
-            <p style="font-size:1.05rem; font-weight:700; margin:0 0 0.9rem;">The nails are set. So how does an LLM get new information it wasn&rsquo;t trained on?</p>
-            <p style="font-size:1.05rem; font-weight:700; margin:0 0 0.9rem;">Does it reason the way you think it does?</p>
-            <p class="fragment" style="font-size:1.15rem; font-weight:700; margin:0;">What happens if, for example, we ask it to pick a random number?</p>
+        <section data-background-color="#f1b300">
+          <p class="slide-kicker" style="color:#191919;">Block 1 &middot; How LLMs work</p>
+          <div class="r-stack" style="min-height:9rem; margin-top:1.5rem;">
+            <h2 class="fragment fade-out" data-fragment-index="1" style="font-size:2.6rem; line-height:1.15; max-width:46rem; margin:0 auto; color:#191919;">What did we learn about how LLMs think?</h2>
+            <h2 class="fragment fade-in-then-out" data-fragment-index="1" style="font-size:2.6rem; line-height:1.15; max-width:46rem; margin:0 auto; color:#191919;">Do they think the way you expected?</h2>
+            <h2 class="fragment fade-in-then-out" data-fragment-index="2" style="font-size:2.6rem; line-height:1.15; max-width:46rem; margin:0 auto; color:#191919;">How would a model &lsquo;learn&rsquo; new information?</h2>
+            <h2 class="fragment fade-in-then-out" data-fragment-index="3" style="font-size:2.6rem; line-height:1.15; max-width:46rem; margin:0 auto; color:#191919;">What happens when you ask a model to solve a problem?</h2>
+            <h2 class="fragment" data-fragment-index="4" style="font-size:2.6rem; line-height:1.15; max-width:46rem; margin:0 auto; color:#191919;">What happens when you ask it to pick a random number?</h2>
           </div>
           <aside class="notes">
-            Questions only on this slide. Do not answer them; the rest of the block does.
-            Read the first two and let them sit. Ask the room what they think happens when they type a question: does it look things up, does it work the problem out, does it learn from what you tell it? Take a few guesses and leave them open.
-            Then click for the last question and advance to run the test.
+            Questions only. One at a time, each click swaps in the next. Ask it, take a guess or two from the room, and do not answer. Let people sit with not knowing.
+            The last one hands off to the next slide: everyone opens a fresh chat and finds out.
           </aside>
         </section>
 
@@ -559,7 +559,7 @@
           <h2>Two kinds of knowing: recalled and accessed</h2>
           <div class="slide-grid" style="align-items:stretch;">
             <article class="slide-card dark" style="height:100%; box-sizing:border-box; margin:0;">
-              <span class="slide-label">Recalled</span>
+              <span class="slide-label">Recalled: the nails</span>
               <p style="font-size:0.78rem;">What the crowd remembers from training.</p>
               <ul style="font-size:0.76rem;">
                 <li>Frozen at the training cutoff. The regulation it remembers is the one that was written about most, not the one in force.</li>
@@ -569,7 +569,7 @@
               <p style="font-size:0.76rem; margin-top:0.4rem;"><strong>This is where hallucination and hidden bias live.</strong></p>
             </article>
             <article class="slide-card accent" style="height:100%; box-sizing:border-box; margin:0;">
-              <span class="slide-label">Accessed</span>
+              <span class="slide-label">Accessed: the context</span>
               <p style="font-size:0.78rem;">What the model reads right now from a source you connected.</p>
               <ul style="font-size:0.76rem;">
                 <li>A document in the window. A regulation fetched by section number. A query against your awards. An API response.</li>
@@ -582,6 +582,7 @@
           </div>
           <p class="slide-callout">Hallucination is recalled knowledge standing in where accessed knowledge was needed. If the answer matters, make it accessed.</p>
           <aside class="notes">
+            Call back to the gold question slide in Block 1: how would a model learn new information? There are two ways. Move the nails, which means training it again. That costs a great deal, and the new model is frozen again the day it finishes. Or put the information in the context. Recalled knowledge lives in the nails, and accessed knowledge comes in through the context.
             Name what the room just watched on the Thamus page. The crowd metaphor, one level deeper. Ask a thousand well-read people what the de minimis rate is and you get what most of them remember reading. Hand one of them the current regulation and ask again, and you get what it says. Same crowd, different kind of answer.
             On bias: it is very hard to evaluate the biases that come with a model's training data, and the Grok aside later in the talk is one example of how they get in. That is another reason to prefer answers from accessed data over recalled memory: it reduces both hallucination and bias. How much it reduces bias is an open problem, so say that plainly.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
