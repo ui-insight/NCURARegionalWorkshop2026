@@ -336,35 +336,22 @@
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does: the gradient descent sidebar on the last slide, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             "Shift the nails" cycles through four boards, and the nails stay put when you change the word, so the room sees one board shape every input. Board 1 is a banana of packed shelves: "proposal" slides into funded, and appeal and budget barely move. Board 2 funnels every word into submitted. Board 3 is a fork: "budget" splits into two piles, rejected and funded, with little in between. Board 4 scatters the nails at random and the piles spread out across the bins. Clear the bins and drop 25 on a couple of words for each board. That is what training does to a model: one set of nails decides where every prompt lands. Nobody steered a ball; the board changed. "Reset the nails" puts them back.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
-            If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. The idea is the slope: nudge a weight a tiny bit and see whether the error goes up or down. With billions of weights you cannot test them one at a time, so there is a fancy maths trick, gradient descent, that works out the downhill direction for all of them at once and takes a small step. The arrows on the contour map are the steps. The next slide walks the same loop in three steps, so keep this short or skip it if time is tight.
+            If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. The idea is the slope: nudge a weight a tiny bit and see whether the error goes up or down. With billions of weights you cannot test them one at a time, so there is a fancy maths trick, gradient descent, that works out the downhill direction for all of them at once and takes a small step. The arrows on the contour map are the steps. Keep this short or skip it if time is tight.
           </aside>
         </section>
 
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <h2>How do we know where the nails should go?</h2>
-          <div class="slide-grid tight" style="grid-template-columns:repeat(3, 1fr); margin-top:0.8rem;">
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">1. Take a real sentence</span>
-              <p style="font-size:0.8rem;">From the training data: an enormous library of books, articles and web pages that people wrote.</p>
-              <p style="font-size:0.85rem; font-weight:700; margin-top:0.4rem;">&ldquo;The proposal was submitted on time.&rdquo;</p>
-            </article>
-            <article class="slide-card" style="text-align:left;">
-              <span class="slide-label">2. Hide the next word</span>
-              <p style="font-size:0.8rem;">Drop a ball and see where it lands.</p>
-              <p style="font-size:0.85rem; font-weight:700; margin-top:0.4rem;">&ldquo;The proposal was ___&rdquo;</p>
-            </article>
-            <article class="slide-card accent" style="text-align:left;">
-              <span class="slide-label">3. Nudge the nails toward the real word</span>
-              <p style="font-size:0.8rem;">Compare the guess with what the writer actually wrote, and shift the nails a little so the right word gets a bit more likely. Then do it again, billions of times.</p>
-            </article>
+          <h2>What happens when you ask it a question?</h2>
+          <div style="max-width:40rem; margin:1.4rem auto 0; text-align:left;">
+            <p style="font-size:1.05rem; font-weight:700; margin:0 0 0.9rem;">The nails are set. So how does an LLM get new information it wasn&rsquo;t trained on?</p>
+            <p style="font-size:1.05rem; font-weight:700; margin:0 0 0.9rem;">Does it reason the way you think it does?</p>
+            <p class="fragment" style="font-size:1.15rem; font-weight:700; margin:0;">What happens if, for example, we ask it to pick a random number?</p>
           </div>
-          <p class="slide-callout">With a big enough board and enough nudging, you get a statistical machine that sounds like a person. It has learned what is likely to be written, not what is true. And the data you choose to train on is not a neutral choice.</p>
           <aside class="notes">
-            This answers the question the pachinko board raises: who decides where the nails go? Nobody places them by hand. Training does, by checking the model against text people already wrote.
-            Walk the three cards. Take a real sentence from the library. Hide the next word and let the board guess. Compare the guess with the real word and nudge the nails toward it. The gradient descent sidebar on the token-builder slide is the formal version of the nudge.
-            Repeat that across billions of sentences and the board reproduces the words that most often come next in its training text. Land the last line slowly: likely, not true. If the library mostly says the de minimis rate is ten percent, the nails learn ten percent. And someone chose that library: what went in, what was left out, and whose writing counts. That choice shapes every answer, and it is very hard to see from the outside. That sets up block 3.
-            Then: let's illustrate that point by playing a short game.
+            Questions only on this slide. Do not answer them; the rest of the block does.
+            Read the first two and let them sit. Ask the room what they think happens when they type a question: does it look things up, does it work the problem out, does it learn from what you tell it? Take a few guesses and leave them open.
+            Then click for the last question and advance to run the test.
           </aside>
         </section>
 
