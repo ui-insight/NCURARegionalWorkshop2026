@@ -342,7 +342,7 @@
 
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <div style="max-width:40rem; margin:1.6rem auto 0; padding-left:8rem; text-align:left;">
+          <div style="max-width:46rem; margin:1.6rem auto 0; padding-left:8rem; text-align:left;">
             <p style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">What did we learn about how LLMs think?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">Do they think the way you expected?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information after the nails are fixed?</p>
@@ -432,20 +432,40 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>AI is a mirror, and we are biased</h2>
-          <p class="slide-quote" style="max-width:44rem; margin:1rem auto 0.3rem;">&ldquo;AI is biased, because it learns from us and we are biased.&rdquo;</p>
-          <p class="slide-micro" style="margin:0 0 1rem;">Jesse McCrosky, <a href="https://oursharedaifuture.substack.com/p/theres-no-such-thing-as-unbiased" target="_blank" rel="noopener" style="color:var(--gold);">There&rsquo;s No Such Thing as Unbiased AI</a>, 2026</p>
-          <div class="slide-grid">
-            <article class="slide-card dark">
-              <span class="slide-label">Where the bias comes from</span>
+          <div class="slide-split" style="align-items:center;">
+            <div class="split-img">
+              <img src="img/crowd-mirror.png" alt="A crowd of ordinary people looking out of a standing mirror with a rounded top and a gold frame" style="max-height:400px;" />
+            </div>
+            <div class="split-text">
+              <p class="slide-quote" style="margin:0 0 0.2rem;">&ldquo;AI is biased, because it learns from us and we are biased.&rdquo;</p>
+              <p class="slide-micro" style="margin:0 0 0.9rem;">Jesse McCrosky, <a href="https://oursharedaifuture.substack.com/p/theres-no-such-thing-as-unbiased" target="_blank" rel="noopener" style="color:var(--gold);">There&rsquo;s No Such Thing as Unbiased AI</a>, 2026</p>
               <p style="font-size:0.85rem;">An AI reflects and amplifies our inherent bias. It learned the 7 from us, and tuning turned the bump into a spike. And it was created for biased reasons: its makers chose the data and the tuning to serve their own interests.</p>
-            </article>
-            <article class="slide-card accent">
-              <span class="slide-label">What it means for a research administrator</span>
-              <p style="font-size:0.85rem;">You already work with people whose biases differ from yours. That works as long as they do the job and we keep an eye out for bias leaking into the work. Hold AI to the same standard.</p>
-              <p style="font-size:0.85rem; font-weight:700; margin-top:0.5rem;">Don&rsquo;t trust it to remember the answer to a compliance question. Trust it only when it can look the answer up.</p>
-            </article>
+              <div class="slide-card accent" style="text-align:left; margin-top:0.8rem;">
+                <span class="slide-label">Try it</span>
+                <p style="font-size:0.85rem;">Ask an image model to generate an image of a CEO. Then ask it for a flight attendant. What biases do you expect to see?</p>
+              </div>
+            </div>
           </div>
-          <p class="slide-callout">Just don&rsquo;t assume AI is free from bias. The fix is the same for people and for AI: look at the data.</p>
+          <aside class="notes">
+            This is the point under the random-number game, so give it room. The 7 was a bias: the model learned it from the people who wrote its training text, and tuning made it stronger. It is a mirror that reflects and amplifies our inherent bias. We are biased, so it will be too, and there is no unbiased version coming.
+            And it is not only us in the mirror. The companies that build these models choose the training data and decide how the model is tuned, and those choices serve their interests. The Grok aside on the model quiz shows what that looks like. Be skeptical of the mirror and of whoever is holding it.
+            Then the exercise. Ask the room what they expect a CEO to look like, and a flight attendant, before anyone tries it. If there is time, have a few people run it in whatever image tool they have and describe what came back. McCrosky's article uses the same example: early image models drew lawyers and flight attendants with almost no diversity, and when one company patched it, the fix overcorrected.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>What does this mean for research administration?</h2>
+          <div style="max-width:46rem; margin:1rem auto 0; padding-left:6rem; text-align:left;">
+            <p style="font-size:1.35rem; line-height:1.3; margin:0 0 0.7rem; color:#191919;">What happens when AI is used to evaluate a grant application?</p>
+            <p class="fragment" style="font-size:1.35rem; line-height:1.3; margin:0 0 0.7rem; color:#191919;">Or to pick a potential hire out of a stack of resumes?</p>
+            <p class="fragment" style="font-size:1.35rem; line-height:1.3; margin:0 0 0.7rem; color:#191919;">What biases come into play there?</p>
+          </div>
+          <div class="slide-card accent fragment" style="text-align:left; max-width:48rem; margin:0.8rem auto 0;">
+            <p style="font-size:0.85rem;">You already work with people whose biases differ from yours. That works as long as they do the job and we keep an eye out for bias leaking into the work. Hold AI to the same standard.</p>
+            <p style="font-size:0.85rem; font-weight:700; margin-top:0.5rem;">Don&rsquo;t trust it to remember the answer to a compliance question. Trust it only when it can look the answer up.</p>
+          </div>
+          <p class="slide-callout fragment">Just don&rsquo;t assume AI is free from bias. The fix is the same for people and for AI: look at the data.</p>
           <p class="slide-micro" style="margin-top:0.6rem;">Bonus: go watch Hans Rosling&rsquo;s <a href="https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen" target="_blank" rel="noopener" style="color:var(--gold);">The best stats you&rsquo;ve ever seen</a> (TED, 2006) if you want to learn about the difference between how we think about the world and how it really is.</p>
           <div style="max-width:50rem; margin:0.4rem auto 0; text-align:right;"><button type="button" class="grok-open" title="More details">One study &rsaquo;</button></div>
           <div class="grok-pop" role="dialog" aria-label="One study" hidden>
@@ -466,12 +486,11 @@
             </div>
           </div>
           <aside class="notes">
-            This is the point under the random-number game, so give it room. The 7 was a bias: the model learned it from the people who wrote its training text, and tuning made it stronger. It is a mirror that reflects and amplifies our inherent bias. We are biased, so it will be too, and there is no unbiased version coming.
-            Then make it practical. You already work with colleagues whose biases differ from yours, and it works because they do the job and someone keeps an eye out for bias leaking into the work. Treat AI the same way. The only mistake is assuming it has none.
+            Ask each question and take answers before clicking. Grant review: the reviewer model favors whatever its training text favored, such as a prestigious institution or a longer proposal. Hiring: names, schools and gaps in a resume carry the same patterns the image model showed with CEOs.
             If the room wants evidence, click "One study": a 2023 University of Minnesota study asked 15 models to judge which of two answers was better, and they favored whichever answer was listed first. Most of them also followed a made-up claim about what the majority preferred. Bigger models were not less biased. For anyone who uses AI to rank or score: swap the order and ask again.
-            And it is not only us in the mirror. The companies that build these models choose the training data and decide how the model is tuned, and those choices serve their interests. The Grok aside on the model quiz shows what that looks like. Be skeptical of the mirror and of whoever is holding it.
+            Then make it practical. You already work with colleagues whose biases differ from yours, and it works because they do the job and someone keeps an eye out for bias leaking into the work. Treat AI the same way. The only mistake is assuming it has none.
             Point to the bonus link on the way out. Hans Rosling's 2006 TED talk: top Swedish students scored 1.8 out of 5 on a world health quiz, worse than chimpanzees picking at random, and in his words "the problem for me was not ignorance; it was preconceived ideas." He also said that if we don't look in the data, we underestimate the change. A model does not look in the data either. It encodes what we think about the data. So the fix is the same for both: people and AI should look at the data. Block 2 shows how to make a model do that.
-            The mirror leads straight into the next slide: the crowd you are asking is us.
+            That leads straight into the next slide: the crowd you are asking is us.
           </aside>
         </section>
 
