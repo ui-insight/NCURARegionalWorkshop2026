@@ -17,7 +17,7 @@ By the end of the ninety minutes, someone in the room should:
 
 **Which goals matter most:** 2 (recalled versus accessed) and 5 (a person stays accountable) are the ideas an attendee most needs on Monday; 1 (how the model works) is what makes them believable; 3, 6 and 4 build on those.
 
-How the room shows it got there: a one-line exit question on the closing slide, "Name one task you would hand to AI on Monday, and how you would check its answer." A good answer names a task, a source to hand over, and a check. That tests goals 2, 3 and 5; goals 1 and 4 are checked in the room as it happens, by whether the tally surprises anyone and whether people spot the dropped departments in the Carl demo. Answers are collected in writing: either attendees post them on the AI4RA forum or they answer through a survey QR code on the closing slide. The closing slide also carries the external evaluator's QR code, so it shows two codes with clear labels.
+How the room shows it got there: a one-line exit question on the closing slide, "Name one way AI can help you on Monday, and how you would check what it gives you." The question is framed as help, not hand-off, because no task is given to AI whole. A good answer names a task that stays the attendee's, the part AI helps with, the source given to it, and a check. That tests goals 2, 3 and 5; goals 1 and 4 are checked in the room as it happens, by whether the tally surprises anyone and whether people spot the dropped departments in the Carl demo. Answers are collected in writing: either attendees post them on the AI4RA forum or they answer through a survey QR code on the closing slide. The closing slide also carries the external evaluator's QR code, so it shows two codes with clear labels.
 
 The thread through all of it is "augment, not replace": AI prepares, a person decides.
 
@@ -94,7 +94,7 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 
 1. **Title.** "Where AI fits in research administration," with the presenter's photo.
 2. **The next ninety minutes.** The seven blocks, in order.
-3. **Augment, not replace.** Three cards: use the output but check the work; keep people in the loop for decisions, signatures and PI conversations; let tools handle routine work so people have time for judgment. Callout: the question is not whether AI can do the work, but whether it helps you do it better, and how you know.
+3. **Augment, not replace.** Three cards: use the output but check the work; keep people in the loop for decisions, signatures and PI conversations; use tools to speed up routine work so people have more time for judgment. Callout: the question is not whether AI can do the work, but whether it helps you do it better, and how you know.
 4. **Interactive open-source demos today.** Four cards: Promptulus, Remembering Thamus, Data Crawler Carl, and the Unified Data Model (proposed change 1).
 
 ### Block 1. How language models work
@@ -137,15 +137,15 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 18. **AI analyzes what you give it.** Live demo of Data Crawler Carl: asked for federal funding by department, it writes a correct query that silently drops awards with a blank department. It sits right after the structured data slide because it is the structured case: the model writes the query, the database does the math, and the gap is in the table, not the arithmetic. It moved here from Block 2 on October 24, 2026.
 27. **What AI does well with text.** Extraction, summarization, transformation, generation, classification and comparison, each with a research administration example.
 
-### Block 5. Should AI do this task?
+### Block 5. Should AI help with this task?
 
 *Blocks 5 to 7 are split by the question each one answers, so each block answers what the last one raised. Reorganized October 24, 2026.*
 
 28. **Four ways an answer goes wrong.** Hallucination is better called confabulation, and people do it too. Missed it, made it up, changed a detail, put it in the wrong place. Callout: people tend to trust models more than people; verify everyone's work and ask for sources.
 29. **The IBM quote.** "A computer can never be held accountable; therefore a computer must never make a management decision." A machine cannot be held accountable. You are the authority.
-35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can lead; if either is yes, a person stays in the loop.
+35. **Does it matter how the work got done?** A continuum from process-critical to output-driven, with two test questions: if someone asked how this was done, would the answer matter? Could a colleague re-run it and get the same result? If both answers are "not really," AI can draft more and you check the result; if either is yes, you do the work and AI helps.
 33. **Data sovereignty: where does the model run?** Cloud, local or hybrid. The two-tier rule: a personal account on a free chatbot is for public text only, the kind you could post on a bulletin board, because free tiers may train on what you type; anything from your institution's systems goes only into an account your institution has vetted. It sits in Block 5 right after the continuum: that slide asks whether it matters how the work got done, and this one asks whether it matters where.
-34. **Five questions before you give a task to AI.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow? Is it allowed by your sponsor's rules and your institution's guidance? The fifth is last so it hands off to Block 6, and a no on it overrides the other four.
+34. **Five questions before AI helps with a task.** Can you give it everything it needs? Can you check the answer cheaply? Who is accountable? Does it have to be the same tomorrow? Is it allowed by your sponsor's rules and your institution's guidance? The fifth is last so it hands off to Block 6, and a no on it overrides the other four.
 
 ### Block 6. What do the rules say?
 
