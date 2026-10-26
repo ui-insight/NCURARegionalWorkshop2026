@@ -343,11 +343,11 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <div style="max-width:52rem; margin:1.6rem auto 0; text-align:left;">
-            <p style="font-size:1.7rem; font-weight:700; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What did we learn about how LLMs think?</p>
-            <p class="fragment" style="font-size:1.7rem; font-weight:700; line-height:1.25; margin:0 0 1.1rem; color:#191919;">Do they think the way you expected?</p>
-            <p class="fragment" style="font-size:1.7rem; font-weight:700; line-height:1.25; margin:0 0 1.1rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information?</p>
-            <p class="fragment" style="font-size:1.7rem; font-weight:700; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What happens when you ask a model to solve a problem?</p>
-            <p class="fragment" style="font-size:1.7rem; font-weight:700; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What happens when you ask it to pick a random number?</p>
+            <p style="font-size:1.7rem; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What did we learn about how LLMs think?</p>
+            <p class="fragment" style="font-size:1.7rem; line-height:1.25; margin:0 0 1.1rem; color:#191919;">Do they think the way you expected?</p>
+            <p class="fragment" style="font-size:1.7rem; line-height:1.25; margin:0 0 1.1rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information?</p>
+            <p class="fragment" style="font-size:1.7rem; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What happens when you ask a model to solve a problem?</p>
+            <p class="fragment" style="font-size:1.7rem; line-height:1.25; margin:0 0 1.1rem; color:#191919;">What happens when you ask it to pick a random number?</p>
           </div>
           <aside class="notes">
             Questions only. One row at a time, each click adds the next. Ask it, take a guess or two from the room, and do not answer. Let people sit with not knowing.
@@ -358,8 +358,8 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Pick a random number between 1 and 10</h2>
-          <p style="font-size:0.85rem; margin-bottom:0.4rem;">Open a <strong>brand-new chat every time</strong>, in any AI tool, and ask exactly that. Raise your hand, and call out your number when I point to you.</p>
-          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.4rem;">Ask twice in the same chat and the second answer is just the most random-sounding number, given the first.</p>
+          <p style="font-size:0.85rem; margin-bottom:0.4rem;">Everyone please open a new chat in your favorite chatbot, like ChatGPT. Ask it &lsquo;Pick a number between 1 and 10&rsquo;, then raise your hand. I&rsquo;ll point at you and you can tell me your number.</p>
+          <p style="font-size:0.72rem; color:var(--muted); margin:0 0 0.4rem;">Bonus question: why does it have to be a fresh chat?</p>
           <div class="tally" id="tally">
             <div class="tally-bars" id="tally-bars"></div>
             <div class="tally-buttons" id="tally-buttons"></div>
@@ -370,6 +370,7 @@
           <aside class="notes">
             Two minutes. Everyone opens a fresh chat, any tool, and asks for a random number between 1 and 10. Ask for hands, point to people one at a time, and tap each number they call out. You will almost certainly get a tall bar on 7, and a few on 3. If someone has a tool that returns a spread, ask whether it ran code; some do now.
             If the room is small or shy, run it yourself on the screen in three different tools. Same result.
+            Leave the bonus question open. The next slide answers it: inside one chat the model sees its first answer and steers away from repeating it.
             Variation if there is time: ask for a number between 1 and 100. Expect 37, 42, and 73.
             Do not explain yet. Let the bar chart sit there for a beat, then click for the question: did it truly pick a random number, or did it just give you a number that sounds random? Take an answer or two, then advance to the chart that answers it.
           </aside>
