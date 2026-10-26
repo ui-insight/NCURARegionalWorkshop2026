@@ -218,19 +218,6 @@
       ch = '<div class="tb-chart-wrap">' + ch +
            '<div class="tb-chart-label">' + lbl + '</div>' + probTxt + '</div>';
 
-      /* Gradient descent modal */
-      var gdModal = '<div class="tb-gd-overlay">' +
-        '<div class="tb-gd-modal">' +
-        '<button class="tb-gd-close">&times;</button>' +
-        '<div class="tb-gd-kicker">Sidebar</div>' +
-        '<img src="img/diagrams/gradient_descent.png" class="tb-gd-img" alt="Gradient descent visualization">' +
-        '<p class="tb-gd-title">How does it learn?</p>' +
-        '<p class="tb-gd-text">' +
-        'The model measures how wrong each prediction was, ' +
-        'then nudges weights downhill, like a ball rolling to the lowest point. ' +
-        'Repeat billions of times until predictions fit the training data.</p>' +
-        '</div></div>';
-
       /* Layout: attention note, sentence, step label, then options + chart side by side */
       var stepVis = chosen.length < 3 ? '' : ' style="visibility:hidden"';
       var stepLabel = '<div class="tb-step"' + stepVis + '>Drag or click a word</div>';
@@ -238,7 +225,7 @@
                      stepLabel +
                      '<div class="tb-lower">' +
                      '<div class="tb-main">' + oh + '</div>' + ch +
-                     '</div>' + gdModal;
+                     '</div>';
 
       /* Bind interactions */
       bindDrag();
@@ -247,19 +234,6 @@
       if (rb) rb.addEventListener('click', function () {
         chosen = []; curOpts = tree; render(false);
       });
-
-      /* Chart click → open gradient descent modal */
-      var chartEl = el.querySelector('.tb-chart');
-      var overlay = el.querySelector('.tb-gd-overlay');
-      if (chartEl && overlay) {
-        chartEl.style.cursor = 'pointer';
-        chartEl.addEventListener('click', function () { overlay.classList.add('visible'); });
-        overlay.addEventListener('click', function (e) {
-          if (e.target === overlay || e.target.classList.contains('tb-gd-close')) {
-            overlay.classList.remove('visible');
-          }
-        });
-      }
 
     }
 

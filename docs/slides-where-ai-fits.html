@@ -280,7 +280,7 @@
           <p class="slide-note">No right answer, only probabilities. This is why the same prompt gives different output each time.</p>
           <aside class="notes">
             Ask for a volunteer to call out words. Build the sentence twice and get two different endings.
-            Three things to land here. One: the model is picking the next token from a probability distribution over everything in its window. Two: the numbers above the words are attention weights, how much each earlier word matters for the next pick. Three: the bar chart is the whole space of sentences the model could have produced. Your path is one of sixty-four. Click the chart for the gradient descent sidebar if someone asks how it learned the weights.
+            Three things to land here. One: the model is picking the next token from a probability distribution over everything in its window. Two: the numbers above the words are attention weights, how much each earlier word matters for the next pick. Three: the bar chart is the whole space of sentences the model could have produced. Your path is one of sixty-four.
             The practical consequence: run the same extraction twice and you can get different answers. That is not a bug you can configure away. It is the mechanism.
           </aside>
         </section>
@@ -333,7 +333,7 @@
             The token builder showed the odds as numbers. This is the same thing you can watch. Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
             Drop 25. Now there is a pile, and the pile is the model: most balls land in a couple of bins and a few bounce somewhere odd. That odd ball is the confident wrong answer, said in the same voice as the others.
             Then change the word before the blank. Click "budget": the funnel moves left and the pile moves with it, toward returned. "Appeal" sends most of it to rejected. The board did not change; the starting point did. That is what context does: the words already on the page decide where the next one starts falling. You can drag the funnel by hand too.
-            Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does: the gradient descent sidebar on the last slide, done by hand. Clear the bins and drop 25 again to show the pile has moved.
+            Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             "Shift the nails" cycles through four boards, and the nails stay put when you change the word, so the room sees one board shape every input. Board 1 is a banana of packed shelves: "proposal" slides into funded, and appeal and budget barely move. Board 2 funnels every word into submitted. Board 3 is a fork: "budget" splits into two piles, rejected and funded, with little in between. Board 4 scatters the nails at random and the piles spread out across the bins. Clear the bins and drop 25 on a couple of words for each board. That is what training does to a model: one set of nails decides where every prompt lands. Nobody steered a ball; the board changed. "Reset the nails" puts them back.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
             If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. The idea is the slope: nudge a weight a tiny bit and see whether the error goes up or down. With billions of weights you cannot test them one at a time, so there is a fancy maths trick, gradient descent, that works out the downhill direction for all of them at once and takes a small step. The arrows on the contour map are the steps. Keep this short or skip it if time is tight.
@@ -345,8 +345,9 @@
           <div style="max-width:40rem; margin:1.6rem auto 0; padding-left:8rem; text-align:left;">
             <p style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">What did we learn about how LLMs think?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">Do they think the way you expected?</p>
-            <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information?</p>
+            <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information after the nails are fixed?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">What happens when you ask it to pick a random number?</p>
+            <p class="fragment" style="font-size:1.75rem; line-height:1.3; margin:0.4rem 0 0; color:#191919;">Is that number truly random?</p>
           </div>
           <aside class="notes">
             Questions only. One row at a time, each click adds the next. Ask it, take a guess or two from the room, and do not answer. Let people sit with not knowing.
@@ -393,16 +394,17 @@
             Walk the three curves. Random is what people think they are asking for. Human is what people actually do: nobody says 1 or 10, few say 5, lots say 7. The model learned from millions of humans doing exactly that, so it inherits the bump. Then it was tuned, over and over, to give the answer people rate highest, and that tuning pushes weight toward the single most likely answer. Gradient descent rewards the peak. The bump becomes a spike.
             Three mechanisms to say out loud. One: it learned from people, and people are bad at random. Two: training to be confident sharpens the favorites. Three: every new chat starts from scratch, so it cannot notice it has said 7 a hundred times today; inside one chat it may avoid repeating itself and moves to the next most human answer, usually 3.
             Then the sentence that carries the whole morning: it is not rolling dice. It is predicting what a person would say.
-            If someone asks how it learned: click the bar chart on the token-builder slide for the gradient descent sidebar. Same idea, same picture.
+            Name it: the 7 is a bias. It came from the people who wrote the training text, and tuning made it stronger. Here it is harmless. Hold that thought; the mirror slide comes back to it after the next one.
+            If someone asks how it learned: the "How training works" pop-up on the pachinko slide has the gradient descent picture.
           </aside>
         </section>
 
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <h2>When "most likely" isn&rsquo;t good enough in research administration</h2>
+          <h2>What does this mean for a research administrator?</h2>
           <div class="slide-grid">
             <article class="slide-card dark">
-              <span class="slide-label">When you asked for random and got "most likely"</span>
+              <span class="slide-label">When you asked for random but got random-sounding</span>
               <ul style="font-size:0.78rem;">
                 <li>"Randomly select ten awards for a spot check." The pick looks random and follows hidden patterns. That is a defensibility problem, not a statistics problem.</li>
                 <li>Transactions for an audit sample. Files for a quality review. Participants for a survey.</li>
@@ -419,11 +421,57 @@
               </ul>
             </article>
           </div>
-          <p class="slide-callout">The most likely answer is not the same thing as the right answer.</p>
+          <p class="slide-callout">The most likely random-sounding answer is not the same as an answer that is actually random.</p>
           <aside class="notes">
             Dwell on the audit sample. A sample that was "randomly selected" by a chatbot follows the habits of every human who ever wrote the words "random sample" on the internet. If an auditor asks how it was drawn, "I asked the AI" is not a method.
             The fixes are cheap. A real random function is one cell in Excel. Asking the model to run code and show the code is the same move the whole morning comes back to: make the tool show its work, then verify the work instead of the vibe. That is exactly what the Vandalizer block does with document extraction.
             Say the callout line once more. Then the next slide gives the room the metaphor to carry all of it: the crowd.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
+          <h2>AI is a mirror, and we are biased</h2>
+          <p class="slide-quote" style="max-width:44rem; margin:1rem auto 0.3rem;">&ldquo;AI is biased, because it learns from us and we are biased.&rdquo;</p>
+          <p class="slide-micro" style="margin:0 0 1rem;">Jesse McCrosky, <a href="https://oursharedaifuture.substack.com/p/theres-no-such-thing-as-unbiased" target="_blank" rel="noopener" style="color:var(--gold);">There&rsquo;s No Such Thing as Unbiased AI</a>, 2026</p>
+          <div class="slide-grid">
+            <article class="slide-card dark">
+              <span class="slide-label">Where the bias comes from</span>
+              <p style="font-size:0.85rem;">An AI reflects and amplifies our inherent bias. It learned the 7 from us, and tuning turned the bump into a spike. And it was created for biased reasons: its makers chose the data and the tuning to serve their own interests.</p>
+            </article>
+            <article class="slide-card accent">
+              <span class="slide-label">What it means for a research administrator</span>
+              <p style="font-size:0.85rem;">You already work with people whose biases differ from yours. That works as long as they do the job and we keep an eye out for bias leaking into the work. Hold AI to the same standard.</p>
+              <p style="font-size:0.85rem; font-weight:700; margin-top:0.5rem;">Don&rsquo;t trust it to remember the answer to a compliance question. Trust it only when it can look the answer up.</p>
+            </article>
+          </div>
+          <p class="slide-callout">Just don&rsquo;t assume AI is free from bias. The fix is the same for people and for AI: look at the data.</p>
+          <p class="slide-micro" style="margin-top:0.6rem;">Bonus: go watch Hans Rosling&rsquo;s <a href="https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen" target="_blank" rel="noopener" style="color:var(--gold);">The best stats you&rsquo;ve ever seen</a> (TED, 2006) if you want to learn about the difference between how we think about the world and how it really is.</p>
+          <div style="max-width:50rem; margin:0.4rem auto 0; text-align:right;"><button type="button" class="grok-open" title="More details">One study &rsaquo;</button></div>
+          <div class="grok-pop" role="dialog" aria-label="One study" hidden>
+            <div class="grok-card">
+              <button type="button" class="grok-close" aria-label="Close">&times;</button>
+              <p class="slide-label" style="margin:0;">Learn more</p>
+              <h3 style="margin:0.2rem 0 0.6rem;">Models judging answers carry our biases too</h3>
+              <p style="font-size:0.78rem; line-height:1.45; margin:0 0 0.4rem;">Researchers at the University of Minnesota asked 15 language models to judge which of two answers was better. On average, 40% of the comparisons showed bias. The models:</p>
+              <ul>
+                <li><strong>Favored whichever answer came first.</strong> Swap the order and the verdict often flips.</li>
+                <li><strong>Favored the longer answer</strong>, especially the largest models.</li>
+                <li><strong>Were swayed by names.</strong> Labeling an answer with a real model&rsquo;s name changed the verdict.</li>
+                <li><strong>Followed the crowd.</strong> A made-up claim about what most people preferred moved most models.</li>
+                <li><strong>Got distracted.</strong> Irrelevant information threw off about half of them.</li>
+              </ul>
+              <p style="font-size:0.82rem; font-weight:600; margin:0.6rem 0 0;">Bigger models were not less biased. If you ask a model to rank proposals or compare drafts, swap the order and ask again.</p>
+              <p class="slide-micro" style="margin-top:0.5rem; font-size:0.6rem;">Sources: Jesse McCrosky, <a href="https://oursharedaifuture.substack.com/p/theres-no-such-thing-as-unbiased" target="_blank" rel="noopener">There&rsquo;s No Such Thing as Unbiased AI</a>, 2026; Paul Bradshaw, <a href="https://onlinejournalismblog.com/2025/05/07/why-im-no-longer-saying-ai-is-biased/" target="_blank" rel="noopener">Why I&rsquo;m no longer saying AI is &ldquo;biased&rdquo;</a>, 2025; Koo et al., <a href="https://minnesotanlp.github.io/cobbler-project-page/" target="_blank" rel="noopener">Benchmarking Cognitive Biases in Large Language Models as Evaluators</a> (CoBBLEr), 2023.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            This is the point under the random-number game, so give it room. The 7 was a bias: the model learned it from the people who wrote its training text, and tuning made it stronger. It is a mirror that reflects and amplifies our inherent bias. We are biased, so it will be too, and there is no unbiased version coming.
+            Then make it practical. You already work with colleagues whose biases differ from yours, and it works because they do the job and someone keeps an eye out for bias leaking into the work. Treat AI the same way. The only mistake is assuming it has none.
+            If the room wants evidence, click "One study": a 2023 University of Minnesota study asked 15 models to judge which of two answers was better, and they favored whichever answer was listed first. Most of them also followed a made-up claim about what the majority preferred. Bigger models were not less biased. For anyone who uses AI to rank or score: swap the order and ask again.
+            And it is not only us in the mirror. The companies that build these models choose the training data and decide how the model is tuned, and those choices serve their interests. The Grok aside on the model quiz shows what that looks like. Be skeptical of the mirror and of whoever is holding it.
+            Point to the bonus link on the way out. Hans Rosling's 2006 TED talk: top Swedish students scored 1.8 out of 5 on a world health quiz, worse than chimpanzees picking at random, and in his words "the problem for me was not ignorance; it was preconceived ideas." He also said that if we don't look in the data, we underestimate the change. A model does not look in the data either. It encodes what we think about the data. So the fix is the same for both: people and AI should look at the data. Block 2 shows how to make a model do that.
+            The mirror leads straight into the next slide: the crowd you are asking is us.
           </aside>
         </section>
 
@@ -524,14 +572,13 @@
         </section>
 
         <section>
-          <h2 style="font-size:2.2rem; max-width:46rem; margin:0 auto; line-height:1.25;">Would you trust someone else&rsquo;s memory alone to answer a compliance question?</h2>
-          <p class="fragment" style="font-size:1.6rem; font-weight:700; max-width:44rem; margin:1.4rem auto 0; color:#555;">Do you ever have to go look up the answer?</p>
-          <h2 class="fragment" style="font-size:2.2rem; max-width:46rem; margin:1.4rem auto 0; line-height:1.25; color:#9a7300;">If you wouldn&rsquo;t trust the memory of another human, why would you trust the memory of an AI?</h2>
-          <p class="fragment" style="font-size:1.4rem; font-weight:700; max-width:44rem; margin:1.4rem auto 0; line-height:1.35;">The solution is to give AI a way to look things up too. This is called <em>context</em>.</p>
+          <h2 style="font-size:2.2rem; max-width:46rem; margin:0 auto; line-height:1.25;">Remember: trust AI only when it can look up the answer</h2>
+          <p style="font-size:1.3rem; max-width:44rem; margin:1.4rem auto 0; line-height:1.4; color:#555;">You wouldn&rsquo;t trust a colleague&rsquo;s memory alone on a compliance question. You&rsquo;d expect them to look it up. Hold AI to the same standard.</p>
+          <p class="fragment" style="font-size:1.4rem; font-weight:700; max-width:44rem; margin:1.4rem auto 0; line-height:1.35;">Giving AI a way to look things up is called <em>context</em>.</p>
           <p class="fragment" style="font-size:0.95rem; max-width:42rem; margin:1.2rem auto 0; color:#555;">By the way: agents are often helper models or routines that <em>go look things up</em> for the main model. That is what &ldquo;agentic AI&rdquo; is all about.</p>
           <aside class="notes">
-            Ask the first question and wait for the room. Someone will say no, or "I'd check." Click: do you ever have to go look up the answer? Every hand in a room of research administrators goes up. Click for the third line, say it, and pause.
-            Click again for the answer: give the model a way to look things up. That is what "context" means: whatever the model is handed to read along with your question, as opposed to what it remembers from training. The room will see how much of it a model can hold on the page-limit slide in a few minutes. Last click, a quick aside: agents are often helper models or routines that go look things up for the main model, and that is most of what people mean by agentic AI. Then the irony, and the page named for the king, which shows five ways of giving a model context.
+            A callback to the mirror slide in Block 1, where we said it plainly: don't trust a model to remember the answer to a compliance question, trust it only when it can look the answer up. Ask the room how often they look up the answer themselves. Every hand in a room of research administrators goes up.
+            Click for the name: giving the model a way to look things up is what "context" means, whatever the model is handed to read along with your question, as opposed to what it remembers from training. The room will see how much of it a model can hold on the page-limit slide in a few minutes. Last click, a quick aside: agents are often helper models or routines that go look things up for the main model, and that is most of what people mean by agentic AI. Then the irony, and the page named for the king, which shows five ways of giving a model context.
           </aside>
         </section>
 
@@ -587,6 +634,7 @@
             On bias: it is very hard to evaluate the biases that come with a model's training data, and the Grok aside later in the talk is one example of how they get in. That is another reason to prefer answers from accessed data over recalled memory: it reduces both hallucination and bias. How much it reduces bias is an open problem, so say that plainly.
             Recalled is not useless. It is what makes the model fluent and fast, and for consensus facts it is fine. It is the wrong tool for anything with a date on it, anything institution-specific, and anything with a number that changes.
             On the new bullet: accessed is only as good as what you hand it. The version in someone's downloads folder may be two amendments old. Pull from the system of record.
+            Call back to Rosling from the mirror slide: recalled is what we think about the data, and accessed is the model looking in the data. Same fix for people and for AI.
             Accessed is the fix, and the room just watched it on the Thamus page; Carl, in block 4, shows the same idea with a table. Which raises the next question: if the answer depends on what you hand the model, how much can you hand it? It has a page limit, and deciding what goes on that page is what prompting really is.
           </aside>
         </section>
