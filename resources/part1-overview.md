@@ -168,5 +168,6 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 
 ### Close
 
-47. **What to take with you.** The four lines that pull the thread together, then the exit question, with answers posted on the forum under #Challenges.
-48. **Thank you.** The external evaluation survey QR code, to fill in before the break, and the Groups.io QR code with links to the #Challenges, #AILiteracy, #UDM, #Guidance, #Vandalizer and #Support hashtags. The speaker notes end on the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back. That is Bert's hour, after the break."
+47. **What to take with you.** A line under the title restating the cornerstone, "Augment, not replace. AI prepares, you decide," then the four lines that pull the thread together, then the exit question, with answers posted on the forum under #Challenges.
+48. **Thinking well with AI (after the break).** Introduces Bert Baumgaertner with his photo and a one-line bio, and carries the handoff: "The machine's half is to look things up instead of remembering. Your half is to keep enough in your own head to judge what comes back." Callout: augmenting the work means keeping the thinking yours.
+49. **Thank you.** The external evaluation survey QR code, to fill in before the break, and the Groups.io QR code with links to the #Challenges, #AILiteracy, #UDM, #Guidance, #Vandalizer and #Support hashtags. It stays up through the break.
