@@ -272,18 +272,6 @@
           </aside>
         </section>
 
-        <section>
-          <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
-          <h2>Build a sentence one token at a time</h2>
-          <p style="font-size:0.8rem; color:var(--muted);">Click the next word. Each choice shifts what comes next, exactly like an LLM.</p>
-          <div class="token-builder" id="token-builder"></div>
-          <p class="slide-note">No right answer, only probabilities. This is why the same prompt gives different output each time.</p>
-          <aside class="notes">
-            Ask for a volunteer to call out words. Build the sentence twice and get two different endings.
-            Three things to land here. One: the model is picking the next token from a probability distribution over everything in its window. Two: the numbers above the words are attention weights, how much each earlier word matters for the next pick. Three: the bar chart is the whole space of sentences the model could have produced. Your path is one of sixty-four.
-            The practical consequence: run the same extraction twice and you can get different answers. That is not a bug you can configure away. It is the mechanism.
-          </aside>
-        </section>
         <section data-prevent-swipe>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>Drop a ball, get a word</h2>
@@ -330,12 +318,13 @@
             </div>
           </div>
           <aside class="notes">
-            The token builder showed the odds as numbers. This is the same thing you can watch. Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
+            Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
             Drop 25. Now there is a pile, and the pile is the model: most balls land in a couple of bins and a few bounce somewhere odd. That odd ball is the confident wrong answer, said in the same voice as the others.
             Then change the word before the blank. Click "budget": the funnel moves left and the pile moves with it, toward returned. "Appeal" sends most of it to rejected. The board did not change; the starting point did. That is what context does: the words already on the page decide where the next one starts falling. You can drag the funnel by hand too.
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             "Shift the nails" cycles through four boards, and the nails stay put when you change the word, so the room sees one board shape every input. Board 1 is a banana of packed shelves: "proposal" slides into funded, and appeal and budget barely move. Board 2 funnels every word into submitted. Board 3 is a fork: "budget" splits into two piles, rejected and funded, with little in between. Board 4 scatters the nails at random and the piles spread out across the bins. Clear the bins and drop 25 on a couple of words for each board. That is what training does to a model: one set of nails decides where every prompt lands. Nobody steered a ball; the board changed. "Reset the nails" puts them back.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
+            And the ball is one word. To write a whole answer, the model drops a ball, adds that word to the question, and drops again, so every word changes the odds for the next.
             If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. The idea is the slope: nudge a weight a tiny bit and see whether the error goes up or down. With billions of weights you cannot test them one at a time, so there is a fancy maths trick, gradient descent, that works out the downhill direction for all of them at once and takes a small step. The arrows on the contour map are the steps. Keep this short or skip it if time is tight.
           </aside>
         </section>
@@ -490,7 +479,7 @@
             The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is why the human bump on the chart became a spike: the crowd's favorite got amplified. It is also why the voice is so confident. The loud ones were rewarded for sounding sure.
             This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
             And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
-            Everything so far fits it. The token builder is the crowd voting on the next word. The 7 is the crowd's favorite number.
+            Everything so far fits it. The pachinko board is the crowd voting on the next word. The 7 is the crowd's favorite number.
             And it tells you what to hand them. The crowd has read the whole internet and none of your award terms. If you want them to answer about your award, the award has to be in the question. That is the context window slide, two slides from now.
           </aside>
         </section>
@@ -1251,7 +1240,7 @@
           <p class="slide-callout">If the answers are yes, yes, a named person, a written method, and the rules allow it, let AI help. If not, a person does the work, or the data gets fixed first.</p>
           <aside class="notes">
             This is the decision rule. Five questions, thirty seconds, before you bring a model into any task.
-            One is the context window. Two is the verification habit from the random-number slide and the four ways an answer goes wrong. Three is IBM. Four is the token builder: same prompt, different answer, so reproducibility has to come from the method, not the model. Five is the rules, and a no on five overrides the other four: if the sponsor or the institution says no, AI stays out of the task however well it scores on the rest.
+            One is the context window. Two is the verification habit from the random-number slide and the four ways an answer goes wrong. Three is IBM. Four is the pachinko board: same prompt, different answer, so reproducibility has to come from the method, not the model. Five is the rules, and a no on five overrides the other four: if the sponsor or the institution says no, AI stays out of the task however well it scores on the rest.
             Run one example out loud. "Summarize the terms of this award notice." Hand it the notice: yes. Check it against the notice: yes. Accountable: the administrator who reads the summary before acting on it. Reproducible: it does not need to be, the notice is the record. Use it. Now "decide whether this cost transfer is allowable." Hand it the policy and the transaction: maybe. Check it: only by doing the analysis yourself. Accountable: a person, by regulation. Reproducible: it had better be. A person leads; the model can prepare the file.
             Then: the fifth question gets a block of its own. Is it allowed? That depends on what your sponsor and your institution say.
           </aside>
