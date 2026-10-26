@@ -268,9 +268,73 @@
             Thirty seconds on the circles, outside in. Artificial intelligence is the big umbrella: any computer system doing a task we would otherwise call intelligent, and most of it is old and boring: spell check, spam filters, the fraud alert on your card. Machine learning is the part that learns the pattern from examples instead of being given the rules. Generative AI is machine learning that makes new content, text, images, audio, instead of only sorting or scoring. Large language models are generative AI trained on an enormous amount of text to do one thing, predict the next word, and they are what everyone means by AI right now: ChatGPT, Claude, Gemini, Copilot.
             Point at the orange oval: natural language processing is the older field of getting computers to work with human language, and much of it is not machine learning at all, rules and dictionaries. LLMs sit where it overlaps the rest, which is why they feel so different from earlier language tools.
             If anyone asks how the people who regulate and fund this define it: the National AI Initiative Act (15 U.S.C. 9401) calls it a machine-based system that makes predictions, recommendations or decisions for human-defined objectives. NIH's data science plan calls it the power of a machine to copy intelligent human behavior. University guidelines typically say a system that performs tasks that typically require human intelligence. Notice that all three define it by what it does. None says where its knowledge comes from. Hold that; it comes back in block 3.
-            Then: the one job is predict the next word. Let's watch it do that.
+            Then: the one job is predict the next word. Before we watch it do that, here is the picture to hold onto.
           </aside>
         </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; A mental model</p>
+          <h2>You are asking a crowd of a thousand non-experts</h2>
+          <div class="slide-split img-wide" style="align-items:center;">
+            <div class="split-img">
+              <img src="img/crowd-of-amateurs.png" alt="Illustration of a large, diverse crowd of people" style="max-height:380px;" />
+            </div>
+            <div class="split-text">
+              <p style="font-size:0.9rem;">Picture a thousand well-read, well-meaning people with no particular expertise. You ask a question, and you get back whatever most of them would say, in one confident voice.</p>
+              <ul style="font-size:0.8rem; margin-top:0.5rem;">
+                <li>They have read almost everything ever published.</li>
+                <li>They have read none of your files unless you hand them over.</li>
+                <li>They answer fast, and they always answer.</li>
+                <li>There is no minority report. The dissenters are averaged away.</li>
+                <li>Ask them for a random number and see what you get.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="slide-callout">How do you train a crowd? Pay some people to speak louder.</p>
+          <aside class="notes">
+            The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is also why the voice is so confident. The loud ones were rewarded for sounding sure.
+            This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
+            And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
+            Everything after this fits it. Watch for the crowd in the pachinko board, where it votes on the next word, and in the random number game.
+            And it tells you what to hand them. The crowd has read the whole internet and none of your award terms. If you want them to answer about your award, the award has to be in the question. That is Block 2.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Block 1 &middot; A mental model</p>
+          <h2>When to ask the crowd, and when not to</h2>
+          <div class="slide-grid" style="align-items:stretch;">
+            <article class="slide-card accent" style="display:block; text-align:left;">
+              <span class="slide-label" style="display:block; margin-bottom:0.4rem;">Ask the crowd</span>
+              <ul style="font-size:0.76rem; margin:0; padding-left:1.1rem; line-height:1.45;">
+                <li><strong>Consensus facts.</strong> <span style="opacity:0.75;">What an award notice usually contains.</span></li>
+                <li><strong>Summarizing.</strong> <span style="opacity:0.75;">A forty-page solicitation into one page.</span></li>
+                <li><strong>Drafting from a pattern.</strong> <span style="opacity:0.75;">A routine email to a PI, a budget justification.</span></li>
+                <li><strong>Brainstorming.</strong> <span style="opacity:0.75;">Ten ways to phrase a hard message.</span></li>
+                <li><strong>Finding things.</strong> <span style="opacity:0.75;">Where a document talks about cost share.</span></li>
+              </ul>
+            </article>
+            <article class="slide-card dark" style="display:block; text-align:left;">
+              <span class="slide-label" style="display:block; margin-bottom:0.4rem;">Do not ask the crowd alone</span>
+              <ul style="font-size:0.76rem; margin:0; padding-left:1.1rem; line-height:1.45;">
+                <li><strong>Niche or local knowledge.</strong> <span style="opacity:0.75;">Your sponsor's unusual term, your office's practice.</span></li>
+                <li><strong>Anything recent.</strong> <span style="opacity:0.75;">A rule that changed after the model was trained.</span></li>
+                <li><strong>A claim nobody has made.</strong> <span style="opacity:0.75;">The crowd can only repeat what it has read.</span></li>
+                <li><strong>Judgment calls.</strong> <span style="opacity:0.75;">Allowability, a finding, what you ought to do.</span></li>
+                <li><strong>Anything that must match twice.</strong> <span style="opacity:0.75;">Audit samples. Ask twice, get two answers.</span></li>
+              </ul>
+            </article>
+          </div>
+          <aside class="notes">
+            Left column: things a thousand reasonably informed people are genuinely good at. Read the examples, not the headings.
+            Right column: things a crowd is bad at no matter how big, unless someone hands it the source. Your sponsor's unusual term. A rule that changed last year. Whether a claim nobody has made before is true. What you ought to do. And reproducibility: ask the crowd twice, get two answers. The heading says "alone" on purpose; some of these move left once the model is given the record, which is block 3.
+            Say the caveat honestly. Reasoning models, tool use, and code execution are moving items from the right column leftward every year. Multi-step reasoning in particular is much better than it was. The habit to build is not "never," it is "not without checking." Bert will spend an hour on the ethical-judgment row.
+            Point at "Anything recent" and leave it hanging; it is the whole of block 2.
+            Research administration maps onto this cleanly: the documents go left, the determinations go right. That comes back in block 5.
+            Then: let's watch the crowd pick a word.
+          </aside>
+        </section>
+
 
         <section data-prevent-swipe>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
@@ -318,7 +382,7 @@
             </div>
           </div>
           <aside class="notes">
-            Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
+            This is the crowd from two slides ago, voting on one word. Every ball is one answer to "The proposal was ___", and every ball starts from exactly the same spot. Drop one. Drop one more. Different word. Same prompt, different answer.
             Drop 25. Now there is a pile, and the pile is the model: most balls land in a couple of bins and a few bounce somewhere odd. That odd ball is the confident wrong answer, said in the same voice as the others.
             Then change the word before the blank. Click "budget": the funnel moves left and the pile moves with it, toward returned. "Appeal" sends most of it to rejected. The board did not change; the starting point did. That is what context does: the words already on the page decide where the next one starts falling. You can drag the funnel by hand too.
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does, done by hand. Clear the bins and drop 25 again to show the pile has moved.
@@ -336,7 +400,7 @@
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">Do they think the way you expected?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">How would a model &lsquo;learn&rsquo; new information after the nails are fixed?</p>
             <p class="fragment" style="font-size:1.45rem; line-height:1.3; margin:0 0 0.9rem; color:#191919;">What happens when you ask it to pick a random number?</p>
-            <p class="fragment" style="font-size:1.75rem; line-height:1.3; margin:0.4rem 0 0; color:#191919;">Is that number truly random?</p>
+            <p class="fragment" style="font-size:1.75rem; font-weight:700; line-height:1.3; margin:0.4rem 0 0; color:#191919;">Is that number truly random?</p>
           </div>
           <aside class="notes">
             Questions only. One row at a time, each click adds the next. Ask it, take a guess or two from the room, and do not answer. Let people sit with not knowing.
@@ -452,69 +516,7 @@
             Ask the question and take a few answers before clicking. Grant review: the reviewer model favors whatever its training text favored, such as a prestigious institution or a longer proposal. Hiring: the names and schools on a resume carry the same patterns the image model showed with CEOs.
             Click for the chart. A 2023 University of Minnesota study asked 15 models to judge which of two answers was better. The red line is chance; everything above it is bias. Read three columns aloud. Order: most models favored whichever answer came first. Salience: nearly all of them favored the longer answer. Bandwagon: tell a model that 85 percent of people preferred one answer and most of them follow. Bigger models were not less biased. If you use AI to rank or score anything, swap the order and ask again.
             Then the takeaway. You already work with colleagues whose biases differ from yours, and it works because they do the job and someone keeps an eye out for bias leaking into the work. Hold AI to the same standard. Don't trust it to remember the answer to a compliance question; trust it only when it can look the answer up. Block 2 shows how.
-            That leads straight into the next slide: the crowd you are asking is us.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 1 &middot; A mental model</p>
-          <h2>You are asking a crowd of a thousand non-experts</h2>
-          <div class="slide-split img-wide" style="align-items:center;">
-            <div class="split-img">
-              <img src="img/crowd-of-amateurs.png" alt="Illustration of a large, diverse crowd of people" style="max-height:380px;" />
-            </div>
-            <div class="split-text">
-              <p style="font-size:0.9rem;">Picture a thousand well-read, well-meaning people with no particular expertise. You ask a question, and you get back whatever most of them would say, in one confident voice.</p>
-              <ul style="font-size:0.8rem; margin-top:0.5rem;">
-                <li>They have read almost everything ever published.</li>
-                <li>They have read none of your files unless you hand them over.</li>
-                <li>They answer fast, and they always answer.</li>
-                <li>There is no minority report. The dissenters are averaged away.</li>
-                <li>Ask them for a random number and you get the crowd's favorite.</li>
-              </ul>
-            </div>
-          </div>
-          <p class="slide-callout">How do you train a crowd? Pay some people to speak louder.</p>
-          <aside class="notes">
-            The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is why the human bump on the chart became a spike: the crowd's favorite got amplified. It is also why the voice is so confident. The loud ones were rewarded for sounding sure.
-            This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
-            And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
-            Everything so far fits it. The pachinko board is the crowd voting on the next word. The 7 is the crowd's favorite number.
-            And it tells you what to hand them. The crowd has read the whole internet and none of your award terms. If you want them to answer about your award, the award has to be in the question. That is the context window slide, two slides from now.
-          </aside>
-        </section>
-
-        <section>
-          <p class="slide-kicker">Block 1 &middot; A mental model</p>
-          <h2>When to ask the crowd, and when not to</h2>
-          <div class="slide-grid" style="align-items:stretch;">
-            <article class="slide-card accent" style="display:block; text-align:left;">
-              <span class="slide-label" style="display:block; margin-bottom:0.4rem;">Ask the crowd</span>
-              <ul style="font-size:0.76rem; margin:0; padding-left:1.1rem; line-height:1.45;">
-                <li><strong>Consensus facts.</strong> <span style="opacity:0.75;">What an award notice usually contains.</span></li>
-                <li><strong>Summarizing.</strong> <span style="opacity:0.75;">A forty-page solicitation into one page.</span></li>
-                <li><strong>Drafting from a pattern.</strong> <span style="opacity:0.75;">A routine email to a PI, a budget justification.</span></li>
-                <li><strong>Brainstorming.</strong> <span style="opacity:0.75;">Ten ways to phrase a hard message.</span></li>
-                <li><strong>Finding things.</strong> <span style="opacity:0.75;">Where a document talks about cost share.</span></li>
-              </ul>
-            </article>
-            <article class="slide-card dark" style="display:block; text-align:left;">
-              <span class="slide-label" style="display:block; margin-bottom:0.4rem;">Do not ask the crowd alone</span>
-              <ul style="font-size:0.76rem; margin:0; padding-left:1.1rem; line-height:1.45;">
-                <li><strong>Niche or local knowledge.</strong> <span style="opacity:0.75;">Your sponsor's unusual term, your office's practice.</span></li>
-                <li><strong>Anything recent.</strong> <span style="opacity:0.75;">A rule that changed after the model was trained.</span></li>
-                <li><strong>A claim nobody has made.</strong> <span style="opacity:0.75;">The crowd can only repeat what it has read.</span></li>
-                <li><strong>Judgment calls.</strong> <span style="opacity:0.75;">Allowability, a finding, what you ought to do.</span></li>
-                <li><strong>Anything that must match twice.</strong> <span style="opacity:0.75;">Audit samples. Ask twice, get two answers.</span></li>
-              </ul>
-            </article>
-          </div>
-          <aside class="notes">
-            Left column: things a thousand reasonably informed people are genuinely good at. Read the examples, not the headings.
-            Right column: things a crowd is bad at no matter how big, unless someone hands it the source. Your sponsor's unusual term. A rule that changed last year. Whether a claim nobody has made before is true. What you ought to do. And reproducibility: ask the crowd twice, get two answers. The heading says "alone" on purpose; some of these move left once the model is given the record, which is block 3.
-            Say the caveat honestly. Reasoning models, tool use, and code execution are moving items from the right column leftward every year. Multi-step reasoning in particular is much better than it was. The habit to build is not "never," it is "not without checking." Bert will spend an hour on the ethical-judgment row.
-            Point at "Anything recent" and leave it hanging; it is the whole of block 2.
-            Research administration maps onto this cleanly: the documents go left, the determinations go right. That comes back in block 5.
+            Call back to the crowd from the start of the block: the crowd you are asking is us, and the mirror shows it. Then point at "Anything recent" on the when-to-ask slide one more time: what the crowd remembers is frozen on a date, and that is the whole of Block 2.
           </aside>
         </section>
 
@@ -543,7 +545,7 @@
               </div>
             </article>
           </div>
-          <p class="slide-callout">Thamus thought writing would weaken people's memory, and that leaning on reminders would weaken their reasoning. But writing something down can help you remember it later, and, most importantly, when you look up a fact that has been written down, you can be confident it is accurate.</p>
+          <p class="slide-callout">Thamus thought writing would weaken people's memory, and that leaning on reminders would weaken their reasoning. But writing something down can help you remember it later, and, most importantly, when you look up a fact that has been written down, you can be confident it hasn't changed.</p>
           <p class="slide-micro">Plato, <em>Phaedrus</em> 274c to 275b, written around 370 BCE. Benjamin Jowett&rsquo;s translation.</p>
           <aside class="notes">
             Two minutes, told, not read. Socrates tells it to Phaedrus as an old Egyptian tale he once heard, set at Naucratis in a mythic past when gods offered their inventions to kings. It has no date, and most scholars think Plato invented it; what is datable is the writing, around 370 BCE. Theuth brings his inventions to the king and argues for each; writing is the one he is proudest of. Thamus answers that the inventor is the last person to judge what an invention does to the people who use it, and then gives the verdict on the slide.
