@@ -88,6 +88,8 @@
       .grok-card li { margin-bottom:0.45rem; }
       .reveal .grok-card h3 { font-size:1.25rem !important; text-transform:none !important; letter-spacing:0 !important; line-height:1.2 !important; }
       .grok-card .slide-label { display:block; }
+      .ladder-tip::after { content:attr(data-tip); position:absolute; right:85%; top:0.5rem; width:11rem; padding:0.5rem 0.75rem; background:#fcecb8; border:1px solid rgba(241,179,0,0.5); color:var(--ink); font-size:0.72rem; line-height:1.35; text-align:center; border-radius:6px; pointer-events:none; opacity:0; transition:opacity 0.15s; }
+      .ladder-tip:hover::after { opacity:1; }
       .grok-close { position:absolute; top:0.5rem; right:0.7rem; border:0; background:none; font-size:1.4rem; cursor:pointer; color:#555; }
       #ctx-slider .slider-bar { overflow: visible; position: relative; z-index: 30; }
       #ctx-slider .slider-region:first-child { border-radius: 0.5rem 0 0 0.5rem; }
@@ -256,25 +258,15 @@
         <section>
           <p class="slide-kicker">Block 1 &middot; How LLMs work</p>
           <h2>What we mean by AI</h2>
-          <div style="max-width:52rem; margin:0.8rem auto 0; border:2px solid rgba(25,25,25,0.12); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.05); text-align:left;">
-            <span class="slide-label">Artificial intelligence</span>
-            <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Any computer system doing a task we would otherwise call intelligent. Spell check, fraud detection, chess.</p>
-            <div style="border:2px solid rgba(25,25,25,0.2); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.12000000000000001); text-align:left;">
-              <span class="slide-label">Machine learning</span>
-              <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Systems that learn the pattern from examples instead of being given the rules.</p>
-              <div style="border:2px solid rgba(25,25,25,0.28); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.19); text-align:left;">
-                <span class="slide-label">Deep learning</span>
-                <p style="font-size:0.74rem; margin:0.15rem 0 0.5rem;">Machine learning with very large networks, trained on very large piles of data.</p>
-                <div style="border:2px solid rgba(25,25,25,0.36); border-radius:1rem; padding:0.55rem 0.8rem 0.7rem; background:rgba(241,179,0,0.26); text-align:left; background:#191919; color:#fff; border-color:#191919;">
-                  <span class="slide-label" style="color:var(--gold);">Large language models</span>
-                  <p style="font-size:0.8rem; margin:0.15rem 0 0; color:#ffffff !important; opacity:1;">Deep learning trained on an enormous amount of text to do one thing: predict the next word. ChatGPT, Claude, Gemini, Copilot.</p>
-                </div>
-              </div>
-            </div>
+          <div style="position:relative; width:max-content; margin:0.4rem auto 0; padding-left:6rem;">
+            <a class="ladder-tip" href="https://en.wikipedia.org/wiki/Herbert_A._Simon" target="_blank" rel="noopener" aria-label="Herbert A. Simon on Wikipedia" data-tip="Simon's ladder: You don't need to reach the top, just high enough to see what you're working on clearly." style="display:block; position:absolute; z-index:2; left:-1.9rem; bottom:0;"><img src="img/diagrams/ladder_person.png" alt="" aria-hidden="true" style="display:block; height:15.8rem; width:auto; margin:0;" /></a>
+            <img src="img/diagrams/ai_jawbreaker.png" alt="Nested ovals: Artificial Intelligence contains Machine Learning, which contains Gen-AI, which contains LLMs. A separate Natural Language Processing oval overlaps all four. A person on a ladder leans it against the outer oval." style="display:block; position:relative; height:22rem; width:auto; margin:0;" />
           </div>
-          <p class="slide-callout">When people say "AI" today they almost always mean the inner box. Everything in the next fifteen minutes follows from that one job: predict the next word.</p>
+          <p class="slide-callout">When people say "AI" these days, they usually mean that little LLM circle. And all an LLM does is predict the next word.</p>
           <aside class="notes">
-            Thirty seconds on the boxes, outside in. AI is the big umbrella, and most of it is old and boring: spell check, spam filters, the fraud alert on your card. Machine learning is the part that learns from examples. Deep learning is machine learning at very large scale. Large language models are deep learning trained on text, and they are what everyone means by AI right now.
+            Point at the person on the ladder first. Call it Simon's ladder and do not explain the name; that is what the click is for. We are building a ladder to understanding AI, without the jargon. Mental models are rungs on a ladder. Each one is wrong in some way, but each lets you see further than the one below. You don't need to reach the top; you need to reach the rung that lets you see what you're working on. Hover over him and the same line shows on screen. Easter egg: clicking him opens Herbert Simon's Wikipedia page in a new tab. If someone asks who Simon was: the Nobel economist who coined "satisficing," stopping at the answer good enough to act on rather than the perfect one.
+            Thirty seconds on the circles, outside in. Artificial intelligence is the big umbrella: any computer system doing a task we would otherwise call intelligent, and most of it is old and boring: spell check, spam filters, the fraud alert on your card. Machine learning is the part that learns the pattern from examples instead of being given the rules. Generative AI is machine learning that makes new content, text, images, audio, instead of only sorting or scoring. Large language models are generative AI trained on an enormous amount of text to do one thing, predict the next word, and they are what everyone means by AI right now: ChatGPT, Claude, Gemini, Copilot.
+            Point at the orange oval: natural language processing is the older field of getting computers to work with human language, and much of it is not machine learning at all, rules and dictionaries. LLMs sit where it overlaps the rest, which is why they feel so different from earlier language tools.
             If anyone asks how the people who regulate and fund this define it: the National AI Initiative Act (15 U.S.C. 9401) calls it a machine-based system that makes predictions, recommendations or decisions for human-defined objectives. NIH's data science plan calls it the power of a machine to copy intelligent human behavior. University guidelines typically say a system that performs tasks that typically require human intelligence. Notice that all three define it by what it does. None says where its knowledge comes from. Hold that; it comes back in block 3.
             Then: the one job is predict the next word. Let's watch it do that.
           </aside>
@@ -330,7 +322,7 @@
                 <div>
                   <img src="img/diagrams/gradient_descent_steps.svg" alt="Contour lines around a low point, with arrows stepping from x0 to x4 toward the center" style="width:100%; height:9.5rem; object-fit:contain; display:block; margin:0 0 0.5rem;" />
                   <p style="font-size:0.8rem; font-weight:700; margin:0 0 0.2rem;">3. How do we know which way to move the nails?</p>
-                  <p style="font-size:0.72rem; line-height:1.45; margin:0;">Feel for the slope. For each weight, ask: if it moved a tiny bit, would the error go up or down? That slope is the gradient. Move every weight a small step downhill, then measure again. Each arrow on the map is one step, crossing the contour lines toward the low point. That is gradient descent, repeated billions of times.</p>
+                  <p style="font-size:0.72rem; line-height:1.45; margin:0;">Feel for the slope. Nudge a weight a tiny bit: does the error go up or down? With billions of weights, testing them one at a time would take forever, so we use a fancy maths trick called gradient descent. It works out the downhill direction for every weight at once, takes a small step, and measures again. Each arrow on the map is one step toward the low point.</p>
                 </div>
               </div>
               <p style="font-size:0.82rem; font-weight:600; margin:0.8rem 0 0;">The result lands where people&rsquo;s words usually land. It learned what is likely to be written, not what is true.</p>
@@ -344,7 +336,7 @@
             Now drag a nail. You cannot steer any single ball; you can only change the shape of the pile. The nails are the model's weights, and moving them is what training does: the gradient descent sidebar on the last slide, done by hand. Clear the bins and drop 25 again to show the pile has moved.
             "Shift the nails" packs a few nails in each row into a short shelf and stacks the shelves into a band that bends down and to the right, like a banana; the rest of each row moves to the left of it. Clear the bins and drop 25: balls roll off the end of each shelf onto the next, and most of the pile ends up in funded, with a tail trailing back to the left. That is what training does to a model: it reshapes where answers land. Nobody steered a ball; the board changed. "Reset the nails" puts them back.
             One line to land it: you do not get to choose the ball. You only get to check where it landed.
-            If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. For each weight it checks the slope, whether a tiny move makes the error go up or down, and steps every weight a little downhill. That is gradient descent; the arrows on the contour map are the steps. The next slide walks the same loop in three steps, so keep this short or skip it if time is tight.
+            If the room wants to know what the nails really are, click "How training works" under the controls. Left: a real model is a neural network, layers of nodes joined by weights, and the weights are the nails, billions of them. Middle: training measures how wrong each guess was against the word a person actually wrote, and every setting of the weights has an error score, so the errors make a landscape. Right: how it knows which way to move the nails. The idea is the slope: nudge a weight a tiny bit and see whether the error goes up or down. With billions of weights you cannot test them one at a time, so there is a fancy maths trick, gradient descent, that works out the downhill direction for all of them at once and takes a small step. The arrows on the contour map are the steps. The next slide walks the same loop in three steps, so keep this short or skip it if time is tight.
           </aside>
         </section>
 
@@ -1512,56 +1504,56 @@
 
         <section>
           <p class="slide-kicker">Block 7 &middot; From small starts to building big</p>
-          <h2>Each rung needs the one below it</h2>
-          <div class="preview-flow compact" role="list" aria-label="Ladder from a prompt to a governed data layer" style="grid-template-columns:1fr; max-width:34rem;">
-            <article class="preview-step" role="listitem">
+          <h2>Each level needs the one below it</h2>
+          <div class="preview-flow compact" role="list" aria-label="Pyramid from a prompt at the base to a governed data layer at the top" style="grid-template-columns:1fr; justify-items:center; max-width:40rem; gap:0.3rem;">
+            <article class="preview-step" role="listitem" style="width:52%; box-sizing:border-box;">
               <p class="preview-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 5</p>
+                <p class="preview-part-number">Level 5</p>
                 <h6 class="preview-part-title">A governed data layer</h6>
               </div>
               <p class="preview-time">months</p>
             </article>
-            <article class="preview-step" role="listitem">
+            <article class="preview-step" role="listitem" style="width:64%; box-sizing:border-box;">
               <p class="preview-icon" aria-hidden="true">&#x1F50C;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 4</p>
+                <p class="preview-part-number">Level 4</p>
                 <h6 class="preview-part-title">A connected tool: RAG, API, MCP</h6>
               </div>
               <p class="preview-time">weeks</p>
             </article>
-            <article class="preview-step" role="listitem">
+            <article class="preview-step" role="listitem" style="width:76%; box-sizing:border-box;">
               <p class="preview-icon" aria-hidden="true">&#x1F4CA;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 3</p>
+                <p class="preview-part-number">Level 3</p>
                 <h6 class="preview-part-title">An artifact or an add-in</h6>
               </div>
               <p class="preview-time">an afternoon</p>
             </article>
-            <article class="preview-step" role="listitem">
+            <article class="preview-step" role="listitem" style="width:88%; box-sizing:border-box;">
               <p class="preview-icon" aria-hidden="true">&#x1F4DA;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 2</p>
+                <p class="preview-part-number">Level 2</p>
                 <h6 class="preview-part-title">A shared prompt library and templates</h6>
               </div>
               <p class="preview-time">hours</p>
             </article>
-            <article class="preview-step" role="listitem">
+            <article class="preview-step" role="listitem" style="width:100%; box-sizing:border-box;">
               <p class="preview-icon" aria-hidden="true">&#x270D;&#xFE0F;</p>
               <div class="preview-content">
-                <p class="preview-part-number">Rung 1</p>
-                <h6 class="preview-part-title">A prompt you keep</h6>
+                <p class="preview-part-number">Level 1</p>
+                <h6 class="preview-part-title">A prompt you reuse</h6>
               </div>
               <p class="preview-time">minutes</p>
             </article>
           </div>
-          <p class="slide-callout">Start at the bottom. Pick the one rung you can reach this month and write it down now. That is the thing you take home.</p>
-          <p class="slide-micro">Rung 2 is free: the <a href="https://github.com/AI4RA/prompt-library" target="_blank" rel="noopener" style="color:var(--gold);">AI4RA prompt library</a> has tested extraction prompts and schemas for award notices and solicitations.</p>
+          <p class="slide-callout">Start at the bottom. Pick the one level you can reach this month and write it down now. That is the thing you take home.</p>
+          <p class="slide-micro">Level 2 is free: the <a href="https://github.com/AI4RA/prompt-library" target="_blank" rel="noopener" style="color:var(--gold);">AI4RA prompt library</a> has tested extraction prompts and schemas for award notices and solicitations.</p>
           <aside class="notes">
-            The failure mode we see most is an office that tries to start at rung four or five because a vendor sold them an agent, with no prompts anyone has tested, no templates, and no idea what their data looks like. It does not work, and it sours the office on all of it.
-            The ladder is the cure. A prompt you keep becomes a library the office shares. The library becomes a template an artifact can run. The artifact shows leadership what a connected tool could do. The connected tool exposes, immediately, whether the data underneath is any good, which is block 4. Make them write the rung down; it is the one take-home of the day.
-            Everything on this ladder is augment. Nobody is replaced by a prompt library.
-            Then: rung four, a connected tool, looks like this.
+            The failure mode we see most is an office that tries to start at level four or five because a vendor sold them an agent, with no prompts anyone has tested, no templates, and no idea what their data looks like. It does not work, and it sours the office on all of it.
+            The pyramid is the cure: each level stands on the one below. A prompt you reuse becomes a library the office shares. The library becomes a template an artifact can run. The artifact shows leadership what a connected tool could do. The connected tool exposes, immediately, whether the data underneath is any good, which is block 4. Make them write the level down; it is the one take-home of the day.
+            Everything in this pyramid is augment. Nobody is replaced by a prompt library.
+            Then: level four, a connected tool, looks like this.
           </aside>
         </section>
 
@@ -1582,7 +1574,7 @@
           </div>
           <p class="slide-note">Questions and workflows: the AI4RA forum under #Vandalizer and #Workflows.</p>
           <aside class="notes">
-            Lead in from the ladder: this is rung four, a connected tool that shows its work. One slide, no live demo. Vandalizer has been shown at earlier AI4RA sessions, and everything it would teach here has already been said: extraction from the what-AI-does-well slide, a source next to every value from the error modes, checking work against the record from the five questions.
+            Lead in from the pyramid: this is level four, a connected tool that shows its work. One slide, no live demo. Vandalizer has been shown at earlier AI4RA sessions, and everything it would teach here has already been said: extraction from the what-AI-does-well slide, a source next to every value from the error modes, checking work against the record from the five questions.
             Say it in one breath: this is what the habits from today look like built into a tool. Every value points to the passage it came from, and when it cannot find one it says so instead of making one up. Built by our project: judge it by the checks, not by who is showing it.
             The certification is self-paced and lives inside the product, on sample documents, so nobody needs their own data to start. Leave the code up for a moment, then move to the close.
           </aside>

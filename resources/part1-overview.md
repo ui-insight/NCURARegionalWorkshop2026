@@ -99,7 +99,7 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
 
 ### Block 1. How language models work
 
-5. **What we mean by AI.** Nested boxes: artificial intelligence, machine learning, deep learning, large language models. An LLM is trained on an enormous amount of text to predict the next word.
+5. **What we mean by AI.** The AI jawbreaker diagram: nested ovals for artificial intelligence, machine learning, generative AI and large language models, with natural language processing overlapping them; the definitions move to the speaker notes. A person on a ladder leans against the outer oval: Simon's ladder, after Herbert Simon. Hovering shows the idea (mental models are rungs; each is wrong in some way but lets you see further; climb to the rung that lets you see your work), and clicking opens his Wikipedia page as an easter egg. An LLM is trained on an enormous amount of text to predict the next word.
 6. **Build a sentence one token at a time.** An interactive token builder: click the next word, watch the probabilities shift, see that the same prompt gives different output. A sidebar explains gradient descent.
 7. **Drop a ball, get a word.** A pachinko board for "The proposal was ___." Balls fall from a funnel through nails into word bins. Chips change the word before the blank, which moves the funnel. A "Shift the nails" button rearranges the nails into a banana shape that sends most balls to "funded."
 8. **How do we know where the nails should go?** Training in three steps: take a real sentence, hide the next word, nudge the nails toward the real word, billions of times. Callout: a big enough board makes a statistical machine that sounds like a person; it learns what is likely to be written, not what is true, and the training data is not a neutral choice.
@@ -163,7 +163,7 @@ Slide numbers follow the current deck, so a moved slide keeps its number. In the
     - "Rewrite this for a PI who has never managed an award. Keep every requirement. Do not add any." Compare the two versions one requirement at a time.
     None asks the model to do math. Each passes the five questions from Block 5: the document gives the model what it needs, the quote makes checking cheap, the person who files the result is accountable, and the result does not need to be reproducible because the document is the record. Each also works in any chatbot, not only AI4RA's tools.
 42. **Where it saves a research administrator time this month.** Six examples, each naming what AI does and what the person does.
-43. **Each rung needs the one below it.** A ladder of five rungs: a prompt you keep, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the rung you can reach this month.
+43. **Each level needs the one below it.** A pyramid of five levels, widest at the base: a prompt you reuse, a shared prompt library, an artifact or add-in, a connected tool, a governed data layer, each needing the one below; start at the bottom and write down the level you can reach this month. It is a pyramid, not a ladder, so it does not collide with Simon's ladder on slide 5.
 44. **Vandalizer: try it yourself.** What it is in one line, a link and QR code to join the demo instance, and the three steps to start the Vandal Workflow Architect certification: request a free two-week trial, sign in, and click Get Certified at the bottom of the left sidebar.
 
 ### Close
