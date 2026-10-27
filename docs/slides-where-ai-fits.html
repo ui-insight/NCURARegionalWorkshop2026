@@ -57,23 +57,8 @@
       .vz-feature { font-size:0.74rem; }
       .vz-feature li { margin-bottom:0.25rem; }
 
-      /* Recalled vs accessed comparator */
-      .compare-box { max-width: 68rem; margin: 0.8rem auto 0; text-align:left; }
+      /* Side-by-side row */
       .compare-row { display:flex; gap:0.6rem; align-items:center; }
-      .compare-input-row { background:#f7f7f7; border:1px solid rgba(25,25,25,0.12); border-radius:0.9rem; padding:0.55rem 0.6rem; }
-      .compare-label { font-size:0.72rem; font-weight:800; color:#555; text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
-      .compare-input-row input { flex:1; min-width:0; border:1px solid rgba(25,25,25,0.15); border-radius:0.6rem; padding:0.45rem 0.6rem; font-size:0.82rem; background:#fff; color:#191919; }
-      .compare-input-row button { border:2px solid #191919; background:#191919; color:#fff; font-size:0.76rem; font-weight:800; padding:0.45rem 0.8rem; border-radius:0.6rem; cursor:pointer; }
-      .compare-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0.8rem; margin-top:0.7rem; }
-      .compare-panel { border-radius:1rem; border:1px solid rgba(25,25,25,0.12); padding:0.8rem; background:#fff; }
-      .compare-panel h3 { margin:0.2rem 0 0.5rem; font-size:0.92rem; }
-      .compare-tag { margin:0; font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; }
-      .compare-left .compare-tag { color:#b91c1c; }
-      .compare-right .compare-tag { color:#166534; }
-      .compare-answer { margin:0; font-size:1rem; line-height:1.5; color:#191919; }
-      .compare-note { margin-top:0.6rem; font-size:0.72rem; color:#555; }
-      .compare-source { margin:0.5rem 0 0; font-size:0.68rem; color:#166534; }
-      .compare-source a { color:inherit; }
       .preview-flow.compact { grid-template-columns:1fr 1fr; gap:0.45rem; max-width:52rem; }
       .preview-flow.compact .preview-step { min-height:3.1rem; padding:0.4rem 0.7rem; }
       .preview-flow.compact .preview-icon { font-size:1.2rem !important; }
@@ -1585,13 +1570,10 @@
     </div>
 
     <script type="module">
-      import { readKeyFromURL, installLinkInterceptor, getKey } from './js/key-manager.js';
-      import { fetchText } from './js/mindrouter-fetch.js';
-      import * as ecfr from './js/ecfr-lookup.js';
+      import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
       import { initKeyStatus } from './js/key-status.js';
       readKeyFromURL();
       installLinkInterceptor();
-      window.__mindrouter = { getKey, fetchText, ecfr };
       // Badge next to "Back to Sessions" saying whether the key is loaded in this tab
       initKeyStatus({ container: document.querySelector('.slides-home'), href: 'index.html#key' });
     </script>
@@ -1609,187 +1591,6 @@
         transition: "slide",
         plugins: [RevealNotes]
       });
-
-      /* Recalled vs accessed comparator */
-      (function () {
-        var button = document.getElementById('compare-run');
-        var input = document.getElementById('compare-question');
-        var recalled = document.getElementById('compare-recalled');
-        var accessed = document.getElementById('compare-accessed');
-        var source = document.getElementById('compare-source');
-        if (!button || !input || !recalled || !accessed) return;
-
-        // The model call goes through the lakehouse VM's /v1 proxy, not to MindRouter itself:
-        // MindRouter answers browser requests only from its own origin, and the proxy forwards
-        // server-to-server with the visitor's own key as the bearer (mindrouter-365 issue #30).
-        // The proxy must list this site's origin in its CORS allowlist, as it does for Promptulus.
-        // The eCFR side goes straight to the AI4RA MCP server, which allows any origin.
-        const MINDROUTER_BASE_URL = 'https://nlayman-external.insight.uidaho.edu/v1';
-        const MINDROUTER_CHAT_URL = MINDROUTER_BASE_URL + '/chat/completions';
-        const MINDROUTER_MODEL = 'qwen/qwen3.8-27b';
-        const fixtures = [
-          {
-            match: /de minimis|indirect cost rate/i,
-            recalled: 'The model tends to answer from memory: “Recipients can use a 10% de minimis rate.” It sounds plausible, but it is stale.',
-            accessed: 'With eCFR text injected, the answer shifts to the current rule: “Up to 15% of MTDC under 2 CFR 200.414(f). Same question, different evidence.”'
-          },
-          {
-            match: /equipment|per-unit cost threshold/i,
-            recalled: 'Without a source, the model often reaches for old numbers: “$5,000 per unit.” Confident, but no citation.',
-            accessed: 'With eCFR access, the model can cite 2 CFR 200.1 and answer the current threshold: $10,000 per unit.'
-          },
-          {
-            match: /modified total direct costs|subaward/i,
-            recalled: 'Memory says “the first $25,000 of each subaward,” which is the older remembered version.',
-            accessed: 'Connected to the regulation, the model answers from the text: the first $50,000 under 2 CFR 200.1.'
-          }
-        ];
-
-        function fixtureAnswer(question) {
-          var hit = fixtures.find(function (f) { return f.match.test(question); });
-          if (hit) return hit;
-          return {
-            recalled: 'The model will make a confident guess from training memory, then stop.',
-            accessed: 'Hand it the source and the model can quote or summarize the relevant passage instead of guessing.'
-          };
-        }
-
-        // A MindRouter key starts with mr2_. Any other key in the tab is a Gemini key and cannot
-        // be sent to the proxy, so the fixed coach answers stand in.
-        function liveKey() {
-          var key = window.__mindrouter && window.__mindrouter.getKey ? window.__mindrouter.getKey() : '';
-          return key && key.trim().indexOf('mr2_') === 0 ? key.trim() : '';
-        }
-
-        async function askModel(system, user, maxTokens) {
-          var data;
-          try {
-            data = await window.__mindrouter.fetchText(MINDROUTER_CHAT_URL, {
-              method: 'POST',
-              body: {
-                model: MINDROUTER_MODEL,
-                messages: [
-                  { role: 'system', content: system },
-                  { role: 'user', content: user }
-                ],
-                temperature: 0,
-                max_tokens: maxTokens || 300
-              },
-              headers: { Authorization: 'Bearer ' + liveKey() }
-            });
-          } catch (err) {
-            throw new Error('MindRouter proxy: ' + (err && err.message ? err.message : String(err)));
-          }
-          var choice = data && data.choices && data.choices[0];
-          var text = choice && choice.message && choice.message.content;
-          if (typeof text !== 'string') throw new Error('MindRouter proxy: the model returned no text.');
-          // Thinking models sometimes leave their reasoning inline; never show it.
-          return text.replace(/<think>[\s\S]*?<\/think>\s*/g, '').trim();
-        }
-
-        // Step 1: the model turns the question into two or three search words.
-        async function searchWords(question) {
-          var lookup = window.__mindrouter.ecfr;
-          try {
-            var reply = await askModel(
-              'You turn a question into search words for a full-text search of 2 CFR 200, the Uniform Guidance. A section matches only when it contains every word, so give the two or three words most likely to appear in the governing section. Reply with the words only, lower case, no punctuation.',
-              question,
-              40
-            );
-            var words = reply.toLowerCase().replace(/[^a-z0-9.\s-]/g, ' ').trim().split(/\s+/).filter(Boolean);
-            if (words.length >= 1 && words.length <= 4) return words;
-          } catch (err) {
-            /* fall through to the keyword fallback */
-          }
-          return lookup.keywordsFromQuestion(question, 3);
-        }
-
-        // Step 2b: when a section is long, the model picks the one paragraph to read.
-        async function chooseChunk(outline, question) {
-          var reply = await askModel(
-            'A regulation section is long, so only one of its paragraphs will be read. Given the question and the numbered list of paragraph headings, reply with the number of the single paragraph most likely to answer the question. Reply with the number only.',
-            'Question: ' + question + '\n\nParagraphs:\n' + outline.map(function (line, i) {
-              return (i + 1) + '. ' + String(line).replace(/^\d+:\s*/, '');
-            }).join('\n'),
-            10
-          );
-          var n = parseInt(reply.replace(/[^0-9]/g, ''), 10);
-          if (Number.isNaN(n) || n < 1 || n > outline.length) throw new Error('no pick');
-          return n - 1;
-        }
-
-        // The accessed side, live: search, read one chunk, answer from it.
-        async function fetchLiveAnswer(question, setStatus) {
-          if (!liveKey() || !window.__mindrouter || !window.__mindrouter.ecfr) return null;
-          var lookup = window.__mindrouter.ecfr;
-          try {
-            setStatus('Choosing search words…');
-            var words = await searchWords(question);
-            var hit;
-            try {
-              hit = await lookup.lookupUniformGuidance(words, {
-                question: question,
-                chooseChunk: chooseChunk,
-                onStatus: setStatus
-              });
-            } catch (err) {
-              throw new Error('eCFR MCP server: ' + (err && err.message ? err.message : String(err)));
-            }
-            if (!hit) {
-              return {
-                answer: 'The eCFR search of 2 CFR 200 found no section for “' + words.join(' ') + '”, so the model was given nothing and should not guess.',
-                source: null
-              };
-            }
-            setStatus('Asking the model, with ' + (hit.pinpoint || hit.citation) + ' in hand…');
-            var answer = await askModel(
-              'Answer the compliance question using only the regulation text supplied. Keep the answer to one or two sentences, state the figure or rule the text gives, and name the citation. If the text does not answer the question, say so.',
-              'Question: ' + question + '\n\nRegulation text (' + (hit.pinpoint || hit.citation) + ', eCFR as of ' + hit.date + '):\n' + hit.text,
-              300
-            );
-            return { answer: answer, source: hit };
-          } catch (err) {
-            return { answer: 'Live lookup failed. ' + (err && err.message ? err.message : String(err)), source: null };
-          }
-        }
-
-        function showSource(hit) {
-          if (!source) return;
-          source.textContent = '';
-          if (!hit) return;
-          var label = (hit.pinpoint || hit.citation) + (hit.date ? ', eCFR current as of ' + hit.date : '');
-          if (hit.sourceUrl) {
-            var a = document.createElement('a');
-            a.href = hit.sourceUrl;
-            a.target = '_blank';
-            a.rel = 'noopener';
-            a.textContent = label;
-            source.appendChild(document.createTextNode('Source read: '));
-            source.appendChild(a);
-          } else {
-            source.textContent = 'Source read: ' + label;
-          }
-          if (hit.searchWords) {
-            source.appendChild(document.createTextNode(' · searched “' + hit.searchWords + '”'));
-          }
-        }
-
-        button.addEventListener('click', async function () {
-          var question = input.value.trim() || input.placeholder || 'Ask a question';
-          var fallback = fixtureAnswer(question);
-          button.disabled = true;
-          button.textContent = 'Asking…';
-          recalled.textContent = fallback.recalled;
-          showSource(null);
-          var live = await fetchLiveAnswer(question, function (status) {
-            accessed.textContent = status;
-          });
-          button.disabled = false;
-          button.textContent = 'Ask both sides';
-          accessed.textContent = live ? live.answer : fallback.accessed;
-          showSource(live ? live.source : null);
-        });
-      })();
 
       /* "Why I don't use Grok" popup on the model quiz */
       document.querySelectorAll('.grok-open').forEach(function (btn) {
