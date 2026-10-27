@@ -1150,17 +1150,21 @@
 
         <section>
           <p class="slide-kicker">Using AI responsibly &middot; Checking accuracy</p>
-          <h2>How accurate is it? Test it on answers you already know</h2>
+          <h2>How do you know it is accurate?</h2>
           <div style="max-width:44rem; margin:1rem auto 0; padding:1rem 1.4rem; border:2px dashed #c9a227; border-radius:0.8rem; text-align:left;">
-            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build</p>
-            <ul style="font-size:0.85rem; margin:0; line-height:1.5;">
-              <li>A scorecard: ten award notices scored by field (PI, end date, cost share, prior approvals).</li>
-              <li>Columns are the four ways an answer goes wrong: missed, made up, changed, wrong place. Numbers illustrative.</li>
-              <li>Steps: use documents you already did by hand as the answer key; score every field; compare with a person; re-test when the model, prompt or document type changes.</li>
+            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build: guidance, not a demo</p>
+            <ul style="font-size:0.82rem; margin:0; line-height:1.5;">
+              <li>Name the task and the documents: what exactly is it asked to do, and on which kinds of documents?</li>
+              <li>Compare against answers you trust: documents a person has already checked.</li>
+              <li>Test many examples, not one, and run each more than once to see whether the answers hold.</li>
+              <li>Write down the prompt and the tool, and test again when either changes.</li>
+              <li>Count the errors by kind: missed, made up, changed, wrong place.</li>
+              <li>Go deeper: Barrie Robison, &ldquo;The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale,&rdquo; Tuesday, November 10, 4:00 PM, Platte.</li>
             </ul>
           </div>
           <aside class="notes">
-            Placeholder. Follows the four ways an answer goes wrong. Score by field, not overall: easy fields and hard fields differ a lot. Compare with how often a person gets it wrong, not with perfect. Vandalizer validation runs do this automatically, which sets up the Vandalizer slide. Draft in notes/reframe-five-themes.md.
+            Placeholder. Guidance on how accuracy can and should be measured, not a demonstration. It follows the four ways an answer goes wrong: those are what you count. The steps follow the questions in Barrie's evaluation framework from the AI4RA project: what task, which documents, which prompt and tool, compared with validated answers or only a rough reference, how consistent across repeated runs, what kinds of errors, and whether the evidence traces back to the source.
+            Point the room to Barrie's session for the full framework and the evaluation harness: "The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale," Tuesday, November 10, 4:00 PM, Platte room (RM26 program, updated October 26). The AI4RA prompt library, the evaluation data sets and the evaluation harness work together: prompts with golden test cases, and a harness that runs them and publishes the results.
           </aside>
         </section>
 
