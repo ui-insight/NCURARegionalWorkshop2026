@@ -96,11 +96,11 @@ function mountBadge(container, href) {
   badge.title = d.title;
 }
 
-function showToast(key) {
+function showToast() {
   const toast = document.createElement('div');
   toast.className = 'key-toast';
   toast.setAttribute('role', 'status');
-  toast.innerHTML = '<strong>Workshop key loaded.</strong> The key is set for this tab.' +
+  toast.innerHTML = '<strong>Key loaded.</strong> It is set for this tab.' +
     ' Activity links on this site will use it automatically.';
   document.body.appendChild(toast);
   requestAnimationFrame(() => toast.classList.add('is-visible'));
@@ -120,6 +120,6 @@ export function initKeyStatus(opts) {
   ensureStyle();
   mountBadge(opts.container, opts.href);
   const key = getKey();
-  if (key && wasKeyLoadedFromURL()) showToast(key);
+  if (key && wasKeyLoadedFromURL()) showToast();
   window.__keyStatus = () => mountBadge(opts.container, opts.href);
 }
