@@ -94,7 +94,7 @@
         <div id="apikey-modal" class="modal-overlay">
           <div class="modal-dialog">
             <h2>Workshop key</h2>
-            <p>The hands-on activities use Promptulus, which needs an API key.
+            <p>The hands-on activities use Promptulus, Thamus and Data Crawler Carl, which need an API key.
               For this workshop the University of Idaho provides one through
               MindRouter, so you do not need your own. Scan the code or open
               the short link and the key is loaded for you.</p>
@@ -107,7 +107,7 @@
               <button id="expand-qr-btn" class="button-secondary" style="margin-top:0.5rem; font-size:0.8rem;">Expand for audience</button>
             </div>
             <div class="api-key-input-row">
-              <input type="password" id="api-key-input" placeholder="Or paste a key here (mr2_... for MindRouter)">
+              <input type="password" id="api-key-input" placeholder="Or paste your own key here">
               <span id="api-key-status"></span>
             </div>
             <details style="margin-top:0.75rem;">
@@ -115,10 +115,10 @@
               <ul style="line-height:1.8; padding-left:1.2em; margin-top:0.5rem; font-size:0.85rem; color:var(--muted);">
                 <li><strong>Tab-scoped storage.</strong> The key is held in sessionStorage, which is scoped to this browser tab. It clears when you close the tab and is never written to disk or shared across tabs.</li>
                 <li><strong>Static site.</strong> This page is served as a static file from GitHub Pages. No server here stores or sees your key.</li>
-                <li><strong>Passed to Promptulus at click time.</strong> Links to Promptulus from this site carry the key once, and Promptulus removes it from its own address bar on load.</li>
-                <li><strong>Sent only to MindRouter.</strong> A key starting with <code>mr2_</code> routes requests to the University of Idaho's models. Nothing goes to a public AI vendor on your account.</li>
+                <li><strong>Passed on at click time.</strong> Links from this site to Promptulus, Thamus and Data Crawler Carl carry the key once, and each removes it from its own address bar on load.</li>
+                <li><strong>Sent to the provider that issued it.</strong> This site does not read the key. Each activity works out where it belongs: the workshop key goes to the University of Idaho's models, and your own key goes to its own provider, on your account.</li>
                 <li><strong>URL stripped.</strong> If the key arrives via <code>?key=</code>, it is read once and immediately removed from the address bar so it does not land in history or bookmarks.</li>
-                <li><strong>Workshop-scoped.</strong> The key is issued for this event and retired afterward. It is never stored in this site's source. A personal Gemini key pasted above works too.</li>
+                <li><strong>Workshop-scoped.</strong> The workshop key is issued for this event and retired afterward. A key you paste is never saved by this site.</li>
               </ul>
               <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem;">
                 <strong>Note:</strong> as with any client-side application, the key is visible in browser developer tools while the page is open. Do not paste a key attached to a paid production project.
@@ -162,7 +162,7 @@
       const existingKey = km.getKey();
       if (existingKey) {
         input.value = existingKey;
-        status.textContent = existingKey.startsWith('mr2_') ? 'MindRouter key loaded' : 'Key loaded';
+        status.textContent = 'Key loaded';
         setArmed(true);
       }
 
@@ -171,7 +171,7 @@
         km.setKey(key);
         if (window.__keyStatus) window.__keyStatus();
         if (key) {
-          status.textContent = key.startsWith('mr2_') ? 'MindRouter key entered' : 'Key entered';
+          status.textContent = 'Key entered';
           setArmed(true);
         } else {
           status.textContent = '';

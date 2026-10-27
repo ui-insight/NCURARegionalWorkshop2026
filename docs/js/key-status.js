@@ -72,9 +72,8 @@ function ensureStyle() {
 }
 
 function describe(key) {
-  if (!key) return { cls: 'is-missing', text: 'No key loaded', title: 'Promptulus will ask for a key. Scan the workshop QR code or paste a key on the home page.' };
-  const kind = key.startsWith('mr2_') ? 'MindRouter key loaded' : 'Key loaded';
-  return { cls: 'is-loaded', text: kind, title: 'Promptulus links on this site carry the key. It lives in this browser tab only.' };
+  if (!key) return { cls: 'is-missing', text: 'No key loaded', title: 'The activities will ask for a key. Scan the workshop QR code or paste a key on the home page.' };
+  return { cls: 'is-loaded', text: 'Key loaded', title: 'Activity links on this site carry the key. It lives in this browser tab only.' };
 }
 
 function mountBadge(container, href) {
@@ -101,9 +100,8 @@ function showToast(key) {
   const toast = document.createElement('div');
   toast.className = 'key-toast';
   toast.setAttribute('role', 'status');
-  const kind = key.startsWith('mr2_') ? 'University of Idaho MindRouter key' : 'API key';
-  toast.innerHTML = '<strong>Workshop key loaded.</strong> The ' + kind +
-    ' is set for this tab. Promptulus links on this site will use it automatically.';
+  toast.innerHTML = '<strong>Workshop key loaded.</strong> The key is set for this tab.' +
+    ' Activity links on this site will use it automatically.';
   document.body.appendChild(toast);
   requestAnimationFrame(() => toast.classList.add('is-visible'));
   setTimeout(() => {
