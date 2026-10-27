@@ -1152,19 +1152,17 @@
           <p class="slide-kicker">Using AI responsibly &middot; Checking accuracy</p>
           <h2>How do you know it is accurate?</h2>
           <div style="max-width:44rem; margin:1rem auto 0; padding:1rem 1.4rem; border:2px dashed #c9a227; border-radius:0.8rem; text-align:left;">
-            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build: guidance, not a demo</p>
+            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build: a broad overview, not a demo</p>
             <ul style="font-size:0.82rem; margin:0; line-height:1.5;">
-              <li>Name the task and the documents: what exactly is it asked to do, and on which kinds of documents?</li>
-              <li>Compare against answers you trust: documents a person has already checked.</li>
-              <li>Test many examples, not one, and run each more than once to see whether the answers hold.</li>
-              <li>Write down the prompt and the tool, and test again when either changes.</li>
-              <li>Count the errors by kind: missed, made up, changed, wrong place.</li>
-              <li>Go deeper: Barrie Robison, &ldquo;The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale,&rdquo; Tuesday, November 10, 4:00 PM, Platte.</li>
+              <li><strong>Why evaluate:</strong> an answer that looks right is not the same as a tool you have measured. Prompts, models and documents all change.</li>
+              <li><strong>Structured vs unstructured:</strong> fields and numbers can be scored exactly against an answer key. Summaries and drafts take judgment.</li>
+              <li><strong>Human grading vs LLM as judge:</strong> people are the standard but slow. A model can grade at scale, but it has its own biases (the chart from the bias slide), so check it against people.</li>
+              <li><strong>Go deeper:</strong> Barrie Robison, &ldquo;The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale,&rdquo; Tuesday, November 10, 4:00 PM, Platte.</li>
             </ul>
           </div>
           <aside class="notes">
-            Placeholder. Guidance on how accuracy can and should be measured, not a demonstration. It follows the four ways an answer goes wrong: those are what you count. The steps follow the questions in Barrie's evaluation framework from the AI4RA project: what task, which documents, which prompt and tool, compared with validated answers or only a rough reference, how consistent across repeated runs, what kinds of errors, and whether the evidence traces back to the source.
-            Point the room to Barrie's session for the full framework and the evaluation harness: "The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale," Tuesday, November 10, 4:00 PM, Platte room (RM26 program, updated October 26). The AI4RA prompt library, the evaluation data sets and the evaluation harness work together: prompts with golden test cases, and a harness that runs them and publishes the results.
+            Placeholder. A very broad overview of evaluation, then a shout-out to Barrie. Why: you would not adopt a new process without checking it, and an AI tool's accuracy is something you measure, not something you assume; the four ways an answer goes wrong are what you count. Structured output, like the fields pulled from an award notice, has a right answer per field, so you can score it against documents a person has already checked. Unstructured output, like a summary or a draft letter, has no single right answer, so someone has to judge it. Who judges: people are the gold standard but do not scale. Using a model as the judge scales, and it is how a lot of evaluation is done now, but the study on the bias slide showed models judging answers favor the first one and the longer one, so a model judge has to be checked against human grades.
+            Then the shout-out: Barrie's session covers the AI4RA evaluation framework and the evaluation harness in depth. "The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale," Tuesday, November 10, 4:00 PM, Platte room (RM26 program, updated October 26).
           </aside>
         </section>
 
