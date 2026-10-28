@@ -85,6 +85,27 @@
       /* Cards in a row are always the same height */
       .reveal .slide-grid { align-items: stretch; }
       .reveal .slide-grid > .slide-card { height: 100%; box-sizing: border-box; margin-top: 0; margin-bottom: 0; }
+      /* Solicitation extract demo: full text on the left, baked extraction on the right */
+      .xt-row { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; max-width:58rem; margin:0.4rem auto 0; text-align:left; }
+      .xt-win { border:1.5px solid rgba(25,25,25,0.18); border-radius:0.6rem; overflow:hidden; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.08); display:flex; flex-direction:column; height:28.5rem; }
+      .xt-bar { display:flex; align-items:center; gap:0.5rem; padding:0.3rem 0.6rem; background:#f3f3f3; border-bottom:1px solid rgba(25,25,25,0.12); font-size:0.6rem; font-weight:700; color:var(--muted); }
+      .xt-dots { display:inline-flex; gap:0.25rem; }
+      .xt-dots i { width:0.5rem; height:0.5rem; border-radius:50%; background:#d6d6d6; }
+      .xt-body { flex:1; overflow-y:auto; padding:0.6rem 0.8rem; }
+      .xt-sol p, .xt-sol h4 { font-size:0.5rem; line-height:1.4; margin:0 0 0.35rem; color:var(--ink); }
+      .xt-sol h4 { font-weight:800; margin-top:0.6rem; text-transform:none; }
+      .xt-sol .sol-li { padding-left:0.8rem; }
+      .xt-start { height:100%; display:flex; align-items:center; justify-content:center; }
+      .xt-btn { font-size:1rem; font-weight:800; padding:0.5rem 1.8rem; border-radius:999px; background:var(--gold); color:var(--ink); border:2px solid var(--ink); cursor:pointer; }
+      .xt-btn[disabled] { opacity:0.6; cursor:progress; }
+      .reveal .xt-fields { display:none; margin:0; }
+      .xt-out.is-done .xt-start { display:none; }
+      .reveal .xt-out.is-done .xt-fields { display:block; }
+      .xt-fields > div { display:grid; grid-template-columns:5.6rem 1fr; gap:0.5rem; padding:0.22rem 0; border-bottom:1px solid #eee; opacity:0; transform:translateY(4px); transition:opacity 220ms ease, transform 220ms ease; }
+      .xt-fields > div.is-in { opacity:1; transform:none; }
+      .xt-fields dt { font-size:0.55rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; }
+      .xt-fields dd { margin:0; font-size:0.62rem; line-height:1.35; color:var(--ink); }
+      .xt-fields .xt-flag { background:rgba(241,179,0,0.14); border-radius:0.3rem; padding-left:0.3rem; padding-right:0.3rem; }
     </style>
   </head>
   <body class="slides-page">
@@ -124,7 +145,6 @@
                 <p class="preview-part-number">Theme 1</p>
                 <h6 class="preview-part-title">What is AI</h6>
               </div>
-              <p class="preview-time">8 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x26A1;</p>
@@ -132,7 +152,6 @@
                 <p class="preview-part-number">Theme 2</p>
                 <h6 class="preview-part-title">The power of AI</h6>
               </div>
-              <p class="preview-time">10 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x26A0;&#xFE0F;</p>
@@ -140,7 +159,6 @@
                 <p class="preview-part-number">Theme 3</p>
                 <h6 class="preview-part-title">The problems with AI</h6>
               </div>
-              <p class="preview-time">12 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x2696;&#xFE0F;</p>
@@ -148,7 +166,6 @@
                 <p class="preview-part-number">Theme 4</p>
                 <h6 class="preview-part-title">Using AI responsibly</h6>
               </div>
-              <p class="preview-time">52 min</p>
             </article>
             <article class="preview-step" role="listitem">
               <p class="preview-icon" aria-hidden="true">&#x1F331;</p>
@@ -156,7 +173,6 @@
                 <p class="preview-part-number">Theme 5</p>
                 <h6 class="preview-part-title">Getting started</h6>
               </div>
-              <p class="preview-time">6 min</p>
             </article>
           </div>
           <aside class="notes">
@@ -261,9 +277,9 @@
               </ul>
             </div>
           </div>
-          <p class="slide-callout">How do you train a crowd? Pay some people to speak louder.</p>
+          <p class="slide-callout">How do you train a crowd?</p>
           <aside class="notes">
-            The callout is the training step. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is also why the voice is so confident. The loud ones were rewarded for sounding sure.
+            The callout is the training step. Ask the room first, then give the answer. Pretraining assembles the crowd from everything ever written. Fine-tuning and reinforcement from human feedback do not teach the crowd new facts; they pay the people whose answers got good ratings to speak louder, and the rest to hush. That is also why the voice is so confident. The loud ones were rewarded for sounding sure.
             This is the metaphor to carry out of the room. Not an oracle, not a search engine, not a colleague. A very large crowd of reasonably informed amateurs, polled instantly, reporting the majority view with total confidence.
             And it settles the cornerstone. A crowd you can consult in seconds is a tremendous thing to have beside you. It is not a replacement for the one person in the building who has read your sponsor's terms. Augment, not replace, is what the metaphor recommends on its own.
             Everything after this fits it. Watch for the crowd in the pachinko board, where it votes on the next word, and in the random number game.
@@ -335,33 +351,289 @@
         <section>
           <p class="slide-kicker">The power of AI</p>
           <h2>Workload up, resources down</h2>
-          <div style="max-width:44rem; margin:1rem auto 0; padding:1rem 1.4rem; border:2px dashed #c9a227; border-radius:0.8rem; text-align:left;">
-            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build</p>
-            <ul style="font-size:0.85rem; margin:0; line-height:1.5;">
-              <li>Workload up: more proposals, changing federal rules and terms, new security requirements, more reporting.</li>
-              <li>Resources down: lean offices, hiring freezes, turnover, expertise leaving with each departure.</li>
-              <li>Ask first: who has more on their desk than three years ago, with the same number of people or fewer?</li>
-              <li>Turn: a lot of the growing load is reading documents, and that is the part AI can help with.</li>
-            </ul>
+          <div class="slide-split img-wide" style="align-items:center; margin-top:0.4rem;">
+            <div class="split-img fragment">
+              <figure style="margin:0; width:100%;">
+                <div id="workload-chart" role="img" aria-label="Line chart, 2010 to 2024: cumulative federal research requirements rise from 69 to 270 while indirect costs recovered per dollar of direct costs fall from 22.7 cents to 21.0 cents" style="width:580px; height:330px; margin:0 auto;"></div>
+                <figcaption style="font-size:0.45rem; color:var(--muted); margin-top:0.2rem; text-align:left;">Sources: COGR, &ldquo;Changes in Federal Research Requirements Since 1991,&rdquo; Figure 1 (Jan. 2025). NCSES HERD Survey FY 2024 data tables (NSF 26-304), Table 12. Chart from HERD Explorer.</figcaption>
+                <div class="launch-row" style="margin-top:0.5rem; justify-content:flex-start;">
+                  <a class="launch-secondary" href="https://nate-layman.github.io/herd-explorer/" target="_blank" rel="noopener" style="font-size:0.75rem; padding:0.35rem 1.1rem;">Explore the HERD data &rarr;</a>
+                </div>
+              </figure>
+            </div>
+            <div class="split-text fragment">
+              <p style="font-size:2.6rem; font-weight:800; line-height:1; margin:0;">1 in 4</p>
+              <p style="font-size:0.85rem; line-height:1.35; margin:0.4rem 0 0;">research administrators surveyed were looking for another job.</p>
+              <p style="font-size:0.7rem; line-height:1.35; color:var(--muted); margin:0.5rem 0 0;">Among those leaving the field, the top reasons were lack of support or resources and unrealistic demands.</p>
+              <p style="font-size:0.5rem; color:var(--muted); margin:0.6rem 0 0;">Alongi, &ldquo;Retention in Research Administration,&rdquo; Southern Illinois University, 2024. 127 of 479 respondents, fall 2023.</p>
+            </div>
           </div>
           <aside class="notes">
-            Placeholder. Research administration is hard right now: workload up, resources down. Ask the room before showing anything. Keep it augment, not replace: relief for the people doing the work, not fewer of them. Numbers only if they hold up (FDP faculty workload survey, NCURA or SRA workforce surveys). Draft in notes/reframe-five-themes.md.
+            Ask the room before the first click: who has more on their desk than three years ago? Who has the same number of people, or fewer? Let the hands answer.
+            Click 1, the chart, from HERD Explorer. The blue line is every federal research requirement adopted or substantially changed since 1991, counted by COGR: 69 in 2010, 270 by 2024. The orange line is what universities recover in indirect costs for each dollar of direct research costs, nationally, from the HERD Survey: 22.7 cents in 2010, 21.0 cents in 2024. Say it plainly: the rules keep multiplying and the recovery has not kept up. The right axis starts at 19 cents, so the drop looks steeper than it is; most of it came between 2010 and 2014, and recovery has stayed near 21 cents since while requirements nearly tripled. The button opens HERD Explorer, the AI4RA site where anyone can slice the national HERD data by institution, state or type. Do not demo it here; it comes back later.
+            Click 2, the people. Kelly Alongi surveyed research administrators in fall 2023: 127 of 479, about one in four, were looking for another job. Among the 37 looking to leave research administration entirely, the most common reasons were lack of support or resources and unrealistic demands, ahead of pay.
+            The turn: none of this is solved by a tool. But a lot of the growing load is reading documents and moving facts from one place to another, and that is the part AI can help with. Relief for the people already doing the work, not doing it with fewer of them.
           </aside>
         </section>
 
         <section>
           <p class="slide-kicker">The power of AI</p>
           <h2>A forty-page solicitation in a minute</h2>
-          <div style="max-width:44rem; margin:1rem auto 0; padding:1rem 1.4rem; border:2px dashed #c9a227; border-radius:0.8rem; text-align:left;">
-            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build</p>
-            <ul style="font-size:0.85rem; margin:0; line-height:1.5;">
-              <li>Live: paste a real solicitation and ask for every deadline, page limit and required document, quoted.</li>
-              <li>Let the room see how fast it is, then check two quotes against the document together.</li>
-              <li>One line to land it: what took an afternoon took a minute, and you can check it.</li>
-            </ul>
+          <div class="xt-row">
+            <div class="xt-win">
+              <div class="xt-bar"><span class="xt-dots"><i></i><i></i><i></i></span>NSF 26-512 &middot; Program Solicitation</div>
+              <div class="xt-body xt-sol">
+              <h4>Program Solicitation NSF 26-512</h4>
+              <p>U.S. National Science Foundation</p>
+              <p>Directorate for Computer and Information Science and Engineering</p>
+              <p>Directorate for Biological Sciences</p>
+              <p>Directorate for Engineering</p>
+              <p>Directorate for Geosciences</p>
+              <p>Directorate for Mathematical and Physical Sciences</p>
+              <p>Directorate for Technology, Innovation and Partnerships</p>
+              <p>Full Proposal Deadline(s) (due by 5 p.m. submitting organization's local time):</p>
+              <p>November 04, 2026</p>
+              <p>First Wednesday in November, Annually Thereafter</p>
+              <h4>TABLE OF CONTENTS</h4>
+              <h4>Summary of Program Requirements</h4>
+              <p class="sol-li">Introduction</p>
+              <p class="sol-li">Program Description</p>
+              <p class="sol-li">Award Information</p>
+              <p class="sol-li">Eligibility Information</p>
+              <p class="sol-li">Proposal Preparation and Submission Instructions</p>
+              <p class="sol-li">NSF Proposal Processing and Review Procedures</p>
+              <p class="sol-li">Award Administration Information</p>
+              <p class="sol-li">Agency Contacts</p>
+              <p class="sol-li">Other Information</p>
+              <h4>Important Information and Revision Notes</h4>
+              <p>Proposals must be prepared in accordance with the NSF Proposal &amp; Award Policies &amp; Procedures Guide (PAPPG). Use the version of the guide that is in effect on the proposal's due date.</p>
+              <h4>Summary of Program Requirements</h4>
+              <h4>General Information</h4>
+              <p>Program Title:</p>
+              <p>Unlocking Dataset Value for AI-Enabled Scientific Discovery (AI Datasets)</p>
+              <p>Synopsis of Program:</p>
+              <p>This program will advance scientific community datasets to enable scientific discovery and innovation using artificial intelligence (AI) and other methods. Its goal is to increase the value that can be derived from existing scientific datasets by leveraging novel methods and artificial intelligence (AI). This will unlock new AI-driven insights. It can enable interdisciplinary research. It also enables investigations outside of the original motivation for data collection and analysis.</p>
+              <p>The program seeks to 1) apply AI-based capabilities to feature extraction and metadata generation, and the integration of multiple datasets. 2) Develop robust data pipelines necessary for automated analysis of existing datasets and similar use-cases by AI tools and systems. 3) Augment and/or harmonize existing datasets to better enable use by AI data pipelines and automated analysis.</p>
+              <p>Proposals should address dataset security and integrity. Governance and the process for scientific communities to contribute to the datasets should also be addressed. Proposals are encouraged to leverage existing resources. These may include NSF data platforms, the NSF Integrated Data Systems and Services program, the NSF-led National AI Research Resource, the Genesis Mission platform, or other national infrastructure.</p>
+              <p>NSF is open to exploring partnerships with philanthropy, private industry, or the non-profit sector to support additional proposals or collaborative opportunities that will advance AI-driven scientific discovery through unlocking the value of high-impact scientific datasets.</p>
+              <p>Expanding Participation in STEM, NSF Priorities, and Gold Standard Science:</p>
+              <p>NSF prioritizes cutting-edge discovery science and engineering research, advancing technology and innovation, and creating opportunities for all Americans. NSF has established priorities set forth by Congress, the administration and the NSF director to promote NSF's mission. Proposers should review the list of NSF priorities and are encouraged to align their proposals with them, where appropriate. NSF also expects the highest standards of scientific rigor, integrity and adherence tenets of Gold Standard Science in proposals, as appropriate for the field of science and research modality.</p>
+              <p>NSF welcomes submissions from all researchers, particularly those earlier in their careers and those working in research areas aligned with agency and administration priorities. NSF also expects the highest standards of scientific rigor, integrity, and adherence to tenets of Gold Standard Science in proposals, as appropriate for the field of science and research modality.</p>
+              <p>Cognizant Program Officer(s):</p>
+              <p>Please note that the following information is current at the time of publishing. See program website for any updates to the points of contact.</p>
+              <p class="sol-li">AI Datasets Program Officers, email: aidatasets@nsf.gov</p>
+              <p>Applicable Catalog of Federal Domestic Assistance (CFDA) Number(s):</p>
+              <p class="sol-li">47.041 --- Engineering</p>
+              <p class="sol-li">47.049 --- Mathematical and Physical Sciences</p>
+              <p class="sol-li">47.050 --- Geosciences</p>
+              <p class="sol-li">47.070 --- Computer and Information Science and Engineering</p>
+              <p class="sol-li">47.074 --- Biological Sciences</p>
+              <p class="sol-li">47.084 --- NSF Technology, Innovation and Partnerships</p>
+              <h4>Award Information</h4>
+              <p>Anticipated Type of Award: Standard Grant or Cooperative Agreement</p>
+              <p>Estimated Number of Awards: 25 to 50</p>
+              <p>The program anticipates 10 to 20 Impact awards of up to $2,000,000. In addition, the program also anticipates 5 to 10 Flagship awards of up $5M and 10 to 20 Planning grants up to $200,000 as described in the PAPPG.</p>
+              <p>Anticipated Funding Amount: $60,000,000 to $100,000,000</p>
+              <p>Anticipated funding amount is subject to the availability of funds.</p>
+              <h4>Proposal Preparation and Submission Instructions</h4>
+              <h4>A. Proposal Preparation Instructions</h4>
+              <p class="sol-li">Letters of Intent: Not required</p>
+              <p class="sol-li">Preliminary Proposal Submission: Not required</p>
+              <p class="sol-li">Full Proposals:</p>
+              <p class="sol-li">For proposals submitted via Research.gov, PAPPG guidelines apply.</p>
+              <p class="sol-li">For proposals submitted via Grants.gov, NSF Grants.gov Application Guide guidelines apply.</p>
+              <h4>B. Budgetary Information</h4>
+              <p>Cost Sharing Requirements:</p>
+              <p>Inclusion of voluntary committed cost sharing is prohibited.</p>
+              <p>Indirect Cost (F&amp;A) Limitations:</p>
+              <p>Not Applicable</p>
+              <p>Other Budgetary Limitations:</p>
+              <p>Not Applicable</p>
+              <h4>C. Due Dates</h4>
+              <p class="sol-li">Full Proposal Deadline(s) (due by 5 p.m. submitting organization's local time):</p>
+              <p class="sol-li">November 04, 2026</p>
+              <p class="sol-li">First Wednesday in November, Annually Thereafter</p>
+              <h4>Proposal Review Information Criteria</h4>
+              <p>Merit Review Criteria:</p>
+              <p>National Science Board approved criteria. Additional merit review criteria apply. Please see the full text of this solicitation for further information.</p>
+              <h4>Award Administration Information</h4>
+              <p>Award Conditions:</p>
+              <p>Standard NSF award conditions apply.</p>
+              <p>Reporting Requirements:</p>
+              <p>Standard NSF reporting requirements apply.</p>
+              <h4>I. Introduction</h4>
+              <p>Artificial Intelligence (AI) enables data processing and analysis at scales and speeds beyond human capacity to identify previously hidden patterns and relationships. It enables new interdisciplinary efforts that connects previously siloed disciplines. It promotes community contributions beyond a single group. When paired with scientific datasets, the combination with AI can yield transformative research results. This requires scientific datasets that are trusted and accessible. They must also be fit for their scientific purpose and curated with expertise across appropriate research communities.</p>
+              <p>However, many scientific datasets are not findable, accessible, interoperable, or otherwise lack the necessary integrity and data descriptors and data pipelines necessary for use in large-scale AI applications. Further, while the scientific community has a long and successful track record of curating datasets, this has often been done in the context of preparing the data for use by humans or heuristic scripting. AI systems and tools are rising in prominence and capability. In some cases, they become the initial consumer of datasets. Novel approaches are needed to advance dataset compilation, processing, and analysis. Finally, many datasets do not have clearly identified owners or sufficiently organized scientific communities to address these shortcomings.</p>
+              <p>This cross-directorate program is a joint effort. It includes the Directorates for Computer Science and Information Science and Engineering, Biological Sciences, Engineering, Geosciences, Mathematical and Physical Sciences, Technology, Innovation, and Partnerships. It also includes the Office of Research Infrastructure. Research to collect de novo datasets is out of scope and remains in the domain of individual scientific directorates.</p>
+              <p>Research communities that need additional time or need resources for community planning are encouraged to submit planning grants.</p>
+              <h4>II. Program Description</h4>
+              <p>The rapid ascent of AI technologies is changing how scientific datasets need to be curated and processed for AI-enabled scientific discovery. Proposals should enable the use of existing scientific datasets in new AI-driven inquiries. Or enable interdisciplinary research. Or enable investigations outside of the original scope of data collection or analysis. For example, relevant proposals may leverage AI-based methods for feature extraction. They may also leverage metadata generation. They may leverage fusion, linkage or integration of multiple datasets. This can also include reconstructing, harmonizing or augmenting datasets to address challenges associated with AI data pipelines and automated analysis. The results may correct noise, partial observations or other gaps.</p>
+              <p>This program is aligned with Administration priorities described in America's AI Action Plan. Efforts to build world-class AI-ready scientific datasets are a priority. Another priority is incentivizing researchers to release more high-quality datasets publicly from prior federally funded research. The program will also support the Genesis Mission. It aims to build an integrated platform to harness scientific datasets to train scientific models, create AI agents to test new hypotheses, automate research workflows and accelerate scientific breakthroughs.</p>
+              <p>All proposals should describe how they will enable data preparation and/or curation to increase the value of existing scientific datasets for use by AI data pipelines, automated analysis, and other AI-driven scientific inquiries. All proposals should also address dataset governance. Governance includes dataset access, retirement policies and the community contribution process. Proposals should address dataset security and integrity. Examples include processes or methods for enhancing data provenance, trust, quality, privacy, and authenticity. Attention should be paid to sensitive datasets and datasets containing sensitive information. Any research security issues related to data integrity and extraction should be addressed.</p>
+              <p>Investigated topics may include, but are not limited to:</p>
+              <p class="sol-li">The use of novel feature extraction, metadata generation, and data integration techniques that make previously generated datasets more usable by AI for testing new hypotheses.</p>
+              <p class="sol-li">Next-generation data pipelines that create more powerful, comprehensive, or interdisciplinary datasets ready for automated analysis and AI training.</p>
+              <p class="sol-li">Strategic augmentation and/or harmonization of existing datasets that significantly expand their scientific utility and usability by AI tools.</p>
+              <p class="sol-li">Automated platforms that discern the readiness of legacy datasets at scale.</p>
+              <p class="sol-li">Expanding broad availability of enhanced scientific community datasets through NSF data platforms, accelerating AI-driven inquiry and interdisciplinary discovery.</p>
+              <p>Proposals will be evaluated based on:</p>
+              <p class="sol-li">The fundamental scientific questions and breakthroughs enabled by the enhanced community dataset.</p>
+              <p class="sol-li">The value-added enhancements to scientific datasets that will accelerate AI-driven discovery and innovation.</p>
+              <p class="sol-li">The size, commitment, and breadth of the communities that will benefit from investment in the proposed AI-enabling activity. Benefits include improved findability and usability.</p>
+              <p class="sol-li">The strength of the proposed approach to dataset security and integrity. And the strength of the proposed governance along with the community contribution process.</p>
+              <p>Awardees will be expected to engage in bi-annual virtual meetings. Awardees should plan for and include budget to participate in relevant in-person meetings. An example meeting might include an annual PI meeting, the NSF NAIRR community meeting, or a discipline specific community meeting.</p>
+              <p>NSF is open to exploring partnerships with philanthropy, private industry, or the non-profit sector to support additional proposals or collaborative opportunities.</p>
+              <h4>Measures of Success</h4>
+              <p>Proposals should advance one or more of the following measures of success:</p>
+              <p>Discovery and Innovation</p>
+              <p class="sol-li">Datasets expanded or established.</p>
+              <p class="sol-li">New technologies or techniques for leveraged AI and/or AI-guided exploration established.</p>
+              <p>Stem Workforce and Education</p>
+              <p class="sol-li">Undergraduates and graduate students trained in AI use of scientific datasets.</p>
+              <p>Research Infrastructure</p>
+              <p class="sol-li">New built infrastructure that leverages existing datasets.</p>
+              <p class="sol-li">Research facility usage.</p>
+              <h4>III. Award Information</h4>
+              <p>Impact awards: up to 3 years and a maximum $2,000,000 per award, approximately 10 to 20 awards.</p>
+              <p>Planning grants: maximum $200,000 per award, approximately 10 to 20 awards. As the AI aspects of scientific datasets are advancing rapidly and research community objectives are still evolving, proposers are encouraged to make use of planning grants to address early-stage issues that may lead to stronger full proposals. Example justification for planning grants may include support for community meetings and engagement, identification and exploration of key challenges that may arise due to the AI aspects of scientific data, and/or explore new data augmentation or curation early concepts. See guidance in the PAPPG.</p>
+              <p>Flagship awards: up to 3 years and a maximum $5,000,000 per award, approximately 5 to 10 awards which are intended to address more complex challenges that are not achievable without more substantial resources. Example justifications for more substantial resources may include a more ambitious research scope or support a significantly large research community. Proposers to the Flagship category are strongly encouraged to contact aidatasets@nsf.gov to discuss their project scope and concept with a program officer early in the proposal preparation process.</p>
+              <p>The estimated program budget, number of awards, and average award size/duration are subject to the availability of funds.</p>
+              <h4>IV. Eligibility Information</h4>
+              <p>Who May Submit Proposals:</p>
+              <p>Proposals may only be submitted by the following:</p>
+              <p class="sol-li">Institutions of Higher Education (IHEs): Two- and four-year IHEs (including community colleges) accredited in, and having a campus located in the US, acting on behalf of their faculty members. Special Instructions for International Branch Campuses of US IHEs: If the proposal includes funding to be provided to an international branch campus of a US institution of higher education (including through use of sub-awards and consultant arrangements), the proposer must explain the benefit(s) to the project of performance at the international branch campus, and justify why the project activities cannot be performed at the US campus.</p>
+              <p class="sol-li">Non-profit, non-academic organizations: Independent museums, observatories, research laboratories, professional societies and similar organizations located in the U.S. that are directly associated with educational or research activities.</p>
+              <p class="sol-li">For-profit organizations: U.S.-based commercial organizations, including small businesses, with strong capabilities in scientific or engineering research or education and a passion for innovation.</p>
+              <p class="sol-li">State and Local Governments</p>
+              <p class="sol-li">Tribal Nations: An American Indian or Alaska Native tribe, band, nation, pueblo, village, or community that the Secretary of the Interior acknowledges as a federally recognized tribe pursuant to the Federally Recognized Indian Tribe List Act of 1994, 25 U.S.C. §§ 5130-5131.</p>
+              <p class="sol-li">Other Federal Agencies and Federally Funded Research and Development Centers (FFRDCs): Prospective proposers from other Federal Agencies and FFRDCs, including NSF sponsored FFRDCs, must follow the guidance in PAPPG Chapter I.E.2 regarding limitations on eligibility.</p>
+              <p>Who May Serve as PI:</p>
+              <p>There are no restrictions or limits.</p>
+              <p>Limit on Number of Proposals per Organization:</p>
+              <p>There are no restrictions or limits.</p>
+              <p>Limit on Number of Proposals per PI or co-PI:</p>
+              <p>There are no restrictions or limits.</p>
+              <h4>V. Proposal Preparation and Submission Instructions</h4>
+              <h4>A. Proposal Preparation Instructions</h4>
+              <p>Full Proposal Preparation Instructions: Proposers may opt to submit proposals in response to this Program Solicitation via Research.gov or Grants.gov.</p>
+              <p>You must prepare your proposal according to Chapter II.D.2 of the PAPPG, unless this solicitation specifies different instructions. Always use the version of the PAPPG in effect on your proposal's due date.</p>
+              <p class="sol-li">For proposals submitted via Research.gov, PAPPG guidelines apply.</p>
+              <p class="sol-li">For proposals submitted via Grants.gov, NSF Grants.gov Application Guide guidelines apply.</p>
+              <p>In determining which method to utilize in the electronic preparation and submission of the proposal, please note the following:</p>
+              <p>IMPORTANT: Institutions submitting proposals to this solicitation must have an active UEI (Unique Entity Identifier) through SAM.gov. Please note: Registration through SAM.gov can take several weeks.</p>
+              <p>Restrictions on Collaborative Proposals. Although proposals may be multi-organizational, a single organization must serve as the lead and all other organizations as subawards. See the PAPPG section on Submission of a collaborative proposal from one organization.</p>
+              <p>Proposal Titles:</p>
+              <p class="sol-li">Title for Impact Proposals. Proposal titles must begin with "AIDatasets:Impact" followed by a colon (":") and then the title of the project; e.g., "AIDatesets:Impact: Title".</p>
+              <p class="sol-li">Title for Flagship Proposals. Flagship proposals titles proposals must begin with "AIDatasets:Flagship" followed by a colon (":") and then the title of the project; e.g., "AIDatasets:Flagship: Title".</p>
+              <p class="sol-li">Title for a Planning Grant proposal. Planning Grant proposal titles must begin with "AIDatasets:Planning" followed by a colon and then the title of the project, e.g. "AIDatasets:Planning: Title".</p>
+              <p>Project Summary. The last line of the Project Summary must have a prioritized list of 2-5 keywords or phrases that best characterize the NSF Directorates and/or scientific communities that are the primary beneficiaries of the results, e.g., "CISE" or "astrophysics". The list should start with "Keywords:" followed by a list of keywords separated by semi-colons (";").</p>
+              <p>Project Description. All proposals must include, but are not limited to Sections 1–4 below. Flagship proposals also require an additional 5th section listed below. For each section, items listed are provided as guidance for consideration and are not exhaustive.</p>
+              <p class="sol-li">Vision and community benefit for dataset enhancement</p>
+              <p class="sol-li">Proposals should describe:</p>
+              <p class="sol-li">Fundamental scientific questions/breakthroughs that investment in this dataset will enable.</p>
+              <p class="sol-li">Description of existing datasets that will be enhanced or used.</p>
+              <p class="sol-li">Size, commitment, and breadth of the communities that will benefit from investment in the proposed AI-enabling activity.</p>
+              <p class="sol-li">Related existing datasets and data management activities across the relevant scientific communities, and how the enhancements proposed in the project will advance and complement the communities' overall data effort.</p>
+              <p class="sol-li">Research plan</p>
+              <p class="sol-li">Describe the proposed research and plan for enhancing the value of the identified dataset (e.g., novel methods for feature extraction, metadata generation, the integration of multiple datasets, the augmentation and/or harmonization of existing datasets) and how it will enable new AI-driven inquiries, data pipelines for AI training, interdisciplinary research, or investigations outside of the original scope of collection/analysis.</p>
+              <p class="sol-li">Dataset governance and integrity</p>
+              <p class="sol-li">Proposals should describe:</p>
+              <p class="sol-li">Plans for dataset security, integrity and governance including access management.</p>
+              <p class="sol-li">Plans for the community contribution process.</p>
+              <p class="sol-li">Dataset availability and infrastructure</p>
+              <p class="sol-li">Plans for user engagement and community outreach, including to communities leveraging AI for scientific discovery.</p>
+              <p class="sol-li">Description of how datasets will be made available to the community and what existing infrastructure will be leveraged.</p>
+              <p class="sol-li">Measures of user adoption and feedback mechanisms.</p>
+              <p class="sol-li">Plans for project maintenance and sustainment.</p>
+              <p>Additionally for Flagship proposals:</p>
+              <p class="sol-li">Flagship Justification</p>
+              <p class="sol-li">Concise summary of the complex challenges that require more substantial resources than an Impact AI Dataset proposal. Example justifications for more substantial resources may include a more ambitious research scope or support a significantly large research community.</p>
+              <h4>B. Budgetary Information</h4>
+              <p>Cost Sharing:</p>
+              <p>Inclusion of voluntary committed cost sharing is prohibited.</p>
+              <p>Budget Preparation Instructions:</p>
+              <p>All awardees will be expected to engage in bi-annual virtual meetings and plan for in-person meetings such as an annual PI meetings, the NSF NAIRR community meeting, or a discipline specific community meeting and should include travel support in their proposal budgets.</p>
+              <h4>C. Research.gov/Grants.gov Requirements</h4>
+              <p>You can submit proposals in response to this solicitation through Research.gov or Grants.gov, unless otherwise noted.</p>
+              <p>Information on how to prepare and submit proposals is available on the Submitting Your Proposal page on NSF.gov.</p>
+              <h4>VI. NSF Proposal Processing and Review Procedures</h4>
+              <p>Information on NSF's proposal processing and review procedures is available on the Overview of the NSF Proposal and Award Process page on NSF.gov.</p>
+              <h4>A. Merit Review Principles and Criteria</h4>
+              <p>All NSF proposals are evaluated through use of the two National Science Board-approved merit review criteria:</p>
+              <p class="sol-li">Intellectual Merit, which encompasses the potential to advance knowledge.</p>
+              <p class="sol-li">Broader Impacts, which encompass the potential to benefit society and contribute to the achievement of specific, desired societal outcomes.</p>
+              <p>Information on NSF's merit review principles and process can be found on the How We Make Funding Decisions page on NSF.gov.</p>
+              <p>Additional Solicitation Specific Review Criteria</p>
+              <p>Additional merit review criteria include:</p>
+              <p class="sol-li">Size, commitment, potential impact, breadth and outreach plan of the communities that will benefit from investment in the proposed AI-enabling activity.</p>
+              <p class="sol-li">Novelty and transformative potential of the proposed dataset enhancements to accelerate AI-driven scientific discovery.</p>
+              <p class="sol-li">Dataset security, integrity and governance mechanisms, including the community contribution process and sustainment plan.</p>
+              <p class="sol-li">Viability of adoption and ease of adoption and use by a target community.</p>
+              <p class="sol-li">For Flagship proposals – justification for increased flagship funding level.</p>
+              <h4>B. Review and Selection Process</h4>
+              <p>Proposals submitted in response to this program solicitation will be reviewed by Panel Review.</p>
+              <p>After a proposal passes an initial compliance check, it will be reviewed by an NSF Program Officer. In most cases, three or more external experts will also review it (either as ad hoc reviewers, panelists or both).</p>
+              <p>Visit the Overview of the NSF Proposal and Award Process page for more information on the proposal review and selection process.</p>
+              <p>In alignment with Executive Order 14332 (Improving Oversight of Federal Grantmaking), all else being equal after merit review, NSF may give preference to institutions with lower indirect cost rates.</p>
+              <h4>VII. Award Administration Information</h4>
+              <h4>A. Notification of the Award</h4>
+              <p>Notification of an award is made to the submitting organization by an NSF Grants and Agreements Officer.</p>
+              <h4>B. Award Conditions</h4>
+              <p>Information on NSF award conditions can be found on the Award Terms and Conditions page on NSF.gov and Chapter VII of the PAPPG.</p>
+              <p>Administrative and National Policy Requirements: Information on administrative and national policy requirements can be found on the National Policy Requirements for Recipients of NSF Awards page on NSF.gov.</p>
+              <p>Consistent with the requirements specified in 2 CFR § 200.332, recipients of NSF awards must adhere to the requirements for pass-through entities in establishing and managing subawards issued ensuring alignment with Administration and NSF policies and priorities.</p>
+              <p>In alignment with Executive Order 14332 (Improving Oversight of Federal Grantmaking), proposers should be aware that NSF awards offered under this funding opportunity may include termination for convenience provisions.</p>
+              <h4>C. Reporting Requirements</h4>
+              <p>Unless your award notice says otherwise, NSF requires the principal investigator of every grant to submit annual project reports and a project outcomes report for the general public. For complete reporting requirements, see Chapter VII of the PAPPG.</p>
+              <h4>VIII. Agency Contacts</h4>
+              <p>For questions related to the use of NSF systems contact:</p>
+              <p class="sol-li">Research.gov: NSF IT Service Desk at rgov@nsf.gov or 1-800-381-1532. The Service Desk is open from 7 a.m. to 9 p.m. Eastern time, Monday through Friday (except for federal holidays).</p>
+              <p>For questions relating to Grants.gov contact:</p>
+              <p class="sol-li">Grants.gov: The Grants.gov Contact Center at support@grants.gov or 1-800-518-4726. (Contact if the Authorized Organizational Representative (AOR) has not received a confirmation message from Grants.gov within 48 hours of submitting an application.)</p>
+              <h4>IX. Other Information</h4>
+              <p>For information on NSF directorates, programs and funding opportunities, go to NSF.gov.</p>
+              <h4>About the National Science Foundation</h4>
+              <p>The U.S. National Science Foundation is an independent federal agency created by the "National Science Foundation Act of 1950." More information about NSF can be found on NSF.gov.</p>
+              <p>Location:</p>
+              <p>Randolph Building, 401 Dulany Street, Alexandria, VA 22314</p>
+              <h4>General Information</h4>
+              <p>(703) 292-5111</p>
+              <p>TDD (for the hearing-impaired):</p>
+              <p>(703) 292-5090</p>
+              <h4>Privacy Act and Public Burden Statements</h4>
+              <p>The information requested on proposal forms and project reports is solicited under the authority of the "National Science Foundation Act of 1950," as amended. More information can be found on the Privacy Act and Public Burden Statements page on NSF.gov.</p>
+              </div>
+            </div>
+            <div class="xt-win">
+              <div class="xt-bar"><span class="xt-dots"><i></i><i></i><i></i></span>Extracted details</div>
+              <div class="xt-body xt-out">
+                <div class="xt-start">
+                  <button type="button" class="xt-btn">Extract</button>
+                </div>
+                <dl class="xt-fields">
+                  <div><dt>Opportunity</dt><dd>NSF 26-512, Unlocking Dataset Value for AI-Enabled Scientific Discovery (AI Datasets)</dd></div>
+                  <div><dt>Deadline</dt><dd>November 4, 2026, 5 p.m. submitter&rsquo;s local time; then the first Wednesday in November each year</dd></div>
+                  <div><dt>LOI or preliminary</dt><dd>Neither required</dd></div>
+                  <div><dt>Award types</dt><dd>Planning, up to $200,000 (10 to 20)<br />Impact, up to $2M over 3 years (10 to 20)<br />Flagship, up to $5M over 3 years (5 to 10)</dd></div>
+                  <div><dt>Program funding</dt><dd>$60M to $100M, 25 to 50 awards</dd></div>
+                  <div><dt>Eligible</dt><dd>IHEs, non-profits, for-profits, state and local governments, Tribal Nations, federal agencies and FFRDCs</dd></div>
+                  <div><dt>Proposal limits</dt><dd>None per organization or per PI</dd></div>
+                  <div><dt>Cost sharing</dt><dd>Voluntary committed cost sharing prohibited</dd></div>
+                  <div><dt>Title format</dt><dd>Must start with &ldquo;AIDatasets:Impact:&rdquo;, &ldquo;AIDatasets:Flagship:&rdquo; or &ldquo;AIDatasets:Planning:&rdquo;</dd></div>
+                  <div><dt>Project Summary</dt><dd>Last line: &ldquo;Keywords:&rdquo; with 2 to 5 terms, separated by semicolons</dd></div>
+                  <div><dt>Budget</dt><dd>Include travel for in-person meetings (PI meeting, NAIRR community meeting)</dd></div>
+                  <div class="xt-flag"><dt>Watch</dt><dd>NSF may prefer institutions with lower indirect cost rates, all else equal (EO 14332). Awards may include termination for convenience.</dd></div>
+                </dl>
+              </div>
+            </div>
           </div>
           <aside class="notes">
-            Placeholder. One live win so the room feels the power before the problems. Pick the solicitation ahead of time and run it once before the session. Draft in notes/reframe-five-themes.md.
+            This is a Julia Child demo: the result is baked ahead of time, not a live call. Say so if anyone asks. The point is what the output looks like, not the wait.
+            Left: the full text of NSF 26-512, AI Datasets, posted July 21, 2026. Scroll it a little so the room sees how long it is. Then click Extract.
+            Right: the details an office would pull for a routing sheet or a PI email, as fields rather than a paragraph. Structured output is what lets these land in a spreadsheet or a system instead of an inbox.
+            Point at the Watch row: the indirect-cost preference and termination for convenience are buried in sections VI and VII. That is the kind of line a skim misses.
+            Then check one field against the left pane together, the title prefix in section V is a good one. Fast, and you can check it.
+            Close with: we will show you more of what it can do in the demos coming up.
           </aside>
         </section>
 
@@ -1069,7 +1341,14 @@
           <div class="launch-row" style="margin-top:1.6rem;">
             <a class="launch-primary" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">Open Data Crawler Carl &rarr;</a>
           </div>
+          <div class="fragment" style="max-width:40rem; margin:1.4rem auto 0; padding:0.7rem 1rem; border-left:3px solid var(--gold); background:rgba(241,179,0,0.08); text-align:left;">
+            <p style="font-size:0.85rem; line-height:1.4; margin:0;"><strong>Remember the HERD chart from the start?</strong> HERD Explorer&rsquo;s Ask page works the same way: the model writes the query, the database does the math.</p>
+            <div class="launch-row" style="margin-top:0.5rem; justify-content:flex-start;">
+              <a class="launch-secondary" href="https://nate-layman.github.io/herd-explorer/ask.html" target="_blank" rel="noopener" style="font-size:0.75rem; padding:0.35rem 1.1rem;">Ask HERD Explorer &rarr;</a>
+            </div>
+          </div>
           <aside class="notes">
+            Callback, the last click on this slide, after the demo: the workload chart early in the session came from HERD Explorer. Its Ask page is Carl's method on national data: the model writes SQL, the query runs in the browser, and every answer shows the query. The link carries the workshop key. Optional, if time allows: ask it one question live, such as how federal R&amp;D at R2 universities has changed since 2012.
             Live demo of the structured side, straight off the last slide: the record is a table, so the model writes the query and the database computes the answer. It is also a sixth way to hand a model the record, after the five on the Thamus page. Open Carl from this slide (the link carries the workshop key), upload awards_demo.csv, and run three prompts. Have the file on your desktop before the session; it is also at files/awards_demo.csv on this site. Do not use Carl's own "Try sample data" button here: that sample is an employee salary table with no blank cells, so the third prompt finds nothing and the lesson never lands. If the network or the model misbehaves, describe it instead: the query leaves out every award with a blank department, about 2.7 million dollars of federal funding, and the answer never says so.
             Prompt one: "Summarize this awards portfolio. What are the key trends?" Let the wow land. Fast, fluent, useful.
             Prompt two: "What is the total federal funding by department?" Carl shows the SQL it wrote, the rows that came back, and the narrative. Point at the SQL: GROUP BY Department silently drops every row where Department is blank. Point at the narrative: nothing in it says so. Fragment two on this slide is the same reveal, static: three federal awards, nearly three million dollars, gone.
@@ -1569,7 +1848,9 @@
 
     <script type="module">
       import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
+      import { drawWorkloadChart } from './js/workload-chart.js';
       import { initKeyStatus } from './js/key-status.js';
+      drawWorkloadChart(document.getElementById('workload-chart'));
       readKeyFromURL();
       installLinkInterceptor();
       // Badge next to "Back to Sessions" saying whether the key is loaded in this tab
@@ -1588,6 +1869,21 @@
         slideNumber: true,
         transition: "slide",
         plugins: [RevealNotes]
+      });
+
+      /* Solicitation extract demo: a short pause, then the baked fields appear one row at a time */
+      document.querySelectorAll('.xt-out').forEach(function (out) {
+        var btn = out.querySelector('.xt-btn');
+        btn.addEventListener('click', function () {
+          btn.disabled = true;
+          btn.textContent = 'Extracting…';
+          setTimeout(function () {
+            out.classList.add('is-done');
+            out.querySelectorAll('.xt-fields > div').forEach(function (row, i) {
+              setTimeout(function () { row.classList.add('is-in'); }, 120 * i);
+            });
+          }, 1400);
+        });
       });
 
       /* "Why I don't use Grok" popup on the model quiz */

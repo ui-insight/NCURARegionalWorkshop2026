@@ -1,0 +1,59 @@
+{
+  "description": "Workload up, resources down. Data behind the chart on HERD Explorer's Trends page (https://nate-layman.github.io/herd-explorer/), hard-coded here so the slide works offline.",
+  "sources": {
+    "requirements": "COGR, Changes in Federal Research Requirements Since 1991, Figure 1 data labels (updated January 2025). https://www.cogr.edu/changes-federal-research-requirements-1991",
+    "recovered_cents_per_direct_dollar": "NCSES, HERD Survey FY 2024 data tables (NSF 26-304), Table 12, standard-form institutions: indirect costs recovered divided by direct costs. https://ncses.nsf.gov/pubs/nsf26304"
+  },
+  "checked_against": "HERD Explorer data/national_published.parquet and data/cogr_requirements.parquet, 2026-10-27: all 15 years match.",
+  "year": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "requirements": [
+    69,
+    73,
+    82,
+    97,
+    102,
+    109,
+    119,
+    121,
+    129,
+    141,
+    157,
+    180,
+    211,
+    245,
+    270
+  ],
+  "recovered_cents_per_direct_dollar": [
+    22.67,
+    23.02,
+    22.49,
+    21.98,
+    21.1,
+    21.11,
+    20.73,
+    20.75,
+    20.97,
+    21.15,
+    21.1,
+    21.19,
+    21.49,
+    21.02,
+    20.99
+  ]
+}
