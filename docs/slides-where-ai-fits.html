@@ -356,9 +356,6 @@
               <figure style="margin:0; width:100%;">
                 <div id="workload-chart" role="img" aria-label="Line chart, 2010 to 2024: cumulative federal research requirements rise from 69 to 270 while indirect costs recovered per dollar of direct costs fall from 22.7 cents to 21.0 cents" style="width:580px; height:330px; margin:0 auto;"></div>
                 <figcaption style="font-size:0.45rem; color:var(--muted); margin-top:0.2rem; text-align:left;">Sources: COGR, &ldquo;Changes in Federal Research Requirements Since 1991,&rdquo; Figure 1 (Jan. 2025). NCSES HERD Survey FY 2024 data tables (NSF 26-304), Table 12. Chart from HERD Explorer.</figcaption>
-                <div class="launch-row" style="margin-top:0.5rem; justify-content:flex-start;">
-                  <a class="launch-secondary" href="https://nate-layman.github.io/herd-explorer/" target="_blank" rel="noopener" style="font-size:0.75rem; padding:0.35rem 1.1rem;">Explore the HERD data &rarr;</a>
-                </div>
               </figure>
             </div>
             <div class="split-text fragment">
@@ -370,7 +367,7 @@
           </div>
           <aside class="notes">
             Ask the room before the first click: who has more on their desk than three years ago? Who has the same number of people, or fewer? Let the hands answer.
-            Click 1, the chart, from HERD Explorer. The blue line is every federal research requirement adopted or substantially changed since 1991, counted by COGR: 69 in 2010, 270 by 2024. The orange line is what universities recover in indirect costs for each dollar of direct research costs, nationally, from the HERD Survey: 22.7 cents in 2010, 21.0 cents in 2024. Say it plainly: the rules keep multiplying and the recovery has not kept up. The right axis starts at 19 cents, so the drop looks steeper than it is; most of it came between 2010 and 2014, and recovery has stayed near 21 cents since while requirements nearly tripled. The button opens HERD Explorer, the AI4RA site where anyone can slice the national HERD data by institution, state or type. Do not demo it here; it comes back later.
+            Click 1, the chart, from HERD Explorer. The blue line is every federal research requirement adopted or substantially changed since 1991, counted by COGR: 69 in 2010, 270 by 2024. The orange line is what universities recover in indirect costs for each dollar of direct research costs, nationally, from the HERD Survey: 22.7 cents in 2010, 21.0 cents in 2024. Say it plainly: the rules keep multiplying and the recovery has not kept up. The right axis starts at 19 cents, so the drop looks steeper than it is; most of it came between 2010 and 2014, and recovery has stayed near 21 cents since while requirements nearly tripled. The chart comes from HERD Explorer, which gets its own tour two slides on, after the solicitation demo.
             Click 2, the people. Kelly Alongi surveyed research administrators in fall 2023: 127 of 479, about one in four, were looking for another job. Among the 37 looking to leave research administration entirely, the most common reasons were lack of support or resources and unrealistic demands, ahead of pay.
             The turn: none of this is solved by a tool. But a lot of the growing load is reading documents and moving facts from one place to another, and that is the part AI can help with. Relief for the people already doing the work, not doing it with fewer of them.
           </aside>
@@ -634,6 +631,29 @@
             Point at the Watch row: the indirect-cost preference and termination for convenience are buried in sections VI and VII. That is the kind of line a skim misses.
             Then check one field against the left pane together, the title prefix in section V is a good one. Fast, and you can check it.
             Close with: we will show you more of what it can do in the demos coming up.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">The power of AI</p>
+          <h2>AI helped me build this</h2>
+          <div class="slide-split img-wide" style="align-items:center; margin-top:0.6rem;">
+            <div class="split-img">
+              <img src="img/herd-explorer-trends.png" alt="HERD Explorer's Trends page: university R&amp;D spending from FY 2012 to FY 2024 split into public and private institutions, with shaded projection ranges to FY 2029" style="max-height:400px; border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,0.12);" />
+            </div>
+            <div class="split-text">
+              <p style="font-size:0.9rem; line-height:1.4; margin:0;">I designed it for this workshop; an AI coding assistant helped me build it in about two weeks.</p>
+              <p style="font-size:0.9rem; line-height:1.4; margin:0.8rem 0 0;">Every national total checked against the tables NCSES publishes: 195 of 195 match.</p>
+              <p style="font-size:0.9rem; line-height:1.4; margin:0.8rem 0 0;">Free and open source. Runs in your browser.</p>
+              <div class="launch-row" style="margin-top:1.2rem; justify-content:flex-start;">
+                <a class="launch-primary" href="https://nate-layman.github.io/herd-explorer/" target="_blank" rel="noopener">Explore the HERD data &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            A second example of the power: AI helped me build a tool. I designed HERD Explorer for this workshop and used an AI coding assistant to help build it, in about two weeks; it is still being refined. I already knew how I wanted it built: the data pipeline and the projection model in R, with mgcv for the projections; a static site in plain JavaScript, with no server: DuckDB's WebAssembly build runs the whole database in your browser, the historical data comes from the site itself, the projections from a public Hugging Face dataset, and R runs once a year offline to rebuild the data and refit the model; Graphic Walker and Perspective for dragging out charts and pivot tables. The AI helped me write and test it to that design. No server matters for two reasons. It scales: each browser does its own work, so a room full of people opening it at once is just file downloads from GitHub Pages and Hugging Face, and there is nothing to slow down or crash. And nothing you do or type on it reaches our computers, because there is nothing of ours to receive it. GitHub and Hugging Face keep the usual request logs any website does, and on the Ask page your question goes to the AI provider whose key you entered. It covers the NCSES HERD Survey, FY 2012 to FY 2024, for every reporting institution, and it is where the workload chart two slides back came from.
+            The AI did most of the typing, which is why it took two weeks. I checked the results: every national total is compared with the tables NCSES publishes, 195 of 195 match, and the build stops if any of them is off. That idea comes back on the accuracy slides.
+            Two-minute tour from the button. Trends: pick a measure, split it by institution type or public and private, and turn on the projection. Compare: add your institution and a peer or two; the dashed line is the median for its type. Explore: the full table, every institution, year and measure, with export. Skip the Ask page on purpose; it comes back with Data Crawler Carl. Then: you can play with it later; the link is in the deck.
           </aside>
         </section>
 
