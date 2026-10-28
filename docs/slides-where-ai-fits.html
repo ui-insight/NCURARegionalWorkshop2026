@@ -1404,18 +1404,42 @@
         <section>
           <p class="slide-kicker">Using AI responsibly &middot; Checking accuracy</p>
           <h2>How do you know it is accurate?</h2>
-          <div style="max-width:44rem; margin:1rem auto 0; padding:1rem 1.4rem; border:2px dashed #c9a227; border-radius:0.8rem; text-align:left;">
-            <p class="slide-label" style="margin:0 0 0.4rem;">Placeholder, slide to build: a broad overview, not a demo</p>
-            <ul style="font-size:0.82rem; margin:0; line-height:1.5;">
-              <li><strong>Why evaluate:</strong> an answer that looks right is not the same as a tool you have measured. Prompts, models and documents all change.</li>
-              <li><strong>Structured vs unstructured:</strong> fields and numbers can be scored exactly against an answer key. Summaries and drafts take judgment.</li>
-              <li><strong>Human grading vs LLM as judge:</strong> people are the standard but slow. A model can grade at scale, but it has its own biases (the chart from the bias slide), so check it against people.</li>
-              <li><strong>Go deeper:</strong> Barrie Robison, &ldquo;The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale,&rdquo; Tuesday, November 10, 4:00 PM, Platte. The AI4RA prompt library and evaluation harness.</li>
-            </ul>
+          <div class="slide-split" style="align-items:center; margin-top:0.6rem;">
+            <div class="split-img" style="flex:0 0 46%;">
+              <img src="img/diagrams/accuracy-vs-precision.svg" alt="Four targets in a grid, precision across the top and accuracy down the side. High accuracy, low precision: darts scattered around the center. Low accuracy, high precision: darts clustered tightly away from the center." style="max-height:440px;" />
+            </div>
+            <div class="split-text">
+              <p style="font-size:1rem; line-height:1.4; margin:0;"><strong>Precision:</strong> ask again. Do the answers agree?</p>
+              <p style="font-size:1rem; line-height:1.4; margin:0.9rem 0 0;"><strong>Accuracy:</strong> check against an answer key a person verified.</p>
+              <p class="fragment" style="font-size:1.05rem; font-weight:800; line-height:1.35; margin:1.4rem 0 0;">Agreeing with itself is not the same as being right.</p>
+            </div>
           </div>
           <aside class="notes">
-            Placeholder. A very broad overview of evaluation, then a shout-out to Barrie. Why: you would not adopt a new process without checking it, and an AI tool's accuracy is something you measure, not something you assume; the four ways an answer goes wrong are what you count. Structured output, like the fields pulled from an award notice, has a right answer per field, so you can score it against documents a person has already checked. Unstructured output, like a summary or a draft letter, has no single right answer, so someone has to judge it. Who judges: people are the gold standard but do not scale. Using a model as the judge scales, and it is how a lot of evaluation is done now, but the study on the bias slide showed models judging answers favor the first one and the longer one, so a model judge has to be checked against human grades.
-            Then the shout-out: Barrie's session covers the AI4RA evaluation framework and the evaluation harness in depth. "The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale," Tuesday, November 10, 4:00 PM, Platte room (RM26 program, updated October 26).
+            Two different questions, and both matter. Precision is how tightly the throws cluster: run the same task several times and see whether the answers agree. Accuracy is how far they land from the bullseye: compare with an answer key a person has already checked.
+            They fail differently and are fixed differently. Scattered answers come from randomness, loose instructions and free-form output; fix them with tighter instructions, a fixed output format, and by flagging any field where runs disagree. Consistently wrong answers come from wrong definitions, missing context or misreading the document; fix the instructions and give the model the source, then score it against the key again. Running it again cannot catch this one: a wrong answer repeated five times still looks reliable. That is the bottom left board: high precision, low accuracy.
+            An AI4RA example, from the prompt library's evaluation of NSF award notice extraction (gpt-oss-120b on MindRouter, 28 real award notices, five runs each, April 2026): all five runs agreed on the award number and amounts for every document, but on the award date for only 50% of documents, the amendment date 46%, and the expenditure limitation 36%. That is precision. It says nothing yet about whether the agreed values are right. Requiring a fixed output format took valid output from 0% to 100% of runs, a precision fix.
+            Click: agreeing with itself is not the same as being right.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Using AI responsibly &middot; Checking accuracy</p>
+          <h2>Who checks the answers?</h2>
+          <div style="max-width:46rem; margin:0.8rem auto 0; text-align:left;">
+            <p style="font-size:0.95rem; line-height:1.4; margin:0;"><strong>Fields and numbers</strong> have one right answer. Score them against the answer key.</p>
+            <p style="font-size:0.95rem; line-height:1.4; margin:0.7rem 0 0;"><strong>Summaries and drafts</strong> need a rubric and a person to apply it.</p>
+            <p class="fragment" style="font-size:0.95rem; line-height:1.4; margin:0.7rem 0 0;"><strong>An AI can grade</strong> at scale, once its grades have been checked against a person&rsquo;s.</p>
+            <p class="fragment" style="font-size:0.85rem; line-height:1.4; margin:1.1rem 0 0; color:var(--muted);">NIST: compare output &ldquo;to a set of known ground truth data&rdquo; using &ldquo;human oversight and automated evaluation.&rdquo; <span style="font-size:0.7rem;">(NIST AI 600-1, MP-2.3-001)</span></p>
+          </div>
+          <div class="fragment" style="max-width:46rem; margin:1.3rem auto 0; padding:0.7rem 1rem; border-left:3px solid var(--gold); background:rgba(241,179,0,0.08); text-align:left;">
+            <p style="font-size:0.85rem; line-height:1.4; margin:0;"><strong>Go deeper:</strong> Barrie Robison, &ldquo;The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale.&rdquo; Tuesday, November 10, 4:00 PM, Platte.</p>
+          </div>
+          <aside class="notes">
+            Fields and numbers, like the ones pulled from an award notice, have a right answer per field, so score them against documents a person has already checked, and count the four ways from two slides back: missed it, made it up, changed a detail, put it in the wrong place. Normalize dates and dollar amounts before comparing: even two careful people matched each other exactly only 77% of the time on short factual answers (SQuAD, Rajpurkar et al. 2016).
+            Summaries and drafts have no single right answer, so write a rubric (is every claim in the source, is anything required missing, would you send it) and have a person apply it. People need calibrating too: expert graders agreed on summary quality at 0.41 at first and 0.71 after a second round (SummEval, Fabbri et al. 2021).
+            Click: an AI can grade. GPT-4 agreed with human graders 85% of the time, about as often as people agreed with each other, 81% (Zheng et al. 2023). It has the same two problems as anything else. Precision: swapping the order of two answers changed its verdict 35% of the time. Accuracy: it leans toward the longer answer, the bias slide. So give it the answer key, run it both ways around, use a different model family as the judge, and check it against a sample a person graded before trusting it. Vandalizer's judge does exactly this: it must agree with human grades before it is used.
+            Click: NIST says the same in its Generative AI Profile, NIST AI 600-1, action MP-2.3-001: compare output to known ground truth with human oversight and automated evaluation. Its Risk Management Framework adds that accuracy measurements should be paired with clearly defined, realistic test sets (AI RMF 1.0, section 3.1).
+            Click: the shout-out. Barrie's session goes into all of this with the AI4RA evaluation framework, the prompt library and the evaluation harness behind it. "The Good, the Bad, and the Ungoverned: Evaluating AI Outputs at Scale," Tuesday, November 10, 4:00 PM, Platte room (RM26 program, updated October 26).
           </aside>
         </section>
 
