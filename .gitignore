@@ -6,3 +6,22 @@ docs/img/diagrams/meeting_notes.md
 
 scripts/
 notes/
+
+# Secrets and key-like files
+.env.*
+!.env.example
+!.env.sample
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+id_ed25519*
+*credentials*
+*secret*
+*api_key*
+*api-key*
+*apikey*
+*.token
