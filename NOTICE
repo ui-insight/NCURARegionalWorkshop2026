@@ -11,6 +11,8 @@ This site includes third-party software:
 
 - reveal.js (docs/reveal/), Copyright Hakim El Hattab and contributors,
   MIT License, https://revealjs.com/
+- plotly.js basic bundle 4.1.2 (docs/js/vendor/plotly-basic-4.1.2.min.js),
+  Copyright Plotly, Inc., MIT License, https://github.com/plotly/plotly.js
 - Site structure and styling carried over from ui-insight/REACHWorkshop2026,
   and the key manager and API bridge adapted from AI4RA/promptulus, both by
   the same authors.
