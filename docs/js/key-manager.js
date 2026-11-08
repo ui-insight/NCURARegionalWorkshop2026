@@ -9,8 +9,8 @@ const CROSS_ORIGIN_TARGETS = [
   'ai4ra.github.io/promptulus',
   'ui-insight.github.io/data-crawler-carl',
   'nate-layman.github.io/thamus',
-  // Ask page only: other HERD Explorer pages ignore ?key= and would leave it in the address bar
-  'nate-layman.github.io/herd-explorer/ask.html'
+  // Every HERD Explorer page reads ?key= (layout.js), keeps it for the tab and strips it from the address bar
+  'nate-layman.github.io/herd-explorer'
 ];
 
 export function getKey() {
