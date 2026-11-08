@@ -440,7 +440,7 @@
             <article class="slide-card">
               <h3>Where</h3>
               <div style="display:flex; gap:1rem; align-items:center;">
-                <a href="https://narc.insight.uidaho.edu/narrate" target="_blank" rel="noopener" style="flex:none; display:block; line-height:0;"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:7rem; height:7rem; margin:0;" /></a>
+                <button type="button" class="qr-zoom" data-qr-src="img/qr-narrate.png" aria-label="Show the Narrate QR code full screen" title="Click to enlarge"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:7rem; height:7rem; margin:0;" /></button>
                 <div>
                   <p><a href="https://narc.insight.uidaho.edu/narrate" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">narc.insight.uidaho.edu/narrate</a></p>
                   <p class="invite-code">NCURA2026</p>
@@ -931,6 +931,22 @@
         0: "#000000", 1: "#0074D9", 2: "#FF4136", 3: "#2ECC40", 4: "#FFDC00",
         5: "#AAAAAA", 6: "#F012BE", 7: "#FF851B", 8: "#7FDBFF", 9: "#870C25"
       };
+    </script>
+    <div class="qr-overlay" hidden><img alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" /><p>narc.insight.uidaho.edu/narrate &middot; Invite code NCURA2026</p></div>
+    <script>
+      // Click a QR code to show it full screen; click anywhere or press Esc to close
+      (function () {
+        var overlay = document.querySelector('.qr-overlay');
+        var big = overlay.querySelector('img');
+        function close() { overlay.hidden = true; }
+        document.querySelectorAll('.qr-zoom').forEach(function (btn) {
+          btn.addEventListener('click', function () { big.src = btn.dataset.qrSrc; overlay.hidden = false; });
+        });
+        overlay.addEventListener('click', close);
+        document.addEventListener('keydown', function (e) {
+          if (!overlay.hidden && e.key === 'Escape') { e.stopImmediatePropagation(); e.preventDefault(); close(); }
+        }, true);
+      })();
     </script>
     <script src="slides-interactive.js"></script>
     <script src="slides-thinking-well.js"></script>
