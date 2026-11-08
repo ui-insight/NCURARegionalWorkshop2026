@@ -2007,3 +2007,11 @@ body.slides-page {
 }
 
 /* EDA Demo styles are in css/csv-explorer.css */
+
+/* Click-to-enlarge QR code */
+.qr-zoom { flex: none; display: block; padding: 0; margin: 0; border: 0; background: none; line-height: 0; cursor: zoom-in; }
+.qr-overlay { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: rgba(255, 255, 255, 0.97); cursor: zoom-out; }
+.qr-overlay[hidden] { display: none; }
+.qr-overlay a { display: block; line-height: 0; cursor: pointer; }
+.qr-overlay img { width: min(80vh, 90vw); height: min(80vh, 90vw); }
+.qr-overlay p { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.4rem; color: #191919; }

@@ -440,7 +440,7 @@
             <article class="slide-card">
               <h3>Where</h3>
               <div style="display:flex; gap:1rem; align-items:center;">
-                <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-narrate.png" data-qr-href="https://narc.insight.uidaho.edu/narrate" aria-label="Show the Narrate QR code full screen" title="Click to enlarge"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:7rem; height:7rem; margin:0;" /></span>
+                <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-narrate.png" data-qr-href="https://narc.insight.uidaho.edu/narrate" data-qr-caption="narc.insight.uidaho.edu/narrate · Invite code NCURA2026" aria-label="Show the Narrate QR code full screen" title="Click to enlarge"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:7rem; height:7rem; margin:0;" /></span>
                 <div>
                   <p><a href="https://narc.insight.uidaho.edu/narrate" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">narc.insight.uidaho.edu/narrate</a></p>
                   <p class="invite-code">NCURA2026</p>
@@ -901,7 +901,7 @@
             <a class="slide-card" href="https://narc.insight.uidaho.edu/narrate" target="_blank" rel="noopener">
               <h3>Narrate</h3>
               <div style="display:flex; gap:0.8rem; align-items:center;">
-                <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-narrate.png" data-qr-href="https://narc.insight.uidaho.edu/narrate" aria-label="Show the Narrate QR code full screen" title="Click to enlarge"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:5rem; height:5rem; margin:0;" /></span>
+                <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-narrate.png" data-qr-href="https://narc.insight.uidaho.edu/narrate" data-qr-caption="narc.insight.uidaho.edu/narrate · Invite code NCURA2026" aria-label="Show the Narrate QR code full screen" title="Click to enlarge"><img src="img/qr-narrate.png" alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" style="width:5rem; height:5rem; margin:0;" /></span>
                 <p>Write the story that gets the model there. Invite code NCURA2026, valid through November 30, 2026.</p>
               </div>
             </a>
@@ -932,30 +932,7 @@
         5: "#AAAAAA", 6: "#F012BE", 7: "#FF851B", 8: "#7FDBFF", 9: "#870C25"
       };
     </script>
-    <div class="qr-overlay" hidden><a target="_blank" rel="noopener" title="Open Narrate"><img alt="QR code for Narrate, narc.insight.uidaho.edu/narrate" /></a><p>narc.insight.uidaho.edu/narrate &middot; Invite code NCURA2026</p></div>
-    <script>
-      // Click a QR code to show it full screen. Click the big code to open the link;
-      // click anywhere else or press Esc to close.
-      (function () {
-        var overlay = document.querySelector('.qr-overlay');
-        var link = overlay.querySelector('a');
-        var big = overlay.querySelector('img');
-        function close() { overlay.hidden = true; }
-        function open(el) { big.src = el.dataset.qrSrc; link.href = el.dataset.qrHref; overlay.hidden = false; }
-        document.querySelectorAll('.qr-zoom').forEach(function (el) {
-          // preventDefault and stopPropagation keep a surrounding card link from firing
-          el.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(el); });
-          el.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); open(el); }
-          });
-        });
-        overlay.addEventListener('click', function (e) { if (!link.contains(e.target)) close(); });
-        link.addEventListener('click', function () { setTimeout(close, 0); });
-        document.addEventListener('keydown', function (e) {
-          if (!overlay.hidden && e.key === 'Escape') { e.stopImmediatePropagation(); e.preventDefault(); close(); }
-        }, true);
-      })();
-    </script>
+    <script src="js/qr-zoom.js"></script>
     <script src="slides-interactive.js"></script>
     <script src="slides-thinking-well.js"></script>
     <script type="module">

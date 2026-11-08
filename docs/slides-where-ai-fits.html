@@ -143,7 +143,7 @@
           <p class="slide-kicker">Before we start</p>
           <h2>The demos from today are on the AI4RA list</h2>
           <div class="compare-row" style="margin-top:1.2rem; gap:1.4rem; align-items:center; max-width:50rem; margin-left:auto; margin-right:auto; text-align:left;">
-            <img src="img/qr-groups.png" alt="QR code for the AI4RA list" style="width:8rem; height:8rem; flex:none;" />
+            <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-groups.png" data-qr-href="https://groups.ai4ra.uidaho.edu/g/main" data-qr-caption="groups.ai4ra.uidaho.edu · The AI4RA list" title="Click to enlarge"><img src="img/qr-groups.png" alt="QR code for the AI4RA list" style="width:8rem; height:8rem; flex:none;" /></span>
             <div>
               <p style="margin:0; font-size:1rem; font-weight:700;">The AI4RA list is our email list and forum on groups.io. Join it to keep the links after today.</p>
               <p style="margin:0.5rem 0 0; font-size:0.8rem; color:#555;">Each demo has its own post with a link you can open after the conference. Reply to a post to ask a question or tell us what worked and what didn&rsquo;t.</p>
@@ -1383,7 +1383,7 @@
             </article>
           </div>
           <div class="compare-row" style="margin-top:0.7rem; gap:1rem; align-items:center; max-width:68rem; margin-left:auto; margin-right:auto; text-align:left;">
-            <img src="img/udm_QR_code.png" alt="QR code for the AI4RA Unified Data Model site" style="width:5.2rem; height:5.2rem; flex:none; border-radius:0.5rem;" />
+            <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/udm_QR_code.png" data-qr-href="https://ui-insight.github.io/AI4RA-UDM/" data-qr-caption="ui-insight.github.io/AI4RA-UDM" title="Click to enlarge"><img src="img/udm_QR_code.png" alt="QR code for the AI4RA Unified Data Model site" style="width:5.2rem; height:5.2rem; flex:none; border-radius:0.5rem;" /></span>
             <div>
               <p style="margin:0; font-size:0.86rem; font-weight:700;">The AI4RA Unified Data Model is a draft of that language. Help us evaluate it.</p>
               <p style="margin:0.2rem 0 0; font-size:0.76rem; color:#555;">It was written by a small team at one institution. Read it against your own world and tell us where it gets your reality wrong, what your office tracks that is missing, and what you call differently. Post feedback on the AI4RA list under <strong>#UDM</strong>.</p>
@@ -1407,7 +1407,7 @@
             <a class="launch-primary" href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener">Open the Unified Data Model &rarr;</a>
           </div>
           <div class="compare-row" style="margin-top:1.3rem; gap:1rem; align-items:center; max-width:46rem; margin-left:auto; margin-right:auto; padding:0.7rem 1rem; border-left:3px solid var(--gold); background:rgba(241,179,0,0.08); text-align:left;">
-            <img src="img/qr-groups.png" alt="QR code for the AI4RA list" style="width:5.2rem; height:5.2rem; flex:none;" />
+            <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-groups.png" data-qr-href="https://groups.ai4ra.uidaho.edu/g/main" data-qr-caption="groups.ai4ra.uidaho.edu · The AI4RA list" title="Click to enlarge"><img src="img/qr-groups.png" alt="QR code for the AI4RA list" style="width:5.2rem; height:5.2rem; flex:none;" /></span>
             <div>
               <p style="margin:0; font-size:0.9rem; font-weight:700;">Your homework: <a href="https://groups.ai4ra.uidaho.edu/g/main/join" target="_blank" rel="noopener" style="color:#9a7300;">join the AI4RA list</a> and leave one comment under <a href="https://groups.ai4ra.uidaho.edu/g/main/search?q=%23UDM&amp;ct=1" target="_blank" rel="noopener" style="color:#9a7300;">#UDM</a>.</p>
               <p style="margin:0.25rem 0 0; font-size:0.76rem; color:#555;">Tell us about a definition that doesn't match your office, something you track that is missing, or something you call by another name. Public material only.</p>
@@ -1973,7 +1973,7 @@
           <h2>Vandalizer: try it yourself</h2>
           <p style="font-size:0.95rem; max-width:46rem; margin:0.4rem auto 0.9rem; line-height:1.45;">Document extraction and review for research administration, where every value points back to the passage it came from. Open source, built by AI4RA.</p>
           <div class="compare-row" style="gap:1.6rem; align-items:center; max-width:52rem; margin:0 auto; text-align:left;">
-            <img src="img/qr-vandalizer.png" alt="QR code for the Vandalizer trial at vandalizer.uidaho.edu" style="width:9rem; height:9rem; flex:none;" />
+            <span class="qr-zoom" role="button" tabindex="0" data-qr-src="img/qr-vandalizer.png" data-qr-href="https://vandalizer.uidaho.edu/landing" data-qr-caption="vandalizer.uidaho.edu" title="Click to enlarge"><img src="img/qr-vandalizer.png" alt="QR code for the Vandalizer trial at vandalizer.uidaho.edu" style="width:9rem; height:9rem; flex:none;" /></span>
             <ol style="font-size:0.88rem; line-height:1.5; margin:0; padding-left:1.2rem;">
               <li>Scan the code, or go to <a href="https://vandalizer.uidaho.edu/" target="_blank" rel="noopener" style="color:#9a7300;">vandalizer.uidaho.edu</a>, and request a free two-week trial.</li>
               <li>Sign in when your access arrives.</li>
@@ -2030,6 +2030,7 @@
       </div>
     </div>
 
+    <script src="js/qr-zoom.js"></script>
     <script type="module">
       import { readKeyFromURL, installLinkInterceptor } from './js/key-manager.js';
       import { drawWorkloadChart } from './js/workload-chart.js';
