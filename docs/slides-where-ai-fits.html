@@ -75,6 +75,9 @@
       .grok-card .slide-label { display:block; }
       .ladder-tip::after { content:attr(data-tip); position:absolute; right:85%; top:0.5rem; width:11rem; padding:0.5rem 0.75rem; background:#fcecb8; border:1px solid rgba(241,179,0,0.5); color:var(--ink); font-size:0.72rem; line-height:1.35; text-align:center; border-radius:6px; pointer-events:none; opacity:0; transition:opacity 0.15s; }
       .ladder-tip:hover::after { opacity:1; }
+      .quote-tip { position:relative; border-bottom:1px dotted rgba(25,25,25,0.45); cursor:help; }
+      .quote-tip::after { content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 0.5rem); transform:translateX(-50%); width:15rem; padding:0.55rem 0.75rem; background:#fcecb8; border:1px solid rgba(241,179,0,0.5); color:var(--ink); font-size:0.72rem; line-height:1.4; font-style:normal; text-align:left; border-radius:6px; pointer-events:none; opacity:0; transition:opacity 0.15s; z-index:40; }
+      .quote-tip:hover::after { opacity:1; }
       .grok-close { position:absolute; top:0.5rem; right:0.7rem; border:0; background:none; font-size:1.4rem; cursor:pointer; color:#555; }
       #ctx-slider .slider-bar { overflow: visible; position: relative; z-index: 30; }
       #ctx-slider .slider-region:first-child { border-radius: 0.5rem 0 0 0.5rem; }
@@ -701,7 +704,7 @@
               <img src="img/herd-explorer-trends.png" alt="HERD Explorer's Trends page: university R&amp;D spending from FY 2012 to FY 2024 split into public and private institutions, with shaded projection ranges to FY 2029" style="max-height:400px; border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,0.12);" />
             </div>
             <div class="split-text">
-              <p style="font-size:0.9rem; line-height:1.4; margin:0;">I designed it for this workshop; an AI coding assistant helped me build it in about two weeks.</p>
+              <p style="font-size:0.9rem; line-height:1.4; margin:0;">I designed it for this workshop; an <span class="quote-tip" data-tip="&ldquo;The hottest new programming language is English.&rdquo; Andrej Karpathy, OpenAI co-founder, January 2023">AI coding assistant</span> helped me build it in about two weeks.</p>
               <p style="font-size:0.9rem; line-height:1.4; margin:0.8rem 0 0;">Every national total checked against the tables NCSES publishes: 195 of 195 match.</p>
               <p style="font-size:0.9rem; line-height:1.4; margin:0.8rem 0 0;">Free and open source. Runs in your browser.</p>
               <div class="launch-row" style="margin-top:1.2rem; justify-content:flex-start;">
@@ -714,6 +717,7 @@
             A second example of the power: AI helped me build a tool. I designed HERD Explorer for this workshop and used an AI coding assistant to help build it, in about two weeks; it is still being refined. I already knew how I wanted it built: the data pipeline and the projection model in R, with mgcv for the projections; a static site in plain JavaScript, with no server: DuckDB's WebAssembly build runs the whole database in your browser, the historical data comes from the site itself, the projections from a public Hugging Face dataset, and R runs once a year offline to rebuild the data and refit the model; Graphic Walker and Perspective for dragging out charts and pivot tables. The AI helped me write and test it to that design. No server matters for two reasons. It scales: each browser does its own work, so a room full of people opening it at once is just file downloads from GitHub Pages and Hugging Face, and there is nothing to slow down or crash. And nothing you do or type on it reaches our computers, because there is nothing of ours to receive it. GitHub and Hugging Face keep the usual request logs any website does, and on the Ask page your question goes to the AI provider whose key you entered. It covers the NCSES HERD Survey, FY 2012 to FY 2024, for every reporting institution, and it is where the workload chart from the start of the session came from.
             The AI did most of the typing, so it took two weeks. I checked the results: every national total is compared with the tables NCSES publishes, 195 of 195 match, and the build stops if any of them is off. That idea comes back on the accuracy slides.
             Two-minute tour from the button. Trends: pick a measure, split it by institution type or public and private, and turn on the projection. Compare: add your institution and a peer or two; the dashed line is the median for its type. Explore: the full table, every institution, year and measure, with export. Skip the Ask page on purpose; it comes back with Data Crawler Carl. Then: you can play with it later; the link is in the deck.
+            Hovering "AI coding assistant" shows Andrej Karpathy's line, "The hottest new programming language is English." Use it only if someone asks how you could build this without writing the code by hand.
           </aside>
         </section>
 
