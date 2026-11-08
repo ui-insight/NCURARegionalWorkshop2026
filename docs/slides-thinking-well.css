@@ -80,6 +80,110 @@
   font-weight: 800;
 }
 
+/* --- Guess pad: paint the hidden grid, then check it --- */
+
+/* Strips with a guess pad take their cell size from the strip's inline --cell */
+.narc-seq.play .narc-grid,
+.narc-seq.play .guess-pad { --cell: inherit; }
+.narc-seq.play .narc-panel-label { white-space: nowrap; }
+
+/* Penny's car: the tools go under the tall strip, not beside it */
+.split-img:has(.guess-tools) { display: block; }
+
+.guess-pad {
+  --cell: 24px;
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 2px;
+  background: #4a4a4a;
+  border-radius: 4px;
+  outline: 2px dashed #f59e0b;
+  outline-offset: 2px;
+}
+
+.guess-cell {
+  width: var(--cell);
+  height: var(--cell);
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  cursor: crosshair;
+}
+
+.guess-pad .guess-q {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: #fffbeb;
+  color: #b45309;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+/* A one-row pad is too short for the full-size question mark */
+.guess-pad[data-rows="1"] .guess-q { font-size: 1.1rem; }
+
+.guess-pad.touched .guess-q { display: none; }
+
+/* The answer sits on top of the guess pad once revealed */
+.narc-slot .narc-answer {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 0 3px #1f6f43;
+}
+
+.guess-tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.55rem auto 0;
+}
+
+.guess-tools .swatch {
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0;
+  border-radius: 0.35rem;
+  border: 2px solid rgba(25, 25, 25, 0.25);
+  cursor: pointer;
+}
+
+.guess-tools .swatch[aria-pressed="true"] { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+.guess-tools .tool-btn {
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid rgba(25, 25, 25, 0.2);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guess-tools .tool-btn:hover { border-color: var(--gold); }
+
+.reveal .guess-tools .guess-result {
+  flex-basis: 100%;
+  min-height: 1.2rem;
+  margin: 0;
+  font-size: 0.82rem !important;
+  line-height: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.reveal .guess-tools .guess-result.ok { color: #1f6f43 !important; }
+.reveal .guess-tools .guess-result.off { color: #a3241b !important; }
+
 /* Hidden frame as Narrate shows it: visible to the writer, outlined for "the model won't see this" */
 .narc-hidden-from-model {
   outline: 3px dashed #f59e0b;

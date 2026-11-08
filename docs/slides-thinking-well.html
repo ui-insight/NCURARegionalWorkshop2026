@@ -104,7 +104,7 @@
         <section>
           <p class="slide-kicker">Part 1 &middot; Try one</p>
           <h2>Bubble Level: what goes in grid 4?</h2>
-          <div class="narc-seq" style="--cell:17px;">
+          <div class="narc-seq play" style="--cell:22px; gap:0.8rem;">
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[2,0,0,0,0,0,0,0,0]]" aria-label="Grid 1: red cell at far left"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0,0,0,0,0,0,2]]" aria-label="Grid 2: red cell at far right"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
@@ -113,12 +113,13 @@
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel">
               <div class="narc-slot">
-                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[0,0,0,0,2,0,0,0,0]]" aria-label="Answer: red cell in the center"></div>
-                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+                <div class="guess-pad" id="pad-bubble" data-rows="1" data-cols="9" data-answer="[[0,0,0,0,2,0,0,0,0]]"></div>
+                <div class="narc-grid narc-answer fragment" data-fragment-index="2" data-grid="[[0,0,0,0,2,0,0,0,0]]" aria-label="Answer: red cell in the center"></div>
               </div>
               <figcaption class="narc-panel-label">Grid 4</figcaption>
             </figure>
           </div>
+          <div class="guess-tools" data-pad="pad-bubble" data-palette="0,2" data-copy="[[0,0,0,0,0,0,0,2,0]]" data-copy-label="Start from grid 3"></div>
           <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Mike is hanging a picture on the wall. He places a bubble level on top of the picture frame to make sure it is level. At first, the left side of the frame is higher, so the bubble in the bubble level shifts to the left. He then adjusts the frame, but overcorrects, causing the bubble to shift to the right. He makes a slight adjustment, but it is not enough, the right side is still higher. He adjusts the frame once more, and finally gets the picture perfectly level.</p>
           <div class="result-row fragment" data-fragment-index="3">
             <div class="result-chip"><strong>0 of 12</strong><span>models, grids only</span></div>
@@ -126,7 +127,7 @@
             <div class="result-chip"><strong>9 of 12</strong><span>models, grids + story</span></div>
           </div>
           <aside class="notes">
-            Four small grids in a row. The fourth is hidden. What goes there? Give it fifteen seconds and take a couple of guesses.
+            Four small grids in a row. The fourth is hidden. What goes there? Give it fifteen seconds and take a couple of guesses. [paint a guess from the room in grid 4, press Check]
             You'll get different answers. The red square jumped from the left to the right, then moved one step back. Does it keep moving left? By one? By two? The pictures don't settle it.
             [click] Now the story. Read it as being about the grids. The red square is the bubble in a level. "Finally gets the picture perfectly level."
             [click] So the bubble goes to the middle.
@@ -160,19 +161,20 @@
           <h2>Penny&rsquo;s car</h2>
           <div class="slide-split" style="gap:2rem;">
             <div class="split-img" style="flex:0 0 34%;">
-              <div class="narc-seq" style="--cell:20px; margin:0;">
+              <div class="narc-seq play" style="--cell:28px; margin:0;">
                 <figure class="narc-panel"><div class="narc-grid" data-grid="[[4],[4],[4],[4],[4],[4],[4],[4],[4],[4]]" aria-label="Grid 1: ten yellow cells"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
                 <span class="narc-arrow" aria-hidden="true">&rarr;</span>
                 <figure class="narc-panel"><div class="narc-grid" data-grid="[[7],[7],[7],[7],[7],[4],[4],[4],[4],[4]]" aria-label="Grid 2: five orange cells over five yellow"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
                 <span class="narc-arrow" aria-hidden="true">&rarr;</span>
                 <figure class="narc-panel">
                   <div class="narc-slot">
-                    <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[7],[7],[7],[7],[7],[7],[7],[4],[4],[4]]" aria-label="Answer: seven orange cells over three yellow"></div>
-                    <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+                    <div class="guess-pad" id="pad-penny" data-rows="10" data-cols="1" data-answer="[[7],[7],[7],[7],[7],[7],[7],[4],[4],[4]]"></div>
+                    <div class="narc-grid narc-answer fragment" data-fragment-index="2" data-grid="[[7],[7],[7],[7],[7],[7],[7],[4],[4],[4]]" aria-label="Answer: seven orange cells over three yellow"></div>
                   </div>
                   <figcaption class="narc-panel-label">Grid 3</figcaption>
                 </figure>
               </div>
+              <div class="guess-tools" data-pad="pad-penny" data-palette="0,4,7" data-copy="[[7],[7],[7],[7],[7],[4],[4],[4],[4],[4]]" data-copy-label="Start from grid 2"></div>
             </div>
             <div class="split-text">
               <p class="narc-story fragment" data-fragment-index="1" style="margin-top:0;"><span class="narc-story-label">The story</span>Penny&rsquo;s car has a 100-liter fuel tank. She starts her trip with the tank full of 89-octane gasoline. After using half of the fuel, she refills the tank with 91-octane gasoline. Later, after using 40 liters of the mixed fuel, she refills the tank to full again with 91-octane gasoline. Penny wants to know how much 89-octane and 91-octane gasoline are in the tank now.</p>
@@ -184,7 +186,7 @@
             </div>
           </div>
           <aside class="notes">
-            Here's one this audience might like, because it's a calculation. Three tall grids. Ten cells each. First all yellow. Then half orange on top, half yellow on the bottom. What's the third?
+            Here's one this audience might like, because it's a calculation. Three tall grids. Ten cells each. First all yellow. Then half orange on top, half yellow on the bottom. What's the third? [paint a guess from the room, press Check]
             [click] The story. It's a fuel gauge. Yellow is 89-octane, orange is 91. The story never says that. You have to work it out.
             She uses half and fills up with 91: fifty and fifty. Then she uses 40 liters of the mix, so 60 liters are left, 30 of each. She fills up with 40 more liters of 91. That's 70 liters of 91 and 30 of 89.
             [click] Seven orange over three yellow.
@@ -196,7 +198,7 @@
         <section>
           <p class="slide-kicker">Part 1 &middot; From the Team Picks</p>
           <h2>Apple</h2>
-          <div class="narc-seq" style="--cell:26px;">
+          <div class="narc-seq play" style="--cell:30px;">
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,0,9,0,0],[0,0,9,0,0]]" aria-label="Grid 1: a tree"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,2,9,0,0],[0,0,9,0,0],[0,0,9,0,0]]" aria-label="Grid 2: a red cell appears beside the trunk"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
@@ -205,12 +207,13 @@
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel">
               <div class="narc-slot">
-                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,2,9,0,0],[0,1,9,0,0]]" aria-label="Answer: the red cell sits directly on top of the blue cell"></div>
-                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+                <div class="guess-pad" id="pad-apple" data-rows="5" data-cols="5" data-answer="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,2,9,0,0],[0,1,9,0,0]]"></div>
+                <div class="narc-grid narc-answer fragment" data-fragment-index="2" data-grid="[[0,0,3,0,0],[0,3,3,3,0],[0,0,9,0,0],[0,2,9,0,0],[0,1,9,0,0]]" aria-label="Answer: the red cell sits directly on top of the blue cell"></div>
               </div>
               <figcaption class="narc-panel-label">Grid 4</figcaption>
             </figure>
           </div>
+          <div class="guess-tools" data-pad="pad-apple" data-palette="0,1,2,3,9" data-copy="[[0,0,3,0,0],[0,3,3,3,0],[0,2,9,0,0],[0,0,9,0,0],[0,1,9,0,0]]" data-copy-label="Start from grid 3"></div>
           <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Sir Treb Newton was walking around the apple orchard when he found a nice tree to sit under. As he was relaxing, an apple fell from the tree, hitting him on top of his head.</p>
           <div class="result-row fragment" data-fragment-index="3">
             <div class="result-chip"><strong>0 of 12</strong><span>models, grids only</span></div>
@@ -219,7 +222,7 @@
           </div>
           <p class="narc-credit fragment" data-fragment-index="4">Two other stories for the same grids: one gets 4 of 11 models there, the other 6 of 11.</p>
           <aside class="notes">
-            Last one. A tree. A red thing appears. A blue thing appears at the bottom. What happens next?
+            Last one. A tree. A red thing appears. A blue thing appears at the bottom. What happens next? [paint a guess from the room, press Check]
             [click] Sir Treb Newton sits under a tree and an apple falls on his head.
             [click] So the red apple drops one cell and lands right on top of the blue man.
             [click] This one is harder for the models. Only four of twelve get it, even with the story.
@@ -261,7 +264,7 @@
         <section>
           <p class="slide-kicker">Part 2 &middot; The Chat puzzle</p>
           <h2>Chat: what goes in grid 4?</h2>
-          <div class="narc-seq" style="--cell:34px;">
+          <div class="narc-seq play" style="--cell:44px;">
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[5,0,7],[5,0,7]]" aria-label="Grid 1: grey bar height 2, orange bar height 2"></div><figcaption class="narc-panel-label">Grid 1</figcaption></figure>
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel"><div class="narc-grid" data-grid="[[0,0,0],[0,0,7],[5,0,7]]" aria-label="Grid 2: grey bar height 1, orange bar height 2"></div><figcaption class="narc-panel-label">Grid 2</figcaption></figure>
@@ -270,12 +273,13 @@
             <span class="narc-arrow" aria-hidden="true">&rarr;</span>
             <figure class="narc-panel">
               <div class="narc-slot">
-                <div class="narc-grid fragment" data-fragment-index="2" data-grid="[[5,0,7],[5,0,7],[5,0,7]]" aria-label="Answer: both bars at full height"></div>
-                <div class="narc-mask fragment fade-out" data-fragment-index="2">?</div>
+                <div class="guess-pad" id="pad-chat" data-rows="3" data-cols="3" data-answer="[[5,0,7],[5,0,7],[5,0,7]]"></div>
+                <div class="narc-grid narc-answer fragment" data-fragment-index="2" data-grid="[[5,0,7],[5,0,7],[5,0,7]]" aria-label="Answer: both bars at full height"></div>
               </div>
               <figcaption class="narc-panel-label">Grid 4</figcaption>
             </figure>
           </div>
+          <div class="guess-tools" data-pad="pad-chat" data-palette="0,5,7" data-copy="[[5,0,0],[5,0,7],[5,0,7]]" data-copy-label="Start from grid 3"></div>
           <p class="narc-story fragment" data-fragment-index="1"><span class="narc-story-label">The story</span>Ally and Bob met to chat. Ally became sad. After some encouraging words from Bob, Ally became happy. This made Bob happy too.</p>
           <div class="result-row fragment" data-fragment-index="3">
             <div class="result-chip"><strong>0 of 11</strong><span>models, grids only</span></div>
@@ -284,7 +288,7 @@
           </div>
           <aside class="notes">
             This is the puzzle we use for Narrate. I wrote it.
-            Two bars. What goes in grid 4? Take a guess. Most people say the grey bar keeps changing, or that they go back to how they started. The grids don't settle it.
+            Two bars. What goes in grid 4? Take a guess. [paint a guess from the room, press Check] Most people say the grey bar keeps changing, or that they go back to how they started. The grids don't settle it.
             [click] The story. Grey is Ally, orange is Bob, and the height of a bar is mood. Ally drops when she's sad and comes back up higher when she's happy.
             [click] "This made Bob happy too." So Bob rises to full height.
             [click] No model gets it from the grids alone. Five of eleven get it with the story. And every one of those five fails when we shuffle the order of the grids. They need the story and the order.
@@ -930,6 +934,10 @@
       window.NARC_PALETTE = {
         0: "#000000", 1: "#0074D9", 2: "#FF4136", 3: "#2ECC40", 4: "#FFDC00",
         5: "#AAAAAA", 6: "#F012BE", 7: "#FF851B", 8: "#7FDBFF", 9: "#870C25"
+      };
+      window.NARC_COLOR_NAMES = {
+        0: "black", 1: "blue", 2: "red", 3: "green", 4: "yellow",
+        5: "gray", 6: "magenta", 7: "orange", 8: "light blue", 9: "maroon"
       };
     </script>
     <script src="js/qr-zoom.js"></script>
