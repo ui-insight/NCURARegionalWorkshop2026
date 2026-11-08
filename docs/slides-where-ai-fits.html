@@ -261,31 +261,39 @@
         <section>
           <p class="slide-kicker">AI4RA, an NSF GRANTED project</p>
           <h2>Interactive open-source demos today</h2>
-          <div class="community-card-grid">
-            <a class="slide-card community-card" href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener">
-              <h3>Promptulus</h3>
-              <p>An AI literacy trainer. Nine characters, each coaching one discipline of working with AI.</p>
-              <img class="community-card-icon-image" src="https://ui-insight.github.io/REACHWorkshop2026/img/promptulus/owl.png" alt="Promptulus" style="width:3.5rem;" />
+          <div class="community-card-grid compact">
+            <a class="slide-card community-card" href="https://nate-layman.github.io/herd-explorer/" target="_blank" rel="noopener">
+              <h3>HERD Explorer</h3>
+              <p>University R&amp;D spending from FY 2012 to FY 2024, with projections and a plain-English Ask page.</p>
             </a>
             <a class="slide-card community-card" href="https://nate-layman.github.io/thamus/" target="_blank" rel="noopener">
               <h3>Remembering Thamus</h3>
               <p>One compliance question, five ways to answer it. Only some of them can be checked.</p>
-              <img class="community-card-icon-image" src="img/story/thamus.png" alt="King Thamus, seated, chin in hand" style="height:7rem; width:auto;" />
+            </a>
+            <a class="slide-card community-card" href="https://ai4ra.github.io/promptulus/" target="_blank" rel="noopener">
+              <h3>Promptulus</h3>
+              <p>An AI literacy trainer. Nine characters, each coaching one discipline of working with AI.</p>
+            </a>
+            <a class="slide-card community-card" href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener">
+              <h3>Unified Data Model</h3>
+              <p>One shared schema for research administration data, so a tool built on it runs at any institution.</p>
             </a>
             <a class="slide-card community-card" href="https://ui-insight.github.io/data-crawler-carl/" target="_blank" rel="noopener">
               <h3>Data Crawler Carl</h3>
               <p>Upload a spreadsheet, ask in plain English, and see the query the model wrote to answer you.</p>
-              <img class="community-card-icon-image" src="img/logos/carl-mongo.png" alt="Data Crawler Carl" style="width:9rem;" />
             </a>
-            <a class="slide-card community-card" href="https://ui-insight.github.io/AI4RA-UDM/" target="_blank" rel="noopener">
-              <h3>Unified Data Model</h3>
-              <p>One shared schema for research administration data. Map your systems to it once and any tool built on it runs at your institution.</p>
-              <img class="community-card-icon-image" src="img/logos/ai4ra-logo-dark.png" alt="AI4RA" style="width:10.5rem; margin:-1.5rem 0;" />
+            <a class="slide-card community-card" href="https://ui-insight.github.io/quick-draw/" target="_blank" rel="noopener">
+              <h3>Quick Draw</h3>
+              <p>Drawdown justifications from your expenses, totaled by budget category. No model, and your files stay on your computer.</p>
+            </a>
+            <a class="slide-card community-card" href="https://vandalizer.uidaho.edu/" target="_blank" rel="noopener">
+              <h3>Vandalizer</h3>
+              <p>Document extraction and review where every value points back to the passage it came from.</p>
             </a>
           </div>
           <aside class="notes">
             AI4RA has three objectives: open-source data models and workflows, trustworthy AI-powered tools, and assessing their impact at partner institutions.
-            Four interactive demos today. All four come under using AI responsibly. Remembering Thamus and Data Crawler Carl are live from the podium, and both are open to anyone afterward. Promptulus is yours to use, hands-on. We explore the Unified Data Model live, and it comes with homework.
+            Seven tools today, in the order they come up, all open source and all built by AI4RA. HERD Explorer is the workload chart and the coding example. Remembering Thamus and Data Crawler Carl are live from the podium. Promptulus is yours to use, hands-on. We explore the Unified Data Model live, and it comes with homework. Quick Draw follows Carl, and it is the one with no model in it. Vandalizer is at the end, with a free trial.
             Say the paste rule out loud now, before anyone has a browser open: paste only what you could post on a bulletin board. The full account of where data goes comes later, on the slide where they open Promptulus.
           </aside>
         </section>
@@ -1491,7 +1499,26 @@
             Prompt three: "What data quality issues do you see in this table?" Now it finds them. It only looks when asked, and every earlier answer came with the same confidence. 
             Before the demo, ask the room to eyeball the table: what is the total federal funding by department? Twenty seconds. Then run it.
             Every reporting system drops what it was not told to count; this one will tell you if asked, and a report that cannot answer that question is not finished. The model did nothing wrong by its own lights. The table was not ready to answer the question, and nothing in the pipeline said so. Carl's design helps make this visible: the model only writes the SQL, the query runs locally, and the result is real. The gap is in the data.
-            Hand-off: that was a table, and a table can be counted exactly once it is ready. Table or document, someone still has to check the answer. Next, the four ways an answer goes wrong.
+            Hand-off: that was a table, and a table can be counted exactly once it is ready. Some table work needs no model at all. Next, Quick Draw.
+          </aside>
+        </section>
+
+        <section>
+          <p class="slide-kicker">Using AI responsibly &middot; Live demo</p>
+          <h2>Not every task needs a model</h2>
+          <p class="slide-lede" style="max-width:44rem; margin:1.2rem auto 0; font-size:1.3rem; line-height:1.45;">Quick Draw drafts drawdown justifications from your expenses. It totals costs by the sponsor&rsquo;s budget categories and fills in your template.</p>
+          <p style="font-size:0.95rem; max-width:40rem; margin:0.9rem auto 0; line-height:1.45;">No AI model is involved. Your files are read in your browser and never uploaded.</p>
+          <div class="launch-row" style="margin-top:1.6rem;">
+            <a class="launch-primary" href="https://ui-insight.github.io/quick-draw/" target="_blank" rel="noopener">Open Quick Draw &rarr;</a>
+          </div>
+          <p class="slide-micro" style="margin-top:0.6rem;">In active development. Discuss it on the <a href="https://groups.ai4ra.uidaho.edu/g/main/search?q=%23PostAward&amp;ct=1" target="_blank" rel="noopener" style="color:#9a7300;">AI4RA forum under #PostAward</a>.</p>
+          <aside class="notes">
+            Lead in from Carl: Carl needed a model to turn a question into a query. Writing a drawdown justification does not. It is grouping, totaling and filling in a sentence, and plain code does that exactly, every time.
+            Why it matters: since March 2025 the HHS Payment Management System asks for a justification of up to 1,000 characters with every payment request, and HHS published guidance in October 2026 on what one must say. Other sponsors ask too, with different limits.
+            Open it from this slide and click Load the sample files; the data is made up. Walk the tabs quickly: the expenses as read, the data dictionary that maps each cost code to a budget category, the template, then the report. Show one award's justification and click Copy.
+            The point to land, straight after Carl: a cost code missing from the dictionary is shaded, and Copy warns about it before anything leaves the page. Carl's query dropped the blank departments without a word. Quick Draw says what it could not place.
+            It works with any financial system: export three columns, award, cost code and cost. Nothing is uploaded and nothing is kept after the page closes. It is new, so tell us what breaks under #PostAward.
+            Hand-off: table or document, model or not, someone still has to check the answer. Next, the four ways an answer goes wrong.
           </aside>
         </section>
 
@@ -1531,7 +1558,7 @@
           </div>
           <p class="slide-callout">The risk is that people tend to trust a model more than a person. Don&rsquo;t. Verify work done by others, human or not, and ask everyone to show their sources, particularly in research administration.</p>
           <aside class="notes">
-            Lead in from Carl: that answer looked finished and was missing rows. Start with the word. "Hallucination" suggests the model is seeing things. What it actually does is closer to what psychologists call confabulation: a reconstructive memory error. People do it too. Ask someone to recall a meeting and they will fill the gaps with what probably happened, and believe it. A model is built to do exactly that, all the time.
+            Lead in, back to Carl: that answer looked finished and was missing rows. Start with the word. "Hallucination" suggests the model is seeing things. What it actually does is closer to what psychologists call confabulation: a reconstructive memory error. People do it too. Ask someone to recall a meeting and they will fill the gaps with what probably happened, and believe it. A model is built to do exactly that, all the time.
             Then the four modes, in the language this room already uses for checking work. Missed it is a false negative: the requirement was in the notice and never made the checklist. Made it up is a false positive: the subaward that does not exist. Changed a detail is the most dangerous for compliance, because the item looks right and only one number or word moved; the de minimis rate from the Thamus demo is this one. Put it in the wrong place is real information in the wrong slot.
             The callout is the habit: the same rule you would apply to a new colleague's work applies to a model's, and the model is not owed more trust than the colleague. Then each mode has a matching check. A checklist of what must be present catches misses. Asking for the quote catches inventions. A side-by-side with the source catches changed details. Reading field by field catches misplacement. Vandalizer, on the last slide before the close, builds those checks in.
           </aside>

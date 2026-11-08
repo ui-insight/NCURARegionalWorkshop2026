@@ -1050,6 +1050,15 @@ body.slides-page {
   margin-top: 0.7rem;
 }
 
+.community-card-grid.compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.community-card-grid.compact .community-card p {
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
 .community-card {
   min-height: 0;
   padding: 0.5rem 0.8rem;
@@ -1321,7 +1330,8 @@ body.slides-page {
     grid-template-columns: 1fr;
   }
 
-  .community-card-grid {
+  .community-card-grid,
+  .community-card-grid.compact {
     grid-template-columns: 1fr;
   }
 
